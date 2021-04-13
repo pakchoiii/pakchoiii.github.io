@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"pakchoi007.gitee.io","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"pakchoi007.gitee.io","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"64da8717546fc94735e3e2f05cfc89cb","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -69,7 +69,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>pakchoi</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -171,6 +171,11 @@
             
               <div class="mt-3">
   
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      pakchoi
+    </span>
+  
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
@@ -203,6 +208,14 @@
 
   
   
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
 </div>
 
             
@@ -233,7 +246,7 @@
 <h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2><p>快速排序是一种就地排序，会改变输入数组，同时快速排序是一种不稳定的排序。快速排序的关键点是选择一个合适的轴点(<code>pivot</code>)，这个选取的不确定性也导致了每次数据的分割是不均匀的。</p>
 <p>对于选取的一个轴点，其左边的都不大于轴点，右边的都不小于轴点: <strong>[low, pivot-1] &lt;= pivot &lt;= [pivot+1, high]</strong></p>
 <p><img src="/2021/04/07/1_quickSort_/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F_basic.png" srcset="/img/loading.gif" lazyload alt="快速排序"></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// [left, right)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(std::vector&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">if</span>(right - left &lt;=<span class="number">1</span>)  <span class="comment">// [left, left+1) ，只是剩下一个元素就是有序的</span></span><br><span class="line">      <span class="keyword">return</span>; </span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> pivot = __partation(arr, left, right<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">quickSort</span>(arr, left,    pivot);</span><br><span class="line">    <span class="built_in">quickSort</span>(arr, pivot+<span class="number">1</span>, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// [left, right)</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">quickSort</span><span class="hljs-params">(std::vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; arr, <span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right)</span> </span>&#123; <br>    <span class="hljs-keyword">if</span>(right - left &lt;=<span class="hljs-number">1</span>)  <span class="hljs-comment">// [left, left+1) ，只是剩下一个元素就是有序的</span><br>      <span class="hljs-keyword">return</span>; <br><br>    <span class="hljs-keyword">int</span> pivot = __partation(arr, left, right<span class="hljs-number">-1</span>);<br>    <span class="hljs-built_in">quickSort</span>(arr, left,    pivot);<br>    <span class="hljs-built_in">quickSort</span>(arr, pivot+<span class="hljs-number">1</span>, right);<br>&#125;<br></code></pre></td></tr></table></figure>
 <p><code>partition</code> 算法，就是在扫描数据的过程中，<strong>将所有大于轴点的数据放到轴点右边，将所有小于轴点的数据放到左边</strong>。而<code>quickSort</code> 算法就是不断的分割，当只有一个数据时，其本身就是有序，再将所有的子问题组合起来，思想是“分而治之”。</p>
 <h4 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h4><p>可在线性时间内将原向量排序问题划分为两个相互独立、总体规模保持线性的子向量排序问题。但是分治策略高效的两个必要条件：</p>
 <ul>
@@ -245,7 +258,7 @@
 <h4 id="平均运行时间"><a href="#平均运行时间" class="headerlink" title="平均运行时间"></a>平均运行时间</h4><p>尽管似乎最差的时间复杂度是 <strong>O(n^2)</strong>,但是在平均意义下,时间复杂度还是 <strong>O(1.38logn)</strong></p>
 <h4 id="应对退化情况"><a href="#应对退化情况" class="headerlink" title="应对退化情况"></a>应对退化情况</h4><p>当所有的元素都是重复的时候,此时对应的情况即之前的最坏情况.因为循环中的 <code>pivot &lt;= arr[right]</code>会一直满足,直到 <code>low &lt; high</code>  不满足，最后整个算法退化为线性递归,时间复杂度是<code>o(n^2)</code>。</p>
 <p>改进如下:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __partation(std::vector&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> L, <span class="keyword">int</span> R) &#123; </span><br><span class="line">  <span class="keyword">int</span> pivot = arr[L];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span>(L &lt; R) &#123; </span><br><span class="line">    <span class="keyword">while</span>(L &lt; R &amp;&amp; pivot  &lt;= arr[R]) --R; <span class="keyword">if</span>(L &lt; R) arr[L++] = arr[R];</span><br><span class="line">    <span class="keyword">while</span>(L &lt; R &amp;&amp; arr[L] &lt;= pivot ) ++L; <span class="keyword">if</span>(L &lt; R) arr[R--] = arr[L];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  arr[L] = pivot;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> __partation(std::vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; arr, <span class="hljs-keyword">int</span> L, <span class="hljs-keyword">int</span> R) &#123; <br>  <span class="hljs-keyword">int</span> pivot = arr[L];<br><br>  <span class="hljs-keyword">while</span>(L &lt; R) &#123; <br>    <span class="hljs-keyword">while</span>(L &lt; R &amp;&amp; pivot  &lt;= arr[R]) --R; <span class="hljs-keyword">if</span>(L &lt; R) arr[L++] = arr[R];<br>    <span class="hljs-keyword">while</span>(L &lt; R &amp;&amp; arr[L] &lt;= pivot ) ++L; <span class="hljs-keyword">if</span>(L &lt; R) arr[R--] = arr[L];<br>  &#125;<br><br>  arr[L] = pivot;<br><br>  <span class="hljs-keyword">return</span> L;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>如此,每次遇到重复的元素,都是将元素放到的对立的区间,当循环中止的时候,恰好位于中间的位置,此时的时间复杂度最好,是<code>O(nlogn)</code></p>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="中位数"><a href="#中位数" class="headerlink" title="中位数"></a>中位数</h3><p>挑战在于: <strong>如何避免在全排序的前提下,在 O(nlogn)时间复杂度内找出中位数</strong>.</p>
 <h4 id="众数"><a href="#众数" class="headerlink" title="众数"></a>众数</h4><p>如果一个向量存在众数,那么中位数肯定是众数.</p>
@@ -257,14 +270,21 @@
 <li><code>k &gt; L</code>  ：就可以将左侧分支减除,进入右侧进行查找。</li>
 </ul>
 <p>因此可以得到快速选取问题的解:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSelect</span><span class="params">(std::vector&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> k)</span> </span>&#123; </span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> left=<span class="number">0</span>, right=arr.<span class="built_in">size</span>()<span class="number">-1</span>; left &lt; right; ) &#123; </span><br><span class="line">        <span class="keyword">int</span> L = left;</span><br><span class="line">        <span class="keyword">int</span> R = right;</span><br><span class="line">        <span class="keyword">int</span> pivot = A[left];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(L &lt; R) &#123; </span><br><span class="line">            <span class="keyword">while</span>(L &lt; R &amp;&amp; pivot &lt;= arr[R]) R--; A[L] = A[R]; </span><br><span class="line">            <span class="keyword">while</span>(L &lt; R &amp;&amp; arr[L] &lt;= pivot) ++L; A[R] = A[L]; </span><br><span class="line">        &#125; <span class="comment">// 每次循环结束，l ==R ，此时轴点左侧的元素都不大于它，右侧的都是不小于它</span></span><br><span class="line"></span><br><span class="line">        A[L] = pivot;</span><br><span class="line">        <span class="keyword">if</span>(k &lt;= L)   right = L<span class="number">-1</span>; <span class="comment">//  实际上就是比较 A[k] &lt;= pivot ?</span></span><br><span class="line">        <span class="keyword">if</span>(L &lt;= k)   left  = L+<span class="number">1</span>; <span class="comment">// 进入右边</span></span><br><span class="line">    &#125;<span class="comment">// A[k]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">quickSelect</span><span class="hljs-params">(std::vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; arr, <span class="hljs-keyword">int</span> k)</span> </span>&#123; <br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>, right=arr.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>; left &lt; right; ) &#123; <br>        <span class="hljs-keyword">int</span> L = left;<br>        <span class="hljs-keyword">int</span> R = right;<br>        <span class="hljs-keyword">int</span> pivot = A[left];<br><br>        <span class="hljs-keyword">while</span>(L &lt; R) &#123; <br>            <span class="hljs-keyword">while</span>(L &lt; R &amp;&amp; pivot &lt;= arr[R]) R--; A[L] = A[R]; <br>            <span class="hljs-keyword">while</span>(L &lt; R &amp;&amp; arr[L] &lt;= pivot) ++L; A[R] = A[L]; <br>        &#125; <span class="hljs-comment">// 每次循环结束，l ==R ，此时轴点左侧的元素都不大于它，右侧的都是不小于它</span><br><br>        A[L] = pivot;<br>        <span class="hljs-keyword">if</span>(k &lt;= L)   right = L<span class="hljs-number">-1</span>; <span class="hljs-comment">//  实际上就是比较 A[k] &lt;= pivot ?</span><br>        <span class="hljs-keyword">if</span>(L &lt;= k)   left  = L+<span class="hljs-number">1</span>; <span class="hljs-comment">// 进入右边</span><br>    &#125;<span class="hljs-comment">// A[k]</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>这个算法在最坏情况下，时间复杂度是<code>O(nlogn)</code>，那么更好的有没有？<code>BFPRT</code>算法。</p>
 <p>延续这个思路：<br>先选取一个中位数，然后递归迭代，这个方法虽然是时间复杂度是<code>O(n)</code>，但是系数很大，在数据量不是很大时，效率并不明显。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 伪代码</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selece</span>(<span class="params">A, k</span>):</span> </span><br><span class="line">    <span class="keyword">if</span> n=|A| &lt;Q:</span><br><span class="line">        <span class="keyword">return</span> trivalSelect(A, k) <span class="comment"># 数据规模不大时直接用蛮力</span></span><br><span class="line"></span><br><span class="line">    <span class="number">1</span>) 将A均匀地分为 n/Q个子序列,各自含有Q个元素</span><br><span class="line">    <span class="number">2</span>) 各个子序列分别排序,计算出中位数,并且将这个中位数组成一个序列</span><br><span class="line">    <span class="number">3</span>) 通过递归调用这个select() 计算出中位数序列的中位数,记M</span><br><span class="line">    <span class="number">4</span>) 根据相对M大小,将A中的元素分为三个子集:L(小于), E(等于), G(等于)</span><br><span class="line">    <span class="number">5</span>) 递归如下</span><br><span class="line"></span><br><span class="line">     <span class="keyword">if</span>(k &lt;= |L|&gt;): </span><br><span class="line">        <span class="keyword">return</span> select(L,k)</span><br><span class="line">     <span class="keyword">elif</span>(k &lt;=|L| + |E|): </span><br><span class="line">        <span class="keyword">return</span> M;</span><br><span class="line">     <span class="keyword">else</span>: </span><br><span class="line">        retutn select(G, k-|L|-|E|) </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">// 伪代码<br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">selece</span>(<span class="hljs-params">A, k</span>):</span> <br>    <span class="hljs-keyword">if</span> n=|A| &lt;Q:<br>        <span class="hljs-keyword">return</span> trivalSelect(A, k) <span class="hljs-comment"># 数据规模不大时直接用蛮力</span><br><br>    <span class="hljs-number">1</span>) 将A均匀地分为 n/Q个子序列,各自含有Q个元素<br>    <span class="hljs-number">2</span>) 各个子序列分别排序,计算出中位数,并且将这个中位数组成一个序列<br>    <span class="hljs-number">3</span>) 通过递归调用这个select() 计算出中位数序列的中位数,记M<br>    <span class="hljs-number">4</span>) 根据相对M大小,将A中的元素分为三个子集:L(小于), E(等于), G(等于)<br>    <span class="hljs-number">5</span>) 递归如下<br><br>     <span class="hljs-keyword">if</span>(k &lt;= |L|&gt;): <br>        <span class="hljs-keyword">return</span> select(L,k)<br>     <span class="hljs-keyword">elif</span>(k &lt;=|L| + |E|): <br>        <span class="hljs-keyword">return</span> M;<br>     <span class="hljs-keyword">else</span>: <br>        retutn select(G, k-|L|-|E|) <br><br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">排序算法</a>
+                    
+                  </div>
                 
                 
                   <div class="post-meta">
@@ -368,6 +388,30 @@
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
 
   
 
@@ -424,6 +468,8 @@
 
 
 
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
 
 
 
@@ -457,6 +503,44 @@
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 
@@ -464,6 +548,18 @@
 
 
 
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?64da8717546fc94735e3e2f05cfc89cb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
   
 
   

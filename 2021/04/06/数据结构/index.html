@@ -56,7 +56,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"pakchoi007.gitee.io","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"pakchoi007.gitee.io","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"64da8717546fc94735e3e2f05cfc89cb","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -69,7 +69,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>pakchoi</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -171,6 +171,11 @@
             
               <div class="mt-3">
   
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-author" aria-hidden="true"></i>
+      pakchoi
+    </span>
+  
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
@@ -203,6 +208,14 @@
 
   
   
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
 </div>
 
             
@@ -234,14 +247,14 @@
 <li>空节点下表为<code>-1</code>表示</li>
 <li>head表示头指针，不是节点</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点</span></span><br><span class="line"><span class="keyword">int</span> head, e[N], ne[N], idx;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	head = <span class="number">-1</span>;</span><br><span class="line">	idx = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将x插入到头结点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_to_haed</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	e[idx] = x;</span><br><span class="line">	ne[idx] = head;</span><br><span class="line">	head = idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将x插入到下标k以后</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_to_k</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	e[idx] = x;</span><br><span class="line">	ne[idx] = ne[k];</span><br><span class="line">	ne[k] = idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//将下标k的后面节点删除</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove_k</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	ne[k] = ne[ne[k]];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将头结点删除，需要保证头结点存在</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove_head</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    head = ne[head];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点</span><br><span class="hljs-keyword">int</span> head, e[N], ne[N], idx;<br><br><span class="hljs-comment">//初始化</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;<br>	head = <span class="hljs-number">-1</span>;<br>	idx = <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-comment">//将x插入到头结点</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add_to_haed</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>	e[idx] = x;<br>	ne[idx] = head;<br>	head = idx;<br>	idx++;<br>&#125;<br><span class="hljs-comment">//将x插入到下标k以后</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add_to_k</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k, <span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>	e[idx] = x;<br>	ne[idx] = ne[k];<br>	ne[k] = idx;<br>	idx++;<br>&#125;<br><span class="hljs-comment">//将下标k的后面节点删除</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">remove_k</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>	ne[k] = ne[ne[k]];<br>&#125;<br><span class="hljs-comment">// 将头结点删除，需要保证头结点存在</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">remove_head</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    head = ne[head];<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><p>双链表：优化某些问题</p>
 <p>链表索引不按顺序，按插入顺序idx的值排列！！！<br>第k个插入的数并不是指当前链表的第k个数，而是idx为k+1的数！！！</p>
 </li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="comment">//e[N]表示节点i的value值</span></span><br><span class="line"><span class="comment">//idx 存储当前已经用到哪个点</span></span><br><span class="line"><span class="keyword">int</span> e[N], l[N], r[N], idx;</span><br><span class="line"></span><br><span class="line"><span class="comment">//链表索引不按顺序，按插入顺序idx的值排列！！！</span></span><br><span class="line"><span class="comment">//第k个插入的数并不是指当前链表的第k个数，而是idx为k+1的数！！！</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//0表示左端点，1表示右端点</span></span><br><span class="line">	r[<span class="number">0</span>] = <span class="number">1</span>, l[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">	idx = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">D</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">	r[l[k]] = r[k];</span><br><span class="line">	l[r[k]] = l[k];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">IR</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	e[idx] = x;</span><br><span class="line">	r[idx] = r[k];</span><br><span class="line">	l[idx] = k;</span><br><span class="line">	l[r[k]] = idx;</span><br><span class="line">	r[k] = idx;</span><br><span class="line">	idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">IL</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">IR</span>(l[k], x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">L</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">IR</span>(<span class="number">0</span>, x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">R</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">IR</span>(l[<span class="number">1</span>], x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">100010</span>;<br><span class="hljs-comment">//e[N]表示节点i的value值</span><br><span class="hljs-comment">//idx 存储当前已经用到哪个点</span><br><span class="hljs-keyword">int</span> e[N], l[N], r[N], idx;<br><br><span class="hljs-comment">//链表索引不按顺序，按插入顺序idx的值排列！！！</span><br><span class="hljs-comment">//第k个插入的数并不是指当前链表的第k个数，而是idx为k+1的数！！！</span><br><br><span class="hljs-comment">//初始化</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-comment">//0表示左端点，1表示右端点</span><br>	r[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>, l[<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>	idx = <span class="hljs-number">2</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">D</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>	r[l[k]] = r[k];<br>	l[r[k]] = l[k];<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">IR</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k, <span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>	e[idx] = x;<br>	r[idx] = r[k];<br>	l[idx] = k;<br>	l[r[k]] = idx;<br>	r[k] = idx;<br>	idx++;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">IL</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k, <span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>	<span class="hljs-built_in">IR</span>(l[k], x);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">L</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>	<span class="hljs-built_in">IR</span>(<span class="hljs-number">0</span>, x);<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">R</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>	<span class="hljs-built_in">IR</span>(l[<span class="hljs-number">1</span>], x);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
@@ -249,12 +262,12 @@
 <h2 id="栈与队列：单调队列、单调栈"><a href="#栈与队列：单调队列、单调栈" class="headerlink" title="栈与队列：单调队列、单调栈"></a>栈与队列：单调队列、单调栈</h2><ul>
 <li>数组模拟栈</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> stk[N];</span><br><span class="line"><span class="keyword">int</span> tt = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> x;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cin &gt;&gt; x;</span><br><span class="line">	stk[++tt] = x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	tt--;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">empty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (tt &gt; <span class="number">0</span>)cout &lt;&lt; <span class="string">&quot;NO&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;YES&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">query</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cout &lt;&lt; stk[tt] &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">100010</span>;<br><span class="hljs-keyword">int</span> stk[N];<br><span class="hljs-keyword">int</span> tt = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">int</span> x;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">push</span><span class="hljs-params">()</span> </span>&#123;<br>	cin &gt;&gt; x;<br>	stk[++tt] = x;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pop</span><span class="hljs-params">()</span> </span>&#123;<br>	tt--;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">empty</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-keyword">if</span> (tt &gt; <span class="hljs-number">0</span>)cout &lt;&lt; <span class="hljs-string">&quot;NO&quot;</span> &lt;&lt; endl;<br>	<span class="hljs-keyword">else</span> cout &lt;&lt; <span class="hljs-string">&quot;YES&quot;</span> &lt;&lt; endl;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">query</span><span class="hljs-params">()</span> </span>&#123;<br>	cout &lt;&lt; stk[tt] &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>数组模拟队列</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hh 表示队头，tt表示队尾</span></span><br><span class="line"><span class="keyword">int</span> q[N], hh = <span class="number">0</span>, tt = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 向队尾插入一个数</span></span><br><span class="line">q[ ++ tt] = x;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从队头弹出一个数</span></span><br><span class="line">hh ++ ;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 队头的值</span></span><br><span class="line">q[hh];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断队列是否为空</span></span><br><span class="line"><span class="keyword">if</span> (hh &lt;= tt)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// hh 表示队头，tt表示队尾</span><br><span class="hljs-keyword">int</span> q[N], hh = <span class="hljs-number">0</span>, tt = <span class="hljs-number">-1</span>;<br><br><span class="hljs-comment">// 向队尾插入一个数</span><br>q[ ++ tt] = x;<br><br><span class="hljs-comment">// 从队头弹出一个数</span><br>hh ++ ;<br><br><span class="hljs-comment">// 队头的值</span><br>q[hh];<br><br><span class="hljs-comment">// 判断队列是否为空</span><br><span class="hljs-keyword">if</span> (hh &lt;= tt)<br>&#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
@@ -317,11 +330,18 @@
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    
+                  </div>
+                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                      <a class="hover-with-bg" href="/tags/AC/">AC</a>
                     
                   </div>
                 
@@ -419,6 +439,30 @@
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
 
   
 
@@ -475,6 +519,8 @@
 
 
 
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
 
 
 
@@ -508,6 +554,44 @@
 
 
 
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
 
 
 
@@ -515,6 +599,18 @@
 
 
 
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?64da8717546fc94735e3e2f05cfc89cb";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
   
 
   
