@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<title>插入排序 | pakchoi&#39;s blogs</title>
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+    <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="pakchoi's blogs" type="application/atom+xml">
+</head>
+    <body>
+        <div class="container">
+            <header>
+<div class="main">
+<div class="title">
+    <a href="#" class="logo">pakchoi&#39;s blogs</a>
+</div>
+<div class="site-nav">
+    <ul id="menu" class="menu">
+    
+        <li class="menu-item text-underline">
+            <a href="/">Home</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/archives">Archives</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/about/">About</a>
+        </li>
+            
+    </ul>
+</div>
+</div>
+</header>
+            <main class="main">
+                <section class="posts clearfix">
+<div class="post-wrapper">
+    <article class="post article-entry">
+    <div class="post-title">
+        插入排序
+    </div>
+    <p class="sub">Apr 13 2021</p>
+    <div class="post-content">
+        <h1 id="insertSort"><a href="#insertSort" class="headerlink" title="insertSort"></a>insertSort</h1><p>更加实用于链表</p>
+<p>插入排序的思想：始终将整个序列视为两个部分，有序的前缀和无序的后缀；通过反复的迭代，反复地将后缀的首元素转移至前缀中。</p>
+<blockquote>
+<p><strong>在任何时刻，相对于当前节点e=s[r], 前缀部分[0, r)总是有序</strong>，那么就可以用有序序列的查找算法，在前缀中查找到小于等于e的最大元素的位置，然后将当前节点e插入找到的位置之后插入。 如果存在重复元素，那么就是插在最后一个重复元素之后。</p>
+</blockquote>
+<p><img src="/2021/04/13/4_insertSort/insertSort.png" alt="insertSort"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以列表为例： 因为列表插入排序方便，vector每次插入一个位置，都得后移</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h3><p>当序列完全有序的时候**<code>O(n)</code>**，完全逆序的时候则时  <strong><code>O(n^2)</code><strong>。</strong>时间复杂度平均意义</strong>下还是 <strong><code>O(n^2)</code></strong> 。</p>
+<h3 id="与选择排序的比较"><a href="#与选择排序的比较" class="headerlink" title="与选择排序的比较"></a>与选择排序的比较</h3><p>有最好的情况，而选择排序没有，选择排序的复杂度恒定**<code>O(nlogn)</code>**，而插入排序与逆序对数据有关，</p>
+<ul>
+<li>插入排序是输入敏感性的排序，如果数据本身是有序的，那么整个排序就是**<code>O(n)</code>**，只是需要扫描一趟即可。</li>
+<li>插入排序是在线排序的，即数据来一点就可以排序一点，而选择排序是需要全部数据后才能排序。插入排序可以数据有一点就排序一点</li>
+</ul>
+
+    </div>
+    </article>
+</div>
+
+    <div class="_toc">
+        <strong class="toc-title">
+        Contents
+        </strong>
+        <div class="toc-content">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#insertSort"><span class="toc-text">insertSort</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="toc-text">算法时间复杂度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-text">与选择排序的比较</span></a></li></ol></li></ol></li></ol>
+        </div>
+    </div>
+
+</section>
+
+
+    <nav class="post-nav">
+        
+            <div class="page-tags">
+                
+                    <a href="/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+                
+            </div>
+        
+    </nav>
+
+
+
+    <nav class="paginator clearfix">
+        
+        
+            <a class="next" href="/2021/04/12/3_bubbleSort/">
+                
+                <span class="prev-text">冒泡排序</span>
+                <i class="iconfont icon-right"></i>
+            </a>
+        
+    </nav>
+
+
+            </main>
+            <div class="copyright">
+  <div class="text">Powered By
+    <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/zjx137/hexo-theme-Tsu">Tsu</a> &copy 2019
+  </div>
+</div>
+
+        </div>
+    <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+    </div>
+        
+    </body>
+    
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+    
+<script src="/js/back-to-top.js"></script>
+
+    
+<script src="/js/scroll.js"></script>
+
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</html>
