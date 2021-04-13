@@ -6,7 +6,7 @@
   <link href="http://pakchoi007.gitee.io/atom.xml" rel="self"/>
   
   <link href="http://pakchoi007.gitee.io/"/>
-  <updated>2021-04-13T05:20:52.295Z</updated>
+  <updated>2021-04-13T08:46:39.701Z</updated>
   <id>http://pakchoi007.gitee.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://pakchoi007.gitee.io/2021/04/13/4_insertSort/"/>
     <id>http://pakchoi007.gitee.io/2021/04/13/4_insertSort/</id>
     <published>2021-04-13T03:10:51.000Z</published>
-    <updated>2021-04-13T05:20:52.295Z</updated>
+    <updated>2021-04-13T08:46:39.701Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="insertSort"><a href="#insertSort" class="headerlink" title="insertSort"></a>insertSort</h1><p>更加实用于链表</p><p>插入排序的思想：始终将整个序列视为两个部分，有序的前缀和无序的后缀；通过反复的迭代，反复地将后缀的首元素转移至前缀中。</p><blockquote><p><strong>在任何时刻，相对于当前节点e=s[r], 前缀部分[0, r)总是有序</strong>，那么就可以用有序序列的查找算法，在前缀中查找到小于等于e的最大元素的位置，然后将当前节点e插入找到的位置之后插入。 如果存在重复元素，那么就是插在最后一个重复元素之后。</p></blockquote><p><img src="/2021/04/13/4_insertSort/insertSort.png" alt="insertSort"></p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 以列表为例： 因为列表插入排序方便，vector每次插入一个位置，都得后移</span><br><br></code></pre></td></tr></table></figure><h3 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h3><p>当序列完全有序的时候**<code>O(n)</code>**，完全逆序的时候则时  <strong><code>O(n^2)</code><strong>。</strong>时间复杂度平均意义</strong>下还是 <strong><code>O(n^2)</code></strong> 。</p><h3 id="与选择排序的比较"><a href="#与选择排序的比较" class="headerlink" title="与选择排序的比较"></a>与选择排序的比较</h3><p>有最好的情况，而选择排序没有，选择排序的复杂度恒定**<code>O(nlogn)</code>**，而插入排序与逆序对数据有关，</p><ul><li>插入排序是输入敏感性的排序，如果数据本身是有序的，那么整个排序就是**<code>O(n)</code>**，只是需要扫描一趟即可。</li><li>插入排序是在线排序的，即数据来一点就可以排序一点，而选择排序是需要全部数据后才能排序。插入排序可以数据有一点就排序一点</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="insertSort"><a href="#insertSort" class="headerlink" title="insertSort"></a>insertSort</h1><p>更加实用于链表</p><p>插入排序的思想：始终将整个序列视为两个部分，有序的前缀和无序的后缀；通过反复的迭代，反复地将后缀的首元素转移至前缀中。</p><blockquote><p><strong>在任何时刻，相对于当前节点e=s[r], 前缀部分[0, r)总是有序</strong>，那么就可以用有序序列的查找算法，在前缀中查找到小于等于e的最大元素的位置，然后将当前节点e插入找到的位置之后插入。 如果存在重复元素，那么就是插在最后一个重复元素之后。</p></blockquote><p><img src="/2021/04/13/4_insertSort/insertSort.png" alt="insertSort"></p><blockquote><p><strong>以列表为例： 因为列表插入排序方便，vector每次插入一个位置，都得后移</strong></p></blockquote><h3 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h3><p>当序列完全有序的时候**<code>O(n)</code>**，完全逆序的时候则时  <strong><code>O(n^2)</code><strong>。</strong>时间复杂度平均意义</strong>下还是 <strong><code>O(n^2)</code></strong> 。</p><h3 id="与选择排序的比较"><a href="#与选择排序的比较" class="headerlink" title="与选择排序的比较"></a>与选择排序的比较</h3><p>有最好的情况，而选择排序没有，选择排序的复杂度恒定**<code>O(nlogn)</code>**，而插入排序与逆序对数据有关，</p><ul><li>插入排序是输入敏感性的排序，如果数据本身是有序的，那么整个排序就是**<code>O(n)</code>**，只是需要扫描一趟即可。</li><li>插入排序是在线排序的，即数据来一点就可以排序一点，而选择排序是需要全部数据后才能排序。插入排序可以数据有一点就排序一点</li></ul>]]></content>
     
     
       

@@ -191,7 +191,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      385 字
+      384 字
     </span>
   
 
@@ -248,7 +248,9 @@
 <p><strong>在任何时刻，相对于当前节点e=s[r], 前缀部分[0, r)总是有序</strong>，那么就可以用有序序列的查找算法，在前缀中查找到小于等于e的最大元素的位置，然后将当前节点e插入找到的位置之后插入。 如果存在重复元素，那么就是插在最后一个重复元素之后。</p>
 </blockquote>
 <p><img src="/2021/04/13/4_insertSort/insertSort.png" srcset="/img/loading.gif" lazyload alt="insertSort"></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 以列表为例： 因为列表插入排序方便，vector每次插入一个位置，都得后移</span><br><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>以列表为例： 因为列表插入排序方便，vector每次插入一个位置，都得后移</strong></p>
+</blockquote>
 <h3 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h3><p>当序列完全有序的时候**<code>O(n)</code>**，完全逆序的时候则时  <strong><code>O(n^2)</code><strong>。</strong>时间复杂度平均意义</strong>下还是 <strong><code>O(n^2)</code></strong> 。</p>
 <h3 id="与选择排序的比较"><a href="#与选择排序的比较" class="headerlink" title="与选择排序的比较"></a>与选择排序的比较</h3><p>有最好的情况，而选择排序没有，选择排序的复杂度恒定**<code>O(nlogn)</code>**，而插入排序与逆序对数据有关，</p>
 <ul>
