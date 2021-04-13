@@ -1,0 +1,100 @@
+<hr>
+<p>title: 归并排序<br>date: 2021-04-08 10:32:44<br>tags: 排序</p>
+<hr>
+<h1 id="mergeSort"><a href="#mergeSort" class="headerlink" title="mergeSort"></a>mergeSort</h1><p><img src="2_mergeSort/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F.png" alt="mergeSort"></p>
+<p>归并排序分为连两个部分，先将整个序列化为2个规模一样的序列，然后排序。递归的调用，不断地划分，直到子序列的规模为1，那么这个长度为1的子序列就是有序的，然后再开始归并。 </p>
+<pre><code class="cpp">    void mergeSort(std::vector&lt;int&gt;&amp; arr, int lo, int hi) { 
+        if(hi - lo &lt; 2) return ; 
+
+        int mid = (lo + mi) &gt;&gt;1; // 取中间点
+        mergeSort(arr, lo,  mid);
+        mergeSort(arr, mid, hi);
+        merge(arr, lo, mid, hi);
+    }
+</code></pre>
+<ul>
+<li>递归基：当hi-lo =1的时候，就是只有一个元素，本身就是有序，就返回。   </li>
+<li>中点：每次都是取中点，将数据区间划分为2个等规模的区间。</li>
+<li>归并：当划分到单独一个元素的时候，凯斯将数据合并起来</li>
+</ul>
+<pre><code class="cpp">  // 此时得到的 arr是一个有序的连个子向量
+    void merge(std::vector&lt;int&gt;&amp; arr, int lo, int mid, int hi) { 
+        int* A = arr + lo;
+        int lb = mid - lo;
+        int* B = new int[lb];
+        for(size_t i=0; i &lt; lb; B[i]=A[i++]); // 复制前面的向量到 B[]中
+
+        int lc = hi-mid;
+        int* C = arr + mid;
+        // i 是arr， k是右边的， j是左边的
+        for(size_t i=0, j=0 k=0; j&lt;lb || k &gt; lc; ) { 
+            //              表示后面的空了
+            if(j &lt; lb &amp;&amp; ! (k &lt;lc) || [B[j] &lt;= C[k]) A[i++] = B[j++];
+            if(k &lt; lc&gt; &amp;&amp; ! (j &lt;lb) || [B[j] &gt; C[k]) A[i++] = C[k++];
+        }
+    }
+</code></pre>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>二路归并排序算法<code>merge</code>的复杂度易知是<code>O(n)</code>，而<code>mergeSort</code>算法以二分划分整个序列到最后变成单个序列的时间复杂度是<code>O(logn)</code>，因此整个算法复杂度是<code>O(nlogn)</code>。但是实际上经过证明，**归并排序算法的复杂度恒定是<code>O(nlogn)</code>**。</p>
+<h2 id="链表的归并排序"><a href="#链表的归并排序" class="headerlink" title="链表的归并排序"></a><a href="https://leetcode-cn.com/problems/sort-list/">链表的归并排序</a></h2><p><a href="https://leetcode-cn.com/problems/sort-list/solution/148-pai-xu-lian-biao-bottom-to-up-o1-kong-jian-by-/">解释</a></p>
+<pre><code class="cpp">class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+        ListNode dummyHead(0);
+        dummyHead.next = head;
+        auto p = head;
+        int length = 0;
+        while (p) {
+            ++length;
+            p = p-&gt;next;
+        }
+        
+        for (int size = 1; size &lt; length; size &lt;&lt;= 1) {
+            auto cur = dummyHead.next;
+            auto tail = &amp;dummyHead;
+            
+            while (cur) {
+                auto left = cur;
+                auto right = cut(left, size); // left-&gt;@-&gt;@ right-&gt;@-&gt;@-&gt;@...
+                cur = cut(right, size); // left-&gt;@-&gt;@ right-&gt;@-&gt;@  cur-&gt;@-&gt;...
+                
+                tail-&gt;next = merge(left, right);
+                while (tail-&gt;next) {
+                    tail = tail-&gt;next;
+                }
+            }
+        }
+        return dummyHead.next;
+    }
+    
+    ListNode* cut(ListNode* head, int n) {
+        auto p = head;
+        while (--n &amp;&amp; p) {
+            p = p-&gt;next;
+        }
+        
+        if (!p) return nullptr;
+        
+        auto next = p-&gt;next;
+        p-&gt;next = nullptr;
+        return next;
+    }
+    
+    ListNode* merge(ListNode* l1, ListNode* l2) {
+        ListNode dummyHead(0);
+        auto p = &amp;dummyHead;
+        while (l1 &amp;&amp; l2) {
+            if (l1-&gt;val &lt; l2-&gt;val) {
+                p-&gt;next = l1;
+                p = l1;
+                l1 = l1-&gt;next;       
+            } else {
+                p-&gt;next = l2;
+                p = l2;
+                l2 = l2-&gt;next;
+            }
+        }
+        p-&gt;next = l1 ? l1 : l2;
+        return dummyHead.next;
+    }
+};
+</code></pre>
