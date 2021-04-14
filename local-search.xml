@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>选择排序、堆排序</title>
+    <link href="/2021/04/14/5_selectSort/"/>
+    <url>/2021/04/14/5_selectSort/</url>
+    
+    <content type="html"><![CDATA[<h1 id="selectSort"><a href="#selectSort" class="headerlink" title="selectSort"></a>selectSort</h1><p>相比较vector，更加适用于链表</p><p><img src="/2021/04/14/5_selectSort/selectSort.png" alt="selectSort"></p><p>思想：</p><ul><li>无序的前缀和有序的后缀</li><li>前缀不大于后缀</li></ul><p>因此每次从前缀中选择出最大值元素，并且作为最小值转移到后缀中，不断地迭代就可以是的整体有序。</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 待实现</span><br></code></pre></td></tr></table></figure><h3 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h3><p>对于链表而言，每次搜索无序序列中的最大值时间复杂度是<code>O(n)</code>。因此对所有的节点进行排序，时间复杂度是<code>O(n^2)</code>，<strong>注意选择排序的时间复杂度恒定是</strong><code>O(n^2)</code>。</p><p>可以采用最大堆，在<code>O(1)</code>时间内得到最大值，即变成堆排序。</p><h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>堆排序，其实也是选择排序，只是利用优先级队列这个特征，能够在<code>O(1)</code>寻找到最大值元素加入有序序列。</p><ul><li>相比归并排序的<code>O(nlogn)</code>时间复杂度，堆排序常系数可以更小</li><li>实现<code>O(1)</code>的空间复杂度</li></ul><p>由于属于选择排序，因此思想一致：分为无序的前缀<code>H</code>和有序的后缀 <code>S</code>,前者不大于后者。不断地从 <code>H</code>中选取最大的元素到 <code>S</code>中。</p><p>  <img src="/2021/04/14/5_selectSort/heapSort.png" alt="HeapSort"></p><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>交换操作只是需要常量时间，下滤操作不超过<code>O(logn)</code>，因此全部排序完成不超过<code>O(nlogn)</code>。归并排序是恒定的<code>O(nlogn)</code>复杂度，堆排序的常系数更小。加上建堆的<code>O(n)</code>时间，也不超过<code>O(nlogn)</code></p><p><img src="/2021/04/14/5_selectSort/hheapSort_code.png" alt="code"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>基础算法</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>排序</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>插入排序</title>
     <link href="/2021/04/13/4_insertSort/"/>
     <url>/2021/04/13/4_insertSort/</url>
@@ -13,7 +38,7 @@
     
     <categories>
       
-      <category>排序算法</category>
+      <category>基础算法</category>
       
     </categories>
     
@@ -38,7 +63,7 @@
     
     <categories>
       
-      <category>排序算法</category>
+      <category>基础算法</category>
       
     </categories>
     
@@ -63,7 +88,7 @@
     
     <categories>
       
-      <category>排序算法</category>
+      <category>基础算法</category>
       
     </categories>
     
@@ -88,7 +113,7 @@
     
     <categories>
       
-      <category>排序算法</category>
+      <category>基础算法</category>
       
     </categories>
     

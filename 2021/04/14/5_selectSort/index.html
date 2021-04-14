@@ -18,7 +18,7 @@
   <meta name="author" content="pakchoi">
   <meta name="keywords" content="">
   
-  <title>冒泡排序 - pakchoi&#39;s blogs</title>
+  <title>选择排序、堆排序 - pakchoi&#39;s blogs</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -164,7 +164,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="冒泡排序">
+            <span class="h2" id="subtitle" title="选择排序、堆排序">
               
             </span>
 
@@ -179,8 +179,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-12 13:33" pubdate>
-        2021年4月12日 下午
+      <time datetime="2021-04-14 11:20" pubdate>
+        2021年4月14日 上午
       </time>
     </span>
   
@@ -191,7 +191,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      536 字
+      381 字
     </span>
   
 
@@ -201,7 +201,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13
+      8
        分钟
     </span>
   
@@ -239,16 +239,29 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">冒泡排序</h1>
+            <h1 style="display: none">选择排序、堆排序</h1>
             
             <div class="markdown-body">
-              <h1 id="冒泡法-BubbleSort"><a href="#冒泡法-BubbleSort" class="headerlink" title="冒泡法 BubbleSort"></a>冒泡法 BubbleSort</h1><p>冒泡法排序是排序算法中的基本方法，其时间复杂度是<code>O(n^2)</code>。</p>
-<h2 id="逆序对"><a href="#逆序对" class="headerlink" title="逆序对"></a>逆序对</h2><p>冒泡法，每一趟遍历都会消除一些逆序对，让最大值元素归位。比如第一趟遍历让最大值元素归位，第二趟让第二大元素归位，一直到第n趟让第n大，也就是最小的元素归位。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(std::vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; arr)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(arr.<span class="hljs-built_in">empty</span>()) <span class="hljs-keyword">return</span>;<br><br>    <span class="hljs-keyword">size_t</span> hi = arr.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> lo=<span class="hljs-number">0</span>; lo &lt; hi--; ++lo) &#123; <br>        <span class="hljs-comment">// 这其实就相当于在每趟遍历中，都当前未归位的最大值元素归位</span><br>        <span class="hljs-comment">// hi-- 表示从最后一个归位的元素不考虑</span><br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> lo=<span class="hljs-number">0</span>; lo &lt; hi; ++lo) &#123; <br>            <span class="hljs-keyword">if</span>(arr[lo] &gt; arr[lo+<span class="hljs-number">1</span>]) <br>                std::<span class="hljs-built_in">swap</span>(arr[lo], arr[lo+<span class="hljs-number">1</span>]);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>这其实也是一种贪心的思想体现：因为只要将遇到的所有“逆序对”消除，那么就是一个有序的序列，而冒泡排序就是每遇到一个逆序对就修正这个逆序对，消除他，通过n趟的迭代，那么就能消除所有的逆序对，就会变得有序。</p>
-<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>毫无疑问是<code>O(n^2)</code>。即使是一个有序的序列，用冒泡法时间复杂度依然是O(n^2)。因为在每一轮迭代中，只是考虑逆序对，将最大未归位元素归位。可是如果前面的部分元素已经归位，那么是否可以直接跳过而不再迭代？？？</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(std::vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; arr)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(arr.<span class="hljs-built_in">empty</span>()) <span class="hljs-keyword">return</span>;<br><br>    <span class="hljs-keyword">size_t</span> last = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">size_t</span> hi = arr.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> lo=<span class="hljs-number">0</span>; lo &lt; hi; ++lo) &#123; <br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> lo=<span class="hljs-number">0</span>; lo &lt; hi; ++lo) &#123; <br>            <span class="hljs-keyword">if</span>(arr[lo] &gt; arr[lo+<span class="hljs-number">1</span>]) &#123;<br>                std::<span class="hljs-built_in">swap</span>(arr[lo], arr[lo+<span class="hljs-number">1</span>]);<br>                last = lo; <span class="hljs-comment">// 记录下最后一次交换元素的位置</span><br>            &#125;<br>        &#125;<br>        hi = last; <span class="hljs-comment">// 下次就从最后一次更新元素位置开始</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>如此不仅在序列本身有序时时间复杂度仅为<code>O(n)</code>,也为普通情况下进行了改善，不再是每次都遍历，而是直接跳到最后一次交换元素的位置。</p>
+              <h1 id="selectSort"><a href="#selectSort" class="headerlink" title="selectSort"></a>selectSort</h1><p>相比较vector，更加适用于链表</p>
+<p><img src="/2021/04/14/5_selectSort/selectSort.png" srcset="/img/loading.gif" lazyload alt="selectSort"></p>
+<p>思想：</p>
+<ul>
+<li>无序的前缀和有序的后缀</li>
+<li>前缀不大于后缀</li>
+</ul>
+<p>因此每次从前缀中选择出最大值元素，并且作为最小值转移到后缀中，不断地迭代就可以是的整体有序。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-comment">// 待实现</span><br></code></pre></td></tr></table></figure>
+<h3 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h3><p>对于链表而言，每次搜索无序序列中的最大值时间复杂度是<code>O(n)</code>。因此对所有的节点进行排序，时间复杂度是<code>O(n^2)</code>，<strong>注意选择排序的时间复杂度恒定是</strong><code>O(n^2)</code>。</p>
+<p>可以采用最大堆，在<code>O(1)</code>时间内得到最大值，即变成堆排序。</p>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>堆排序，其实也是选择排序，只是利用优先级队列这个特征，能够在<code>O(1)</code>寻找到最大值元素加入有序序列。</p>
+<ul>
+<li>相比归并排序的<code>O(nlogn)</code>时间复杂度，堆排序常系数可以更小</li>
+<li>实现<code>O(1)</code>的空间复杂度</li>
+</ul>
+<p>由于属于选择排序，因此思想一致：分为无序的前缀<code>H</code>和有序的后缀 <code>S</code>,前者不大于后者。不断地从 <code>H</code>中选取最大的元素到 <code>S</code>中。</p>
+<p>  <img src="/2021/04/14/5_selectSort/heapSort.png" srcset="/img/loading.gif" lazyload alt="HeapSort"></p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>交换操作只是需要常量时间，下滤操作不超过<code>O(logn)</code>，因此全部排序完成不超过<code>O(nlogn)</code>。归并排序是恒定的<code>O(nlogn)</code>复杂度，堆排序的常系数更小。加上建堆的<code>O(n)</code>时间，也不超过<code>O(nlogn)</code></p>
+<p><img src="/2021/04/14/5_selectSort/hheapSort_code.png" srcset="/img/loading.gif" lazyload alt="code"></p>
 
             </div>
             <hr>
@@ -283,18 +296,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/13/4_insertSort/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">插入排序</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/08/2_mergeSort/">
-                        <span class="hidden-mobile">归并排序</span>
+                      <a href="/2021/04/13/4_insertSort/">
+                        <span class="hidden-mobile">插入排序</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
