@@ -14,7 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
+  <meta name="description" content="insertSort插入排序的思想：始终将整个序列视为两个部分，有序的前缀和无序的后缀；通过反复的迭代，反复地将后缀的首元素转移至前缀中。">
   <meta name="author" content="pakchoi">
   <meta name="keywords" content="">
   
@@ -242,8 +242,10 @@
             <h1 style="display: none">插入排序</h1>
             
             <div class="markdown-body">
-              <h1 id="insertSort"><a href="#insertSort" class="headerlink" title="insertSort"></a>insertSort</h1><p>更加实用于链表</p>
-<p>插入排序的思想：始终将整个序列视为两个部分，有序的前缀和无序的后缀；通过反复的迭代，反复地将后缀的首元素转移至前缀中。</p>
+              <h1 id="insertSort"><a href="#insertSort" class="headerlink" title="insertSort"></a>insertSort</h1><p>插入排序的思想：始终将整个序列视为两个部分，有序的前缀和无序的后缀；通过反复的迭代，反复地将后缀的首元素转移至前缀中。</p>
+<span id="more"></span>
+
+<p>更加实用于链表</p>
 <blockquote>
 <p><strong>在任何时刻，相对于当前节点e=s[r], 前缀部分[0, r)总是有序</strong>，那么就可以用有序序列的查找算法，在前缀中查找到小于等于e的最大元素的位置，然后将当前节点e插入找到的位置之后插入。 如果存在重复元素，那么就是插在最后一个重复元素之后。</p>
 </blockquote>

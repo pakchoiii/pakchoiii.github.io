@@ -241,7 +241,7 @@
           
             
           
-          桶排序存在重复的元素III12345678910111213141516171819202122232425262728293031323334class Solution &#123;public:    bool containsNearbyAlmostDuplicate(std::vector&lt;int&gt;&amp; nums, int k, int t) &#123;       
+          桶排序桶排序 (Bucket sort)或所谓的箱排序，是一个排序算法，工作的原理是将数组分到有限数量的桶子里。每个桶子再个别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序）。
         </a>
       </p>
 
@@ -403,7 +403,13 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/04/13/4_insertSort/" target="_self">
+          <img src="/img/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F1.jpg" srcset="/img/loading.gif" lazyload alt="插入排序">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
         
         <a href="/2021/04/13/4_insertSort/">插入排序</a>
@@ -415,11 +421,7 @@
           
             
           
-          insertSort更加实用于链表
-插入排序的思想：始终将整个序列视为两个部分，有序的前缀和无序的后缀；通过反复的迭代，反复地将后缀的首元素转移至前缀中。
-
-在任何时刻，相对于当前节点e=s[r], 前缀部分[0, r)总是有序，那么就可以用有序序列的查找算法，在前缀中查找到小于等于e的最大元素的位置，然后将当前节点e插入找到的位置之后插入。 如果存在重复元素，那么就是插在最后一个重复元素之后。
-
+          insertSort插入排序的思想：始终将整个序列视为两个部分，有序的前缀和无序的后缀；通过反复的迭代，反复地将后缀的首元素转移至前缀中。
         </a>
       </p>
 
@@ -618,11 +620,6 @@
             
           
           数据结构链表与邻接表用数组来模拟单链表：邻接表（存储图和数）
-
-空节点下表为-1表示
-head表示头指针，不是节点
-
-1234567891011121314151617181920212223242526272829303132// head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点int head, e[N], ne[N], idx;//初始化v
         </a>
       </p>
 
