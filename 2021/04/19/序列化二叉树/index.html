@@ -283,18 +283,13 @@
 <li><p><strong>初始化</strong>： 序列化列表 <code>iss</code>（先去掉首尾中括号），使用函数<code>getline</code>分解<code>iss</code>为<code>str</code> ，根节点 <code>root</code> （值为 <code>atoi(str.c_str()</code>) ），队列 <code>q</code>（包含 <code>root</code> ）；</p>
 </li>
 <li><p><strong>按层构建</strong>： 当 <code>q</code> 为空时跳出；</p>
-</li>
-<li><p>节点出队，记为 <code>node</code> ；</p>
-<ol start="2">
+<ol>
+<li>节点出队，记为 <code>node</code> ；</li>
 <li>分解<code>iss</code>：<code>getline(iss, str, &#39;,&#39;)</code> ;</li>
-</ol>
-</li>
-<li><p>构建 <code>node</code> 的左子节点：<code>node-&gt;left</code> 的值为 <code>atoi(str.c_str()</code> ，并将 <code>node-&gt;left</code> 入队 ；</p>
-<ol start="4">
+<li>构建 <code>node</code> 的左子节点：<code>node-&gt;left</code> 的值为 <code>atoi(str.c_str()</code> ，并将 <code>node-&gt;left</code> 入队 ；</li>
 <li>分解<code>iss</code>：<code>getline(iss, str, &#39;,&#39;)</code> ;</li>
+<li>构建 <code>node</code> 的右子节点：<code>node-&gt;right</code> 的值为 <code>atoi(str.c_str()</code> ，并将 <code>node-&gt;right</code>入队 ；</li>
 </ol>
-</li>
-<li><p>构建 <code>node</code> 的右子节点：<code>node-&gt;right</code> 的值为 <code>atoi(str.c_str()</code> ，并将 <code>node-&gt;right</code>入队 ；</p>
 </li>
 <li><p><strong>返回值</strong>： 返回根节点 <code>root</code> 即可；<br>   复杂度分析：<br>   时间复杂度 $ O(N) $ ： $ N $ 为二叉树的节点数，按层构建二叉树需要遍历整个 $ iss $ ，其长度最大为 $ 2N+1 $ 。<br>   空间复杂度 $ O(N) $ ： 最差情况下，队列 <code>q</code> 同时存储 $ \frac{N + 1}{2} $个节点，因此使用 $ O(N) $ 额外空间。</p>
 </li>
