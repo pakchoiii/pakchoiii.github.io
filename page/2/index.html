@@ -180,6 +180,64 @@
   <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/04/14/5_selectSort/">选择排序、堆排序</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/14/5_selectSort/">
+          
+          
+            
+          
+          selectSort相比较vector，更加适用于链表
+
+思想：
+
+无序的前缀和有序的后缀
+前缀不大于后缀
+
+因此每次从前缀中选择出最大值元素，并且作为最小值转移到后缀中，不断地迭代就可以是的整体有序。
+1// 待实现
+算法复杂度对于链表而言，每次搜索无序序列中的最大值时间复杂度是O(n)。因此对所有的节点进行排序，时间复杂度是O(n^2)，注意选择排序的时间复杂度恒定是O(n^2)。
+可以采用最
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-14 11:20" pubdate>
+              2021-04-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">基础算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/04/13/4_insertSort/" target="_self">
           <img src="/img/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F1.jpg" srcset="/img/loading.gif" lazyload alt="插入排序">
