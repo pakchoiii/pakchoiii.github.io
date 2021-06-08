@@ -183,6 +183,52 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/04/15/6_%E6%A1%B6%E6%8E%92%E5%BA%8F/">桶排序</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/04/15/6_%E6%A1%B6%E6%8E%92%E5%BA%8F/">
+          
+          
+          
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-15 17:10" pubdate>
+              2021-04-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">基础算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/04/15/OJ%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E5%B8%B8%E8%A7%81%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%BB%83%E4%B9%A0/">在线编程常见输入输出练习</a>
       </h1>
 
@@ -190,29 +236,7 @@
         <a href="/2021/04/15/OJ%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E5%B8%B8%E8%A7%81%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%BB%83%E4%B9%A0/">
           
           
-            
           
-          OJ在线编程常见输入输出练习A+B    (1)题目描述计算a+b
-输入描述
-
-输入包括两个正整数a,b(1 &lt;= a, b &lt;= 10^9),输入数据包括多组。
-
-输出描述
-
-输出a+b的结果
-
-示例1
-输入
-
-1 510 20
-
-输出
-
-6
-30
-
-代码
-12345678910#include&lt;iostream&gt;using namespace std;int main(
         </a>
       </p>
 
@@ -258,19 +282,7 @@
         <a href="/2021/04/14/5_selectSort/">
           
           
-            
           
-          selectSort相比较vector，更加适用于链表
-
-思想：
-
-无序的前缀和有序的后缀
-前缀不大于后缀
-
-因此每次从前缀中选择出最大值元素，并且作为最小值转移到后缀中，不断地迭代就可以是的整体有序。
-1// 待实现
-算法复杂度对于链表而言，每次搜索无序序列中的最大值时间复杂度是O(n)。因此对所有的节点进行排序，时间复杂度是O(n^2)，注意选择排序的时间复杂度恒定是O(n^2)。
-可以采用最
         </a>
       </p>
 
@@ -322,9 +334,7 @@
         <a href="/2021/04/13/4_insertSort/">
           
           
-            
           
-          insertSort插入排序的思想：始终将整个序列视为两个部分，有序的前缀和无序的后缀；通过反复的迭代，反复地将后缀的首元素转移至前缀中。
         </a>
       </p>
 
@@ -370,11 +380,7 @@
         <a href="/2021/04/12/3_bubbleSort/">
           
           
-            
           
-          冒泡法 BubbleSort冒泡法排序是排序算法中的基本方法，其时间复杂度是O(n^2)。
-逆序对冒泡法，每一趟遍历都会消除一些逆序对，让最大值元素归位。比如第一趟遍历让最大值元素归位，第二趟让第二大元素归位，一直到第n趟让第n大，也就是最小的元素归位。
-1234567891011121314void bubbleSort(std::vector&lt;int&gt;&amp; arr)&#123
         </a>
       </p>
 
@@ -420,11 +426,7 @@
         <a href="/2021/04/08/2_mergeSort/">
           
           
-            
           
-          mergeSort
-归并排序分为连两个部分，先将整个序列化为2个规模一样的序列，然后排序。递归的调用，不断地划分，直到子序列的规模为1，那么这个长度为1的子序列就是有序的，然后再开始归并。 
-12345678void mergeSort(std::vector&lt;int&gt;&amp; arr, int lo, int hi) &#123;     if(hi - lo &lt; 2) re
         </a>
       </p>
 
@@ -470,11 +472,7 @@
         <a href="/2021/04/07/1_quickSort_/">
           
           
-            
           
-          快速排序 quickSort排序的本质就是消除逆序对。以升序为例，就是消除”左边大右边小”的逆序对。当逆序对为0，就说明已经满足有序性。
-快速排序快速排序是一种就地排序，会改变输入数组，同时快速排序是一种不稳定的排序。快速排序的关键点是选择一个合适的轴点(pivot)，这个选取的不确定性也导致了每次数据的分割是不均匀的。
-对于选取的一个轴点，其左边的都不大于轴点，右边的都不小于轴点: [low, 
         </a>
       </p>
 
@@ -520,9 +518,7 @@
         <a href="/2021/04/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
           
           
-            
           
-          数据结构链表与邻接表用数组来模拟单链表：邻接表（存储图和数）
         </a>
       </p>
 
@@ -568,10 +564,7 @@
         <a href="/2021/04/06/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">
           
           
-            
           
-          基础算法快速排序
-1234567891011121314void quick_sort(int q[], int l, int r) &#123;   if (l &gt;= r) return;    int x = q[l + r &gt;&gt; 1], i = l - 1, j = r + 1;   while (i &lt; j) &#123;       do i++; while (
         </a>
       </p>
 

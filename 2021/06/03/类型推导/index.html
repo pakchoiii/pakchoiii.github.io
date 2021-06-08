@@ -14,7 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="一、类型推导auto &amp;amp; decltypeC++11引入了auto和decltype关键字，使用他们可以在编译期就推导出变量或者表达式的类型，方便开发者编码也简化了代码。">
+  <meta name="description" content="">
   <meta name="author" content="pakchoi">
   <meta name="keywords" content="">
   
@@ -243,8 +243,6 @@
             
             <div class="markdown-body">
               <h1 id="一、类型推导auto-amp-decltype"><a href="#一、类型推导auto-amp-decltype" class="headerlink" title="一、类型推导auto &amp; decltype"></a>一、类型推导auto &amp; decltype</h1><p>C++11引入了<code>auto</code>和<code>decltype</code>关键字，使用他们可以在编译期就推导出变量或者表达式的类型，方便开发者编码也简化了代码。</p>
-<span id="more"></span>
-
 <h2 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h2><p>auto：让编译器在编译时就推导出变量的类型，可以通过=右边的类型推导出变量的类型。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> a = <span class="hljs-number">10</span>; <span class="hljs-comment">// 10是int型，可以自动推导出a是int</span><br><span class="hljs-keyword">int</span> i = <span class="hljs-number">10</span>;<span class="hljs-keyword">auto</span> b = i; <span class="hljs-comment">// b 是int 型</span><br><span class="hljs-keyword">auto</span> d = <span class="hljs-number">2.0</span>; <span class="hljs-comment">// d 是double 型</span><br></code></pre></td></tr></table></figure>
 <p>可以通过 = 右边的类型推导出变量的类型</p>
