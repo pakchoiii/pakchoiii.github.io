@@ -191,7 +191,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      1.5k 字
     </span>
   
 
@@ -201,7 +201,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      17
+      19
        分钟
     </span>
   
@@ -274,6 +274,11 @@
 <p>这个算法在最坏情况下，时间复杂度是<code>O(nlogn)</code>，那么更好的有没有？<code>BFPRT</code>算法。</p>
 <p>延续这个思路：<br>先选取一个中位数，然后递归迭代，这个方法虽然是时间复杂度是<code>O(n)</code>，但是系数很大，在数据量不是很大时，效率并不明显。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">// 伪代码<br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">selece</span>(<span class="hljs-params">A, k</span>):</span> <br>    <span class="hljs-keyword">if</span> n=|A| &lt;Q:<br>        <span class="hljs-keyword">return</span> trivalSelect(A, k) <span class="hljs-comment"># 数据规模不大时直接用蛮力</span><br><br>    <span class="hljs-number">1</span>) 将A均匀地分为 n/Q个子序列,各自含有Q个元素<br>    <span class="hljs-number">2</span>) 各个子序列分别排序,计算出中位数,并且将这个中位数组成一个序列<br>    <span class="hljs-number">3</span>) 通过递归调用这个select() 计算出中位数序列的中位数,记M<br>    <span class="hljs-number">4</span>) 根据相对M大小,将A中的元素分为三个子集:L(小于), E(等于), G(等于)<br>    <span class="hljs-number">5</span>) 递归如下<br><br>     <span class="hljs-keyword">if</span>(k &lt;= |L|&gt;): <br>        <span class="hljs-keyword">return</span> select(L,k)<br>     <span class="hljs-keyword">elif</span>(k &lt;=|L| + |E|): <br>        <span class="hljs-keyword">return</span> M;<br>     <span class="hljs-keyword">else</span>: <br>        retutn select(G, k-|L|-|E|) <br><br></code></pre></td></tr></table></figure>
+
+<p><strong>换一个模板</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">quicksort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">if</span> (l &gt;= r) <span class="hljs-keyword">return</span>;<br>        <span class="hljs-keyword">int</span> i = l - <span class="hljs-number">1</span>, j = r + <span class="hljs-number">1</span>, x = nums[l + r &gt;&gt; <span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">while</span> (i &lt; j)<br>        &#123; <br>            <span class="hljs-keyword">while</span> (nums[++i] &lt; x);<br>            <span class="hljs-keyword">while</span> (nums[--j] &gt; x);<br>            <span class="hljs-keyword">if</span> (i &lt; j) <span class="hljs-built_in">swap</span>(nums[i], nums[j]);<br>        &#125;<br>        <span class="hljs-built_in">quicksort</span>(nums, l, j), <span class="hljs-built_in">quicksort</span>(nums, j + <span class="hljs-number">1</span>, r);<br>    &#125;<br>    <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">quickSort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>        <span class="hljs-built_in">quicksort</span>(nums, <span class="hljs-number">0</span>, nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> nums;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+
             </div>
             <hr>
             <div>
