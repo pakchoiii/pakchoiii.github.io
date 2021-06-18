@@ -191,7 +191,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      536 字
+      908 字
     </span>
   
 
@@ -201,7 +201,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      11
        分钟
     </span>
   
@@ -249,6 +249,21 @@
 <h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>毫无疑问是<code>O(n^2)</code>。即使是一个有序的序列，用冒泡法时间复杂度依然是O(n^2)。因为在每一轮迭代中，只是考虑逆序对，将最大未归位元素归位。可是如果前面的部分元素已经归位，那么是否可以直接跳过而不再迭代？？？</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bubbleSort</span><span class="hljs-params">(std::vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; arr)</span></span>&#123;<br>    <span class="hljs-keyword">if</span>(arr.<span class="hljs-built_in">empty</span>()) <span class="hljs-keyword">return</span>;<br><br>    <span class="hljs-keyword">size_t</span> last = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">size_t</span> hi = arr.<span class="hljs-built_in">size</span>()<span class="hljs-number">-1</span>;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> lo=<span class="hljs-number">0</span>; lo &lt; hi; ++lo) &#123; <br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">size_t</span> lo=<span class="hljs-number">0</span>; lo &lt; hi; ++lo) &#123; <br>            <span class="hljs-keyword">if</span>(arr[lo] &gt; arr[lo+<span class="hljs-number">1</span>]) &#123;<br>                std::<span class="hljs-built_in">swap</span>(arr[lo], arr[lo+<span class="hljs-number">1</span>]);<br>                last = lo; <span class="hljs-comment">// 记录下最后一次交换元素的位置</span><br>            &#125;<br>        &#125;<br>        hi = last; <span class="hljs-comment">// 下次就从最后一次更新元素位置开始</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>如此不仅在序列本身有序时时间复杂度仅为<code>O(n)</code>,也为普通情况下进行了改善，不再是每次都遍历，而是直接跳到最后一次交换元素的位置。</p>
+<h2 id="6-18再次理解："><a href="#6-18再次理解：" class="headerlink" title="6.18再次理解："></a>6.18再次理解：</h2><ul>
+<li>冒泡排序就是把<strong>小的元素往前调或者把大的元素往后调</strong>，比较是相邻的两个元素比较，交换也发生在这两个元素之间。</li>
+<li>所以，如果两个元素相等，我想你是不会再无聊地把他们俩交换一下的；如果两个相等的元素没有相邻，那么即使通过前面的两两交换把两个相邻起来，这时候也不会交换，所以相同元素的前后顺序并没有改变，所以冒泡排序是一种<strong>稳定排序</strong>算法。</li>
+</ul>
+<p><img src="/2021/04/12/3_bubbleSort/bubblesort.gif" srcset="/img/loading.gif" lazyload></p>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最<br>大的数。</li>
+<li>针对所有的元素重复以上的步骤，除了最后一个。</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ol>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">bubblesort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>		<span class="hljs-keyword">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>		<span class="hljs-keyword">bool</span> flag = <span class="hljs-literal">false</span>;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; ++i) &#123;   <span class="hljs-comment">//n - 1趟就足够</span><br>			flag = <span class="hljs-literal">false</span>;<br>			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n - <span class="hljs-number">1</span> - i; ++j) &#123;<br>				<span class="hljs-keyword">if</span> (nums[j] &gt; nums[j + <span class="hljs-number">1</span>]) &#123;<br>					<span class="hljs-built_in">swap</span>(nums[j], nums[j + <span class="hljs-number">1</span>]);<br>					flag = <span class="hljs-literal">true</span>;<br>				&#125;<br>			&#125;<br>			<span class="hljs-keyword">if</span> (!flag) &#123; <br>				<span class="hljs-keyword">break</span>; <br>			&#125;<br>		&#125;<br>	&#125;<br>	<span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">bubbleSort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; data)</span> </span>&#123;<br>		<span class="hljs-built_in">bubblesort</span>(data);<br>		<span class="hljs-keyword">return</span> data;<br>	&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
 
             </div>
             <hr>
