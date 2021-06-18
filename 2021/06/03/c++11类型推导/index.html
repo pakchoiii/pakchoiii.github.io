@@ -18,7 +18,7 @@
   <meta name="author" content="pakchoi">
   <meta name="keywords" content="">
   
-  <title>选择排序 - pakchoi&#39;s blogs</title>
+  <title>C++11 类型推导 - pakchoi&#39;s blogs</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -164,7 +164,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="选择排序">
+            <span class="h2" id="subtitle" title="C++11 类型推导">
               
             </span>
 
@@ -179,8 +179,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-14 11:20" pubdate>
-        2021年4月14日
+      <time datetime="2021-06-03 10:29" pubdate>
+        2021年6月3日
       </time>
     </span>
   
@@ -191,7 +191,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      514 字
+      1.1k 字
     </span>
   
 
@@ -201,7 +201,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      14
        分钟
     </span>
   
@@ -239,28 +239,66 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">选择排序</h1>
+            <h1 style="display: none">C++11 类型推导</h1>
             
             <div class="markdown-body">
-              <h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h2 id="selectSort"><a href="#selectSort" class="headerlink" title="selectSort"></a>selectSort</h2><p>相比较vector，更加适用于链表</p>
-<p><img src="/2021/04/14/5_selectSort/selectSort.png" srcset="/img/loading.gif" lazyload></p>
-<p>思想：</p>
+              <h1 id="一、类型推导auto-amp-decltype"><a href="#一、类型推导auto-amp-decltype" class="headerlink" title="一、类型推导auto &amp; decltype"></a>一、类型推导auto &amp; decltype</h1><p>C++11引入了<code>auto</code>和<code>decltype</code>关键字，使用他们可以在编译期就推导出变量或者表达式的类型，方便开发者编码也简化了代码。</p>
+<h2 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h2><p>auto：让编译器在编译时就推导出变量的类型，可以通过=右边的类型推导出变量的类型。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">auto</span> a = <span class="hljs-number">10</span>; <span class="hljs-comment">// 10是int型，可以自动推导出a是int</span><br><span class="hljs-keyword">int</span> i = <span class="hljs-number">10</span>;<span class="hljs-keyword">auto</span> b = i; <span class="hljs-comment">// b 是int 型</span><br><span class="hljs-keyword">auto</span> d = <span class="hljs-number">2.0</span>; <span class="hljs-comment">// d 是double 型</span><br></code></pre></td></tr></table></figure>
+<p>可以通过 = 右边的类型推导出变量的类型</p>
+<h3 id="auto-推导规则"><a href="#auto-推导规则" class="headerlink" title="auto 推导规则"></a>auto 推导规则</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">func</span><span class="hljs-params">(<span class="hljs-keyword">auto</span> value)</span> </span>&#123;&#125; <span class="hljs-comment">// error，auto 不能用作函数参数</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span> &#123;</span><br>	<span class="hljs-keyword">auto</span> a = <span class="hljs-number">1</span>; <span class="hljs-comment">// error，在类中auto 不能用作非静态成员变量</span><br>	<span class="hljs-keyword">static</span> <span class="hljs-keyword">auto</span> b = <span class="hljs-number">1</span>; <span class="hljs-comment">// error，这里与auto 无关，正常static int b = 1 也不可以</span><br>	<span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> <span class="hljs-keyword">int</span> c = <span class="hljs-number">1</span>; <span class="hljs-comment">// ok</span><br>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">func2</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> a[<span class="hljs-number">10</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br>	<span class="hljs-keyword">auto</span> b = a; <span class="hljs-comment">// ok</span><br>	<span class="hljs-keyword">auto</span> c[<span class="hljs-number">10</span>] = a; <span class="hljs-comment">// error，auto 不能定义数组，可以定义指针</span><br>	vector&lt;<span class="hljs-keyword">int</span>&gt; d;<br>	vector&lt;<span class="hljs-keyword">auto</span>&gt; f = d; <span class="hljs-comment">// error，auto 无法推导出模板参数</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>总结一下auto 的限制：</p>
+</blockquote>
 <ul>
-<li>无序的前缀和有序的后缀</li>
-<li>前缀不大于后缀</li>
+<li>auto 的使用必须马上<code>初始化</code>，否则无法推导出类型</li>
+<li>auto 在一行定义多个变量时，各个变量的推导不能产生二义性，否则编译失败</li>
+<li>auto 不能用作函数参数</li>
+<li>在类中 auto 不能用作非静态成员变量</li>
+<li>auto 不能定义数组，可以定义指针</li>
+<li>auto 无法推导出模板参数</li>
 </ul>
-<p>因此每次从前缀中选择出最大值元素，并且作为最小值转移到后缀中，不断地迭代就可以是的整体有序。</p>
-<h2 id="6-18再次理解"><a href="#6-18再次理解" class="headerlink" title="6.18再次理解"></a>6.18再次理解</h2><p>选择排序是给每个位置选择当前元素最小的，比如给第一个位置选择最小的，在剩余元素里面给第二个元素选择第二小的，依次类推，直到第n-1个元素，第n个元素不用选择了，因为只剩下它一个最大的元素了。</p>
-<p>那么，在一趟选择，如果当前元素比一个元素小，而该小的元素又出现在一个和当前元素相等的元素后面，那么交换后稳定性就被破坏了。</p>
-<p>比较拗口，举个例子，序列5 8 5 2 9， 我们知道第一遍选择第1个元素5会和2交换，那么原序列中2个5的相对前后顺序就被破坏了，所以选择排序是一个<strong>不稳定</strong>的排序算法。</p>
-<p><img src="/2021/04/14/5_selectSort/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" srcset="/img/loading.gif" lazyload></p>
-<ol>
-<li>在未排序序列中找到最小（大）元素，存放到排序序列的起始位置</li>
-<li>从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾</li>
-<li>以此类推，直到所有元素均排序完毕</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">selectsort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>		<span class="hljs-keyword">int</span> len = nums.<span class="hljs-built_in">size</span>();<br>		<span class="hljs-keyword">int</span> minIndex = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; ++i) &#123;<br>			minIndex = i;<br>			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; len; ++j) &#123;<br>				<span class="hljs-keyword">if</span> (nums[j] &lt; nums[minIndex]) minIndex = j;<br>			&#125;<br>			<span class="hljs-built_in">swap</span>(nums[i], nums[minIndex]);<br>		&#125;<br>	&#125;<br>	<span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">selectSort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; data)</span> </span>&#123;<br>		<span class="hljs-built_in">selectsort</span>(data);<br>		<span class="hljs-keyword">return</span> data;<br>	&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<h3 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h3><p>对于链表而言，每次搜索无序序列中的最大值的时间复杂度是<code>O(n)</code>。因此对所有的节点进行排序，时间复杂度是<code>O(n^2)</code>，<strong>注意选择排序的时间复杂度恒定是</strong><code>O(n^2)</code>。</p>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ul>
+<li><p>在不声明为引用或指针时，auto 会忽略等号右边的引用类型和 const 、volatile 限定</p>
+</li>
+<li><p>在声明为引用或者指针时，auto 会保留等号右边的引用和const 、volatile 属性</p>
+</li>
+</ul>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">auto</span> *a = &amp;i; <span class="hljs-comment">// a 是int*</span><br><span class="hljs-keyword">auto</span> &amp;b = i; <span class="hljs-comment">// b 是int&amp;</span><br><span class="hljs-keyword">auto</span> c = b; <span class="hljs-comment">// c 是int，忽略了引用</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> d = i; <span class="hljs-comment">// d 是const int</span><br><span class="hljs-keyword">auto</span> e = d; <span class="hljs-comment">// e 是int</span><br><span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; f = e; <span class="hljs-comment">// f 是const int&amp;</span><br><span class="hljs-keyword">auto</span> &amp;g = f; <span class="hljs-comment">// g 是const int&amp;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h2><p>decltype：相对于auto用于推导变量类型，而decltype则用于推导表达式类型，这里只用于编译器分析表达式的类型，表达式实际不会进行运算。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">func</span><span class="hljs-params">()</span> </span>&#123; <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; <br>&#125;<br><span class="hljs-keyword">decltype</span>(<span class="hljs-built_in">func</span>()) i; <span class="hljs-comment">// i为int类型</span><br><br><span class="hljs-keyword">int</span> x = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">decltype</span>(x) y; <span class="hljs-comment">// y是int类型</span><br><span class="hljs-keyword">decltype</span>(x + y) z; <span class="hljs-comment">// z是int类型</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<p>decltype 不会像 auto 一样忽略引用和const 、volatile属性，decltype会保留表达式的引用和const 、volatile属性</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">cont <span class="hljs-keyword">int</span> &amp;i = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">int</span> a = <span class="hljs-number">2</span>;<br><span class="hljs-keyword">decltype</span>(i) b = <span class="hljs-number">2</span>; <span class="hljs-comment">// b是const int&amp;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="decltype-推导规则"><a href="#decltype-推导规则" class="headerlink" title="decltype 推导规则"></a>decltype 推导规则</h3><p>对于decltype(exp)有：</p>
+<ul>
+<li>exp 是表达式，decltype(exp)和exp 类型相同</li>
+<li>exp 是函数调用，decltype(exp)和函数返回值类型相同</li>
+<li>其它情况，若exp 是左值，decltype(exp)是exp 类型的左值引用</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">int</span> a = <span class="hljs-number">0</span>, b = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">decltype</span>(a + b) c = <span class="hljs-number">0</span>; <span class="hljs-comment">// c 是int，因为(a+b)返回一个右值</span><br><span class="hljs-keyword">decltype</span>(a += b) d = c;<span class="hljs-comment">// d 是int&amp;，因为(a+=b)返回一个左值</span><br>d = <span class="hljs-number">20</span>;<br>cout &lt;&lt; <span class="hljs-string">&quot;c = &quot;</span> &lt;&lt; c &lt;&lt; endl; <span class="hljs-comment">// 输出c = 20</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="auto-和decltype-的配合使用"><a href="#auto-和decltype-的配合使用" class="headerlink" title="auto 和decltype 的配合使用"></a>auto 和decltype 的配合使用</h2><p>你可能会思考，auto 能不能用于推导函数的返回类型。考虑这样一个例子加法函数的例子，在传统 C++ 中我们必须这么写：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> R, <span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span> U&gt;<br><span class="hljs-function">R <span class="hljs-title">add</span><span class="hljs-params">(T x, U y)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> x+y<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这样的代码其实变得很丑陋，因为程序员在使用这个模板函数的时候，必须明确指出返回类型。但事实上我们并不知道 add() 这个函数会做什么样的操作，获得一个什么样的返回类型。</p>
+<p>在 C++11 中这个问题得到解决。虽然你可能马上会反应出来使用 decltype 推导 x+y 的类型，写出这样的代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">decltype</span>(x+y) <span class="hljs-built_in">add</span>(T x, U y);<br></code></pre></td></tr></table></figure>
+
+<p>但事实上这样的写法并不能通过编译。这是因为在编译器读到 decltype(x+y) 时，x 和 y 尚未被定义。为了解决这个问题，C++11 还引入了一个叫做<strong>拖尾返回类型（trailing return type）</strong>，利用 auto 关键字将返回类型后置：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span> U&gt;<br>auto add(T x, U y) -&gt; decltype(x+y) &#123;<br>    <span class="hljs-keyword">return</span> x+y;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>[  1  ] : C++11的类型推导详解 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137662774">https://zhuanlan.zhihu.com/p/137662774</a> </p>
+<p>[  2  ] : C++11常用新特性快速一览 <a target="_blank" rel="noopener" href="https://blog.csdn.net/jiange_zh/article/details/79356417">https://blog.csdn.net/jiange_zh/article/details/79356417</a> </p>
 
             </div>
             <hr>
@@ -270,7 +308,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">基础算法</a>
+                      <a class="hover-with-bg" href="/categories/C-11-%E6%96%B0%E7%89%B9%E6%80%A7/">C++11 新特性</a>
                     
                   </div>
                 
@@ -278,7 +316,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%8E%92%E5%BA%8F/">排序</a>
+                      <a class="hover-with-bg" href="/tags/C-11/">C++11</a>
                     
                   </div>
                 
@@ -295,9 +333,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/14/6_%E5%A0%86%E6%8E%92%E5%BA%8F/">
+                      <a href="/2021/06/03/c++11%E5%B7%A6%E5%80%BC%E5%8F%B3%E5%80%BC/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">堆排序</span>
+                        <span class="hidden-mobile">C++11 左值引用、右值引用、移动语义、完美转发</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -305,8 +343,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/13/4_insertSort/">
-                        <span class="hidden-mobile">插入排序</span>
+                      <a href="/2021/04/23/B%E6%A0%91%E4%B8%8EB+%E6%A0%91/">
+                        <span class="hidden-mobile">B树</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

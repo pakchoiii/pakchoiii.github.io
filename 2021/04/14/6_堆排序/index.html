@@ -18,7 +18,7 @@
   <meta name="author" content="pakchoi">
   <meta name="keywords" content="">
   
-  <title>选择排序 - pakchoi&#39;s blogs</title>
+  <title>堆排序 - pakchoi&#39;s blogs</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -164,7 +164,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="选择排序">
+            <span class="h2" id="subtitle" title="堆排序">
               
             </span>
 
@@ -191,7 +191,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      514 字
+      541 字
     </span>
   
 
@@ -201,7 +201,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      7
        分钟
     </span>
   
@@ -239,28 +239,29 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">选择排序</h1>
+            <h1 style="display: none">堆排序</h1>
             
             <div class="markdown-body">
-              <h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h2 id="selectSort"><a href="#selectSort" class="headerlink" title="selectSort"></a>selectSort</h2><p>相比较vector，更加适用于链表</p>
-<p><img src="/2021/04/14/5_selectSort/selectSort.png" srcset="/img/loading.gif" lazyload></p>
-<p>思想：</p>
+              <h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><p>堆排序，其实也是选择排序，只是利用优先级队列这个特征，能够在<code>O(1)</code>寻找到最大值元素加入有序序列。</p>
 <ul>
-<li>无序的前缀和有序的后缀</li>
-<li>前缀不大于后缀</li>
+<li>相比归并排序的<code>O(nlogn)</code>时间复杂度，堆排序常系数可以更小</li>
+<li>实现<code>O(1)</code>的空间复杂度</li>
 </ul>
-<p>因此每次从前缀中选择出最大值元素，并且作为最小值转移到后缀中，不断地迭代就可以是的整体有序。</p>
-<h2 id="6-18再次理解"><a href="#6-18再次理解" class="headerlink" title="6.18再次理解"></a>6.18再次理解</h2><p>选择排序是给每个位置选择当前元素最小的，比如给第一个位置选择最小的，在剩余元素里面给第二个元素选择第二小的，依次类推，直到第n-1个元素，第n个元素不用选择了，因为只剩下它一个最大的元素了。</p>
-<p>那么，在一趟选择，如果当前元素比一个元素小，而该小的元素又出现在一个和当前元素相等的元素后面，那么交换后稳定性就被破坏了。</p>
-<p>比较拗口，举个例子，序列5 8 5 2 9， 我们知道第一遍选择第1个元素5会和2交换，那么原序列中2个5的相对前后顺序就被破坏了，所以选择排序是一个<strong>不稳定</strong>的排序算法。</p>
-<p><img src="/2021/04/14/5_selectSort/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" srcset="/img/loading.gif" lazyload></p>
+<p>由于属于选择排序，因此思想一致：分为无序的前缀<code>H</code>和有序的后缀 <code>S</code>,前者不大于后者。不断地从 <code>H</code>中选取最大的元素到 <code>S</code>中。</p>
+<p><img src="/2021/04/14/6_%E5%A0%86%E6%8E%92%E5%BA%8F/heapSort.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>交换操作只是需要常量时间，下滤操作不超过<code>O(logn)</code>，因此全部排序完成不超过<code>O(nlogn)</code>。归并排序是恒定的<code>O(nlogn)</code>复杂度，堆排序的常系数更小。加上建堆的<code>O(n)</code>时间，也不超过<code>O(nlogn)</code></p>
+<p><img src="/2021/04/14/6_%E5%A0%86%E6%8E%92%E5%BA%8F/hheapSort_code.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="6-18再次理解"><a href="#6-18再次理解" class="headerlink" title="6.18再次理解"></a>6.18再次理解</h2><p>思想：</p>
 <ol>
-<li>在未排序序列中找到最小（大）元素，存放到排序序列的起始位置</li>
-<li>从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾</li>
-<li>以此类推，直到所有元素均排序完毕</li>
+<li>先把数组转化为堆</li>
+<li>把最后一个节点与根节点交换</li>
+<li>对交换后的根节点继续进行heapify</li>
 </ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">selectsort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;<br>		<span class="hljs-keyword">int</span> len = nums.<span class="hljs-built_in">size</span>();<br>		<span class="hljs-keyword">int</span> minIndex = <span class="hljs-number">0</span>;<br>		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; len; ++i) &#123;<br>			minIndex = i;<br>			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; len; ++j) &#123;<br>				<span class="hljs-keyword">if</span> (nums[j] &lt; nums[minIndex]) minIndex = j;<br>			&#125;<br>			<span class="hljs-built_in">swap</span>(nums[i], nums[minIndex]);<br>		&#125;<br>	&#125;<br>	<span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">selectSort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; data)</span> </span>&#123;<br>		<span class="hljs-built_in">selectsort</span>(data);<br>		<span class="hljs-keyword">return</span> data;<br>	&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-<h3 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h3><p>对于链表而言，每次搜索无序序列中的最大值的时间复杂度是<code>O(n)</code>。因此对所有的节点进行排序，时间复杂度是<code>O(n^2)</code>，<strong>注意选择排序的时间复杂度恒定是</strong><code>O(n^2)</code>。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eb41147dK?from=search&seid=3993837508839965022">堆排序(heapsort)</a></p>
+<p><img src="/2021/04/14/6_%E5%A0%86%E6%8E%92%E5%BA%8F/849589-20171015231308699-356134237.gif" srcset="/img/loading.gif" lazyload></p>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">heapify</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> i)</span><span class="hljs-comment">//对有一定顺序的堆，</span></span><br><span class="hljs-function">    <span class="hljs-comment">//当前第i个结点取根左右的最大值（这个操作称heapfiy）</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">int</span> l = i * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>, r = i * <span class="hljs-number">2</span> + <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">int</span> max = i;<br>        <span class="hljs-keyword">if</span> (l &lt; n &amp;&amp; nums[l] &gt; nums[max])<br>            max = l;<br>        <span class="hljs-keyword">if</span> (r &lt; n &amp;&amp; nums[r] &gt; nums[max])<br>            max = r;<br>        <span class="hljs-keyword">if</span> (max != i)<br>        &#123;<br>            <span class="hljs-built_in">swap</span>(nums[max], nums[i]);<br>            <span class="hljs-built_in">heapify</span>(nums, n, max);<br>        &#125;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">heapify_build</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> n)</span><span class="hljs-comment">//建立大根堆，从树的倒数第二层第一个结点开始，</span></span><br><span class="hljs-function">    <span class="hljs-comment">//对每个结点进行heapify操作，然后向上走</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-keyword">int</span> last_node = n - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> parent = (last_node - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = parent; i &gt;= <span class="hljs-number">0</span>; i--)<br>            <span class="hljs-built_in">heapify</span>(nums, n, i);<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">heapify_sort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> n)</span><span class="hljs-comment">//建立大根堆之后，每次交换最后一个结点和根节点（最大值），</span></span><br><span class="hljs-function">    <span class="hljs-comment">//对交换后的根节点继续进行heapify（此时堆的最后一位是最大值，因此不用管他，n变为n-1）</span></span><br><span class="hljs-function">    </span>&#123;<br>        <span class="hljs-built_in">heapify_build</span>(nums, n);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = n - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>            <span class="hljs-built_in">swap</span>(nums[i], nums[<span class="hljs-number">0</span>]);<br>            <span class="hljs-built_in">heapify</span>(nums, i, <span class="hljs-number">0</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">heapifySort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt; nums)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-built_in">heapify_sort</span>(nums, n);<br>        <span class="hljs-keyword">return</span> nums;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
 
             </div>
             <hr>
@@ -295,9 +296,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/14/6_%E5%A0%86%E6%8E%92%E5%BA%8F/">
+                      <a href="/2021/04/15/OJ%E5%9C%A8%E7%BA%BF%E7%BC%96%E7%A8%8B%E5%B8%B8%E8%A7%81%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%BB%83%E4%B9%A0/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">堆排序</span>
+                        <span class="hidden-mobile">在线编程常见输入输出练习</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -305,8 +306,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/04/13/4_insertSort/">
-                        <span class="hidden-mobile">插入排序</span>
+                      <a href="/2021/04/14/5_selectSort/">
+                        <span class="hidden-mobile">选择排序</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
