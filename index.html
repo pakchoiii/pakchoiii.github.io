@@ -176,7 +176,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/09/02/file01/" class="post-title-link" itemprop="url">nand 校准</a>
+            <a href="/2025/09/02/file01/" class="post-title-link" itemprop="url">Nand 校准</a>
         </h2>
 
         <div class="post-meta">
@@ -185,10 +185,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-09-02 23:27:15 / 修改时间：23:40:52" itemprop="dateCreated datePublished" datetime="2025-09-02T23:27:15+08:00">2025-09-02</time>
+              <time title="创建时间：2025-09-02 23:27:15" itemprop="dateCreated datePublished" datetime="2025-09-02T23:27:15+08:00">2025-09-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-09-03 23:07:03" itemprop="dateModified" datetime="2025-09-03T23:07:03+08:00">2025-09-03</time>
+              </span>
 
           
 
@@ -234,57 +240,57 @@
 <td><strong>非常低</strong>，因为只是对当前设置进行小幅修正</td>
 </tr>
 </tbody></table>
-<p>长校准时序：<br><img src="/file01/file01_pic1.png">{width&#x3D;”3.0243055555555554in” height&#x3D;”1.6430555555555555in”}</p>
-<p>短校准时序：<br><img src="/file01/file01_pic2.png">{width&#x3D;”2.045138888888889in” height&#x3D;”1.7840277777777778in”}</p>
+<p>长校准时序：<br><img src="/2025/09/02/file01/file01_pic1.png">{width&#x3D;”3.0243055555555554in” height&#x3D;”1.6430555555555555in”}</p>
+<p>短校准时序：<br><img src="/2025/09/02/file01/file01_pic2.png">{width&#x3D;”2.045138888888889in” height&#x3D;”1.7840277777777778in”}</p>
 <p><strong>注意事项：</strong></p>
 <ol>
 <li>如果需要使用ZQ校准时，需要注意主控端应当同步进行ZQ校准。</li>
 </ol>
-<p><img src="/media/image3.png">{width&#x3D;”4.555555555555555in” height&#x3D;”1.0145833333333334in”}</p>
+<p><img src="/2025/09/02/file01/image3.png">{width&#x3D;”4.555555555555555in” height&#x3D;”1.0145833333333334in”}</p>
 <ol start="2">
 <li><p>当前流程里只考虑了在切高速的流程中加了ZQ校准流程（ZQ长校准），但是实际高速运行过程中，是否需要加入定时的ZQ短校准，可以根据实际情况提出方案。</p>
 </li>
 <li><p>如果需要使用ZQ短校准，应该需要注意时间间隔，参考如下：</p>
 </li>
 </ol>
-<p><img src="/media/image4.png">{width&#x3D;”4.886111111111111in” height&#x3D;”1.1166666666666667in”}</p>
+<p><img src="/2025/09/02/file01/image4.png">{width&#x3D;”4.886111111111111in” height&#x3D;”1.1166666666666667in”}</p>
 <ol start="4">
 <li>ZQ校准时，需要将DQ配置为High阻抗。</li>
 </ol>
 <h2 id="ZQ校准和驱动强度的关系"><a href="#ZQ校准和驱动强度的关系" class="headerlink" title="ZQ校准和驱动强度的关系"></a>ZQ校准和驱动强度的关系</h2><p><strong>驱动强度</strong>好比音响的<strong>音量旋钮</strong>，决定了输出信号的“推力”或“力度”。而<strong>ZQ校准</strong>则像一个<strong>专业的音响系统校准程序</strong>，它能根据现场环境（温度、电压）的变化，自动调整每个扬声器的音量和音色，确保无论处于音乐厅还是露天场地，播放效果都清晰精准、不失真。</p>
 <p>注意：目前nand spec在配置驱动强度和ZQ校准上没有先后顺序要求，但是现有切High Speed的流程图里，是先设置驱动强度再去配置的ZQ校准，目前切高速的流程也按照这样的顺序。</p>
-<p><img src="/media/image5.png">{width&#x3D;”6.682638888888889in” height&#x3D;”2.529861111111111in”}</p>
+<p><img src="/2025/09/02/file01/image5.png">{width&#x3D;”6.682638888888889in” height&#x3D;”2.529861111111111in”}</p>
 <h1 id="DCC-Training"><a href="#DCC-Training" class="headerlink" title="DCC Training"></a>DCC Training</h1><p>NAND Flash 中的 <strong>DCC Training</strong>（Duty Cycle Correction Training，<strong>占空比校正训练</strong>）是一项用于提升高速NAND接口数据传输可靠性的关键技术。它主要用于<strong>校准信号RE_t&#x2F;c的占空比</strong>，以提供最佳的数据采样窗口。</p>
 <p>FW可以发出以下两种时序，查询SR[0]的结果来确认当前<strong>RE_t&#x2F;c是否能够正常使用。如果SR[0] &#x3D;&#x3D; 1，需要调整占空比后，重新发起。</strong></p>
 <p><strong>该training可以理解为给没有LA和示波器的用户使用，原则上，有这些可以抓信号的仪器的话，这个可以提前配置至符合nand需求。</strong></p>
-<h2 id="DCC-Training-的两种方式"><a href="#DCC-Training-的两种方式" class="headerlink" title="DCC Training 的两种方式"></a>DCC Training 的两种方式</h2><h3 id="DCC-Training-Using-Set-Feature"><a href="#DCC-Training-Using-Set-Feature" class="headerlink" title="DCC Training Using Set Feature"></a>DCC Training Using Set Feature</h3><p><img src="/media/image6.png">{width&#x3D;”4.954861111111111in” height&#x3D;”1.0694444444444444in”}</p>
+<h2 id="DCC-Training-的两种方式"><a href="#DCC-Training-的两种方式" class="headerlink" title="DCC Training 的两种方式"></a>DCC Training 的两种方式</h2><h3 id="DCC-Training-Using-Set-Feature"><a href="#DCC-Training-Using-Set-Feature" class="headerlink" title="DCC Training Using Set Feature"></a>DCC Training Using Set Feature</h3><p><img src="/2025/09/02/file01/image6.png">{width&#x3D;”4.954861111111111in” height&#x3D;”1.0694444444444444in”}</p>
 <p>FA 20h 的P1用于配置DCC Training相关参数。具体时序如下，<strong>Data长度为Page Size</strong>：</p>
-<p><img src="/media/image7.png">{width&#x3D;”4.747222222222222in” height&#x3D;”2.8722222222222222in”}</p>
-<h3 id="DCC-Training-by-using-Command"><a href="#DCC-Training-by-using-Command" class="headerlink" title="DCC Training by using Command"></a>DCC Training by using Command</h3><p><img src="/media/image8.png">{width&#x3D;”5.684722222222222in” height&#x3D;”2.7083333333333335in”}</p>
-<p><img src="/media/image9.png">{width&#x3D;”6.0125in” height&#x3D;”2.154861111111111in”}</p>
+<p><img src="/2025/09/02/file01/image7.png">{width&#x3D;”4.747222222222222in” height&#x3D;”2.8722222222222222in”}</p>
+<h3 id="DCC-Training-by-using-Command"><a href="#DCC-Training-by-using-Command" class="headerlink" title="DCC Training by using Command"></a>DCC Training by using Command</h3><p><img src="/2025/09/02/file01/image8.png">{width&#x3D;”5.684722222222222in” height&#x3D;”2.7083333333333335in”}</p>
+<p><img src="/2025/09/02/file01/image9.png">{width&#x3D;”6.0125in” height&#x3D;”2.154861111111111in”}</p>
 <p>如上图可见，FW读取数据时，DQS的边沿并不是恰好指向DQ中间，两者可能会有一个gap（专业术语叫相位偏移Skew）。如果gap比较大，且FW没有采取任何措施的话，那么可能会造成采样出错。</p>
 <p>由于FW无法改变nand发出的时序，因此FW需要通过不断地进行read data训练，寻找一定规律，确认nand发出的DQ和DQS之间的gap大致是多少，并调整FW接收端的DQ和DQS的delay。</p>
 <p>当前常见确认delay的方法是：找到左右边界然后取中间值。</p>
 <h2 id="Read-DQ-Training-62H"><a href="#Read-DQ-Training-62H" class="headerlink" title="Read DQ Training 62H"></a>Read DQ Training 62H</h2><p>Read DQ Training是Nand厂家提供用于进行Read Training的一个方法。相关时序如下：</p>
-<p><img src="/media/image10.png">{width&#x3D;”5.279861111111111in” height&#x3D;”1.9784722222222222in”}</p>
+<p><img src="/2025/09/02/file01/image10.png">{width&#x3D;”5.279861111111111in” height&#x3D;”1.9784722222222222in”}</p>
 <p>Nand反馈的数据是一个相对固定的值，具体数据由发出去的ADDR决定（Inverse Set&#x2F;1st Pattern&#x2F;2nd Pattern）。</p>
 <p>以下为官方提供的一个Inverse Set &#x3D; 0x35; 1st pattern &#x3D; 0x5A；2nd pattern &#x3D; 0x82时，FW发送62h nand吐出的数据内容：</p>
-<p><img src="/media/image11.png">{width&#x3D;”6.509027777777778in” height&#x3D;”4.3381944444444445in”}</p>
+<p><img src="/2025/09/02/file01/image11.png">{width&#x3D;”6.509027777777778in” height&#x3D;”4.3381944444444445in”}</p>
 <p>需要注意的是，Nand吐出16Byte还是32byte的数据，可以通过set feature FA 20h P3来决定。</p>
-<p><img src="/media/image12.png">{width&#x3D;”5.759027777777778in” height&#x3D;”2.2284722222222224in”}</p>
-<p><img src="/media/image13.png">{width&#x3D;”6.254861111111111in” height&#x3D;”0.7555555555555555in”}</p>
+<p><img src="/2025/09/02/file01/image12.png">{width&#x3D;”5.759027777777778in” height&#x3D;”2.2284722222222224in”}</p>
+<p><img src="/2025/09/02/file01/image13.png">{width&#x3D;”6.254861111111111in” height&#x3D;”0.7555555555555555in”}</p>
 <h2 id="Internal-VrefQ-Training（DDR4-Only）"><a href="#Internal-VrefQ-Training（DDR4-Only）" class="headerlink" title="Internal VrefQ Training（DDR4 Only）"></a>Internal VrefQ Training（DDR4 Only）</h2><p>在NV-LPDDR4模式下，NAND内部VREFQ校准是提升高速信号完整性的必要条件。通过写入DQ训练中的连续读写操作配合内部VREFQ校准，可实现对VREFQ的精准校准。</p>
-<p><img src="/media/image14.png">{width&#x3D;”4.690972222222222in” height&#x3D;”2.8993055555555554in”}</p>
+<p><img src="/2025/09/02/file01/image14.png">{width&#x3D;”4.690972222222222in” height&#x3D;”2.8993055555555554in”}</p>
 <p>Internal VrefQ Training是通过遍历设定值，找左右边界取中间得到一个比较合适的Vref。当前Internal VrefQ Training需要通过Write Training配合进行，因此具体操作可参考下一个章节的Write Training。</p>
 <h1 id="Write-Training"><a href="#Write-Training" class="headerlink" title="Write Training"></a>Write Training</h1><h2 id="为什么需要Write-Training"><a href="#为什么需要Write-Training" class="headerlink" title="为什么需要Write Training"></a>为什么需要Write Training</h2><p>Write Training与Read Training一样，DQS与DQ存在Gap。与之不同的是，Write Training是为了纠正主控发送给nand端的DQS与DQ之间的Gap。相关原理方面细节可参考Read Training。</p>
 <h2 id="Write-DQ-Training"><a href="#Write-DQ-Training" class="headerlink" title="Write DQ Training"></a>Write DQ Training</h2><p>Write DQ Training为Nand提供给FW进行Write training的接口，参考时序如下：</p>
-<p><img src="/media/image15.png">{width&#x3D;”5.340972222222222in” height&#x3D;”1.7131944444444445in”}</p>
+<p><img src="/2025/09/02/file01/image15.png">{width&#x3D;”5.340972222222222in” height&#x3D;”1.7131944444444445in”}</p>
 <ul>
 <li>63H CMD用于Host发送数据给Nand。</li>
 <li>64H CMD用于Host读取写入到Nand的数据。</li>
 </ul>
 <p>Write Training Data size可以通过20h P3进行配置：</p>
-<p><img src="/media/image16.png">{width&#x3D;”6.705555555555556in” height&#x3D;”2.7222222222222223in”}</p>
+<p><img src="/2025/09/02/file01/image16.png">{width&#x3D;”6.705555555555556in” height&#x3D;”2.7222222222222223in”}</p>
 <p>FW是通过读取写入的数据是否与预期一致来判断Write DQ training是否通过。</p>
 
       
