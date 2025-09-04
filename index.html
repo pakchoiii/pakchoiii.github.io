@@ -193,7 +193,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-04 23:34:58" itemprop="dateModified" datetime="2025-09-04T23:34:58+08:00">2025-09-04</time>
+                <time title="修改时间：2025-09-04 23:42:02" itemprop="dateModified" datetime="2025-09-04T23:42:02+08:00">2025-09-04</time>
               </span>
 
           
@@ -268,8 +268,7 @@
 <p>FA 20h 的P1用于配置DCC Training相关参数。具体时序如下，<strong>Data长度为Page Size</strong>：</p>
 <p><img src="/2025/09/02/file01/file01_pic6.png"></p>
 <h4 id="DCC-Training-by-using-Command"><a href="#DCC-Training-by-using-Command" class="headerlink" title="DCC Training by using Command"></a>DCC Training by using Command</h4><p><img src="/2025/09/02/file01/file01_pic8.png"></p>
-<h2 id="Read-DQ-Training"><a href="#Read-DQ-Training" class="headerlink" title="Read DQ Training"></a>Read DQ Training</h2><p>Read&#x2F;Write Training 的核心目的是通过校准<strong>DQ（数据）与 DQS（数据选通）的时序偏移</strong>、NAND &#x2F; 主机的内部参考电压（VrefQ），确保高速读写时数据采样准确，仅适用于 NV-DDR3 和 NV-LPDDR4 接口。</p>
-<p>如上图可见，FW读取数据时，DQS的边沿并不是恰好指向DQ中间，两者可能会有一个gap（专业术语叫相位偏移）。如果gap比较大，且FW没有采取任何措施的话，那么可能会造成采样出错。</p>
+<h2 id="Read-DQ-Training"><a href="#Read-DQ-Training" class="headerlink" title="Read DQ Training"></a>Read DQ Training</h2><p>Read&#x2F;Write Training 的核心目的是通过校准<strong>DQ（数据）与 DQS（数据选通）的时序偏移</strong>、NAND &#x2F; 主机的内部参考电压（VrefQ），确保高速读写时数据采样准确，仅适用于 NV-DDR3 和 NV-LPDDR4 接口。<br><img src="/2025/09/02/file01/file01_pic9.png"><br>如上图可见，FW读取数据时，DQS的边沿并不是恰好指向DQ中间，两者可能会有一个gap（专业术语叫相位偏移）。如果gap比较大，且FW没有采取任何措施的话，那么可能会造成采样出错。</p>
 <p>由于FW无法改变Nand发出的时序，因此FW需要通过不断地进行read data训练，寻找一定规律，确认Nand发出的DQ和DQS之间的gap大致是多少，并调整FW接收端的DQ和DQS的delay。</p>
 <p>当前常见确认delay的方法是：找到左右边界然后取中间值。</p>
 <p>Read DQ Training是Nand厂家提供用于进行Read Training的一个方法。相关时序如下：</p>
