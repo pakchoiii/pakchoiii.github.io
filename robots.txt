@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://edison007.top/sitemap.xml
+Sitemap: https://edison007.top/baidusitemap.xml
