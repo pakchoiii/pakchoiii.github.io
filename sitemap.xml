@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.edison007.top/posts/75b652e1.html</loc>
+    
+    <lastmod>2025-09-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.edison007.top/posts/44fc021b.html</loc>
     
-    <lastmod>2025-09-10</lastmod>
+    <lastmod>2025-09-11</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -40,7 +49,7 @@
 
   <url>
     <loc>https://www.edison007.top/</loc>
-    <lastmod>2025-09-10</lastmod>
+    <lastmod>2025-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -48,21 +57,28 @@
   
   <url>
     <loc>https://www.edison007.top/tags/ZQ/</loc>
-    <lastmod>2025-09-10</lastmod>
+    <lastmod>2025-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.edison007.top/tags/DCC-Training/</loc>
-    <lastmod>2025-09-10</lastmod>
+    <lastmod>2025-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.edison007.top/tags/DQ-Training/</loc>
-    <lastmod>2025-09-10</lastmod>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/Vth/</loc>
+    <lastmod>2025-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -70,8 +86,8 @@
 
   
   <url>
-    <loc>https://www.edison007.top/categories/Nand-Feature/</loc>
-    <lastmod>2025-09-10</lastmod>
+    <loc>https://www.edison007.top/categories/Nand-Flash/</loc>
+    <lastmod>2025-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
