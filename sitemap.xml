@@ -56,13 +56,6 @@
 
   
   <url>
-    <loc>https://www.edison007.top/tags/Vth/</loc>
-    <lastmod>2025-09-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.edison007.top/tags/ZQ/</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -78,6 +71,13 @@
   
   <url>
     <loc>https://www.edison007.top/tags/DQ-Training/</loc>
+    <lastmod>2025-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/Vth/</loc>
     <lastmod>2025-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
