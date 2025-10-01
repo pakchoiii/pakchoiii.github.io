@@ -178,6 +178,12 @@ template {
 [hidden] {
   display: none
 }
+
+#article-container h1:before {
+  font-family: "iconfont";
+  content: "<Custom>"; /*阿里图标的Unicode*/
+}
+
 .limit-one-line,
 .container .flink .flink-item-name,
 .container .flink .flink-item-desc,
