@@ -97,10 +97,10 @@
       if (!more) return Math.floor(diffDay)
 
       if (diffMonth > 12) return datePost.toISOString().slice(0, 10)
-      if (diffMonth >= 1) return `${Math.floor(diffMonth)}`
-      if (diffDay >= 1) return `${Math.floor(diffDay)}`
-      if (diffHour >= 1) return `${Math.floor(diffHour)}`
-      if (diffMin >= 1) return `${Math.floor(diffMin)}`
+      if (diffMonth >= 1) return `${dateSuffix.month}`
+      if (diffDay >= 1) return `${dateSuffix.day}`
+      if (diffHour >= 1) return `${dateSuffix.hour}`
+      if (diffMin >= 1) return `${dateSuffix.min}`
       return dateSuffix.just
     },
 
