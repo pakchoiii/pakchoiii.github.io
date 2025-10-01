@@ -181,7 +181,7 @@ template {
 
 #article-container h1:before {
   font-family: "iconfont";
-  content: "<Custom>"; /*阿里图标的Unicode*/
+  content: "fa-hand-o-right"; /*阿里图标的Unicode*/
 }
 
 .limit-one-line,
