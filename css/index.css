@@ -180,7 +180,7 @@ template {
 }
 
 #article-container h1:before {
-  content: "fa-hand-o-right"; /*阿里图标的Unicode*/
+  content: "<Custom>";
 }
 
 .limit-one-line,
