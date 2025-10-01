@@ -180,7 +180,8 @@ template {
 }
 
 #article-container h1:before {
-  content: "'\f06c'";
+  content: "★ "; /* Adds a star before the heading */
+  color: #ff9900; /* Sets the color of the star */
 }
 
 .limit-one-line,
