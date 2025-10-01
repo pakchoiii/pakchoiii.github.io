@@ -181,7 +181,7 @@ template {
 
 #article-container h1:before {
   content: "★ "; /* Adds a star before the heading */
-  color: #ff9900; /* Sets the color of the star */
+  color: #2066d7; /* Sets the color of the star */
 }
 
 .limit-one-line,
