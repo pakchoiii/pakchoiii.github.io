@@ -96,11 +96,12 @@
 
       if (!more) return Math.floor(diffDay)
 
+      // 只使用一种语言的后缀（根据你的需求保留中文或英文）
       if (diffMonth > 12) return datePost.toISOString().slice(0, 10)
-      if (diffMonth >= 1) return `${dateSuffix.month}`
-      if (diffDay >= 1) return `${dateSuffix.day}`
-      if (diffHour >= 1) return `${dateSuffix.hour}`
-      if (diffMin >= 1) return `${dateSuffix.min}`
+      if (diffMonth >= 1) return `${Math.floor(diffMonth)} ${dateSuffix.month}` // 保留一种语言（如"月"或"month"）
+      if (diffDay >= 1) return `${Math.floor(diffDay)} ${dateSuffix.day}`     // 保留一种语言（如"天"或"day"）
+      if (diffHour >= 1) return `${Math.floor(diffHour)} ${dateSuffix.hour}` // 保留一种语言（如"小时"或"hour"）
+      if (diffMin >= 1) return `${Math.floor(diffMin)} ${dateSuffix.min}`    // 保留一种语言（如"分钟"或"min"）
       return dateSuffix.just
     },
 
