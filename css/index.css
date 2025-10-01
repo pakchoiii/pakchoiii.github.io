@@ -180,7 +180,7 @@ template {
 }
 
 #article-container h1:before {
-  content: "\f06c";
+  content: "'\f06c'";
 }
 
 .limit-one-line,
