@@ -180,7 +180,6 @@ template {
 }
 
 #article-container h1:before {
-  font-family: "iconfont";
   content: "fa-hand-o-right"; /*阿里图标的Unicode*/
 }
 
