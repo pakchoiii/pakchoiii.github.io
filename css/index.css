@@ -4271,6 +4271,11 @@ figure.highlight pre .javascript .function {
 #page-header.full_page {
   height: 550px;
 }
+@media screen and (max-width: 768px) {
+  #page-header.full_page {
+    height: 280px;
+  }
+}
 #page-header.full_page #site-info {
   position: absolute;
   top: 43%;
@@ -4351,11 +4356,11 @@ figure.highlight pre .javascript .function {
   }
 }
 #page-header.post-bg {
-  height: 400px;
+  height: 550px;
 }
 @media screen and (max-width: 768px) {
   #page-header.post-bg {
-    height: 360px;
+    height: 280px;
   }
 }
 #page-header #post-info {
