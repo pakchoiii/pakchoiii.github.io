@@ -180,8 +180,7 @@ template {
 }
 
 #article-container h1:before {
-  content: "★ "; /* Adds a star before the heading */
-  color: #2066d7; /* Sets the color of the star */
+  /* star removed - using beautify title_prefix_icon instead */
 }
 
 .limit-one-line,
@@ -5003,7 +5002,7 @@ figure.highlight pre .javascript .function {
   position: absolute;
   top: calc(50% - 7px);
   left: 0;
-  color: #49b1f5;
+  color: #f47466;
   content: '\f863';
   line-height: 1;
   -webkit-transition: all 0.2s ease-out;

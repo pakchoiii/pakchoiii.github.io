@@ -160,6 +160,7 @@
   isToc: true,
   pageType: 'post'
 }</script><style>
+  /* 文章标题前风车图标旋转动画 */
   #post h1::before,
   #post h2::before,
   #post h3::before,
@@ -167,16 +168,21 @@
   #post h5::before,
   #post h6::before {
     display: inline-block;
-    animation: fan-spin 2s linear infinite;
+    animation: fan-spin 0.8s linear infinite; /* 0.8秒一圈，匀速无限旋转 */
+    transition: color 0.3s; /* 颜色过渡动画 */
   }
   @keyframes fan-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
+  /* 鼠标悬停时风车变为蓝色 */
   #post h1:hover::before,
   #post h2:hover::before,
-  #post h3:hover::before {
-    animation-duration: 0.5s;
+  #post h3:hover::before,
+  #post h4:hover::before,
+  #post h5:hover::before,
+  #post h6:hover::before {
+    color: #49B1F5 !important;
   }
 </style>
 <meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/page/Read%20Level.jpeg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">咕噜元</span></a><a class="nav-page-title" href="/"><span class="site-name">Read Level 介绍</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Read Level 介绍</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-16T16:00:00.000Z" title="发表于 2025-09-17 00:00:00">2025-09-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-11T12:31:33.736Z" title="更新于 2026-06-11 20:31:33">2026-06-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Nand-Flash/">Nand Flash</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1134</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Vth-基本原理"><a href="#Vth-基本原理" class="headerlink" title="Vth 基本原理"></a>Vth 基本原理</h1><p><img src="/7712b7f/02.png"><br>上图是 NAND Flash 最基本的存储单元，称为一个 Cell。每个 Cell 由一个 FGMOS（浮栅型金属-氧化物-半导体场效应晶体管，即 Floating-gate MOSFET）构成 —— 相比普通 MOSFET，它额外增加了一层 “浮栅（Floating Gate）” 结构。</p>
