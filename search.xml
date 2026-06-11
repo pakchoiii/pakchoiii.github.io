@@ -1,6 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Nand Training</title>
+    <url>/44fc021b.html</url>
+    <content><![CDATA[Nand Training Feature
+NAND 设备在超过 800MT&#x2F;s 的重载系统中应支持本章节所述的 Training 功能。
+Nand Training Type
+ZQ Calibration
+DCC Training
+Read DQ Training
+Write DQ Training
+WDCA(Option)
+Internal VrefQ
+
+
+
+ZQ CalibrationZQ Calibration 介绍ZQ Calibration 是一种电子调整过程，用于精确设定芯片 I&#x2F;O 接口的电阻值，确保高速数据传输中信号的清晰与稳定。其原理类似于调音师用标准音叉校准乐器 —— ZQ Calibration 以一个外部精密参考电阻为基准，校准芯片内部电路的阻抗，使芯片在各种环境变化下都能保持最佳性能。
+作为一个动态、持续的过程，内存控制器会在初始化、退出低功耗状态或定期发起 ZQ Calibration 命令，让内存芯片根据实时温度和电压重新校准，确保从轻载到重载的全工况下均处于最佳状态。
+核心功能：
+
+动态阻抗匹配
+补偿环境温度
+提升系统稳定性
+支持高频与高带宽
+降低功耗
+自动化与兼容性
+
+Nand端 ZQ Calibration
+对于超过400MT&#x2F;s速度的NV-DDR3接口，ZQ校准是可选的，但推荐使用。
+对于NV-LPDDR4接口，无论数据速率如何，都需要进行ZQ校准。
+
+ZQ Calibration分为长校准和短校准。
+两者区别如下：
+
+
+
+特性
+长校准
+短校准
+
+
+
+主要目的
+全面、精确的校准，建立初始基准或应对重大环境变化
+快速、局部的微调，跟踪和补偿微小的漂移
+
+
+触发时机
+1. 上电初始化（Power-On）2. 退出自刷新模式（Exit Self-Refresh）3. 温度发生剧烈变化后（由传感器检测）4. 可能由软件手动触发
+在正常激活状态（Active状态） 下，由内存控制器定期发起
+
+
+校准时长
+较长 tZQCL（通常是时钟周期的数百倍，可以通过看RB拉低时间）
+非常短 tZQCS（通常比长校准短一个数量级）
+
+
+功耗影响
+相对较高，因为需要启动完整的校准电路并持续较长时间
+非常低，因为只是对当前设置进行小幅修正
+
+
+注意事项：
+
+tZQCL 或 tZQCS 期间，控制器不得对 NAND 通道（数据总线）执行任何操作，包括读取状态。
+使用 ZQ 校准时，主控端应同步进行 ZQ 校准。
+当前大多数切高速流程已加入 ZQ 长校准，但在实际高速运行中是否需要加入定时 ZQ 短校准，可根据实际情况评估（一般不考虑）。
+若使用 ZQ 短校准，需注意校准时间间隔。
+ZQ 校准时，需将 DQ 配置为高阻态（High-Z）。
+
+ZQ Calibration和驱动强度的关系驱动强度好比音响的音量旋钮，决定了输出信号的驱动能力。而 ZQ 校准则如同专业音响校准程序，能根据现场环境（温度、电压）的变化自动调整，确保无论何种工况下，信号都保持清晰精准。
+注意：当前 DataSheet 对驱动强度和 ZQ 校准的配置顺序没有明确要求，但在高速流程中通常是先设置驱动强度再进行 ZQ 校准。
+
+DCC TrainingDCC Training（Duty Cycle Correction Training，占空比校正训练）是提升高速 NAND 接口数据传输可靠性的关键技术，主要用于校准 RE_t&#x2F;c 信号的占空比，以提供最佳数据采样窗口。
+FW 可发出以下两种时序，通过查询 SR[0] 确认当前 RE_t&#x2F;c 是否正常。若 SR[0] &#x3D;&#x3D; 1，需调整占空比后重新发起。
+DCC Training 的两种方式DCC Training Using Set Feature
+
+
+开始 DCC Training 前，Set Feature 20h P1[0] 置 1，使能 DCCE_EN。
+发起 Random Out 时序，无需处理返回数据。NAND 在 RE Toggle 阶段内部对 RE 时钟进行校准。
+通过 Read Status 命令检查 SR[0]。若 Fail，主控需调整 REDCC 相关配置，重新发起 Random Out 校准。
+完成 DCC Training 后，需将 DCCE_EN 关闭（Disable）。
+
+DCC Training by using Command
+
+18h 后读取的长度为完整的 Page Size。
+无需处理返回的数据。
+通过 Read Status 命令检查 SR[0]。若 Fail，NAND 先发起 Reset（FFh），完成后主控再调整 REDCC 相关配置，重新进行校准。
+
+DQ TrainingRead&#x2F;Write Training 的核心目的是通过校准 DQ（数据）与 DQS（数据选通）的时序偏移以及 NAND &#x2F; 主机的内部参考电压（VrefQ），确保高速读写时数据采样准确。此功能仅适用于 NV-DDR3 和 NV-LPDDR4 接口。
+
+如上图所示，FW 读取数据时，DQS 的边沿并不恰好对齐 DQ 的中心，两者之间存在相位偏移（Skew）。若偏移较大且未采取补偿措施，则可能导致采样出错。由于 FW 无法改变 NAND 发出的时序，因此需要通过反复进行 Read Data 训练来确认 DQ 与 DQS 之间的偏移量，并据此调整 FW 接收端 DQ 和 DQS 的 Delay。目前常见的 Delay 确认方法是：找到左右边界后取中间值。
+Read DQ TrainingRead DQ Training 使 NAND 输出 16Byte（部分厂商可达 32Byte）用户自定义 Pattern 的 DQ 数据。主控侧通过调节 RDQ 与 RDQS 的相位&#x2F;延迟，确保能正确读取 NAND 侧的数据。
+相关时序如下：
+
+NAND 返回的数据为固定值，具体数据由发出的 ADDR 决定（Inverse Set &#x2F; 1st Pattern &#x2F; 2nd Pattern）。以下为官方示例：Inverse Set &#x3D; 0x35, 1st Pattern &#x3D; 0x5A, 2nd Pattern &#x3D; 0x82 时，FW 发送 62h 后 NAND 返回的数据内容：
+
+注意：NAND 输出 16Byte 还是 32Byte 的数据，可通过 Set Feature FA 20h P3 配置（部分介质固定）。
+
+Write DQ TrainingWrite DQ Training 同样面临 DQS 与 DQ 之间的偏移问题，但方向相反 —— Write Training 用于纠正主控发送给 NAND 端的 DQS 与 DQ 之间的偏移。Write DQ Training 通过 NAND 的”写入 + 读取”来验证数据正确性，主控侧通过调节 WDQ 与 WDQS 的相位&#x2F;延迟，确保数据写入成功。
+参考时序如下：
+
+
+63h：Host 发送数据给 NAND。
+64h：Host 读取写入到 NAND 的数据。
+
+Write Training Data Size 由 NAND 预先定义，可通过 Get Feature Addr 20h P3[3:0] 获取。
+
+FW 通过比对读回的数据与预期数据是否一致来判断 Write DQ Training 是否通过。
+Internal VrefQ Training（DDR4 Only）在 NV-LPDDR4 模式下，NAND Internal VrefQ Calibration 是提升高速信号完整性的必要条件。通过 Write DQ Training 中的连续读写操作配合内部 VrefQ 校准，可实现精准的 VrefQ 校准。
+
+
+Internal VrefQ Training 通过遍历设定值、找左右边界取中间值来获得最佳 Vref 值。
+Internal VrefQ Training 需要配合 Write Training 进行，以找到最佳 Vref 配置。
+]]></content>
+      <categories>
+        <category>Nand Flash</category>
+      </categories>
+      <tags>
+        <tag>ZQ</tag>
+        <tag>DCC Training</tag>
+        <tag>DQ Training</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nand Vth 阈值分布</title>
     <url>/75b652e1.html</url>
     <content><![CDATA[Vth 分布SLC（Single-Level Cell，单层单元）存储架构中，单个存储单元（Cell）仅能存储 1bit 数据，因此仅需两种工作状态即可实现数据表征 —— 分别为 “擦除态（Erased）” 与 “编程态（Programmed）”。
@@ -166,129 +289,6 @@ QLC
       </categories>
       <tags>
         <tag>Vth</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Nand Training</title>
-    <url>/44fc021b.html</url>
-    <content><![CDATA[Nand Training Feature
-NAND 设备在超过 800MT&#x2F;s 的重载系统中应支持本章节所述的 Training 功能。
-Nand Training Type
-ZQ Calibration
-DCC Training
-Read DQ Training
-Write DQ Training
-WDCA(Option)
-Internal VrefQ
-
-
-
-ZQ CalibrationZQ Calibration 介绍ZQ Calibration 是一种电子调整过程，用于精确设定芯片 I&#x2F;O 接口的电阻值，确保高速数据传输中信号的清晰与稳定。其原理类似于调音师用标准音叉校准乐器 —— ZQ Calibration 以一个外部精密参考电阻为基准，校准芯片内部电路的阻抗，使芯片在各种环境变化下都能保持最佳性能。
-作为一个动态、持续的过程，内存控制器会在初始化、退出低功耗状态或定期发起 ZQ Calibration 命令，让内存芯片根据实时温度和电压重新校准，确保从轻载到重载的全工况下均处于最佳状态。
-核心功能：
-
-动态阻抗匹配
-补偿环境温度
-提升系统稳定性
-支持高频与高带宽
-降低功耗
-自动化与兼容性
-
-Nand端 ZQ Calibration
-对于超过400MT&#x2F;s速度的NV-DDR3接口，ZQ校准是可选的，但推荐使用。
-对于NV-LPDDR4接口，无论数据速率如何，都需要进行ZQ校准。
-
-ZQ Calibration分为长校准和短校准。
-两者区别如下：
-
-
-
-特性
-长校准
-短校准
-
-
-
-主要目的
-全面、精确的校准，建立初始基准或应对重大环境变化
-快速、局部的微调，跟踪和补偿微小的漂移
-
-
-触发时机
-1. 上电初始化（Power-On）2. 退出自刷新模式（Exit Self-Refresh）3. 温度发生剧烈变化后（由传感器检测）4. 可能由软件手动触发
-在正常激活状态（Active状态） 下，由内存控制器定期发起
-
-
-校准时长
-较长 tZQCL（通常是时钟周期的数百倍，可以通过看RB拉低时间）
-非常短 tZQCS（通常比长校准短一个数量级）
-
-
-功耗影响
-相对较高，因为需要启动完整的校准电路并持续较长时间
-非常低，因为只是对当前设置进行小幅修正
-
-
-注意事项：
-
-tZQCL 或 tZQCS 期间，控制器不得对 NAND 通道（数据总线）执行任何操作，包括读取状态。
-使用 ZQ 校准时，主控端应同步进行 ZQ 校准。
-当前大多数切高速流程已加入 ZQ 长校准，但在实际高速运行中是否需要加入定时 ZQ 短校准，可根据实际情况评估（一般不考虑）。
-若使用 ZQ 短校准，需注意校准时间间隔。
-ZQ 校准时，需将 DQ 配置为高阻态（High-Z）。
-
-ZQ Calibration和驱动强度的关系驱动强度好比音响的音量旋钮，决定了输出信号的驱动能力。而 ZQ 校准则如同专业音响校准程序，能根据现场环境（温度、电压）的变化自动调整，确保无论何种工况下，信号都保持清晰精准。
-注意：当前 DataSheet 对驱动强度和 ZQ 校准的配置顺序没有明确要求，但在高速流程中通常是先设置驱动强度再进行 ZQ 校准。
-
-DCC TrainingDCC Training（Duty Cycle Correction Training，占空比校正训练）是提升高速 NAND 接口数据传输可靠性的关键技术，主要用于校准 RE_t&#x2F;c 信号的占空比，以提供最佳数据采样窗口。
-FW 可发出以下两种时序，通过查询 SR[0] 确认当前 RE_t&#x2F;c 是否正常。若 SR[0] &#x3D;&#x3D; 1，需调整占空比后重新发起。
-DCC Training 的两种方式DCC Training Using Set Feature
-
-
-开始 DCC Training 前，Set Feature 20h P1[0] 置 1，使能 DCCE_EN。
-发起 Random Out 时序，无需处理返回数据。NAND 在 RE Toggle 阶段内部对 RE 时钟进行校准。
-通过 Read Status 命令检查 SR[0]。若 Fail，主控需调整 REDCC 相关配置，重新发起 Random Out 校准。
-完成 DCC Training 后，需将 DCCE_EN 关闭（Disable）。
-
-DCC Training by using Command
-
-18h 后读取的长度为完整的 Page Size。
-无需处理返回的数据。
-通过 Read Status 命令检查 SR[0]。若 Fail，NAND 先发起 Reset（FFh），完成后主控再调整 REDCC 相关配置，重新进行校准。
-
-DQ TrainingRead&#x2F;Write Training 的核心目的是通过校准 DQ（数据）与 DQS（数据选通）的时序偏移以及 NAND &#x2F; 主机的内部参考电压（VrefQ），确保高速读写时数据采样准确。此功能仅适用于 NV-DDR3 和 NV-LPDDR4 接口。
-
-如上图所示，FW 读取数据时，DQS 的边沿并不恰好对齐 DQ 的中心，两者之间存在相位偏移（Skew）。若偏移较大且未采取补偿措施，则可能导致采样出错。由于 FW 无法改变 NAND 发出的时序，因此需要通过反复进行 Read Data 训练来确认 DQ 与 DQS 之间的偏移量，并据此调整 FW 接收端 DQ 和 DQS 的 Delay。目前常见的 Delay 确认方法是：找到左右边界后取中间值。
-Read DQ TrainingRead DQ Training 使 NAND 输出 16Byte（部分厂商可达 32Byte）用户自定义 Pattern 的 DQ 数据。主控侧通过调节 RDQ 与 RDQS 的相位&#x2F;延迟，确保能正确读取 NAND 侧的数据。
-相关时序如下：
-
-NAND 返回的数据为固定值，具体数据由发出的 ADDR 决定（Inverse Set &#x2F; 1st Pattern &#x2F; 2nd Pattern）。以下为官方示例：Inverse Set &#x3D; 0x35, 1st Pattern &#x3D; 0x5A, 2nd Pattern &#x3D; 0x82 时，FW 发送 62h 后 NAND 返回的数据内容：
-
-注意：NAND 输出 16Byte 还是 32Byte 的数据，可通过 Set Feature FA 20h P3 配置（部分介质固定）。
-
-Write DQ TrainingWrite DQ Training 同样面临 DQS 与 DQ 之间的偏移问题，但方向相反 —— Write Training 用于纠正主控发送给 NAND 端的 DQS 与 DQ 之间的偏移。Write DQ Training 通过 NAND 的”写入 + 读取”来验证数据正确性，主控侧通过调节 WDQ 与 WDQS 的相位&#x2F;延迟，确保数据写入成功。
-参考时序如下：
-
-
-63h：Host 发送数据给 NAND。
-64h：Host 读取写入到 NAND 的数据。
-
-Write Training Data Size 由 NAND 预先定义，可通过 Get Feature Addr 20h P3[3:0] 获取。
-
-FW 通过比对读回的数据与预期数据是否一致来判断 Write DQ Training 是否通过。
-Internal VrefQ Training（DDR4 Only）在 NV-LPDDR4 模式下，NAND Internal VrefQ Calibration 是提升高速信号完整性的必要条件。通过 Write DQ Training 中的连续读写操作配合内部 VrefQ 校准，可实现精准的 VrefQ 校准。
-
-
-Internal VrefQ Training 通过遍历设定值、找左右边界取中间值来获得最佳 Vref 值。
-Internal VrefQ Training 需要配合 Write Training 进行，以找到最佳 Vref 配置。
-]]></content>
-      <categories>
-        <category>Nand Flash</category>
-      </categories>
-      <tags>
-        <tag>ZQ</tag>
-        <tag>DCC Training</tag>
-        <tag>DQ Training</tag>
       </tags>
   </entry>
 </search>
