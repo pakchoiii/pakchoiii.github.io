@@ -4261,7 +4261,6 @@ figure.highlight pre .javascript .function {
 }
 #page-header.full_page {
   height: 550px;
-  background-attachment: fixed;
 }
 #page-header.full_page #site-info {
   position: absolute;
@@ -4325,7 +4324,6 @@ figure.highlight pre .javascript .function {
 }
 #page-header.not-home-page {
   height: 550px;
-  background-attachment: fixed;
 }
 @media screen and (max-width: 768px) {
   #page-header.not-home-page {
