@@ -372,7 +372,22 @@ MLC 读取实例以 MLC 为例，需要 3 个 Read Level（假设为 RL1&#x3D;1V
   <entry>
     <title>Nand 物理概念介绍</title>
     <url>/1635c003.html</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[NAND Flash：我们身边的“数据仓库”● 什么是NAND Flash？它是一种非易失性存储介质，就像一个不需要插电也能保存文件的“保险柜”，即使断电，数据也不会丢失。
+● 无处不在的身影U盘、SD卡、固态硬盘(SSD)、手机存储，从消费电子到工业设备，它几乎无处不在。
+● 为什么选择它？速度快、体积小、功耗低、抗震性强，彻底改变了我们存储和使用数据的方式。
+数据的最小容器：浮栅晶体管 (Floating-gate MOSFET)
+  
+  普通场效应管 (MOSFET)
+
+
+● 结构：单一控制栅极，如同普通的门● 功能：仅控制电流通断，类似物理开关● 特点：易失性，断电&#x2F;撤去电压即恢复初始状态
+
+  
+  浮栅晶体管 (NAND核心单元)
+
+
+● 结构：控制栅极 + 悬浮”浮栅”结构● 功能：通断控制 + 捕获电子并长期保存● 特点：非易失性，电子一旦被”陷阱”捕获很难逃逸
+]]></content>
       <categories>
         <category>Nand Flash</category>
       </categories>
