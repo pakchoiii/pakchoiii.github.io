@@ -1,15 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Read Level 介绍 | 咕噜元</title><meta name="author" content="咕噜元"><meta name="copyright" content="咕噜元"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Vth 基本原理上图是 NAND Flash 最基本的存储单元，称为一个 Cell。每个 Cell 由一个 FGMOS（浮栅型金属-氧化物-半导体场效应晶体管，即 Floating-gate MOSFET）构成 —— 相比普通 MOSFET，它额外增加了一层 “浮栅（Floating Gate）” 结构。 MOSFET 可理解为一个可控电阻：当在栅极（Gate）与源极（Source）之间施加电压">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Read Level 介绍 | 咕噜元</title><meta name="author" content="咕噜元"><meta name="copyright" content="咕噜元"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Cell 物理结构：FGMOSNAND Flash 最基本的存储单元称为一个 Cell，每个 Cell 由一颗 FGMOS（浮栅型金属-氧化物-半导体场效应晶体管，Floating-gate MOSFET）构成。  相比普通 MOSFET，FGMOS 多了一层关键的 浮栅（Floating Gate）——它被上下两层氧化层包裹，形成一个物理上隔离的电子陷阱，可以长期束缚存储的电子。 Vth：Cel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Read Level 介绍">
 <meta property="og:url" content="https://www.edison007.top/7712b7f.html">
 <meta property="og:site_name" content="咕噜元">
-<meta property="og:description" content="Vth 基本原理上图是 NAND Flash 最基本的存储单元，称为一个 Cell。每个 Cell 由一个 FGMOS（浮栅型金属-氧化物-半导体场效应晶体管，即 Floating-gate MOSFET）构成 —— 相比普通 MOSFET，它额外增加了一层 “浮栅（Floating Gate）” 结构。 MOSFET 可理解为一个可控电阻：当在栅极（Gate）与源极（Source）之间施加电压">
+<meta property="og:description" content="Cell 物理结构：FGMOSNAND Flash 最基本的存储单元称为一个 Cell，每个 Cell 由一颗 FGMOS（浮栅型金属-氧化物-半导体场效应晶体管，Floating-gate MOSFET）构成。  相比普通 MOSFET，FGMOS 多了一层关键的 浮栅（Floating Gate）——它被上下两层氧化层包裹，形成一个物理上隔离的电子陷阱，可以长期束缚存储的电子。 Vth：Cel">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.edison007.top/img/page/003%20Read%20Level.webp">
 <meta property="article:published_time" content="2025-09-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-06-12T03:11:06.599Z">
+<meta property="article:modified_time" content="2026-06-12T03:53:42.799Z">
 <meta property="article:author" content="咕噜元">
 <meta property="article:tag" content="Vth">
+<meta property="article:tag" content="浮栅">
+<meta property="article:tag" content="Read Level">
+<meta property="article:tag" content="隧穿效应">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.edison007.top/img/page/003%20Read%20Level.webp"><script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -18,7 +21,7 @@
   "url": "https://www.edison007.top/7712b7f.html",
   "image": "https://www.edison007.top/img/page/003%20Read%20Level.webp",
   "datePublished": "2025-09-16T16:00:00.000Z",
-  "dateModified": "2026-06-12T03:11:06.599Z",
+  "dateModified": "2026-06-12T03:53:42.799Z",
   "author": [
     {
       "@type": "Person",
@@ -119,7 +122,7 @@
   </script><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
   highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
   copy: {
@@ -185,124 +188,135 @@
     color: #49B1F5 !important;
   }
 </style>
-<meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/page/003%20Read%20Level.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">咕噜元</span></a><a class="nav-page-title" href="/"><span class="site-name">Read Level 介绍</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Read Level 介绍</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-16T16:00:00.000Z" title="发表于 2025-09-17 00:00:00">2025-09-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-12T03:11:06.599Z" title="更新于 2026-06-12 11:11:06">2026-06-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Nand-Flash/">Nand Flash</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1134</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Vth-基本原理"><a href="#Vth-基本原理" class="headerlink" title="Vth 基本原理"></a>Vth 基本原理</h1><p><img src="/7712b7f/02.webp"><br>上图是 NAND Flash 最基本的存储单元，称为一个 Cell。每个 Cell 由一个 FGMOS（浮栅型金属-氧化物-半导体场效应晶体管，即 Floating-gate MOSFET）构成 —— 相比普通 MOSFET，它额外增加了一层 “浮栅（Floating Gate）” 结构。</p>
-<p>MOSFET 可理解为一个可控电阻：当在栅极（Gate）与源极（Source）之间施加电压 Vgs 时，会改变漏极（Drain）与源极之间的电流 I，进而间接改变此处的电压 V（即目标测量电压）。其 I-V 特性曲线如下图所示。<br><img src="/7712b7f/03.webp"></p>
+<meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/page/003%20Read%20Level.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">咕噜元</span></a><a class="nav-page-title" href="/"><span class="site-name">Read Level 介绍</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Read Level 介绍</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-16T16:00:00.000Z" title="发表于 2025-09-17 00:00:00">2025-09-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-12T03:53:42.799Z" title="更新于 2026-06-12 11:53:42">2026-06-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Nand-Flash/">Nand Flash</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1072</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Cell-物理结构：FGMOS"><a href="#Cell-物理结构：FGMOS" class="headerlink" title="Cell 物理结构：FGMOS"></a>Cell 物理结构：FGMOS</h1><p>NAND Flash 最基本的存储单元称为一个 <strong>Cell</strong>，每个 Cell 由一颗 <strong>FGMOS</strong>（浮栅型金属-氧化物-半导体场效应晶体管，Floating-gate MOSFET）构成。</p>
+<p><img src="/7712b7f/02.webp"></p>
+<p>相比普通 MOSFET，FGMOS 多了一层关键的 <strong>浮栅（Floating Gate）</strong>——它被上下两层氧化层包裹，形成一个物理上隔离的电子陷阱，可以长期束缚存储的电子。</p>
+<h1 id="Vth：Cell-的导通临界电压"><a href="#Vth：Cell-的导通临界电压" class="headerlink" title="Vth：Cell 的导通临界电压"></a>Vth：Cell 的导通临界电压</h1><p>MOSFET 本质是一个<strong>电压控制的可变电阻</strong>：在栅极（Gate）与源极（Source）之间施加电压 Vgs，就能改变漏极（Drain）与源极之间的导通程度，进而影响读出的电压值。</p>
+<p><img src="/7712b7f/03.webp"></p>
+<p>Vgs 与导通状态的关系十分明确：</p>
 <ol>
-<li>当 Vgs &lt; Vth 时，漏源电流 I 始终为 0，Cell 处于截止状态，此时测得的漏源电压 V &#x3D; 0。</li>
-<li>当 Vgs &gt; Vth 时，Cell 开始导通，I 随 Vgs 增大而上升，V 也随之增大。</li>
-<li>Vth 被定义为 “导通电压”。Vth 越高，意味着 Cell 需要更大的 Vgs 才能导通，导通难度也越高。</li>
+<li><strong>Vgs &lt; Vth</strong> → Cell 截止，无电流通过，读出电压为 0</li>
+<li><strong>Vgs ≥ Vth</strong> → Cell 导通，电流随 Vgs 增大而上升，读出电压也随之升高</li>
 </ol>
-<h1 id="Vth-调控原理"><a href="#Vth-调控原理" class="headerlink" title="Vth 调控原理"></a>Vth 调控原理</h1><p>浮栅（Floating Gate）是 FGMOS 的核心结构，其根本功能是<strong>存储电子</strong>，通过改变电子存储量来调控 Cell 的导通电压 <strong>Vth</strong>，最终实现数据的物理存储。</p>
-<h2 id="电子存储原理：量子隧穿效应"><a href="#电子存储原理：量子隧穿效应" class="headerlink" title="电子存储原理：量子隧穿效应"></a>电子存储原理：量子隧穿效应</h2><p>浮栅的电子存储依赖<strong>量子隧穿效应（Tunneling Effect）</strong>：</p>
-<ol>
-<li><strong>效应本质</strong>：在特定电场下（如栅极施加高电压），电子可突破氧化层的能量壁垒，”隧穿” 进入浮栅并被束缚，实现电子存储；反向电场则使电子从浮栅隧穿流出，完成擦除。</li>
-<li><strong>关键特性</strong>：隧穿效应具有<strong>概率性</strong> —— 并非施加电压后所有电子立即隧穿。这一特性会直接影响 VT 分布图的形态，体现为曲线呈一定宽度的分布而非尖锐的单峰。</li>
-</ol>
-<h2 id="电子存储对-Vth-的影响机制"><a href="#电子存储对-Vth-的影响机制" class="headerlink" title="电子存储对 Vth 的影响机制"></a>电子存储对 Vth 的影响机制</h2><p>浮栅中电子的有无通过 “内建偏压” 改变 Vth，具体机制如下：</p>
+<p><strong>Vth（阈值电压）</strong> 就是这个”刚好导通”的临界值。Vth 越高，说明需要更大的 Vgs 才能导通 Cell——导通难度越大。</p>
+<h1 id="浮栅如何调控-Vth？"><a href="#浮栅如何调控-Vth？" class="headerlink" title="浮栅如何调控 Vth？"></a>浮栅如何调控 Vth？</h1><p>浮栅的根本功能是<strong>存储电子</strong>。通过改变存储的电子数量，可以人为控制 Cell 的 Vth，进而”写入”不同的数据。</p>
+<h2 id="电子如何进出浮栅：量子隧穿效应"><a href="#电子如何进出浮栅：量子隧穿效应" class="headerlink" title="电子如何进出浮栅：量子隧穿效应"></a>电子如何进出浮栅：量子隧穿效应</h2><p>电子的写入和擦除依赖<strong>量子隧穿效应（Tunneling Effect）</strong>：</p>
 <ul>
-<li><p><strong>核心公式</strong>：当浮栅存储电子时，相当于在栅极（Gate）与源极（Source）之间额外叠加了一个<strong>负向内建偏压 Vfb</strong>。此时实际作用于沟道的有效栅源电压为：</p>
+<li>在栅极施加高正向电场时，电子可以”隧穿”氧化层壁垒进入浮栅并被束缚——<strong>写入电子</strong>。</li>
+<li>施加反向电场时，电子从浮栅隧穿流出——<strong>擦除电子</strong>。</li>
+</ul>
+<p>值得注意的是，隧穿效应具有<strong>概率性</strong>——并非所有电子都在同一瞬间完成隧穿。这个概率特性直接影响 Vth 分布的形态：分布峰呈现一定宽度，而非一道尖锐的单线。（分布形态详见 <a href="/75b652e1.html">Nand Vth 阈值分布</a>）</p>
+<h2 id="电子如何改变-Vth：内建偏压"><a href="#电子如何改变-Vth：内建偏压" class="headerlink" title="电子如何改变 Vth：内建偏压"></a>电子如何改变 Vth：内建偏压</h2><p>浮栅中的电子相当于在栅极与源极之间额外叠加了一个<strong>负向内建偏压 Vfb</strong>，实际作用于沟道的有效电压变为：</p>
+<blockquote>
 <p><strong>Vgs(eff) &#x3D; Vgs(外施) - Vfb</strong></p>
-<p>为使 Cell 导通（需 Vgs(eff) ≥ Vth(初始)），需要更高的外施 Vgs，等效表现为 <strong>Vth 增大</strong>。</p>
-</li>
-<li><p><strong>实例对比（基于读操作 Vread）</strong>：</p>
+</blockquote>
+<p>这意味着：浮栅有电子时，需要更大的外施 Vgs 才能让 Cell 导通，等效表现为 <strong>Vth 增大</strong>。</p>
+<p>以读操作（Vread）为例，直观对比：</p>
 <table>
 <thead>
 <tr>
 <th>存储状态</th>
-<th>浮栅电子</th>
-<th>Vth 大小</th>
-<th>施加相同 Vread 时的状态</th>
-<th>读出电压 V</th>
+<th align="center">浮栅电子</th>
+<th align="center">Vth</th>
+<th>施加 Vread 的结果</th>
+<th align="center">读出电压</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Cell 1（数据 “0”）</td>
-<td>无</td>
-<td>较小（Vth1）</td>
-<td>Vread ≥ Vth1，Cell 导通</td>
-<td>V1 ≠ 0（有电流对应电压）</td>
+<td align="center">无</td>
+<td align="center">较小</td>
+<td>Vread ≥ Vth → 导通</td>
+<td align="center">≠ 0</td>
 </tr>
 <tr>
 <td>Cell 2（数据 “1”）</td>
-<td>有</td>
-<td>较大（Vth2）</td>
-<td>Vread &lt; Vth2，Cell 截止</td>
-<td>V2 &#x3D; 0（无电流）</td>
+<td align="center">有</td>
+<td align="center">较大</td>
+<td>Vread &lt; Vth → 截止</td>
+<td align="center">&#x3D; 0</td>
 </tr>
 </tbody></table>
-</li>
-</ul>
 <p><img src="/7712b7f/04.webp"><br><img src="/7712b7f/05.webp"></p>
-<h1 id="电压与功能对应"><a href="#电压与功能对应" class="headerlink" title="电压与功能对应"></a>电压与功能对应</h1><table>
-<thead>
-<tr>
-<th>操作类型</th>
-<th>操作名称</th>
-<th>所需电压（<strong>概略值</strong>）</th>
-<th>核心作用</th>
-<th>对 Cell 状态的影响</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Program</td>
-<td>编程（写）</td>
-<td>+20V（正向高压 Vprog）</td>
-<td>将电子 “注入” 浮栅</td>
-<td>浮栅电子增多 → Vth（导通电压）增大</td>
-</tr>
-<tr>
-<td>Erase</td>
-<td>擦除</td>
-<td>-20V（负向高压 Verase）</td>
-<td>将电子从浮栅 “抽出”</td>
-<td>浮栅电子减少 → Vth（导通电压）减小</td>
-</tr>
-<tr>
-<td>Read</td>
-<td>读取</td>
-<td>0~10V（低压）</td>
-<td>检测 Cell 导通状态以判断数据</td>
-<td>不改变浮栅电子数量，无状态损耗</td>
-</tr>
-</tbody></table>
-<h1 id="Read-Level"><a href="#Read-Level" class="headerlink" title="Read Level"></a>Read Level</h1><p>前面所述的 Cell 仅区分 “1” 和 “0” 两种状态，只需一个阈值电压即可区分，这种存储方式叫做 SLC（单层单元，Single-Level Cell）。</p>
-<p>随着对导通电压 Vth 控制精度的提升，NAND Flash 实现了 MLC（多层单元，Multi-Level Cell）存储方案 —— 单个 Cell 可存储 2bit 数据，核心原理是通过设置多个 Read Level（读取电平），区分 Cell 中不同的 Vth 区间，从而对应不同的二进制信息。</p>
-<p>当前主流 NAND Flash 普遍采用 TLC（三层单元，Tri-Level Cell）和 QLC（四层单元，Quad-Level Cell）方案，分别实现单个 Cell 存储 3bit 和 4bit 数据。二者原理与 MLC 一致，均通过细分 Vth 区间和增加 Read Level 数量实现，仅在精度和数量上进一步提升。</p>
+<h1 id="三种操作电压"><a href="#三种操作电压" class="headerlink" title="三种操作电压"></a>三种操作电压</h1><p>NAND 的三种基本操作，每种对应不同的电压和功能：</p>
 <table>
 <thead>
 <tr>
-<th>单元类型</th>
-<th>单 Cell 存储 bit 数</th>
-<th>Vth 区间数量（2^n）</th>
-<th>所需 Read Level 数量</th>
-<th>差异说明</th>
+<th>操作</th>
+<th align="center">电压（概略值）</th>
+<th>核心作用</th>
+<th>对 Vth 的影响</th>
 </tr>
 </thead>
 <tbody><tr>
+<td><strong>Program</strong>（编程&#x2F;写）</td>
+<td align="center">+20V</td>
+<td>电子注入浮栅</td>
+<td>Vth 增大</td>
+</tr>
+<tr>
+<td><strong>Erase</strong>（擦除）</td>
+<td align="center">-20V</td>
+<td>电子从浮栅抽出</td>
+<td>Vth 减小</td>
+</tr>
+<tr>
+<td><strong>Read</strong>（读取）</td>
+<td align="center">0~10V</td>
+<td>检测导通状态</td>
+<td>无影响（不改变电子数量）</td>
+</tr>
+</tbody></table>
+<h1 id="Read-Level-是什么？"><a href="#Read-Level-是什么？" class="headerlink" title="Read Level 是什么？"></a>Read Level 是什么？</h1><p>前面描述的都是 SLC 场景——一个 Cell 只有两种状态，只需 1 个 Vth 分界线就能区分。</p>
+<p>随着 Vth 控制精度的提升，业界在单个 Cell 内细分出更多 Vth 区间，实现了更高密度存储。以 MLC 为例：单个 Cell 存 2bit，就需要 4 个 Vth 区间、3 个分界线。</p>
+<p><strong>Read Level（读取电平）</strong> 就是这些用于区分不同 Vth 区间的特定读取电压。按顺序施加不同的 Vread，检测 Cell 在哪个电压下首次导通，就能反向判断它存储的数据。</p>
+<h2 id="从-SLC-到-QLC"><a href="#从-SLC-到-QLC" class="headerlink" title="从 SLC 到 QLC"></a>从 SLC 到 QLC</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">bit&#x2F;Cell</th>
+<th align="center">Vth 区间数</th>
+<th align="center">Read Level 数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SLC</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+<tr>
 <td>MLC</td>
-<td>2bit</td>
-<td>4 个</td>
-<td>3 个（区分 4 个区间）</td>
-<td>基础区间划分，Read Level 数量较少</td>
+<td align="center">2</td>
+<td align="center">4</td>
+<td align="center">3</td>
 </tr>
 <tr>
 <td>TLC</td>
-<td>3bit</td>
-<td>8 个</td>
-<td>7 个（区分 8 个区间）</td>
-<td>Vth 区间更细，控制精度要求更高</td>
+<td align="center">3</td>
+<td align="center">8</td>
+<td align="center">7</td>
 </tr>
 <tr>
 <td>QLC</td>
-<td>4bit</td>
-<td>16 个</td>
-<td>15 个（区分 16 个区间）</td>
-<td>区间最细，Read Level 最多，需更高校准精度</td>
+<td align="center">4</td>
+<td align="center">16</td>
+<td align="center">15</td>
 </tr>
 </tbody></table>
-<p>以 MLC 为例：按顺序施加 1V、3.3V、6.6V 三个不同的 Vread（读取电压），记录 Cell 在哪个电压下首次导通，即可反向判断其存储的数据。这些用于区分 Vth 区间的特定 Vread，统称为 Read Level（读取电平）。</p>
+<p>规律很简单：<strong>N 个 Read Level 可区分 N+1 个 Vth 区间</strong>。随着 bit 数增加，区间密度成倍增长，对 Read Level 的精度要求也随之急剧上升。</p>
+<h2 id="MLC-读取实例"><a href="#MLC-读取实例" class="headerlink" title="MLC 读取实例"></a>MLC 读取实例</h2><p>以 MLC 为例，需要 3 个 Read Level（假设为 RL1&#x3D;1V、RL2&#x3D;3.3V、RL3&#x3D;6.6V），读取流程：</p>
+<ol>
+<li>施加 Vread &#x3D; RL2（3.3V）→ 若未导通，则 Cell 处于较高 Vth 区间（11）</li>
+<li>若 RL2 已导通 → 再施加 RL1（1V）→ 区分最低区间（10）还是次低区间（01）</li>
+<li>若 RL2 未导通 → 再施加 RL3（6.6V）→ 区分较高区间（00）还是最高区间（01）</li>
+</ol>
+<p>通过这几次比较，就能确定 Cell 存储的具体 2bit 数据。</p>
 <p><img src="/7712b7f/06.webp"><br><img src="/7712b7f/07.webp"></p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.edison007.top">咕噜元</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.edison007.top/7712b7f.html">https://www.edison007.top/7712b7f.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.edison007.top" target="_blank">咕噜元</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vth/">Vth</a></div><div class="post-share"><div class="social-share" data-image="/img/page/003%20Read%20Level.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related  no-desc" href="/1635c003.html" title="Nand 物理概念介绍"><img class="cover" src="/img/page/004%20Nand%E7%89%A9%E7%90%86%E6%A6%82%E5%BF%B5.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Nand 物理概念介绍</div></div></div></a><a class="pagination-related" href="/44fc021b.html" title="Nand Training"><img class="cover" src="/img/page/002%20Nand%20Training.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Nand Training</div></div><div class="info-2"><div class="info-item-1">Nand Training Feature NAND 设备在超过 800MT&#x2F;s 的重载系统中应支持本章节所述的 Training 功能。 Nand Training Type ZQ Calibration DCC Training Read DQ Training Write DQ Training WDCA(Option) Internal VrefQ    ZQ CalibrationZQ Calibration 介绍ZQ Calibration 是一种电子调整过程，用于精确设定芯片 I&#x2F;O 接口的电阻值，确保高速数据传输中信号的清晰与稳定。其原理类似于调音师用标准音叉校准乐器 —— ZQ Calibration 以一个外部精密参考电阻为基准，校准芯片内部电路的阻抗，使芯片在各种环境变化下都能保持最佳性能。 作为一个动态、持续的过程，内存控制器会在初始化、退出低功耗状态或定期发起 ZQ Calibration 命令，让内存芯片根据实时温度和电压重新校准，确保从轻载到重载的全工况下均处于最佳状态。 核心功能：  动态阻抗匹配 补偿环境温度 提升系统稳定性 ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/75b652e1.html" title="Nand Vth 阈值分布"><img class="cover" src="/img/page/001%20Nand%20Vth.webp" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-05</div><div class="info-item-2">Nand Vth 阈值分布</div></div><div class="info-2"><div class="info-item-1">SLC SLC（Single-Level Cell，单层单元）每个 Cell 仅存储 1bit 数据，只需两种状态即可表征：擦除态（Erased） 与 编程态（Programmed）。 从 Vth 分布来看，两种状态各自形成一个独立且清晰的分布峰。读取时只需在两者之间设置一个读取电压 RL1（Vread），通过检测字线（WL）下各 Cell 的实际 Vth 与 RL1 的大小关系，即可区分擦除态与编程态，准确读出 1bit 数据。 TLC TLC（Triple-Level Cell，三层单元）通过更精细的电压控制，实现单个 Cell 存储 3bit 数据。3bit 共可组合 8 种逻辑状态：111、110、100、000、010、011、001、101。 在 Vth 分布上，这 8 种状态各占一个独立的电压区间，呈现为 8 个明显的分布峰。相比 SLC，TLC 的峰数量大幅增加、峰间间距更窄，对读取电压的精度和区分逻辑的复杂度提出了更高要求 —— 必须通过多组独立读取电压依次检测，才能准确识别每个 Cell 所属的分布峰，从而完整解析出 3bit 数据。 为什么 Vth 呈正态分...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">咕噜元</div><div class="author-info-description">成就如沙堡 生命如海浪</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/pakchoiii"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/pakchoiii" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:919607416@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临咕噜元，这里是我日常收集和整理的总结，希望能对你有所帮助:)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vth-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">Vth 基本原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vth-%E8%B0%83%E6%8E%A7%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">Vth 调控原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E5%AD%98%E5%82%A8%E5%8E%9F%E7%90%86%EF%BC%9A%E9%87%8F%E5%AD%90%E9%9A%A7%E7%A9%BF%E6%95%88%E5%BA%94"><span class="toc-number">2.1.</span> <span class="toc-text">电子存储原理：量子隧穿效应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E5%AD%98%E5%82%A8%E5%AF%B9-Vth-%E7%9A%84%E5%BD%B1%E5%93%8D%E6%9C%BA%E5%88%B6"><span class="toc-number">2.2.</span> <span class="toc-text">电子存储对 Vth 的影响机制</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B5%E5%8E%8B%E4%B8%8E%E5%8A%9F%E8%83%BD%E5%AF%B9%E5%BA%94"><span class="toc-number">3.</span> <span class="toc-text">电压与功能对应</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Read-Level"><span class="toc-number">4.</span> <span class="toc-text">Read Level</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/1635c003.html" title="Nand 物理概念介绍"><img src="/img/page/004%20Nand%E7%89%A9%E7%90%86%E6%A6%82%E5%BF%B5.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nand 物理概念介绍"/></a><div class="content"><a class="title" href="/1635c003.html" title="Nand 物理概念介绍">Nand 物理概念介绍</a><time datetime="2026-06-11T16:00:00.000Z" title="发表于 2026-06-12 00:00:00">2026-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/7712b7f.html" title="Read Level 介绍"><img src="/img/page/003%20Read%20Level.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Read Level 介绍"/></a><div class="content"><a class="title" href="/7712b7f.html" title="Read Level 介绍">Read Level 介绍</a><time datetime="2025-09-16T16:00:00.000Z" title="发表于 2025-09-17 00:00:00">2025-09-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/44fc021b.html" title="Nand Training"><img src="/img/page/002%20Nand%20Training.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nand Training"/></a><div class="content"><a class="title" href="/44fc021b.html" title="Nand Training">Nand Training</a><time datetime="2025-09-13T16:00:00.000Z" title="发表于 2025-09-14 00:00:00">2025-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/75b652e1.html" title="Nand Vth 阈值分布"><img src="/img/page/001%20Nand%20Vth.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nand Vth 阈值分布"/></a><div class="content"><a class="title" href="/75b652e1.html" title="Nand Vth 阈值分布">Nand Vth 阈值分布</a><time datetime="2025-09-04T16:00:00.000Z" title="发表于 2025-09-05 00:00:00">2025-09-05</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 咕噜元</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(() => {
+<blockquote>
+<p><strong>延伸阅读</strong>：TLC&#x2F;QLC 涉及更多 Read Level 和更复杂的编码方案（如格雷码），详见 <a href="/75b652e1.html">Nand Vth 阈值分布</a>。</p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.edison007.top">咕噜元</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.edison007.top/7712b7f.html">https://www.edison007.top/7712b7f.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.edison007.top" target="_blank">咕噜元</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vth/">Vth</a><a class="post-meta__tags" href="/tags/%E6%B5%AE%E6%A0%85/">浮栅</a><a class="post-meta__tags" href="/tags/Read-Level/">Read Level</a><a class="post-meta__tags" href="/tags/%E9%9A%A7%E7%A9%BF%E6%95%88%E5%BA%94/">隧穿效应</a></div><div class="post-share"><div class="social-share" data-image="/img/page/003%20Read%20Level.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related  no-desc" href="/1635c003.html" title="Nand 物理概念介绍"><img class="cover" src="/img/page/004%20Nand%E7%89%A9%E7%90%86%E6%A6%82%E5%BF%B5.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Nand 物理概念介绍</div></div></div></a><a class="pagination-related" href="/44fc021b.html" title="Nand Training"><img class="cover" src="/img/page/002%20Nand%20Training.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Nand Training</div></div><div class="info-2"><div class="info-item-1">Nand Training Feature NAND 设备在超过 800MT&#x2F;s 的重载系统中应支持本章节所述的 Training 功能。 Nand Training Type ZQ Calibration DCC Training Read DQ Training Write DQ Training WDCA(Option) Internal VrefQ    ZQ CalibrationZQ Calibration 介绍ZQ Calibration 是一种电子调整过程，用于精确设定芯片 I&#x2F;O 接口的电阻值，确保高速数据传输中信号的清晰与稳定。其原理类似于调音师用标准音叉校准乐器 —— ZQ Calibration 以一个外部精密参考电阻为基准，校准芯片内部电路的阻抗，使芯片在各种环境变化下都能保持最佳性能。 作为一个动态、持续的过程，内存控制器会在初始化、退出低功耗状态或定期发起 ZQ Calibration 命令，让内存芯片根据实时温度和电压重新校准，确保从轻载到重载的全工况下均处于最佳状态。 核心功能：  动态阻抗匹配 补偿环境温度 提升系统稳定性 ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/75b652e1.html" title="Nand Vth 阈值分布"><img class="cover" src="/img/page/001%20Nand%20Vth.webp" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-05</div><div class="info-item-2">Nand Vth 阈值分布</div></div><div class="info-2"><div class="info-item-1">从 SLC 看 Vth 分布阈值电压（Vth）是 NAND Cell 导通&#x2F;截止的临界电压，也是判断 Cell 存储数据的核心指标。（Vth 的物理机制详见 Read Level 介绍） 芯片中并非所有 Cell 共享同一个精确的 Vth 值——几百万个 Cell 的 Vth 聚合起来，会形成一种统计分布。这正是本文要讲的内容。  SLC（Single-Level Cell）每个 Cell 只存 1bit，只需要两种状态：擦除态（Erased） 和 编程态（Programmed）。 两种状态在 Vth 分布上表现为两个独立、清晰的分布峰。读取时只需在峰谷之间设置一个读取电压 RL1，通过比较每个 Cell 的 Vth 与 RL1 的大小，即可区分出 0 和 1。 TLC 的 8 峰分布 TLC（Triple-Level Cell）每个 Cell 存 3bit，3bit 共 8 种逻辑状态： 111  110  100  000  010  011  001  101 8 种状态在 Vth 分布上各占一个独立区间，呈现 8 个分布峰。相比 SLC，TLC 的峰更密、峰间距...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">咕噜元</div><div class="author-info-description">成就如沙堡 生命如海浪</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/pakchoiii"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/pakchoiii" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:919607416@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临咕噜元，这里是我日常收集和整理的总结，希望能对你有所帮助:)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cell-%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84%EF%BC%9AFGMOS"><span class="toc-number">1.</span> <span class="toc-text">Cell 物理结构：FGMOS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vth%EF%BC%9ACell-%E7%9A%84%E5%AF%BC%E9%80%9A%E4%B8%B4%E7%95%8C%E7%94%B5%E5%8E%8B"><span class="toc-number">2.</span> <span class="toc-text">Vth：Cell 的导通临界电压</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%AE%E6%A0%85%E5%A6%82%E4%BD%95%E8%B0%83%E6%8E%A7-Vth%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">浮栅如何调控 Vth？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E5%A6%82%E4%BD%95%E8%BF%9B%E5%87%BA%E6%B5%AE%E6%A0%85%EF%BC%9A%E9%87%8F%E5%AD%90%E9%9A%A7%E7%A9%BF%E6%95%88%E5%BA%94"><span class="toc-number">3.1.</span> <span class="toc-text">电子如何进出浮栅：量子隧穿效应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98-Vth%EF%BC%9A%E5%86%85%E5%BB%BA%E5%81%8F%E5%8E%8B"><span class="toc-number">3.2.</span> <span class="toc-text">电子如何改变 Vth：内建偏压</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E6%93%8D%E4%BD%9C%E7%94%B5%E5%8E%8B"><span class="toc-number">4.</span> <span class="toc-text">三种操作电压</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Read-Level-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">Read Level 是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E-SLC-%E5%88%B0-QLC"><span class="toc-number">5.1.</span> <span class="toc-text">从 SLC 到 QLC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MLC-%E8%AF%BB%E5%8F%96%E5%AE%9E%E4%BE%8B"><span class="toc-number">5.2.</span> <span class="toc-text">MLC 读取实例</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/1635c003.html" title="Nand 物理概念介绍"><img src="/img/page/004%20Nand%E7%89%A9%E7%90%86%E6%A6%82%E5%BF%B5.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nand 物理概念介绍"/></a><div class="content"><a class="title" href="/1635c003.html" title="Nand 物理概念介绍">Nand 物理概念介绍</a><time datetime="2026-06-11T16:00:00.000Z" title="发表于 2026-06-12 00:00:00">2026-06-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/7712b7f.html" title="Read Level 介绍"><img src="/img/page/003%20Read%20Level.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Read Level 介绍"/></a><div class="content"><a class="title" href="/7712b7f.html" title="Read Level 介绍">Read Level 介绍</a><time datetime="2025-09-16T16:00:00.000Z" title="发表于 2025-09-17 00:00:00">2025-09-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/44fc021b.html" title="Nand Training"><img src="/img/page/002%20Nand%20Training.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nand Training"/></a><div class="content"><a class="title" href="/44fc021b.html" title="Nand Training">Nand Training</a><time datetime="2025-09-13T16:00:00.000Z" title="发表于 2025-09-14 00:00:00">2025-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/75b652e1.html" title="Nand Vth 阈值分布"><img src="/img/page/001%20Nand%20Vth.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nand Vth 阈值分布"/></a><div class="content"><a class="title" href="/75b652e1.html" title="Nand Vth 阈值分布">Nand Vth 阈值分布</a><time datetime="2025-09-04T16:00:00.000Z" title="发表于 2025-09-05 00:00:00">2025-09-05</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 咕噜元</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>(() => {
   const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
   const option = null
 

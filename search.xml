@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Nand Vth 阈值分布</title>
+    <url>/75b652e1.html</url>
+    <content><![CDATA[从 SLC 看 Vth 分布阈值电压（Vth）是 NAND Cell 导通&#x2F;截止的临界电压，也是判断 Cell 存储数据的核心指标。（Vth 的物理机制详见 Read Level 介绍）
+芯片中并非所有 Cell 共享同一个精确的 Vth 值——几百万个 Cell 的 Vth 聚合起来，会形成一种统计分布。这正是本文要讲的内容。
+
+SLC（Single-Level Cell）每个 Cell 只存 1bit，只需要两种状态：擦除态（Erased） 和 编程态（Programmed）。
+两种状态在 Vth 分布上表现为两个独立、清晰的分布峰。读取时只需在峰谷之间设置一个读取电压 RL1，通过比较每个 Cell 的 Vth 与 RL1 的大小，即可区分出 0 和 1。
+TLC 的 8 峰分布
+TLC（Triple-Level Cell）每个 Cell 存 3bit，3bit 共 8 种逻辑状态：
+111  110  100  000  010  011  001  101
+8 种状态在 Vth 分布上各占一个独立区间，呈现 8 个分布峰。相比 SLC，TLC 的峰更密、峰间距更窄，读取电压必须足够精准，才能可靠地区分相邻状态。
+为什么 Vth 呈正态分布？大量 Cell 的 Vth 值统计出来为什么恰好是一个个”钟形”的分布峰？根源在于半导体制造中两种不可避免的随机性。
+1. 随机杂质
+沟道和电荷捕获层中残留的随机杂质（金属离子、晶格缺陷）会形成局部的”电势陷阱”或”导电阻碍”。不同 Cell 的杂质分布不同，电子移动阻力各异，Vth 值因此分散。
+2. 结构不完美
+氧化层厚度波动、电极界面粗糙等微观差异进一步放大分散度——氧化层薄的位置电子隧穿容易、Vth 偏低，厚的位置隧穿困难、Vth 偏高。
+单颗 NAND 芯片包含数百万至上亿个 Cell，每个 Cell 的 Vth 可视为独立随机变量。根据中心极限定理，大量独立随机变量的统计结果趋近正态分布，于是形成了我们看到的”钟形”曲线：多数 Cell 集中在均值附近，少数极端值落在两端。
+Vth 与格雷码编码TLC 的 8 个分布峰，每个峰代表一种 3bit 逻辑状态。这三个 bit 按位权重分为三档：
+
+
+
+缩写
+全称
+含义
+
+
+
+LSB（LP）
+Least Significant Bit
+最低有效位
+
+
+CSB（UP）
+Center Significant Bit
+中间有效位
+
+
+MSB（XP）
+Most Significant Bit
+最高有效位
+
+
+三者共同定义该峰的逻辑状态。下面以 格雷码 2-3-2 方案为例说明编码规则。
+相邻峰仅差 1bit
+图中最左侧为 Erased（擦除）状态的 Vth 峰。观察相邻峰之间的 bit 变化：
+
+P1↔P2、P3↔P4、P5↔P6 之间仅有 1 个 bit 不同，且差异集中在 CSB；
+这正是 Gray Code（格雷码） 的核心思想——相邻状态只变 1bit，大幅降低读写出错的概率和严重程度。
+
+bit 读取规则每个 bit 的值需要通过对多个 RL 的读取结果做逻辑运算得出，而非一次读取。
+
+以 CSB 为例：需要在 RL6、RL4、RL2 分别读取三次，再对三次结果做异或运算得到最终 bit 值。
+三个 bit 的完整读取规则：
+
+
+
+bit
+别名
+读取次数
+对应 RL
+
+
+
+LSB
+LP
+2
+RL5、RL1
+
+
+CSB
+UP
+3
+RL6、RL4、RL2
+
+
+MSB
+XP
+2
+RL7、RL3
+
+
+不同格雷码方案对比2-3-2 只是 TLC 众多方案之一。常见的 TLC Gray Code 方案还包括 1-2-4、1-3-3。
+不同存储介质根据自身特性选用不同的格雷码方案，差异直接影响四项核心指标：
+
+读写速度
+数据可靠性
+错误校正复杂度
+功耗
+
+实测 Vth 分布
+上图是通过偏移电压实测绘制的 TLC Vth 分布图。8 个独立的正态分布峰清晰可辨，验证了前述理论。
+]]></content>
+      <categories>
+        <category>Nand Flash</category>
+      </categories>
+      <tags>
+        <tag>Vth</tag>
+        <tag>正态分布</tag>
+        <tag>格雷码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nand Training</title>
+    <url>/44fc021b.html</url>
+    <content><![CDATA[Nand Training Feature
+NAND 设备在超过 800MT&#x2F;s 的重载系统中应支持本章节所述的 Training 功能。
+Nand Training Type
+ZQ Calibration
+DCC Training
+Read DQ Training
+Write DQ Training
+WDCA(Option)
+Internal VrefQ
+
+
+
+ZQ CalibrationZQ Calibration 介绍ZQ Calibration 是一种电子调整过程，用于精确设定芯片 I&#x2F;O 接口的电阻值，确保高速数据传输中信号的清晰与稳定。其原理类似于调音师用标准音叉校准乐器 —— ZQ Calibration 以一个外部精密参考电阻为基准，校准芯片内部电路的阻抗，使芯片在各种环境变化下都能保持最佳性能。
+作为一个动态、持续的过程，内存控制器会在初始化、退出低功耗状态或定期发起 ZQ Calibration 命令，让内存芯片根据实时温度和电压重新校准，确保从轻载到重载的全工况下均处于最佳状态。
+核心功能：
+
+动态阻抗匹配
+补偿环境温度
+提升系统稳定性
+支持高频与高带宽
+降低功耗
+自动化与兼容性
+
+Nand端 ZQ Calibration
+对于超过400MT&#x2F;s速度的NV-DDR3接口，ZQ校准是可选的，但推荐使用。
+对于NV-LPDDR4接口，无论数据速率如何，都需要进行ZQ校准。
+
+ZQ Calibration分为长校准和短校准。
+两者区别如下：
+
+
+
+特性
+长校准
+短校准
+
+
+
+主要目的
+全面、精确的校准，建立初始基准或应对重大环境变化
+快速、局部的微调，跟踪和补偿微小的漂移
+
+
+触发时机
+1. 上电初始化（Power-On）2. 退出自刷新模式（Exit Self-Refresh）3. 温度发生剧烈变化后（由传感器检测）4. 可能由软件手动触发
+在正常激活状态（Active状态） 下，由内存控制器定期发起
+
+
+校准时长
+较长 tZQCL（通常是时钟周期的数百倍，可以通过看RB拉低时间）
+非常短 tZQCS（通常比长校准短一个数量级）
+
+
+功耗影响
+相对较高，因为需要启动完整的校准电路并持续较长时间
+非常低，因为只是对当前设置进行小幅修正
+
+
+注意事项：
+
+tZQCL 或 tZQCS 期间，控制器不得对 NAND 通道（数据总线）执行任何操作，包括读取状态。
+使用 ZQ 校准时，主控端应同步进行 ZQ 校准。
+当前大多数切高速流程已加入 ZQ 长校准，但在实际高速运行中是否需要加入定时 ZQ 短校准，可根据实际情况评估（一般不考虑）。
+若使用 ZQ 短校准，需注意校准时间间隔。
+ZQ 校准时，需将 DQ 配置为高阻态（High-Z）。
+
+ZQ Calibration和驱动强度的关系驱动强度好比音响的音量旋钮，决定了输出信号的驱动能力。而 ZQ 校准则如同专业音响校准程序，能根据现场环境（温度、电压）的变化自动调整，确保无论何种工况下，信号都保持清晰精准。
+注意：当前 DataSheet 对驱动强度和 ZQ 校准的配置顺序没有明确要求，但在高速流程中通常是先设置驱动强度再进行 ZQ 校准。
+
+DCC TrainingDCC Training（Duty Cycle Correction Training，占空比校正训练）是提升高速 NAND 接口数据传输可靠性的关键技术，主要用于校准 RE_t&#x2F;c 信号的占空比，以提供最佳数据采样窗口。
+FW 可发出以下两种时序，通过查询 SR[0] 确认当前 RE_t&#x2F;c 是否正常。若 SR[0] &#x3D;&#x3D; 1，需调整占空比后重新发起。
+DCC Training 的两种方式DCC Training Using Set Feature
+
+
+开始 DCC Training 前，Set Feature 20h P1[0] 置 1，使能 DCCE_EN。
+发起 Random Out 时序，无需处理返回数据。NAND 在 RE Toggle 阶段内部对 RE 时钟进行校准。
+通过 Read Status 命令检查 SR[0]。若 Fail，主控需调整 REDCC 相关配置，重新发起 Random Out 校准。
+完成 DCC Training 后，需将 DCCE_EN 关闭（Disable）。
+
+DCC Training by using Command
+
+18h 后读取的长度为完整的 Page Size。
+无需处理返回的数据。
+通过 Read Status 命令检查 SR[0]。若 Fail，NAND 先发起 Reset（FFh），完成后主控再调整 REDCC 相关配置，重新进行校准。
+
+DQ TrainingRead&#x2F;Write Training 的核心目的是通过校准 DQ（数据）与 DQS（数据选通）的时序偏移以及 NAND &#x2F; 主机的内部参考电压（VrefQ），确保高速读写时数据采样准确。此功能仅适用于 NV-DDR3 和 NV-LPDDR4 接口。
+
+如上图所示，FW 读取数据时，DQS 的边沿并不恰好对齐 DQ 的中心，两者之间存在相位偏移（Skew）。若偏移较大且未采取补偿措施，则可能导致采样出错。由于 FW 无法改变 NAND 发出的时序，因此需要通过反复进行 Read Data 训练来确认 DQ 与 DQS 之间的偏移量，并据此调整 FW 接收端 DQ 和 DQS 的 Delay。目前常见的 Delay 确认方法是：找到左右边界后取中间值。
+Read DQ TrainingRead DQ Training 使 NAND 输出 16Byte（部分厂商可达 32Byte）用户自定义 Pattern 的 DQ 数据。主控侧通过调节 RDQ 与 RDQS 的相位&#x2F;延迟，确保能正确读取 NAND 侧的数据。
+相关时序如下：
+
+NAND 返回的数据为固定值，具体数据由发出的 ADDR 决定（Inverse Set &#x2F; 1st Pattern &#x2F; 2nd Pattern）。以下为官方示例：Inverse Set &#x3D; 0x35, 1st Pattern &#x3D; 0x5A, 2nd Pattern &#x3D; 0x82 时，FW 发送 62h 后 NAND 返回的数据内容：
+
+注意：NAND 输出 16Byte 还是 32Byte 的数据，可通过 Set Feature FA 20h P3 配置（部分介质固定）。
+
+Write DQ TrainingWrite DQ Training 同样面临 DQS 与 DQ 之间的偏移问题，但方向相反 —— Write Training 用于纠正主控发送给 NAND 端的 DQS 与 DQ 之间的偏移。Write DQ Training 通过 NAND 的”写入 + 读取”来验证数据正确性，主控侧通过调节 WDQ 与 WDQS 的相位&#x2F;延迟，确保数据写入成功。
+参考时序如下：
+
+
+63h：Host 发送数据给 NAND。
+64h：Host 读取写入到 NAND 的数据。
+
+Write Training Data Size 由 NAND 预先定义，可通过 Get Feature Addr 20h P3[3:0] 获取。
+
+FW 通过比对读回的数据与预期数据是否一致来判断 Write DQ Training 是否通过。
+Internal VrefQ Training（DDR4 Only）在 NV-LPDDR4 模式下，NAND Internal VrefQ Calibration 是提升高速信号完整性的必要条件。通过 Write DQ Training 中的连续读写操作配合内部 VrefQ 校准，可实现精准的 VrefQ 校准。
+
+
+Internal VrefQ Training 通过遍历设定值、找左右边界取中间值来获得最佳 Vref 值。
+Internal VrefQ Training 需要配合 Write Training 进行，以找到最佳 Vref 配置。
+]]></content>
+      <categories>
+        <category>Nand Flash</category>
+      </categories>
+      <tags>
+        <tag>ZQ</tag>
+        <tag>DCC Training</tag>
+        <tag>DQ Training</tag>
+        <tag>VrefQ</tag>
+        <tag>高速信号</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Read Level 介绍</title>
+    <url>/7712b7f.html</url>
+    <content><![CDATA[Cell 物理结构：FGMOSNAND Flash 最基本的存储单元称为一个 Cell，每个 Cell 由一颗 FGMOS（浮栅型金属-氧化物-半导体场效应晶体管，Floating-gate MOSFET）构成。
+
+相比普通 MOSFET，FGMOS 多了一层关键的 浮栅（Floating Gate）——它被上下两层氧化层包裹，形成一个物理上隔离的电子陷阱，可以长期束缚存储的电子。
+Vth：Cell 的导通临界电压MOSFET 本质是一个电压控制的可变电阻：在栅极（Gate）与源极（Source）之间施加电压 Vgs，就能改变漏极（Drain）与源极之间的导通程度，进而影响读出的电压值。
+
+Vgs 与导通状态的关系十分明确：
+
+Vgs &lt; Vth → Cell 截止，无电流通过，读出电压为 0
+Vgs ≥ Vth → Cell 导通，电流随 Vgs 增大而上升，读出电压也随之升高
+
+Vth（阈值电压） 就是这个”刚好导通”的临界值。Vth 越高，说明需要更大的 Vgs 才能导通 Cell——导通难度越大。
+浮栅如何调控 Vth？浮栅的根本功能是存储电子。通过改变存储的电子数量，可以人为控制 Cell 的 Vth，进而”写入”不同的数据。
+电子如何进出浮栅：量子隧穿效应电子的写入和擦除依赖量子隧穿效应（Tunneling Effect）：
+
+在栅极施加高正向电场时，电子可以”隧穿”氧化层壁垒进入浮栅并被束缚——写入电子。
+施加反向电场时，电子从浮栅隧穿流出——擦除电子。
+
+值得注意的是，隧穿效应具有概率性——并非所有电子都在同一瞬间完成隧穿。这个概率特性直接影响 Vth 分布的形态：分布峰呈现一定宽度，而非一道尖锐的单线。（分布形态详见 Nand Vth 阈值分布）
+电子如何改变 Vth：内建偏压浮栅中的电子相当于在栅极与源极之间额外叠加了一个负向内建偏压 Vfb，实际作用于沟道的有效电压变为：
+
+Vgs(eff) &#x3D; Vgs(外施) - Vfb
+
+这意味着：浮栅有电子时，需要更大的外施 Vgs 才能让 Cell 导通，等效表现为 Vth 增大。
+以读操作（Vread）为例，直观对比：
+
+
+
+存储状态
+浮栅电子
+Vth
+施加 Vread 的结果
+读出电压
+
+
+
+Cell 1（数据 “0”）
+无
+较小
+Vread ≥ Vth → 导通
+≠ 0
+
+
+Cell 2（数据 “1”）
+有
+较大
+Vread &lt; Vth → 截止
+&#x3D; 0
+
+
+
+三种操作电压NAND 的三种基本操作，每种对应不同的电压和功能：
+
+
+
+操作
+电压（概略值）
+核心作用
+对 Vth 的影响
+
+
+
+Program（编程&#x2F;写）
++20V
+电子注入浮栅
+Vth 增大
+
+
+Erase（擦除）
+-20V
+电子从浮栅抽出
+Vth 减小
+
+
+Read（读取）
+0~10V
+检测导通状态
+无影响（不改变电子数量）
+
+
+Read Level 是什么？前面描述的都是 SLC 场景——一个 Cell 只有两种状态，只需 1 个 Vth 分界线就能区分。
+随着 Vth 控制精度的提升，业界在单个 Cell 内细分出更多 Vth 区间，实现了更高密度存储。以 MLC 为例：单个 Cell 存 2bit，就需要 4 个 Vth 区间、3 个分界线。
+Read Level（读取电平） 就是这些用于区分不同 Vth 区间的特定读取电压。按顺序施加不同的 Vread，检测 Cell 在哪个电压下首次导通，就能反向判断它存储的数据。
+从 SLC 到 QLC
+
+
+类型
+bit&#x2F;Cell
+Vth 区间数
+Read Level 数量
+
+
+
+SLC
+1
+2
+1
+
+
+MLC
+2
+4
+3
+
+
+TLC
+3
+8
+7
+
+
+QLC
+4
+16
+15
+
+
+规律很简单：N 个 Read Level 可区分 N+1 个 Vth 区间。随着 bit 数增加，区间密度成倍增长，对 Read Level 的精度要求也随之急剧上升。
+MLC 读取实例以 MLC 为例，需要 3 个 Read Level（假设为 RL1&#x3D;1V、RL2&#x3D;3.3V、RL3&#x3D;6.6V），读取流程：
+
+施加 Vread &#x3D; RL2（3.3V）→ 若未导通，则 Cell 处于较高 Vth 区间（11）
+若 RL2 已导通 → 再施加 RL1（1V）→ 区分最低区间（10）还是次低区间（01）
+若 RL2 未导通 → 再施加 RL3（6.6V）→ 区分较高区间（00）还是最高区间（01）
+
+通过这几次比较，就能确定 Cell 存储的具体 2bit 数据。
+
+
+延伸阅读：TLC&#x2F;QLC 涉及更多 Read Level 和更复杂的编码方案（如格雷码），详见 Nand Vth 阈值分布。
+
+]]></content>
+      <categories>
+        <category>Nand Flash</category>
+      </categories>
+      <tags>
+        <tag>Vth</tag>
+        <tag>浮栅</tag>
+        <tag>Read Level</tag>
+        <tag>隧穿效应</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nand 物理概念介绍</title>
+    <url>/1635c003.html</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Nand Flash</category>
+      </categories>
+      <tags>
+        <tag>Nand</tag>
+      </tags>
+  </entry>
+</search>
