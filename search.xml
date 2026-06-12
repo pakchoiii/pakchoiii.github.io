@@ -370,56 +370,97 @@ MLC 读取实例以 MLC 为例，需要 3 个 Read Level（假设为 RL1&#x3D;1V
       </tags>
   </entry>
   <entry>
-    <title>Nand 物理概念介绍</title>
+    <title>NAND 物理概念介绍</title>
     <url>/1635c003.html</url>
-    <content><![CDATA[NAND Flash：我们身边的“数据仓库”
-什么是NAND Flash？它是一种非易失性存储介质，就像一个不需要插电也能保存文件的“保险柜”，即使断电，数据也不会丢失。
-
-无处不在的身影U盘、SD卡、固态硬盘(SSD)、手机存储，从消费电子到工业设备，它几乎无处不在。
-
-为什么选择它？速度快、体积小、功耗低、抗震性强，彻底改变了我们存储和使用数据的方式。
-
-
-数据的最小容器：浮栅晶体管 (Floating-gate MOSFET)
+    <content><![CDATA[NAND Flash：我们身边的”数据仓库”什么是 NAND Flash？
+它是一种非易失性存储介质，就像一个不需要插电也能保存文件的”保险柜”——即使断电，数据也不会丢失。
+无处不在的身影
+U 盘、SD 卡、固态硬盘（SSD）、手机存储……从消费电子到工业设备，它几乎无处不在。
+为什么选择它？
+速度快、体积小、功耗低、抗震性强，彻底改变了我们存储和使用数据的方式。
+数据的最小容器：浮栅晶体管（Floating-gate MOSFET）
   
-  普通场效应管 (MOSFET)
+  普通场效应管（MOSFET）
 
 
 
 结构：单一控制栅极，如同普通的门
 功能：仅控制电流通断，类似物理开关
-特点：易失性，断电&#x2F;撤去电压即恢复初始状态
+特点：易失性，断电或撤去电压即恢复初始状态
 
 
   
-  浮栅晶体管 (NAND核心单元)
+  浮栅晶体管（NAND 核心单元）
 
 
 
 结构：控制栅极 + 悬浮”浮栅”结构
 功能：通断控制 + 捕获电子并长期保存
-特点：非易失性，电子一旦被”陷阱”捕获很难逃逸
+特点：非易失性，电子一旦被浮栅捕获便很难逃逸
 
-核心差异：浮栅（Floating-gate）的存在让晶体管从“临时开关”进化为“永久记忆体”
-NAND的“仓库布局”：从货架到整个仓库群存储单元的层级映射：Cell → Page → Block → Plane → LUN
+核心差异：浮栅（Floating Gate）的存在，让晶体管从”临时开关”进化为”永久记忆体”。
+NAND Flash 核心原理：如何”写入”和”清空”数据？
+  
+  编程（Program）— 写入 '1'
+
+
+施加高电压，将电子”注入”浮栅。浮栅捕获电子后，晶体管的阈值电压升高，代表存储了数据 “1”。
 
   
-  NAND存储阵列结构示意图（类比仓库空间分布）
+  擦除（Erase）— 清空为 '0'
+
+
+施加反向高电压，将电子从浮栅中”吸出”。浮栅失去电子后，阈值电压降低，代表恢复为初始状态 “0”。
+
+核心机制：NAND Flash 的读写本质，是通过电压控制浮栅（Floating Gate）中电子的”进”与”出”。电子的有无直接决定了存储单元的阈值电压，从而在电路层面区分出逻辑状态 “1” 和 “0”。
+
+NAND 的”仓库布局”：从货架到整个仓库群存储单元的层级映射：Cell → Page → Block → Plane → LUN
+
+  
+  NAND 存储阵列结构示意图（类比仓库空间分布）
 
 
 
-Cell (存储单元)：最小的存储单位（浮栅晶体管）。好比一个货架。
-Page (页)：由多个Cell组成，是最小的读写单位。好比一个抽屉。
-Block (块)：由多个Page组成，是最小的擦除单位。好比一个独立的储物间。
-Plane (平面)：由多个Block组成。好比一个楼层。
-LUN (逻辑单元号)：由一个或多个Plane组成，是芯片级别的逻辑单元。好比一栋楼。
+Cell（存储单元）：最小的存储单位，即浮栅晶体管。好比一个货架。
+Page（页）：由多个 Cell 组成，是最小的读写单位。好比一个抽屉。
+Block（块）：由多个 Page 组成，是最小的擦除单位。好比一个独立的储物间。
+Plane（平面）：由多个 Block 组成。好比一个楼层。
+LUN（逻辑单元号）：由一个或多个 Plane 组成，是芯片级别的逻辑单元。好比一栋楼。
+
+关键规则：Page 是读写单位，Block 是擦除单位读写操作（Read &#x2F; Program）操作粒度灵活，以 Page 为基本单元。可以快速读取或写入一页数据，就像从书架上取一本书一样便捷。
+擦除操作（Erase）操作粒度较大，必须以 Block 为基本单元。若要修改某一页数据，必须先”清空”该页所在的整个 Block——类似清空整个文件夹，而非单个文件。
+为什么 Block 是最小擦除单元？从物理结构上看，Block 是共用同一个衬底（Source）的所有 Wordline 的集合——所有 Cell 的源极都连在一起。对 Block 执行擦除操作时，实际上是对衬底施加一个高电压，将整个 Block 内所有 Cell 的浮栅电子”吸”出来。因此无法单独擦除 Block 中的某一个 Page——擦除操作影响的是整个 Block。
+重要限制：NAND 不支持原地更新（In-Place Update）这意味着修改数据需要”先擦后写”，且擦除范围是整个 Block。这也是 SSD 需要垃圾回收（Garbage Collection）和磨损均衡（Wear Leveling）等机制的根本原因。
+Die 与 LUN：物理与逻辑的对应Die 和 LUN 到底是什么？Die（晶粒&#x2F;裸片）是一个物理概念——从硅晶圆上切割下来的独立芯片，包含完整的 NAND 存储阵列和外围控制电路。
+LUN（Logical Unit Number，逻辑单元号）源自 SCSI 协议，被 NAND 厂商借用来表示可独立接收和执行命令的最小单元。
+在 NAND Flash 领域，Die 和 LUN 基本等价。严格来说：
+
+Die 是物理上的芯片实体
+LUN 是逻辑上可独立寻址的单元
+
+一个 Package 可以包含多个 DiePackage（封装颗粒）就是 SSD PCB 上的黑色小方片——NAND Flash 颗粒。一个 Package 可以包含：
+
+单 Die Package：仅封装一颗 Die
+多 Die Package：多颗 Die 垂直堆叠
+
+LUN 的独立性每个 LUN（Die）是一个独立的命令执行单元：
+
+同一时间，一个 LUN 只能执行一个命令序列
+不同 LUN 可以并行执行不同的命令
+LUN 之间共享同一个 Package 的数据总线，但通过不同的 CE（Chip Enable）片选信号来区分
 
 ]]></content>
       <categories>
         <category>Nand Flash</category>
       </categories>
       <tags>
-        <tag>Nand</tag>
+        <tag>浮栅</tag>
+        <tag>物理结构</tag>
+        <tag>Program</tag>
+        <tag>Erase</tag>
+        <tag>Cell</tag>
+        <tag>Block</tag>
+        <tag>LUN</tag>
       </tags>
   </entry>
 </search>
