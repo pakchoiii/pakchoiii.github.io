@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="440" y="38" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">HBM 十年五代：单堆栈带宽涨了 16 倍</text>
+
+  <!-- 柱状图（基线 y=340） -->
+  <rect x="65"  y="325" width="95" height="15"  fill="#94a3b8"/>
+  <rect x="195" y="310" width="95" height="30"  fill="#64748b"/>
+  <rect x="325" y="286" width="95" height="54"  fill="#0d9488"/>
+  <rect x="455" y="244" width="95" height="96"  fill="#2563eb"/>
+  <rect x="585" y="196" width="95" height="144" fill="#8b5cf6"/>
+  <rect x="715" y="100" width="95" height="240" fill="#ea580c"/>
+
+  <!-- 数值标签 -->
+  <text x="112" y="315" text-anchor="middle" fill="#94a3b8" font-size="13" font-weight="bold">128 GB/s</text>
+  <text x="242" y="300" text-anchor="middle" fill="#64748b" font-size="13" font-weight="bold">256 GB/s</text>
+  <text x="372" y="276" text-anchor="middle" fill="#0d9488" font-size="13" font-weight="bold">≈460 GB/s</text>
+  <text x="502" y="234" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="bold">819 GB/s</text>
+  <text x="632" y="186" text-anchor="middle" fill="#8b5cf6" font-size="13" font-weight="bold">≈1.2 TB/s</text>
+  <text x="762" y="90"  text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">≈2 TB/s</text>
+
+  <!-- 基线 -->
+  <line x1="60" y1="340" x2="830" y2="340" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <!-- 代际名称与年份 -->
+  <text x="112" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">HBM1</text>
+  <text x="242" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">HBM2</text>
+  <text x="372" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">HBM2E</text>
+  <text x="502" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">HBM3</text>
+  <text x="632" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">HBM3E</text>
+  <text x="762" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">HBM4</text>
+
+  <text x="112" y="380" text-anchor="middle" fill="#64748b" font-size="11">2015</text>
+  <text x="242" y="380" text-anchor="middle" fill="#64748b" font-size="11">2016</text>
+  <text x="372" y="380" text-anchor="middle" fill="#64748b" font-size="11">2020</text>
+  <text x="502" y="380" text-anchor="middle" fill="#64748b" font-size="11">2022</text>
+  <text x="632" y="380" text-anchor="middle" fill="#64748b" font-size="11">2024</text>
+  <text x="762" y="380" text-anchor="middle" fill="#64748b" font-size="11">2025 定标</text>
+
+  <!-- 位宽 -->
+  <text x="52" y="400" text-anchor="end" fill="#334155" font-size="12">位宽</text>
+  <text x="112" y="400" text-anchor="middle" fill="#334155" font-size="12">1024 位</text>
+  <text x="242" y="400" text-anchor="middle" fill="#334155" font-size="12">1024 位</text>
+  <text x="372" y="400" text-anchor="middle" fill="#334155" font-size="12">1024 位</text>
+  <text x="502" y="400" text-anchor="middle" fill="#334155" font-size="12">1024 位</text>
+  <text x="632" y="400" text-anchor="middle" fill="#334155" font-size="12">1024 位</text>
+  <text x="762" y="400" text-anchor="middle" fill="#ea580c" font-size="12" font-weight="bold">2048 位</text>
+
+  <!-- 层数 -->
+  <text x="52" y="420" text-anchor="end" fill="#334155" font-size="12">层数</text>
+  <text x="112" y="420" text-anchor="middle" fill="#334155" font-size="12">4 层</text>
+  <text x="242" y="420" text-anchor="middle" fill="#334155" font-size="12">4~8 层</text>
+  <text x="372" y="420" text-anchor="middle" fill="#334155" font-size="12">8 层</text>
+  <text x="502" y="420" text-anchor="middle" fill="#334155" font-size="12">12 层</text>
+  <text x="632" y="420" text-anchor="middle" fill="#334155" font-size="12">12 层</text>
+  <text x="762" y="420" text-anchor="middle" fill="#334155" font-size="12">16 层</text>
+
+  <!-- ×16 趋势线 -->
+  <line x1="118" y1="312" x2="750" y2="96" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="6,5"/>
+  <polygon points="756,92 744,92 750,102" fill="#ea580c"/>
+  <text x="420" y="185" text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">带宽 ×16</text>
+
+  <!-- 底部注释 -->
+  <text x="440" y="456" text-anchor="middle" fill="#334155" font-size="12">HBM4 起接口翻倍到 2048 位，单堆栈容量到 48 GB（16 层）</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <text x="440" y="30" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">存储接口地图：按物理距离分层</text>
+
+  <!-- 左轴：越靠上越近 -->
+  <line x1="60" y1="440" x2="60" y2="92" stroke="#334155" stroke-width="2"/>
+  <polygon points="60,80 53,96 67,96" fill="#334155"/>
+  <text x="42" y="262" text-anchor="middle" fill="#334155" font-size="12" font-weight="bold" transform="rotate(-90 42 262)">越靠上 · 距离越近 · 带宽越高</text>
+
+  <!-- 封装内 -->
+  <rect x="110" y="70" width="740" height="110" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="130" y="108" fill="#0d9488" font-size="15" font-weight="bold">封装内</text>
+  <text x="130" y="130" fill="#64748b" font-size="11">毫米不到</text>
+  <text x="130" y="152" fill="#64748b" font-size="11">die ↔ die</text>
+  <rect x="330" y="90" width="250" height="70" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="455" y="115" text-anchor="middle" fill="#0d9488" font-size="13" font-weight="bold">UCIe</text>
+  <text x="455" y="136" text-anchor="middle" fill="#334155" font-size="11">开放芯粒互连 · HBF 采用</text>
+  <text x="455" y="154" text-anchor="middle" fill="#64748b" font-size="11">2.0 版支持 3D 封装</text>
+  <rect x="600" y="90" width="240" height="70" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="720" y="115" text-anchor="middle" fill="#0d9488" font-size="13" font-weight="bold">HBM 专用接口</text>
+  <text x="720" y="136" text-anchor="middle" fill="#334155" font-size="11">JEDEC 定制</text>
+  <text x="720" y="154" text-anchor="middle" fill="#64748b" font-size="11">2048 位 · 约 2 TB/s</text>
+
+  <!-- 主板级 -->
+  <rect x="110" y="200" width="740" height="110" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="130" y="238" fill="#2563eb" font-size="15" font-weight="bold">主板级</text>
+  <text x="130" y="260" fill="#64748b" font-size="11">厘米级</text>
+  <text x="130" y="282" fill="#64748b" font-size="11">插槽 / 走线</text>
+  <rect x="330" y="220" width="122" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="391" y="245" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="bold">DDR5</text>
+  <text x="391" y="266" text-anchor="middle" fill="#334155" font-size="11">64 位/通道</text>
+  <text x="391" y="284" text-anchor="middle" fill="#64748b" font-size="11">DIMM 内存条</text>
+  <rect x="460" y="220" width="122" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="521" y="245" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="bold">MRDIMM</text>
+  <text x="521" y="266" text-anchor="middle" fill="#334155" font-size="11">16000 MT/s</text>
+  <text x="521" y="284" text-anchor="middle" fill="#64748b" font-size="11">瑞萨芯片组</text>
+  <rect x="590" y="220" width="122" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="651" y="245" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="bold">PCIe</text>
+  <text x="651" y="266" text-anchor="middle" fill="#334155" font-size="11">5.0 → 6.0 翻倍</text>
+  <text x="651" y="284" text-anchor="middle" fill="#64748b" font-size="11">SSD 主接口</text>
+  <rect x="720" y="220" width="122" height="70" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="781" y="245" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="bold">CXL</text>
+  <text x="781" y="266" text-anchor="middle" fill="#334155" font-size="11">PCIe + 一致性</text>
+  <text x="781" y="284" text-anchor="middle" fill="#64748b" font-size="11">Type 1/2/3</text>
+
+  <!-- 设备级 -->
+  <rect x="110" y="330" width="740" height="110" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="130" y="368" fill="#ea580c" font-size="15" font-weight="bold">设备级</text>
+  <text x="130" y="390" fill="#64748b" font-size="11">NAND ↔ 主控</text>
+  <text x="130" y="412" fill="#64748b" font-size="11">芯片引脚间</text>
+  <rect x="330" y="350" width="200" height="70" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="430" y="375" text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">ONFI</text>
+  <text x="430" y="396" text-anchor="middle" fill="#334155" font-size="11">英特尔 2006 年牵头</text>
+  <text x="430" y="414" text-anchor="middle" fill="#64748b" font-size="11">开放阵营</text>
+  <rect x="560" y="350" width="280" height="70" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="700" y="375" text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">Toggle</text>
+  <text x="700" y="396" text-anchor="middle" fill="#334155" font-size="11">东芝 / 铠侠系</text>
+  <text x="700" y="414" text-anchor="middle" fill="#64748b" font-size="11">DDR 6.0 · 约 4.8 Gb/s</text>
+
+  <!-- 底注 -->
+  <text x="480" y="466" text-anchor="middle" fill="#64748b" font-size="12">距离决定天花板：越近越快，越远越靠容量与成本取胜</text>
+</svg>

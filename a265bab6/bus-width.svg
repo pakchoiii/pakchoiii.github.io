@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="60" y="58" text-anchor="start" fill="#1e293b" font-size="15" font-weight="bold">位宽对比（等比例画出）</text>
+
+  <!-- 行 1：DDR5 DIMM -->
+  <text x="60" y="105" text-anchor="start" fill="#2563eb" font-size="15" font-weight="bold">DDR5 内存条（DIMM）</text>
+  <rect x="60" y="120" width="20" height="48" rx="3" fill="#2563eb"/>
+  <text x="100" y="141" text-anchor="start" fill="#2563eb" font-size="16" font-weight="bold">64 位</text>
+  <text x="100" y="161" text-anchor="start" fill="#64748b" font-size="12">= 8 字节 / 拍（靠高频凑带宽）</text>
+
+  <!-- 行 2：HBM3E -->
+  <text x="60" y="225" text-anchor="start" fill="#0d9488" font-size="15" font-weight="bold">HBM3E（TSV 堆叠）</text>
+  <rect x="60" y="240" width="320" height="48" rx="4" fill="#0d9488"/>
+  <line x1="100" y1="240" x2="100" y2="288" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="140" y1="240" x2="140" y2="288" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="180" y1="240" x2="180" y2="288" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="220" y1="240" x2="220" y2="288" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="260" y1="240" x2="260" y2="288" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="300" y1="240" x2="300" y2="288" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="340" y1="240" x2="340" y2="288" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <text x="400" y="262" text-anchor="start" fill="#0d9488" font-size="16" font-weight="bold">1024 位</text>
+  <text x="400" y="284" text-anchor="start" fill="#64748b" font-size="12">= 128 字节 / 拍 · 位宽 = 16 × 内存条</text>
+
+  <!-- 行 3：HBM4 -->
+  <text x="60" y="345" text-anchor="start" fill="#8b5cf6" font-size="15" font-weight="bold">HBM4</text>
+  <rect x="60" y="360" width="640" height="48" rx="4" fill="#8b5cf6"/>
+  <line x1="100" y1="360" x2="100" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="140" y1="360" x2="140" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="180" y1="360" x2="180" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="220" y1="360" x2="220" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="260" y1="360" x2="260" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="300" y1="360" x2="300" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="340" y1="360" x2="340" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="380" y1="360" x2="380" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="420" y1="360" x2="420" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="460" y1="360" x2="460" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="500" y1="360" x2="500" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="540" y1="360" x2="540" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="580" y1="360" x2="580" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="620" y1="360" x2="620" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <line x1="660" y1="360" x2="660" y2="408" stroke="#ffffff" stroke-width="2" stroke-opacity="0.35"/>
+  <text x="716" y="384" text-anchor="start" fill="#8b5cf6" font-size="16" font-weight="bold">2048 位</text>
+  <text x="716" y="404" text-anchor="start" fill="#64748b" font-size="12">256 字节/拍 · 32 × 内存条</text>
+
+  <!-- 底部注释 -->
+  <text x="440" y="452" text-anchor="middle" fill="#334155" font-size="13">平铺的内存条只有 64 位；HBM 靠"堆叠 + 贴近"拿到上千位位宽</text>
+</svg>

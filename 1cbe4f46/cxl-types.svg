@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="720" height="420" fill="#ffffff"/>
+
+  <text x="360" y="28" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">CXL 的三种设备类型</text>
+  <text x="380" y="66" text-anchor="middle" fill="#64748b" font-size="12">CXL 总线：PCIe 物理层 + 缓存一致性协议</text>
+
+  <!-- 主机 -->
+  <rect x="40" y="150" width="160" height="120" rx="10" fill="#1e293b"/>
+  <text x="120" y="198" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">主机 CPU</text>
+  <text x="120" y="222" text-anchor="middle" fill="#ffffff" font-size="11">像访问本地内存一样</text>
+  <text x="120" y="242" text-anchor="middle" fill="#ffffff" font-size="11">访问设备内存</text>
+  <line x1="200" y1="210" x2="274" y2="210" stroke="#334155" stroke-width="2.5"/>
+
+  <!-- CXL 总线 -->
+  <rect x="280" y="80" width="24" height="270" rx="6" fill="#2563eb"/>
+
+  <!-- Type 1 -->
+  <line x1="304" y1="125" x2="410" y2="125" stroke="#334155" stroke-width="2"/>
+  <polygon points="418,125 404,118 404,132" fill="#334155"/>
+  <rect x="420" y="80" width="260" height="90" rx="10" fill="#2563eb"/>
+  <text x="550" y="112" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">Type 1 · 加速器</text>
+  <text x="550" y="136" text-anchor="middle" fill="#ffffff" font-size="11">自身不带内存</text>
+  <text x="550" y="156" text-anchor="middle" fill="#ffffff" font-size="11">如智能网卡、加速卡</text>
+
+  <!-- Type 2 -->
+  <line x1="304" y1="230" x2="410" y2="230" stroke="#334155" stroke-width="2"/>
+  <polygon points="418,230 404,223 404,237" fill="#334155"/>
+  <rect x="420" y="185" width="260" height="90" rx="10" fill="#8b5cf6"/>
+  <text x="550" y="217" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">Type 2 · 带内存的加速器</text>
+  <text x="550" y="241" text-anchor="middle" fill="#ffffff" font-size="11">GPU / FPGA + 自带内存</text>
+  <text x="550" y="261" text-anchor="middle" fill="#ffffff" font-size="11">设备内存与主机共享视野</text>
+
+  <!-- Type 3 -->
+  <line x1="304" y1="335" x2="410" y2="335" stroke="#334155" stroke-width="2"/>
+  <polygon points="418,335 404,328 404,342" fill="#334155"/>
+  <rect x="420" y="290" width="260" height="90" rx="10" fill="#ea580c"/>
+  <text x="550" y="322" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">Type 3 · 内存扩展与池化</text>
+  <text x="550" y="346" text-anchor="middle" fill="#ffffff" font-size="11">挂上内存当"外接内存条"</text>
+  <text x="550" y="366" text-anchor="middle" fill="#ffffff" font-size="11">分层内存的关键角色</text>
+
+  <!-- 底注 -->
+  <text x="360" y="408" text-anchor="middle" fill="#64748b" font-size="12">Type 3 是服务器分层内存的关键——机架级 CXL 内存池用的就是它</text>
+</svg>

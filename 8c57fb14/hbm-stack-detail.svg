@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 堆栈标题 -->
+  <text x="655" y="48" text-anchor="middle" fill="#0d9488" font-size="13" font-weight="bold">HBM 堆栈：DRAM Die ×8（HBM4 到 16 层）</text>
+
+  <!-- 8 层 DRAM Die -->
+  <rect x="500" y="64"  width="310" height="20" rx="2" fill="#0d9488"/>
+  <rect x="500" y="88"  width="310" height="20" rx="2" fill="#0d9488"/>
+  <rect x="500" y="112" width="310" height="20" rx="2" fill="#0d9488"/>
+  <rect x="500" y="136" width="310" height="20" rx="2" fill="#0d9488"/>
+  <rect x="500" y="160" width="310" height="20" rx="2" fill="#0d9488"/>
+  <rect x="500" y="184" width="310" height="20" rx="2" fill="#0d9488"/>
+  <rect x="500" y="208" width="310" height="20" rx="2" fill="#0d9488"/>
+  <rect x="500" y="232" width="310" height="20" rx="2" fill="#0d9488"/>
+
+  <!-- 层间微凸点 -->
+  <g fill="#1e293b">
+    <circle cx="530" cy="86"  r="3.5"/><circle cx="660" cy="86"  r="3.5"/><circle cx="790" cy="86"  r="3.5"/>
+    <circle cx="530" cy="110" r="3.5"/><circle cx="660" cy="110" r="3.5"/><circle cx="790" cy="110" r="3.5"/>
+    <circle cx="530" cy="134" r="3.5"/><circle cx="660" cy="134" r="3.5"/><circle cx="790" cy="134" r="3.5"/>
+    <circle cx="530" cy="158" r="3.5"/><circle cx="660" cy="158" r="3.5"/><circle cx="790" cy="158" r="3.5"/>
+    <circle cx="530" cy="182" r="3.5"/><circle cx="660" cy="182" r="3.5"/><circle cx="790" cy="182" r="3.5"/>
+    <circle cx="530" cy="206" r="3.5"/><circle cx="660" cy="206" r="3.5"/><circle cx="790" cy="206" r="3.5"/>
+    <circle cx="530" cy="230" r="3.5"/><circle cx="660" cy="230" r="3.5"/><circle cx="790" cy="230" r="3.5"/>
+    <circle cx="530" cy="255" r="3.5"/><circle cx="660" cy="255" r="3.5"/><circle cx="790" cy="255" r="3.5"/>
+  </g>
+
+  <!-- 逻辑 Die -->
+  <rect x="500" y="258" width="310" height="48" fill="#0f766e"/>
+  <text x="655" y="278" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">逻辑 Die（Logic Die）</text>
+  <text x="655" y="296" text-anchor="middle" fill="#ffffff" font-size="11">接口电路 + 测试电路</text>
+
+  <!-- TSV 铜柱（贯穿全部层） -->
+  <rect x="515" y="66" width="8" height="208" fill="#ea580c"/>
+  <rect x="555" y="66" width="8" height="208" fill="#ea580c"/>
+  <rect x="595" y="66" width="8" height="208" fill="#ea580c"/>
+  <rect x="635" y="66" width="8" height="208" fill="#ea580c"/>
+  <rect x="675" y="66" width="8" height="208" fill="#ea580c"/>
+  <rect x="715" y="66" width="8" height="208" fill="#ea580c"/>
+  <rect x="755" y="66" width="8" height="208" fill="#ea580c"/>
+  <rect x="795" y="66" width="8" height="208" fill="#ea580c"/>
+
+  <!-- 到中介层的微凸点 -->
+  <circle cx="520" cy="313" r="5" fill="#1e293b"/>
+  <circle cx="560" cy="313" r="5" fill="#1e293b"/>
+  <circle cx="600" cy="313" r="5" fill="#1e293b"/>
+  <circle cx="650" cy="313" r="5" fill="#1e293b"/>
+  <circle cx="700" cy="313" r="5" fill="#1e293b"/>
+  <circle cx="740" cy="313" r="5" fill="#1e293b"/>
+  <circle cx="780" cy="313" r="5" fill="#1e293b"/>
+
+  <!-- GPU -->
+  <rect x="150" y="258" width="200" height="56" rx="6" fill="#2563eb"/>
+  <text x="250" y="282" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">GPU</text>
+  <text x="250" y="300" text-anchor="middle" fill="#ffffff" font-size="11">计算芯片</text>
+  <circle cx="180" cy="320" r="5" fill="#1e293b"/>
+  <circle cx="250" cy="320" r="5" fill="#1e293b"/>
+  <circle cx="320" cy="320" r="5" fill="#1e293b"/>
+
+  <!-- 中介层 -->
+  <rect x="100" y="326" width="730" height="48" fill="#94a3b8"/>
+  <text x="465" y="355" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">中介层（Interposer，内含 TSV）</text>
+
+  <!-- 封装基板 -->
+  <rect x="80" y="374" width="770" height="40" fill="#64748b"/>
+  <text x="465" y="399" text-anchor="middle" fill="#ffffff" font-size="12">封装基板（Package Substrate）</text>
+
+  <!-- 左侧标注 -->
+  <line x1="478" y1="106" x2="524" y2="110" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="470" y="104" text-anchor="end" fill="#1e293b" font-size="12" font-weight="bold">微凸点（Microbump）</text>
+
+  <line x1="478" y1="150" x2="496" y2="150" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="470" y="154" text-anchor="end" fill="#0d9488" font-size="13" font-weight="bold">DRAM Die ×8~16</text>
+
+  <line x1="478" y1="195" x2="550" y2="195" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="470" y="199" text-anchor="end" fill="#ea580c" font-size="13" font-weight="bold">TSV 贯穿全部层</text>
+
+  <!-- 底部注释 -->
+  <text x="465" y="436" text-anchor="middle" fill="#334155" font-size="12">整套堆栈躺在中介层上、紧挨 GPU：上千位接口 + 毫米以内的路径</text>
+  <text x="465" y="458" text-anchor="middle" fill="#64748b" font-size="11">想加容量就多摞几层 Die，接口电路在逻辑 Die 上只做一份</text>
+</svg>

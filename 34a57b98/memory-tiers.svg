@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <text x="440" y="32" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">三层内存架构（Tiered Memory）：热 · 温 · 冷</text>
+
+  <!-- 热层 -->
+  <rect x="330" y="60" width="220" height="90" rx="10" fill="#0d9488"/>
+  <text x="440" y="92" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="bold">热层 · HBM</text>
+  <text x="440" y="114" text-anchor="middle" fill="#ffffff" font-size="12">工作集 / 激活参数 / 热专家</text>
+  <text x="440" y="136" text-anchor="middle" fill="#ffffff" font-size="11">TB/s 级 · 单堆栈约 48 GB · 最贵</text>
+
+  <!-- 温层 -->
+  <rect x="260" y="190" width="360" height="90" rx="10" fill="#ea580c"/>
+  <text x="440" y="222" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="bold">温层 · HBF</text>
+  <text x="440" y="244" text-anchor="middle" fill="#ffffff" font-size="12">完整模型权重 + KV Cache + 冷专家</text>
+  <text x="440" y="266" text-anchor="middle" fill="#ffffff" font-size="11">约 0.4 ~ 3 TB/s · 单堆栈最高约 512 GB</text>
+
+  <!-- 冷层 -->
+  <rect x="190" y="320" width="500" height="90" rx="10" fill="#64748b"/>
+  <text x="440" y="352" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="bold">冷层 · SSD</text>
+  <text x="440" y="374" text-anchor="middle" fill="#ffffff" font-size="12">模型仓库 / 归档数据 / checkpoint 备份</text>
+  <text x="440" y="396" text-anchor="middle" fill="#ffffff" font-size="11">GB/s 级 · TB 级容量 · 最便宜</text>
+
+  <!-- 层间流动（热⇄温） -->
+  <line x1="415" y1="152" x2="415" y2="180" stroke="#334155" stroke-width="2" stroke-dasharray="5 4"/>
+  <polygon points="415,188 409,176 421,176" fill="#334155"/>
+  <line x1="465" y1="188" x2="465" y2="160" stroke="#334155" stroke-width="2" stroke-dasharray="5 4"/>
+  <polygon points="465,152 459,164 471,164" fill="#334155"/>
+  <text x="488" y="174" fill="#64748b" font-size="11">变热上浮</text>
+
+  <!-- 层间流动（温⇄冷） -->
+  <line x1="415" y1="282" x2="415" y2="310" stroke="#334155" stroke-width="2" stroke-dasharray="5 4"/>
+  <polygon points="415,318 409,306 421,306" fill="#334155"/>
+  <line x1="465" y1="318" x2="465" y2="290" stroke="#334155" stroke-width="2" stroke-dasharray="5 4"/>
+  <polygon points="465,282 459,294 471,294" fill="#334155"/>
+  <text x="488" y="304" fill="#64748b" font-size="11">变冷下沉</text>
+
+  <!-- 左轴：越热越快越贵 -->
+  <line x1="80" y1="410" x2="80" y2="88" stroke="#334155" stroke-width="2"/>
+  <polygon points="80,76 73,92 87,92" fill="#334155"/>
+  <text x="66" y="245" text-anchor="middle" fill="#334155" font-size="13" font-weight="bold" transform="rotate(-90 66 245)">越热 · 越快 · 越贵</text>
+
+  <!-- 右轴：越冷越量越大越便宜 -->
+  <line x1="830" y1="80" x2="830" y2="402" stroke="#334155" stroke-width="2"/>
+  <polygon points="830,414 823,398 837,398" fill="#334155"/>
+  <text x="846" y="245" text-anchor="middle" fill="#334155" font-size="13" font-weight="bold" transform="rotate(90 846 245)">越冷 · 越大 · 越便宜</text>
+
+  <!-- 底注 -->
+  <text x="440" y="452" text-anchor="middle" fill="#64748b" font-size="12">Tiered Memory 的核心：让每一字节数据，待在性价比最合适的那一层</text>
+</svg>

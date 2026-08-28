@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 中间分隔线 -->
+  <line x1="440" y1="40" x2="440" y2="440" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,6"/>
+
+  <!-- ===== 左侧：2.5D ===== -->
+  <text x="250" y="52" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">2.5D：并排躺在中介层上</text>
+
+  <!-- 封装基板 -->
+  <rect x="60" y="380" width="380" height="36" fill="#64748b"/>
+  <text x="250" y="403" text-anchor="middle" fill="#ffffff" font-size="12">封装基板</text>
+
+  <!-- 中介层 -->
+  <rect x="60" y="320" width="380" height="60" fill="#94a3b8"/>
+  <text x="250" y="345" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">中介层（Interposer）</text>
+  <text x="250" y="363" text-anchor="middle" fill="#ffffff" font-size="11">内部有 TSV 和密集走线</text>
+
+  <!-- GPU -->
+  <rect x="90" y="250" width="110" height="70" rx="6" fill="#2563eb"/>
+  <text x="145" y="282" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">GPU</text>
+  <text x="145" y="302" text-anchor="middle" fill="#ffffff" font-size="11">计算芯片</text>
+
+  <!-- HBM 堆栈 -->
+  <text x="325" y="180" text-anchor="middle" fill="#0d9488" font-size="13" font-weight="bold">HBM 堆栈（4~16 层）</text>
+  <rect x="260" y="190" width="130" height="26" rx="3" fill="#0d9488"/>
+  <rect x="260" y="218" width="130" height="26" rx="3" fill="#0d9488"/>
+  <rect x="260" y="246" width="130" height="26" rx="3" fill="#0d9488"/>
+  <rect x="260" y="274" width="130" height="26" rx="3" fill="#0d9488"/>
+
+  <!-- 微凸点 -->
+  <circle cx="120" cy="316" r="4" fill="#1e293b"/>
+  <circle cx="145" cy="316" r="4" fill="#1e293b"/>
+  <circle cx="170" cy="316" r="4" fill="#1e293b"/>
+  <circle cx="285" cy="316" r="4" fill="#1e293b"/>
+  <circle cx="325" cy="316" r="4" fill="#1e293b"/>
+  <circle cx="365" cy="316" r="4" fill="#1e293b"/>
+
+  <text x="250" y="448" text-anchor="middle" fill="#334155" font-size="12">芯片不叠，靠中介层里的连线互通（台积电 CoWoS 属此类）</text>
+
+  <!-- ===== 右侧：3D ===== -->
+  <text x="660" y="52" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">3D：芯片直接叠芯片</text>
+
+  <!-- 封装基板 -->
+  <rect x="490" y="380" width="340" height="36" fill="#64748b"/>
+  <text x="660" y="403" text-anchor="middle" fill="#ffffff" font-size="12">封装基板</text>
+
+  <!-- 下方 Die -->
+  <rect x="520" y="300" width="280" height="76" rx="6" fill="#2563eb"/>
+  <text x="660" y="332" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">下方 Die（GPU / 逻辑 Die）</text>
+  <text x="660" y="352" text-anchor="middle" fill="#ffffff" font-size="11">或 HBM 堆栈底部的逻辑 Die</text>
+
+  <!-- 混合键合层 -->
+  <rect x="540" y="288" width="240" height="10" fill="#8b5cf6"/>
+  <text x="532" y="297" text-anchor="end" fill="#8b5cf6" font-size="11" font-weight="bold">混合键合</text>
+
+  <!-- 上方 Die（含 TSV） -->
+  <rect x="550" y="170" width="220" height="118" rx="6" fill="#0d9488"/>
+  <rect x="575" y="178" width="10" height="102" fill="#ea580c"/>
+  <rect x="625" y="178" width="10" height="102" fill="#ea580c"/>
+  <rect x="675" y="178" width="10" height="102" fill="#ea580c"/>
+  <rect x="725" y="178" width="10" height="102" fill="#ea580c"/>
+  <text x="660" y="210" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">上方 Die（减薄）</text>
+
+  <line x1="737" y1="230" x2="785" y2="230" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="790" y="234" text-anchor="start" fill="#ea580c" font-size="12" font-weight="bold">TSV</text>
+
+  <text x="660" y="448" text-anchor="middle" fill="#334155" font-size="12">上下层 TSV 直连；微凸点 → 混合键合（3D NAND 已量产）</text>
+</svg>

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 左侧标题 -->
+  <text x="195" y="42" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">一颗 DRAM 芯片 = 多个独立 Bank</text>
+
+  <!-- DRAM 芯片外框 -->
+  <rect x="70" y="64" width="250" height="330" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="195" y="90" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="bold">DRAM 芯片</text>
+
+  <!-- Bank 阵列 4×2 -->
+  <rect x="88"  y="104" width="48" height="128" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="142" y="104" width="48" height="128" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="196" y="104" width="48" height="128" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="250" y="104" width="48" height="128" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="88"  y="246" width="48" height="128" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="142" y="246" width="48" height="128" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="196" y="246" width="48" height="128" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="2.5"/>
+  <rect x="250" y="246" width="48" height="128" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <text x="112" y="172" text-anchor="middle" fill="#64748b" font-size="11">Bank 0</text>
+  <text x="166" y="172" text-anchor="middle" fill="#64748b" font-size="11">Bank 1</text>
+  <text x="220" y="172" text-anchor="middle" fill="#64748b" font-size="11">Bank 2</text>
+  <text x="274" y="172" text-anchor="middle" fill="#64748b" font-size="11">Bank 3</text>
+  <text x="112" y="314" text-anchor="middle" fill="#64748b" font-size="11">Bank 4</text>
+  <text x="166" y="314" text-anchor="middle" fill="#64748b" font-size="11">Bank 5</text>
+  <text x="220" y="314" text-anchor="middle" fill="#ea580c" font-size="11" font-weight="bold">Bank 6</text>
+  <text x="274" y="314" text-anchor="middle" fill="#64748b" font-size="11">Bank 7</text>
+
+  <text x="195" y="420" text-anchor="middle" fill="#334155" font-size="12">每个 Bank 自带行译码器和灵敏放大器</text>
+
+  <!-- Bank 到右侧的连接线 -->
+  <line x1="300" y1="310" x2="424" y2="310" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- 右侧标题 -->
+  <text x="630" y="42" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">放大看一个 Bank：行 × 列矩阵</text>
+
+  <!-- 右侧面板外框 -->
+  <rect x="430" y="64" width="400" height="330" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+
+  <!-- 行译码器 -->
+  <rect x="436" y="110" width="54" height="130" rx="4" fill="#2563eb"/>
+  <text x="463" y="180" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">行译码器</text>
+
+  <!-- 单元矩阵 7 列 × 5 行 -->
+  <g fill="#ffffff" stroke="#94a3b8" stroke-width="1">
+    <rect x="500" y="112" width="26" height="22" rx="2"/>
+    <rect x="530" y="112" width="26" height="22" rx="2"/>
+    <rect x="560" y="112" width="26" height="22" rx="2"/>
+    <rect x="590" y="112" width="26" height="22" rx="2"/>
+    <rect x="620" y="112" width="26" height="22" rx="2"/>
+    <rect x="650" y="112" width="26" height="22" rx="2"/>
+    <rect x="680" y="112" width="26" height="22" rx="2"/>
+    <rect x="500" y="164" width="26" height="22" rx="2"/>
+    <rect x="530" y="164" width="26" height="22" rx="2"/>
+    <rect x="560" y="164" width="26" height="22" rx="2"/>
+    <rect x="590" y="164" width="26" height="22" rx="2"/>
+    <rect x="620" y="164" width="26" height="22" rx="2"/>
+    <rect x="650" y="164" width="26" height="22" rx="2"/>
+    <rect x="680" y="164" width="26" height="22" rx="2"/>
+    <rect x="500" y="190" width="26" height="22" rx="2"/>
+    <rect x="530" y="190" width="26" height="22" rx="2"/>
+    <rect x="560" y="190" width="26" height="22" rx="2"/>
+    <rect x="590" y="190" width="26" height="22" rx="2"/>
+    <rect x="620" y="190" width="26" height="22" rx="2"/>
+    <rect x="650" y="190" width="26" height="22" rx="2"/>
+    <rect x="680" y="190" width="26" height="22" rx="2"/>
+    <rect x="500" y="216" width="26" height="22" rx="2"/>
+    <rect x="530" y="216" width="26" height="22" rx="2"/>
+    <rect x="560" y="216" width="26" height="22" rx="2"/>
+    <rect x="590" y="216" width="26" height="22" rx="2"/>
+    <rect x="620" y="216" width="26" height="22" rx="2"/>
+    <rect x="650" y="216" width="26" height="22" rx="2"/>
+    <rect x="680" y="216" width="26" height="22" rx="2"/>
+  </g>
+  <!-- 被打开的行（高亮） -->
+  <g fill="#ea580c" stroke="#ea580c" stroke-width="1">
+    <rect x="500" y="138" width="26" height="22" rx="2"/>
+    <rect x="530" y="138" width="26" height="22" rx="2"/>
+    <rect x="560" y="138" width="26" height="22" rx="2"/>
+    <rect x="590" y="138" width="26" height="22" rx="2"/>
+    <rect x="620" y="138" width="26" height="22" rx="2"/>
+    <rect x="650" y="138" width="26" height="22" rx="2"/>
+    <rect x="680" y="138" width="26" height="22" rx="2"/>
+  </g>
+
+  <!-- 位线标注（列方向） -->
+  <line x1="543" y1="106" x2="543" y2="246" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="543" y="100" text-anchor="middle" fill="#0d9488" font-size="11">位线（列）</text>
+
+  <!-- 行高亮标注 -->
+  <line x1="708" y1="149" x2="714" y2="149" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="716" y="138" text-anchor="start" fill="#2563eb" font-size="11">字线选中一行</text>
+  <text x="716" y="156" text-anchor="start" fill="#ea580c" font-size="12" font-weight="bold">整行进入行缓冲</text>
+
+  <!-- 矩阵到灵敏放大器的连线 -->
+  <line x1="513" y1="240" x2="513" y2="260" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="573" y1="240" x2="573" y2="260" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="633" y1="240" x2="633" y2="260" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="693" y1="240" x2="693" y2="260" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- 灵敏放大器 / 行缓冲 -->
+  <rect x="500" y="262" width="206" height="44" rx="6" fill="#0d9488"/>
+  <text x="603" y="280" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">灵敏放大器（Sense Amp）</text>
+  <text x="603" y="298" text-anchor="middle" fill="#ffffff" font-size="11">＝ 行缓冲（Row Buffer）</text>
+
+  <!-- 面板底部注释 -->
+  <text x="630" y="340" text-anchor="middle" fill="#334155" font-size="12">行缓冲摊开后，读 / 写只需给列地址，</text>
+  <text x="630" y="360" text-anchor="middle" fill="#334155" font-size="12">在"桌面"上挑位置即可，快得多</text>
+</svg>

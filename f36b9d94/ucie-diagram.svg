@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 顶部：物理视角 -->
+  <text x="70" y="52" fill="#64748b" font-size="12" font-weight="bold">物理视角：die-to-die 直连</text>
+
+  <!-- 计算 Die -->
+  <rect x="80" y="90" width="200" height="130" rx="12" fill="#2563eb"/>
+  <text x="180" y="150" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">CPU / GPU</text>
+  <text x="180" y="174" text-anchor="middle" fill="#ffffff" font-size="12">计算 Die</text>
+  <text x="180" y="194" text-anchor="middle" fill="#ffffff" font-size="11" opacity="0.85">（Chiplet）</text>
+
+  <!-- HBF 堆栈：4 层 NAND Die（示意） -->
+  <rect x="560" y="90" width="220" height="30" rx="4" fill="#ea580c"/>
+  <text x="670" y="109" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">NAND Die</text>
+  <rect x="560" y="126" width="220" height="30" rx="4" fill="#ea580c"/>
+  <text x="670" y="145" text-anchor="middle" fill="#ffffff" font-size="11">NAND Die</text>
+  <rect x="560" y="162" width="220" height="30" rx="4" fill="#ea580c"/>
+  <text x="670" y="181" text-anchor="middle" fill="#ffffff" font-size="11">NAND Die</text>
+  <rect x="560" y="198" width="220" height="30" rx="4" fill="#ea580c"/>
+  <text x="670" y="217" text-anchor="middle" fill="#ffffff" font-size="11">NAND Die</text>
+  <!-- TSV -->
+  <line x1="590" y1="88" x2="590" y2="230" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <line x1="612" y1="88" x2="612" y2="230" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <line x1="728" y1="88" x2="728" y2="230" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <line x1="750" y1="88" x2="750" y2="230" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="790" y="164" fill="#ea580c" font-size="12" font-weight="bold">×8/16</text>
+  <text x="670" y="252" text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">HBF 堆栈</text>
+  <text x="670" y="270" text-anchor="middle" fill="#64748b" font-size="11">（TSV 贯穿）</text>
+
+  <!-- UCIe 双向箭头 -->
+  <line x1="310" y1="128" x2="530" y2="128" stroke="#8b5cf6" stroke-width="2"/>
+  <polygon points="310,128 322,124 322,132" fill="#8b5cf6"/>
+  <polygon points="530,128 518,124 518,132" fill="#8b5cf6"/>
+
+  <!-- UCIe 通道 -->
+  <line x1="282" y1="162" x2="298" y2="162" stroke="#334155" stroke-width="2"/>
+  <line x1="282" y1="175" x2="298" y2="175" stroke="#334155" stroke-width="2"/>
+  <line x1="282" y1="188" x2="298" y2="188" stroke="#334155" stroke-width="2"/>
+  <line x1="542" y1="162" x2="558" y2="162" stroke="#334155" stroke-width="2"/>
+  <line x1="542" y1="175" x2="558" y2="175" stroke="#334155" stroke-width="2"/>
+  <line x1="542" y1="188" x2="558" y2="188" stroke="#334155" stroke-width="2"/>
+  <rect x="300" y="148" width="240" height="54" rx="27" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="420" y="176" text-anchor="middle" fill="#8b5cf6" font-size="18" font-weight="bold">UCIe</text>
+  <text x="420" y="194" text-anchor="middle" fill="#64748b" font-size="11">die-to-die 互连</text>
+  <text x="420" y="224" text-anchor="middle" fill="#64748b" font-size="11">超宽 · 极短的裸片间通道</text>
+
+  <!-- 底部：逻辑视角 -->
+  <text x="70" y="300" fill="#64748b" font-size="12" font-weight="bold">逻辑视角：分层协议栈（两侧对等）</text>
+
+  <!-- 左侧协议栈 -->
+  <rect x="80" y="318" width="220" height="30" fill="#8b5cf6"/>
+  <text x="190" y="338" text-anchor="middle" fill="#ffffff" font-size="12">协议层（PCIe/CXL/Stream）</text>
+  <rect x="80" y="354" width="220" height="30" fill="#2563eb"/>
+  <text x="190" y="374" text-anchor="middle" fill="#ffffff" font-size="12">D2D 适配层</text>
+  <rect x="80" y="390" width="220" height="30" fill="#0d9488"/>
+  <text x="190" y="410" text-anchor="middle" fill="#ffffff" font-size="12">PHY 适配层</text>
+  <rect x="80" y="426" width="220" height="30" fill="#ea580c"/>
+  <text x="190" y="446" text-anchor="middle" fill="#ffffff" font-size="12">PHY 电气层</text>
+
+  <!-- 右侧协议栈 -->
+  <rect x="560" y="318" width="220" height="30" fill="#8b5cf6"/>
+  <text x="670" y="338" text-anchor="middle" fill="#ffffff" font-size="12">协议层（PCIe/CXL/Stream）</text>
+  <rect x="560" y="354" width="220" height="30" fill="#2563eb"/>
+  <text x="670" y="374" text-anchor="middle" fill="#ffffff" font-size="12">D2D 适配层</text>
+  <rect x="560" y="390" width="220" height="30" fill="#0d9488"/>
+  <text x="670" y="410" text-anchor="middle" fill="#ffffff" font-size="12">PHY 适配层</text>
+  <rect x="560" y="426" width="220" height="30" fill="#ea580c"/>
+  <text x="670" y="446" text-anchor="middle" fill="#ffffff" font-size="12">PHY 电气层</text>
+
+  <!-- 对等连接：上三层为逻辑对等（虚线），底层为实际走线（实线） -->
+  <line x1="304" y1="333" x2="556" y2="333" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="304" y1="369" x2="556" y2="369" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="304" y1="405" x2="556" y2="405" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="304" y1="441" x2="556" y2="441" stroke="#ea580c" stroke-width="2.5"/>
+  <polygon points="312,441 324,437 324,445" fill="#ea580c"/>
+  <polygon points="548,441 536,437 536,445" fill="#ea580c"/>
+  <text x="430" y="433" text-anchor="middle" fill="#ea580c" font-size="11">实际物理走线</text>
+</svg>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 分隔虚线 -->
+  <line x1="300" y1="60" x2="300" y2="430" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5,5"/>
+  <line x1="580" y1="60" x2="580" y2="430" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5,5"/>
+
+  <!-- 三列表头 -->
+  <text x="160" y="75" text-anchor="middle" fill="#8b5cf6" font-size="17" font-weight="bold">SRAM</text>
+  <text x="160" y="97" text-anchor="middle" fill="#64748b" font-size="12">6 个晶体管 / bit</text>
+  <text x="440" y="75" text-anchor="middle" fill="#2563eb" font-size="17" font-weight="bold">DRAM</text>
+  <text x="440" y="97" text-anchor="middle" fill="#64748b" font-size="12">1 晶体管 + 1 电容 / bit</text>
+  <text x="720" y="75" text-anchor="middle" fill="#ea580c" font-size="17" font-weight="bold">NAND</text>
+  <text x="720" y="97" text-anchor="middle" fill="#64748b" font-size="12">1 个浮栅晶体管 / bit</text>
+
+  <!-- SRAM：6 个晶体管 -->
+  <rect x="95" y="120" width="38" height="30" rx="4" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="141" y="120" width="38" height="30" rx="4" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="187" y="120" width="38" height="30" rx="4" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="95" y="165" width="38" height="30" rx="4" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="141" y="165" width="38" height="30" rx="4" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <rect x="187" y="165" width="38" height="30" rx="4" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="114" y="140" text-anchor="middle" fill="#8b5cf6" font-size="11" font-weight="bold">M1</text>
+  <text x="160" y="140" text-anchor="middle" fill="#8b5cf6" font-size="11" font-weight="bold">M2</text>
+  <text x="206" y="140" text-anchor="middle" fill="#8b5cf6" font-size="11" font-weight="bold">M3</text>
+  <text x="114" y="185" text-anchor="middle" fill="#8b5cf6" font-size="11" font-weight="bold">M4</text>
+  <text x="160" y="185" text-anchor="middle" fill="#8b5cf6" font-size="11" font-weight="bold">M5</text>
+  <text x="206" y="185" text-anchor="middle" fill="#8b5cf6" font-size="11" font-weight="bold">M6</text>
+  <text x="160" y="230" text-anchor="middle" fill="#64748b" font-size="11">两两交叉耦合 + 存取管</text>
+
+  <!-- DRAM：1T1C -->
+  <line x1="350" y1="150" x2="530" y2="150" stroke="#8b5cf6" stroke-width="3"/>
+  <text x="535" y="155" text-anchor="start" fill="#8b5cf6" font-size="11">字线</text>
+  <line x1="390" y1="115" x2="390" y2="215" stroke="#2563eb" stroke-width="3"/>
+  <text x="390" y="108" text-anchor="middle" fill="#2563eb" font-size="11">位线</text>
+  <circle cx="390" cy="150" r="12" fill="#ffffff" stroke="#334155" stroke-width="3"/>
+  <line x1="402" y1="150" x2="465" y2="150" stroke="#334155" stroke-width="3"/>
+  <line x1="465" y1="130" x2="465" y2="170" stroke="#ea580c" stroke-width="4"/>
+  <line x1="483" y1="130" x2="483" y2="170" stroke="#ea580c" stroke-width="4"/>
+  <text x="474" y="145" text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">+</text>
+  <text x="474" y="165" text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">+</text>
+  <line x1="483" y1="170" x2="483" y2="192" stroke="#334155" stroke-width="3"/>
+  <line x1="470" y1="192" x2="496" y2="192" stroke="#334155" stroke-width="3"/>
+  <line x1="476" y1="199" x2="490" y2="199" stroke="#334155" stroke-width="3"/>
+  <text x="440" y="230" text-anchor="middle" fill="#64748b" font-size="11">1T1C：读出是破坏性的</text>
+
+  <!-- NAND：浮栅晶体管 -->
+  <rect x="665" y="120" width="110" height="18" fill="#2563eb"/>
+  <rect x="665" y="138" width="110" height="10" fill="#0d9488"/>
+  <rect x="665" y="148" width="110" height="18" fill="#ea580c"/>
+  <rect x="655" y="166" width="130" height="34" fill="#1e293b"/>
+  <text x="720" y="161" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">− − −</text>
+  <text x="720" y="188" text-anchor="middle" fill="#ffffff" font-size="11">衬底</text>
+  <text x="650" y="133" text-anchor="end" fill="#64748b" font-size="11">控制栅</text>
+  <text x="650" y="147" text-anchor="end" fill="#64748b" font-size="11">隧穿氧化层</text>
+  <text x="650" y="161" text-anchor="end" fill="#64748b" font-size="11">浮栅</text>
+  <text x="720" y="230" text-anchor="middle" fill="#64748b" font-size="11">电子困在浮栅里</text>
+
+  <!-- 对比信息行 -->
+  <text x="100" y="290" text-anchor="end" fill="#64748b" font-size="12">速度</text>
+  <text x="160" y="290" text-anchor="middle" fill="#8b5cf6" font-size="13" font-weight="bold">最快（~1ns）</text>
+  <text x="440" y="290" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="bold">快（~100ns）</text>
+  <text x="720" y="290" text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">慢（μs 级）</text>
+
+  <text x="100" y="322" text-anchor="end" fill="#64748b" font-size="12">每 bit 面积</text>
+  <text x="160" y="322" text-anchor="middle" fill="#334155" font-size="13">大</text>
+  <text x="440" y="322" text-anchor="middle" fill="#334155" font-size="13">小</text>
+  <text x="720" y="322" text-anchor="middle" fill="#334155" font-size="13">最小（可 3D 堆叠）</text>
+
+  <text x="100" y="354" text-anchor="end" fill="#64748b" font-size="12">易失性</text>
+  <text x="160" y="354" text-anchor="middle" fill="#64748b" font-size="13">易失</text>
+  <text x="440" y="354" text-anchor="middle" fill="#64748b" font-size="13">易失 + 要刷新</text>
+  <text x="720" y="354" text-anchor="middle" fill="#0d9488" font-size="13" font-weight="bold">非易失</text>
+
+  <text x="100" y="386" text-anchor="end" fill="#64748b" font-size="12">每 bit 成本</text>
+  <text x="160" y="386" text-anchor="middle" fill="#334155" font-size="13">最高</text>
+  <text x="440" y="386" text-anchor="middle" fill="#334155" font-size="13">中</text>
+  <text x="720" y="386" text-anchor="middle" fill="#334155" font-size="13">最低</text>
+
+  <text x="100" y="418" text-anchor="end" fill="#64748b" font-size="12">典型用途</text>
+  <text x="160" y="418" text-anchor="middle" fill="#334155" font-size="13">CPU 缓存</text>
+  <text x="440" y="418" text-anchor="middle" fill="#334155" font-size="13">主内存</text>
+  <text x="720" y="418" text-anchor="middle" fill="#334155" font-size="13">SSD / 闪存</text>
+
+  <!-- 底部总结 -->
+  <text x="440" y="452" text-anchor="middle" fill="#64748b" font-size="13">结构越简单 → 密度越高、越便宜，但也越慢</text>
+</svg>

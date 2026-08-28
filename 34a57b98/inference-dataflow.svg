@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="420" fill="#ffffff"/>
+
+  <text x="440" y="30" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">推理时的三类数据：谁在流动、怎么流</text>
+
+  <!-- 左侧：三类数据 -->
+  <rect x="40" y="80" width="210" height="78" rx="10" fill="#2563eb"/>
+  <text x="145" y="112" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">权重 Weights</text>
+  <text x="145" y="136" text-anchor="middle" fill="#ffffff" font-size="11">约 70 ~ 670 GB · 只读为主</text>
+
+  <rect x="40" y="185" width="210" height="78" rx="10" fill="#0d9488"/>
+  <text x="145" y="217" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">KV Cache</text>
+  <text x="145" y="241" text-anchor="middle" fill="#ffffff" font-size="11">几十 ~ 上百 GB · 随对话增长</text>
+
+  <rect x="40" y="290" width="210" height="78" rx="10" fill="#8b5cf6"/>
+  <text x="145" y="322" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">激活 Activations</text>
+  <text x="145" y="346" text-anchor="middle" fill="#ffffff" font-size="11">MB 级 · 芯片内部流转</text>
+
+  <!-- 权重 → GPU -->
+  <line x1="250" y1="119" x2="505" y2="119" stroke="#334155" stroke-width="2"/>
+  <polygon points="515,119 501,112 501,126" fill="#334155"/>
+  <text x="380" y="108" text-anchor="middle" fill="#64748b" font-size="11">每 token 读一部分</text>
+
+  <!-- KV ↔ GPU -->
+  <line x1="250" y1="205" x2="505" y2="205" stroke="#334155" stroke-width="2"/>
+  <polygon points="515,205 501,198 501,212" fill="#334155"/>
+  <line x1="515" y1="237" x2="260" y2="237" stroke="#334155" stroke-width="2"/>
+  <polygon points="250,237 264,230 264,244" fill="#334155"/>
+  <text x="380" y="196" text-anchor="middle" fill="#64748b" font-size="11">读历史 · 写新增</text>
+
+  <!-- 激活 → GPU（虚线） -->
+  <line x1="250" y1="329" x2="505" y2="329" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6 4"/>
+  <polygon points="515,329 501,322 501,336" fill="#8b5cf6"/>
+  <text x="380" y="318" text-anchor="middle" fill="#64748b" font-size="11">片上生成 · 量小</text>
+
+  <!-- GPU -->
+  <rect x="520" y="80" width="230" height="288" rx="12" fill="#ea580c"/>
+  <text x="635" y="130" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="bold">GPU / 推理芯片</text>
+  <text x="635" y="156" text-anchor="middle" fill="#ffffff" font-size="12">注意力 · 前馈 · 采样</text>
+
+  <!-- 输出 -->
+  <line x1="750" y1="224" x2="840" y2="224" stroke="#334155" stroke-width="2"/>
+  <polygon points="850,224 836,217 836,231" fill="#334155"/>
+  <text x="800" y="210" text-anchor="middle" fill="#64748b" font-size="11">输出 token</text>
+
+  <!-- 底注 -->
+  <text x="440" y="405" text-anchor="middle" fill="#64748b" font-size="12">内存压力的大头：权重（量最大）与 KV Cache（增长最快）；激活大多留在芯片内部</text>
+</svg>

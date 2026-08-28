@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 标题与单位 -->
+  <text x="440" y="38" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">六代演进：数据率翻着涨，电压一路降</text>
+  <text x="62" y="62" text-anchor="start" fill="#64748b" font-size="11">单位：MT/s（每秒百万次传输），柱高按平方根缩放</text>
+
+  <!-- 柱状图（基线 y=340，sqrt 缩放） -->
+  <rect x="70"  y="299" width="90" height="41"  fill="#94a3b8"/>
+  <rect x="200" y="276" width="90" height="64"  fill="#64748b"/>
+  <rect x="330" y="249" width="90" height="91"  fill="#0d9488"/>
+  <rect x="460" y="192" width="90" height="148" fill="#2563eb"/>
+  <rect x="590" y="159" width="90" height="181" fill="#8b5cf6"/>
+  <rect x="720" y="54"  width="90" height="286" fill="#ea580c"/>
+
+  <!-- 数值标签 -->
+  <text x="115" y="289" text-anchor="middle" fill="#94a3b8" font-size="13" font-weight="bold">≈166</text>
+  <text x="245" y="266" text-anchor="middle" fill="#64748b" font-size="13" font-weight="bold">400</text>
+  <text x="375" y="239" text-anchor="middle" fill="#0d9488" font-size="13" font-weight="bold">800</text>
+  <text x="505" y="182" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="bold">2133</text>
+  <text x="635" y="149" text-anchor="middle" fill="#8b5cf6" font-size="13" font-weight="bold">3200</text>
+  <text x="765" y="44"  text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">8000+</text>
+
+  <!-- 基线 -->
+  <line x1="60" y1="340" x2="830" y2="340" stroke="#94a3b8" stroke-width="1.5"/>
+
+  <!-- 代际名称 -->
+  <text x="115" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">SDRAM</text>
+  <text x="245" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">DDR</text>
+  <text x="375" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">DDR2</text>
+  <text x="505" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">DDR3</text>
+  <text x="635" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">DDR4</text>
+  <text x="765" y="362" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">DDR5</text>
+
+  <!-- 预取 -->
+  <text x="52" y="378" text-anchor="end" fill="#64748b" font-size="11">预取</text>
+  <text x="115" y="378" text-anchor="middle" fill="#64748b" font-size="11">1n</text>
+  <text x="245" y="378" text-anchor="middle" fill="#64748b" font-size="11">2n</text>
+  <text x="375" y="378" text-anchor="middle" fill="#64748b" font-size="11">4n</text>
+  <text x="505" y="378" text-anchor="middle" fill="#64748b" font-size="11">8n</text>
+  <text x="635" y="378" text-anchor="middle" fill="#64748b" font-size="11">8n</text>
+  <text x="765" y="378" text-anchor="middle" fill="#ea580c" font-size="11" font-weight="bold">16n</text>
+
+  <!-- 电压趋势 -->
+  <text x="52" y="440" text-anchor="end" fill="#ea580c" font-size="12" font-weight="bold">电压</text>
+  <polyline points="115,409 245,423 375,436 505,441 635,446 765,448" fill="none" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,5"/>
+  <circle cx="115" cy="409" r="4" fill="#ea580c"/>
+  <circle cx="245" cy="423" r="4" fill="#ea580c"/>
+  <circle cx="375" cy="436" r="4" fill="#ea580c"/>
+  <circle cx="505" cy="441" r="4" fill="#ea580c"/>
+  <circle cx="635" cy="446" r="4" fill="#ea580c"/>
+  <circle cx="765" cy="448" r="4" fill="#ea580c"/>
+  <text x="127" y="406" text-anchor="start" fill="#ea580c" font-size="11">3.3 V</text>
+  <text x="257" y="420" text-anchor="start" fill="#ea580c" font-size="11">2.5 V</text>
+  <text x="387" y="433" text-anchor="start" fill="#ea580c" font-size="11">1.8 V</text>
+  <text x="517" y="438" text-anchor="start" fill="#ea580c" font-size="11">1.5 V</text>
+  <text x="647" y="443" text-anchor="start" fill="#ea580c" font-size="11">1.2 V</text>
+  <text x="777" y="445" text-anchor="start" fill="#ea580c" font-size="11">1.1 V</text>
+
+  <!-- 底部注释 -->
+  <text x="440" y="474" text-anchor="middle" fill="#334155" font-size="12">每代靠预取翻倍 + 时钟提升把数据率抬上去，电压却从 3.3 V 一路降到 1.1 V</text>
+</svg>

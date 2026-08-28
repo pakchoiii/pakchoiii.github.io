@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- Channel 通道 -->
+  <rect x="40" y="60" width="440" height="360" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="56" y="88" fill="#2563eb" font-size="14" font-weight="bold">Channel（通道）</text>
+  <text x="56" y="106" fill="#64748b" font-size="11">独立读写通路 ×若干</text>
+
+  <!-- Die / LUN -->
+  <rect x="64" y="122" width="392" height="274" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="80" y="148" fill="#ea580c" font-size="14" font-weight="bold">Die / LUN</text>
+  <text x="80" y="166" fill="#64748b" font-size="11">一颗裸片</text>
+
+  <!-- Plane 0 -->
+  <rect x="88" y="180" width="176" height="196" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
+  <text x="100" y="202" fill="#0d9488" font-size="13" font-weight="bold">Plane 0</text>
+
+  <!-- Plane 1 -->
+  <rect x="276" y="180" width="164" height="196" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
+  <text x="288" y="202" fill="#0d9488" font-size="13" font-weight="bold">Plane 1</text>
+  <rect x="288" y="214" width="140" height="46" rx="6" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5"/>
+  <text x="358" y="241" text-anchor="middle" fill="#8b5cf6" font-size="12" opacity="0.7">Block</text>
+  <rect x="288" y="268" width="140" height="46" rx="6" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5"/>
+  <text x="358" y="295" text-anchor="middle" fill="#8b5cf6" font-size="12" opacity="0.7">Block</text>
+  <text x="358" y="330" text-anchor="middle" fill="#64748b" font-size="14">…</text>
+
+  <!-- Block（在 Plane 0 内） -->
+  <rect x="100" y="214" width="152" height="130" rx="6" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="112" y="236" fill="#8b5cf6" font-size="13" font-weight="bold">Block（块）</text>
+  <!-- Page 条 -->
+  <rect x="112" y="246" width="128" height="13" rx="3" fill="#8b5cf6"/>
+  <text x="176" y="256" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">Page（页）</text>
+  <rect x="112" y="262" width="128" height="13" rx="3" fill="#8b5cf6"/>
+  <rect x="112" y="278" width="128" height="13" rx="3" fill="#8b5cf6"/>
+  <rect x="112" y="294" width="128" height="13" rx="3" fill="#8b5cf6"/>
+  <rect x="112" y="310" width="128" height="13" rx="3" fill="#8b5cf6"/>
+  <text x="176" y="338" text-anchor="middle" fill="#64748b" font-size="11">×几百~上千页</text>
+
+  <!-- 右侧注释卡片：读 -->
+  <rect x="540" y="64" width="320" height="104" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <text x="562" y="94" fill="#2563eb" font-size="14" font-weight="bold">读：以 Page 为单位</text>
+  <text x="562" y="118" fill="#334155" font-size="12">一次读一整页（十几~几十 KB）</text>
+  <text x="562" y="140" fill="#64748b" font-size="12">随机读的最小颗粒</text>
+
+  <!-- 右侧注释卡片：写 -->
+  <rect x="540" y="188" width="320" height="104" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
+  <text x="562" y="218" fill="#ea580c" font-size="14" font-weight="bold">写：以 Page 为单位</text>
+  <text x="562" y="242" fill="#334155" font-size="12">且只能 1 → 0（往浮栅注入电子）</text>
+  <text x="562" y="264" fill="#64748b" font-size="12">想把 0 改回 1？只能整块擦除</text>
+
+  <!-- 右侧注释卡片：擦除 -->
+  <rect x="540" y="312" width="320" height="104" rx="12" fill="#ffffff" stroke="#0d9488" stroke-width="2"/>
+  <text x="562" y="342" fill="#0d9488" font-size="14" font-weight="bold">擦除：以 Block 为单位</text>
+  <text x="562" y="366" fill="#334155" font-size="12">几百~上千个 Page 一起回到全 1</text>
+  <text x="562" y="388" fill="#64748b" font-size="12">没有「擦一页」这种操作</text>
+
+  <!-- 连接线 -->
+  <line x1="540" y1="116" x2="244" y2="252" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <circle cx="244" cy="252" r="3.5" fill="#2563eb"/>
+  <line x1="540" y1="240" x2="244" y2="284" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <circle cx="244" cy="284" r="3.5" fill="#ea580c"/>
+  <line x1="540" y1="364" x2="256" y2="342" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <circle cx="256" cy="342" r="3.5" fill="#0d9488"/>
+
+  <!-- 底部小结 -->
+  <text x="440" y="448" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">从大到小：Channel → Die / LUN → Plane → Block → Page</text>
+</svg>

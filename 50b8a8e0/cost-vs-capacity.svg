@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 网格线（容量：对数） -->
+  <line x1="130" y1="90" x2="130" y2="400" stroke="#64748b" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="310" y1="90" x2="310" y2="400" stroke="#64748b" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="490" y1="90" x2="490" y2="400" stroke="#64748b" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="670" y1="90" x2="670" y2="400" stroke="#64748b" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="850" y1="90" x2="850" y2="400" stroke="#64748b" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- 网格线（价格：对数） -->
+  <line x1="130" y1="90"  x2="850" y2="90"  stroke="#64748b" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="130" y1="152" x2="850" y2="152" stroke="#64748b" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="130" y1="214" x2="850" y2="214" stroke="#64748b" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="130" y1="276" x2="850" y2="276" stroke="#64748b" stroke-width="1" stroke-dasharray="3,4"/>
+  <line x1="130" y1="338" x2="850" y2="338" stroke="#64748b" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- 坐标轴 -->
+  <line x1="130" y1="404" x2="856" y2="404" stroke="#334155" stroke-width="2"/>
+  <polygon points="864,404 850,398 850,410" fill="#334155"/>
+  <line x1="126" y1="400" x2="126" y2="84" stroke="#334155" stroke-width="2"/>
+  <polygon points="126,76 120,90 132,90" fill="#334155"/>
+
+  <!-- 轴标签 -->
+  <text x="130" y="425" text-anchor="middle" fill="#64748b" font-size="12">KB</text>
+  <text x="310" y="425" text-anchor="middle" fill="#64748b" font-size="12">MB</text>
+  <text x="490" y="425" text-anchor="middle" fill="#64748b" font-size="12">GB</text>
+  <text x="670" y="425" text-anchor="middle" fill="#64748b" font-size="12">TB</text>
+  <text x="850" y="425" text-anchor="middle" fill="#64748b" font-size="12">PB</text>
+  <text x="122" y="94"  text-anchor="end" fill="#64748b" font-size="12">$1000</text>
+  <text x="122" y="156" text-anchor="end" fill="#64748b" font-size="12">$100</text>
+  <text x="122" y="218" text-anchor="end" fill="#64748b" font-size="12">$10</text>
+  <text x="122" y="280" text-anchor="end" fill="#64748b" font-size="12">$1</text>
+  <text x="122" y="342" text-anchor="end" fill="#64748b" font-size="12">$0.1</text>
+  <text x="122" y="404" text-anchor="end" fill="#64748b" font-size="12">$0.01</text>
+  <text x="490" y="455" text-anchor="middle" fill="#334155" font-size="13">单颗 / 单条典型容量（对数）</text>
+  <text x="45" y="245" text-anchor="middle" fill="#334155" font-size="13" transform="rotate(-90 45 245)">每 GB 价格（对数）</text>
+
+  <!-- 数据点 -->
+  <circle cx="400" cy="122" r="9" fill="#8b5cf6"/>
+  <text x="400" y="100" text-anchor="middle" fill="#8b5cf6" font-size="13" font-weight="bold">SRAM 缓存（~$数百/GB）</text>
+  <text x="400" y="147" text-anchor="middle" fill="#64748b" font-size="11">单位容量成本约为 DRAM 的数百倍以上</text>
+
+  <circle cx="580" cy="246" r="9" fill="#2563eb"/>
+  <text x="580" y="228" text-anchor="middle" fill="#2563eb" font-size="13" font-weight="bold">DRAM（~$3/GB）</text>
+
+  <circle cx="652" cy="295" r="9" fill="none" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <text x="666" y="290" text-anchor="start" fill="#ea580c" font-size="13" font-weight="bold">HBF（预计）</text>
+  <text x="666" y="306" text-anchor="start" fill="#64748b" font-size="11">价格预期介于 DRAM 与 SSD 之间</text>
+
+  <circle cx="688" cy="344" r="9" fill="#0d9488"/>
+  <text x="702" y="344" text-anchor="start" fill="#0d9488" font-size="13" font-weight="bold">NAND SSD</text>
+  <text x="702" y="360" text-anchor="start" fill="#0d9488" font-size="11">~$0.08/GB</text>
+
+  <circle cx="742" cy="381" r="9" fill="#64748b"/>
+  <text x="726" y="385" text-anchor="end" fill="#64748b" font-size="13" font-weight="bold">HDD（~$0.02/GB）</text>
+
+  <!-- 趋势提示 -->
+  <text x="620" y="130" text-anchor="start" fill="#64748b" font-size="12">↓ 越往右下走：容量越大、每 GB 越便宜</text>
+</svg>

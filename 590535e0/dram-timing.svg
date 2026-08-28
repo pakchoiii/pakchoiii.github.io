@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="440" y="40" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">一次完整的行访问：激活 → 读 → 预充电</text>
+
+  <!-- 命令框 -->
+  <rect x="100" y="64" width="110" height="44" rx="6" fill="#2563eb"/>
+  <text x="155" y="84" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">ACT 激活</text>
+  <text x="155" y="101" text-anchor="middle" fill="#ffffff" font-size="11">带行地址</text>
+
+  <rect x="370" y="64" width="110" height="44" rx="6" fill="#ea580c"/>
+  <text x="425" y="84" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">READ 读</text>
+  <text x="425" y="101" text-anchor="middle" fill="#ffffff" font-size="11">带列地址</text>
+
+  <rect x="630" y="64" width="110" height="44" rx="6" fill="#8b5cf6"/>
+  <text x="685" y="84" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">PRE 预充电</text>
+  <text x="685" y="101" text-anchor="middle" fill="#ffffff" font-size="11">关行收摊</text>
+
+  <rect x="790" y="64" width="80" height="44" rx="6" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="830" y="90" text-anchor="middle" fill="#2563eb" font-size="12">下次 ACT</text>
+
+  <!-- 命令引导虚线 -->
+  <line x1="155" y1="112" x2="155" y2="210" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="425" y1="112" x2="425" y2="210" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="685" y1="112" x2="685" y2="210" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <line x1="830" y1="112" x2="830" y2="210" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- tRCD 箭头 -->
+  <line x1="160" y1="150" x2="420" y2="150" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="160,150 172,146 172,154" fill="#64748b"/>
+  <polygon points="420,150 408,146 408,154" fill="#64748b"/>
+  <text x="290" y="140" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">tRCD：从激活到行就绪</text>
+
+  <!-- tRP 箭头 -->
+  <line x1="690" y1="150" x2="825" y2="150" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="690,150 702,146 702,154" fill="#64748b"/>
+  <polygon points="825,150 813,146 813,154" fill="#64748b"/>
+  <text x="757" y="170" text-anchor="middle" fill="#334155" font-size="11">tRP：关行后才能再激活</text>
+
+  <!-- 行状态条 -->
+  <text x="72" y="236" text-anchor="end" fill="#334155" font-size="13" font-weight="bold">行状态</text>
+  <rect x="80" y="210" width="75" height="42" fill="#e2e8f0"/>
+  <text x="117" y="235" text-anchor="middle" fill="#64748b" font-size="12">行关闭</text>
+  <rect x="155" y="210" width="530" height="42" fill="#0d9488"/>
+  <text x="420" y="230" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">行打开：整行数据摊在行缓冲里</text>
+  <text x="420" y="246" text-anchor="middle" fill="#ffffff" font-size="11">（Row Buffer 有效）</text>
+  <rect x="685" y="210" width="145" height="42" fill="#e2e8f0"/>
+  <text x="757" y="235" text-anchor="middle" fill="#64748b" font-size="12">行关闭</text>
+
+  <!-- tCL 箭头 -->
+  <line x1="430" y1="276" x2="485" y2="276" stroke="#64748b" stroke-width="1.5"/>
+  <polygon points="430,276 442,272 442,280" fill="#64748b"/>
+  <polygon points="485,276 473,272 473,280" fill="#64748b"/>
+  <text x="457" y="266" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="bold">tCL</text>
+
+  <!-- 数据行 -->
+  <text x="72" y="316" text-anchor="end" fill="#ea580c" font-size="13" font-weight="bold">数据 DQ</text>
+  <text x="250" y="316" text-anchor="middle" fill="#64748b" font-size="11">行就绪前，读命令只能干等</text>
+
+  <rect x="490" y="292" width="38" height="40" rx="4" fill="#ea580c"/>
+  <rect x="532" y="292" width="38" height="40" rx="4" fill="#ea580c"/>
+  <rect x="574" y="292" width="38" height="40" rx="4" fill="#ea580c"/>
+  <rect x="616" y="292" width="38" height="40" rx="4" fill="#ea580c"/>
+  <rect x="658" y="292" width="38" height="40" rx="4" fill="#ea580c"/>
+  <rect x="700" y="292" width="38" height="40" rx="4" fill="#ea580c"/>
+  <rect x="742" y="292" width="38" height="40" rx="4" fill="#ea580c"/>
+  <rect x="784" y="292" width="38" height="40" rx="4" fill="#ea580c"/>
+  <text x="509" y="317" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">D0</text>
+  <text x="551" y="317" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">D1</text>
+  <text x="593" y="317" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">D2</text>
+  <text x="635" y="317" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">D3</text>
+  <text x="677" y="317" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">D4</text>
+  <text x="719" y="317" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">D5</text>
+  <text x="761" y="317" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">D6</text>
+  <text x="803" y="317" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">D7</text>
+
+  <!-- 底部注释 -->
+  <text x="440" y="380" text-anchor="middle" fill="#334155" font-size="13">同行连续访问（行命中）：只付 tCL——最快</text>
+  <text x="440" y="406" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">换行访问（行冲突）：先关旧行再开新行，三段延迟全付——最慢</text>
+  <text x="440" y="432" text-anchor="middle" fill="#64748b" font-size="12">延迟的大头就是这三段，量级几十纳秒</text>
+</svg>

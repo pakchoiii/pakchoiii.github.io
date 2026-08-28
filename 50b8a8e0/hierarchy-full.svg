@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 七层阶梯 -->
+  <rect x="355" y="35"  width="170" height="50" rx="8" fill="#8b5cf6"/>
+  <rect x="315" y="92"  width="250" height="50" rx="8" fill="#2563eb"/>
+  <rect x="275" y="149" width="330" height="50" rx="8" fill="#2563eb"/>
+  <rect x="235" y="206" width="410" height="50" rx="8" fill="#2563eb"/>
+  <rect x="195" y="263" width="490" height="50" rx="8" fill="#0d9488"/>
+  <rect x="155" y="320" width="570" height="50" rx="8" fill="#ea580c"/>
+  <rect x="115" y="377" width="650" height="50" rx="8" fill="#64748b"/>
+
+  <!-- 各层文字 -->
+  <text x="440" y="55"  text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">寄存器</text>
+  <text x="440" y="75"  text-anchor="middle" fill="#ffffff" font-size="11">~0.5ns · 几 KB</text>
+
+  <text x="440" y="112" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">L1 缓存</text>
+  <text x="440" y="132" text-anchor="middle" fill="#ffffff" font-size="11">~1ns · 几十 KB</text>
+
+  <text x="440" y="169" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">L2 缓存</text>
+  <text x="440" y="189" text-anchor="middle" fill="#ffffff" font-size="11">约几 ns · 几百 KB~几 MB</text>
+
+  <text x="440" y="226" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">L3 缓存</text>
+  <text x="440" y="246" text-anchor="middle" fill="#ffffff" font-size="11">~20-40ns · 几十 MB</text>
+
+  <text x="440" y="283" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">DRAM 主内存</text>
+  <text x="440" y="303" text-anchor="middle" fill="#ffffff" font-size="11">~80-100ns · 几十 GB</text>
+
+  <text x="420" y="340" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">HBF（新层级）</text>
+  <text x="420" y="360" text-anchor="middle" fill="#ffffff" font-size="11">带宽 TB/s 级 · 单堆栈 ~512 GB</text>
+
+  <text x="440" y="397" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">NAND SSD · 硬盘 / 归档</text>
+  <text x="440" y="417" text-anchor="middle" fill="#ffffff" font-size="11">100μs~10ms · TB~PB 级</text>
+
+  <!-- NEW 徽标 -->
+  <rect x="667" y="326" width="48" height="20" rx="10" fill="#ffffff"/>
+  <text x="691" y="341" text-anchor="middle" fill="#ea580c" font-size="12" font-weight="bold">NEW</text>
+
+  <!-- SRAM 括注 -->
+  <line x1="660" y1="92" x2="660" y2="256" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <text x="672" y="178" text-anchor="start" fill="#64748b" font-size="11">这三层都是 SRAM</text>
+
+  <!-- 左侧箭头：速度越快 成本越高 -->
+  <line x1="75" y1="420" x2="75" y2="42" stroke="#334155" stroke-width="2"/>
+  <polygon points="75,34 68,50 82,50" fill="#334155"/>
+  <text x="75" y="230" text-anchor="middle" fill="#334155" font-size="14" font-weight="bold" transform="rotate(-90 75 230)">速度越快 · 成本越高</text>
+
+  <!-- 右侧箭头：容量越大 成本越低 -->
+  <line x1="810" y1="40" x2="810" y2="420" stroke="#334155" stroke-width="2"/>
+  <polygon points="810,428 803,412 817,412" fill="#334155"/>
+  <text x="810" y="230" text-anchor="middle" fill="#334155" font-size="14" font-weight="bold" transform="rotate(90 810 230)">容量越大 · 单位越便宜</text>
+</svg>

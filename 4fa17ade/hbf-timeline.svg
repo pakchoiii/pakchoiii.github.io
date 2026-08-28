@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="440" y="40" text-anchor="middle" fill="#1e293b" font-size="20" font-weight="bold">HBF 联盟时间线</text>
+
+  <!-- 时间轴 -->
+  <line x1="90" y1="265" x2="830" y2="265" stroke="#334155" stroke-width="3"/>
+  <polygon points="850,265 828,256 828,274" fill="#334155"/>
+
+  <!-- 里程碑 1：2025-08（上方） -->
+  <line x1="160" y1="233" x2="160" y2="250" stroke="#64748b" stroke-width="2"/>
+  <circle cx="160" cy="265" r="13" fill="#64748b"/>
+  <circle cx="160" cy="265" r="4.5" fill="#ffffff"/>
+  <text x="160" y="168" text-anchor="middle" fill="#64748b" font-size="18" font-weight="bold">2025-08</text>
+  <text x="160" y="195" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">SK 海力士 × 闪迪</text>
+  <text x="160" y="217" text-anchor="middle" fill="#334155" font-size="13">宣布启动 HBF 合作</text>
+
+  <!-- 里程碑 2：2026-02（下方） -->
+  <line x1="370" y1="280" x2="370" y2="298" stroke="#2563eb" stroke-width="2"/>
+  <circle cx="370" cy="265" r="13" fill="#2563eb"/>
+  <circle cx="370" cy="265" r="4.5" fill="#ffffff"/>
+  <text x="370" y="322" text-anchor="middle" fill="#2563eb" font-size="18" font-weight="bold">2026-02</text>
+  <text x="370" y="349" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">OCP 框架下成立工作组</text>
+  <text x="370" y="371" text-anchor="middle" fill="#334155" font-size="13">开放标准路线确立</text>
+
+  <!-- 里程碑 3：2026-08（上方） -->
+  <line x1="580" y1="233" x2="580" y2="250" stroke="#ea580c" stroke-width="2"/>
+  <circle cx="580" cy="265" r="13" fill="#ea580c"/>
+  <circle cx="580" cy="265" r="4.5" fill="#ffffff"/>
+  <text x="580" y="168" text-anchor="middle" fill="#ea580c" font-size="18" font-weight="bold">2026-08</text>
+  <text x="580" y="195" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">首个 HBF 规范发布</text>
+  <text x="580" y="217" text-anchor="middle" fill="#334155" font-size="13">FMS 2026 大会（08-04）</text>
+
+  <!-- 里程碑 4：下一步（下方） -->
+  <line x1="790" y1="280" x2="790" y2="298" stroke="#8b5cf6" stroke-width="2"/>
+  <circle cx="790" cy="265" r="13" fill="#8b5cf6"/>
+  <circle cx="790" cy="265" r="4.5" fill="#ffffff"/>
+  <text x="790" y="322" text-anchor="middle" fill="#8b5cf6" font-size="18" font-weight="bold">下一步</text>
+  <text x="790" y="349" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">量产与生态</text>
+  <text x="790" y="371" text-anchor="middle" fill="#334155" font-size="13">时间未公布</text>
+
+  <!-- 底部备注 -->
+  <text x="440" y="450" text-anchor="middle" fill="#64748b" font-size="12">从启动合作到发布规范约一年；发起方 SK 海力士、闪迪，成员含 Google、Tenstorrent</text>
+</svg>

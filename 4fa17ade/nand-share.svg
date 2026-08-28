@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="440" y="36" text-anchor="middle" fill="#1e293b" font-size="20" font-weight="bold">全球 NAND 市场阵营（约数）</text>
+
+  <!-- 三星 -->
+  <text x="240" y="122" text-anchor="end" fill="#1e293b" font-size="16" font-weight="bold">三星</text>
+  <rect x="260" y="95" width="540" height="42" rx="6" fill="#2563eb"/>
+  <text x="786" y="122" text-anchor="end" fill="#ffffff" font-size="15" font-weight="bold">约 30%</text>
+
+  <!-- 铠侠 + 闪迪 -->
+  <text x="240" y="192" text-anchor="end" fill="#1e293b" font-size="16" font-weight="bold">铠侠 + 闪迪</text>
+  <rect x="260" y="165" width="540" height="42" rx="6" fill="#ea580c"/>
+  <text x="786" y="192" text-anchor="end" fill="#ffffff" font-size="15" font-weight="bold">合计约 30%</text>
+  <text x="262" y="222" fill="#64748b" font-size="12">四日市合资工厂 · 世代联盟（闪迪 2025-02 自西部数据拆分独立上市）</text>
+
+  <!-- SK 海力士 -->
+  <text x="240" y="262" text-anchor="end" fill="#1e293b" font-size="16" font-weight="bold">SK 海力士</text>
+  <rect x="260" y="235" width="360" height="42" rx="6" fill="#0d9488"/>
+  <text x="606" y="262" text-anchor="end" fill="#ffffff" font-size="15" font-weight="bold">约 20%</text>
+  <text x="262" y="292" fill="#64748b" font-size="12">含 Solidigm（收购自 Intel 的 NAND 业务）</text>
+
+  <!-- 美光 -->
+  <text x="240" y="332" text-anchor="end" fill="#1e293b" font-size="16" font-weight="bold">美光</text>
+  <rect x="260" y="305" width="180" height="42" rx="6" fill="#8b5cf6"/>
+  <text x="406" y="332" text-anchor="end" fill="#ffffff" font-size="15" font-weight="bold">约 10%</text>
+
+  <!-- 长江存储 -->
+  <text x="240" y="402" text-anchor="end" fill="#1e293b" font-size="16" font-weight="bold">长江存储 YMTC</text>
+  <rect x="260" y="375" width="180" height="42" rx="6" fill="#64748b"/>
+  <text x="406" y="402" text-anchor="end" fill="#ffffff" font-size="15" font-weight="bold">约 10%</text>
+  <text x="262" y="432" fill="#64748b" font-size="12">Xtacking 架构 3D NAND（中国力量）</text>
+
+  <!-- 底部备注 -->
+  <text x="440" y="466" text-anchor="middle" fill="#64748b" font-size="12">以上均为约数，随存储周期明显波动</text>
+</svg>

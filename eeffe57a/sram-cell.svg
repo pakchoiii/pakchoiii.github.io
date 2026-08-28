@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="720" height="420" fill="#ffffff"/>
+
+  <!-- 字线 -->
+  <line x1="90" y1="80" x2="630" y2="80" stroke="#8b5cf6" stroke-width="3"/>
+  <text x="90" y="64" text-anchor="start" fill="#8b5cf6" font-size="15" font-weight="bold">字线 Wordline</text>
+
+  <!-- 位线 -->
+  <line x1="140" y1="110" x2="140" y2="360" stroke="#2563eb" stroke-width="3"/>
+  <text x="140" y="66" text-anchor="middle" fill="#2563eb" font-size="15" font-weight="bold">位线 BL′</text>
+  <line x1="580" y1="110" x2="580" y2="360" stroke="#2563eb" stroke-width="3"/>
+  <text x="580" y="66" text-anchor="middle" fill="#2563eb" font-size="15" font-weight="bold">位线 BL</text>
+
+  <!-- 锁存器标注 -->
+  <text x="360" y="150" text-anchor="middle" fill="#64748b" font-size="12">两个反相器接成环 = 锁存器 Latch</text>
+
+  <!-- 交叉耦合的两个反相器 -->
+  <rect x="300" y="175" width="120" height="50" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="360" y="205" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">反相器 ①</text>
+  <rect x="300" y="275" width="120" height="50" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="360" y="305" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">反相器 ②</text>
+
+  <!-- 环形连线 -->
+  <line x1="280" y1="200" x2="280" y2="300" stroke="#334155" stroke-width="3"/>
+  <line x1="440" y1="200" x2="440" y2="300" stroke="#334155" stroke-width="3"/>
+  <line x1="280" y1="200" x2="300" y2="200" stroke="#334155" stroke-width="3"/>
+  <line x1="420" y1="200" x2="440" y2="200" stroke="#334155" stroke-width="3"/>
+  <line x1="440" y1="300" x2="420" y2="300" stroke="#334155" stroke-width="3"/>
+  <line x1="300" y1="300" x2="280" y2="300" stroke="#334155" stroke-width="3"/>
+
+  <!-- 方向箭头 -->
+  <polygon points="420,193 434,200 420,207" fill="#2563eb"/>
+  <polygon points="300,293 286,300 300,307" fill="#2563eb"/>
+
+  <!-- 存储节点 -->
+  <circle cx="280" cy="250" r="5" fill="#ea580c"/>
+  <text x="272" y="232" text-anchor="end" fill="#ea580c" font-size="15" font-weight="bold">Q′ = 0</text>
+  <circle cx="440" cy="250" r="5" fill="#0d9488"/>
+  <text x="448" y="232" text-anchor="start" fill="#0d9488" font-size="15" font-weight="bold">Q = 1</text>
+
+  <!-- 存取管 M6（左） -->
+  <line x1="140" y1="250" x2="197" y2="250" stroke="#334155" stroke-width="3"/>
+  <line x1="223" y1="250" x2="280" y2="250" stroke="#334155" stroke-width="3"/>
+  <circle cx="210" cy="250" r="13" fill="#ffffff" stroke="#334155" stroke-width="3"/>
+  <line x1="210" y1="237" x2="210" y2="80" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5,4"/>
+  <text x="210" y="285" text-anchor="middle" fill="#334155" font-size="12">M6 存取管</text>
+
+  <!-- 存取管 M5（右） -->
+  <line x1="440" y1="250" x2="497" y2="250" stroke="#334155" stroke-width="3"/>
+  <line x1="523" y1="250" x2="580" y2="250" stroke="#334155" stroke-width="3"/>
+  <circle cx="510" cy="250" r="13" fill="#ffffff" stroke="#334155" stroke-width="3"/>
+  <line x1="510" y1="237" x2="510" y2="80" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5,4"/>
+  <text x="510" y="285" text-anchor="middle" fill="#334155" font-size="12">M5 存取管</text>
+
+  <!-- 图注 -->
+  <text x="360" y="365" text-anchor="middle" fill="#64748b" font-size="13">两个反相器首尾相接、互相锁定：只要通电，状态就稳定保持</text>
+  <text x="360" y="388" text-anchor="middle" fill="#64748b" font-size="13">字线 = 1 时，两个存取管打开，位线才能读写 Q / Q′</text>
+</svg>

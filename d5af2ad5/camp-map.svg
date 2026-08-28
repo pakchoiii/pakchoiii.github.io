@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <text x="440" y="30" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">两大阵营：JEDEC 体系 vs OCP 体系</text>
+
+  <!-- HBM 阵营 -->
+  <rect x="30" y="64" width="380" height="240" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
+  <text x="220" y="92" text-anchor="middle" fill="#0d9488" font-size="15" font-weight="bold">HBM 阵营</text>
+  <text x="220" y="112" text-anchor="middle" fill="#64748b" font-size="11">JEDEC 标准 · HBM4 于 2025 年定标</text>
+  <text x="50" y="140" fill="#334155" font-size="12" font-weight="bold">供应商（DRAM 三原厂）</text>
+  <rect x="50" y="148" width="110" height="34" rx="8" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="105" y="170" text-anchor="middle" fill="#7c3aed" font-size="12" font-weight="bold">SK 海力士</text>
+  <rect x="170" y="148" width="110" height="34" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="225" y="170" text-anchor="middle" fill="#0d9488" font-size="12" font-weight="bold">三星</text>
+  <rect x="290" y="148" width="110" height="34" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="345" y="170" text-anchor="middle" fill="#0d9488" font-size="12" font-weight="bold">美光</text>
+  <text x="50" y="206" fill="#334155" font-size="12" font-weight="bold">大买家</text>
+  <rect x="50" y="214" width="110" height="34" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="105" y="236" text-anchor="middle" fill="#0d9488" font-size="12" font-weight="bold">NVIDIA</text>
+  <rect x="170" y="214" width="110" height="34" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.5"/>
+  <text x="225" y="236" text-anchor="middle" fill="#0d9488" font-size="12" font-weight="bold">AMD</text>
+  <text x="300" y="236" fill="#64748b" font-size="11">（GPU 大厂）</text>
+  <text x="220" y="286" text-anchor="middle" fill="#64748b" font-size="11">闭环跑了近十年 · 利润池深</text>
+
+  <!-- HBF 阵营 -->
+  <rect x="470" y="64" width="380" height="240" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="660" y="92" text-anchor="middle" fill="#ea580c" font-size="15" font-weight="bold">HBF 阵营</text>
+  <text x="660" y="112" text-anchor="middle" fill="#64748b" font-size="11">OCP 开放规范 · 2026 年 8 月 FMS 发布</text>
+  <text x="490" y="140" fill="#334155" font-size="12" font-weight="bold">发起方</text>
+  <rect x="490" y="148" width="165" height="34" rx="8" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="572" y="170" text-anchor="middle" fill="#7c3aed" font-size="12" font-weight="bold">SK 海力士</text>
+  <rect x="675" y="148" width="165" height="34" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="757" y="170" text-anchor="middle" fill="#ea580c" font-size="12" font-weight="bold">闪迪 SanDisk</text>
+  <text x="490" y="206" fill="#334155" font-size="12" font-weight="bold">已加入</text>
+  <rect x="490" y="214" width="165" height="34" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="572" y="236" text-anchor="middle" fill="#ea580c" font-size="12" font-weight="bold">Google</text>
+  <rect x="675" y="214" width="165" height="34" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="757" y="236" text-anchor="middle" fill="#ea580c" font-size="12" font-weight="bold">Tenstorrent</text>
+  <text x="660" y="286" text-anchor="middle" fill="#64748b" font-size="11">NVIDIA / AMD：尚未表态（截至 2026.8）</text>
+
+  <!-- SK 海力士：两头下注 -->
+  <line x1="300" y1="330" x2="108" y2="186" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="580" y1="330" x2="570" y2="186" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <rect x="200" y="330" width="480" height="64" rx="10" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="440" y="356" text-anchor="middle" fill="#7c3aed" font-size="13" font-weight="bold">SK 海力士：两头下注</text>
+  <text x="440" y="378" text-anchor="middle" fill="#334155" font-size="11">DRAM、NAND 都是头部——无论哪层楼走红，它都在牌桌上</text>
+
+  <!-- 底注 -->
+  <text x="440" y="430" text-anchor="middle" fill="#64748b" font-size="12">截至 2026 年 8 月：NVIDIA、AMD 未加入 HBF 联盟；三星、美光、铠侠亦未加入</text>
+  <text x="440" y="456" text-anchor="middle" fill="#64748b" font-size="12">闪迪 = NAND 阵营的反攻 · Google = 最大买家之一，又自研 TPU</text>
+</svg>

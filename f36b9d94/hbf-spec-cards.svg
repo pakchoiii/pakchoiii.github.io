@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 顶部背景行 -->
+  <text x="440" y="44" text-anchor="middle" fill="#64748b" font-size="13">SK 海力士 × 闪迪 · FMS 2026 发布 · OCP 开放规范 · 2026-08-04</text>
+
+  <!-- 卡片 1：堆叠 -->
+  <rect x="70" y="80" width="350" height="170" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="94" y="112" fill="#2563eb" font-size="14" font-weight="bold">堆叠</text>
+  <text x="94" y="166" fill="#1e293b" font-size="26" font-weight="bold">8 / 16 层</text>
+  <text x="94" y="196" fill="#64748b" font-size="12">NAND Die 垂直堆叠</text>
+  <text x="94" y="218" fill="#64748b" font-size="12">TSV 硅通孔贯穿连接</text>
+  <!-- 图标：堆叠 + TSV -->
+  <rect x="310" y="114" width="80" height="14" rx="3" fill="#0d9488"/>
+  <rect x="310" y="136" width="80" height="14" rx="3" fill="#0d9488"/>
+  <rect x="310" y="158" width="80" height="14" rx="3" fill="#0d9488"/>
+  <rect x="310" y="180" width="80" height="14" rx="3" fill="#0d9488"/>
+  <rect x="310" y="202" width="80" height="14" rx="3" fill="#0d9488"/>
+  <line x1="350" y1="108" x2="350" y2="222" stroke="#1e293b" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- 卡片 2：容量 -->
+  <rect x="460" y="80" width="350" height="170" rx="14" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
+  <text x="484" y="112" fill="#ea580c" font-size="14" font-weight="bold">容量</text>
+  <text x="484" y="166" fill="#1e293b" font-size="26" font-weight="bold">最高 512 GB</text>
+  <text x="484" y="196" fill="#64748b" font-size="12">单堆栈容量</text>
+  <text x="484" y="218" fill="#64748b" font-size="12">约为 HBM4 单堆栈（~48 GB）的 10 倍</text>
+  <!-- 图标：容量对比 -->
+  <line x1="690" y1="224" x2="800" y2="224" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="700" y="192" width="28" height="30" fill="#2563eb"/>
+  <rect x="744" y="142" width="48" height="80" fill="#ea580c"/>
+  <text x="714" y="242" text-anchor="middle" fill="#2563eb" font-size="11">HBM</text>
+  <text x="768" y="242" text-anchor="middle" fill="#ea580c" font-size="11">HBF</text>
+
+  <!-- 卡片 3：带宽 -->
+  <rect x="70" y="290" width="350" height="170" rx="14" fill="#ffffff" stroke="#0d9488" stroke-width="2.5"/>
+  <text x="94" y="322" fill="#0d9488" font-size="14" font-weight="bold">带宽</text>
+  <text x="94" y="376" fill="#1e293b" font-size="26" font-weight="bold">0.4 ~ 3.0 TB/s</text>
+  <text x="94" y="406" fill="#64748b" font-size="12">Grade 1 ~ 3，共三档</text>
+  <text x="94" y="428" fill="#64748b" font-size="12">顶配与 HBM 同一量级</text>
+  <!-- 图标：三档柱状 -->
+  <line x1="306" y1="434" x2="416" y2="434" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="310" y="390" width="24" height="44" fill="#64748b"/>
+  <rect x="344" y="358" width="24" height="76" fill="#2563eb"/>
+  <rect x="378" y="326" width="24" height="108" fill="#ea580c"/>
+  <text x="322" y="452" text-anchor="middle" fill="#64748b" font-size="11">G1</text>
+  <text x="356" y="452" text-anchor="middle" fill="#64748b" font-size="11">G2</text>
+  <text x="390" y="452" text-anchor="middle" fill="#64748b" font-size="11">G3</text>
+
+  <!-- 卡片 4：接口 -->
+  <rect x="460" y="290" width="350" height="170" rx="14" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5"/>
+  <text x="484" y="322" fill="#8b5cf6" font-size="14" font-weight="bold">接口</text>
+  <text x="484" y="376" fill="#1e293b" font-size="26" font-weight="bold">UCIe</text>
+  <text x="484" y="406" fill="#64748b" font-size="12">die 级直连 CPU / GPU</text>
+  <text x="484" y="428" fill="#64748b" font-size="12">开放标准，不锁定厂商</text>
+  <!-- 图标：两颗裸片互连 -->
+  <rect x="696" y="346" width="42" height="42" rx="8" fill="#2563eb"/>
+  <text x="717" y="372" text-anchor="middle" fill="#ffffff" font-size="11">CPU</text>
+  <rect x="760" y="346" width="42" height="42" rx="8" fill="#ea580c"/>
+  <text x="781" y="372" text-anchor="middle" fill="#ffffff" font-size="11">HBF</text>
+  <line x1="740" y1="367" x2="758" y2="367" stroke="#8b5cf6" stroke-width="2.5"/>
+  <polygon points="738,367 746,363 746,371" fill="#8b5cf6"/>
+  <polygon points="760,367 752,363 752,371" fill="#8b5cf6"/>
+</svg>

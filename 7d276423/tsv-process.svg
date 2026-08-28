@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="440" y="44" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">TSV 工艺六步：在硅片里"种"出铜柱</text>
+
+  <!-- 步骤 1：深孔刻蚀 -->
+  <rect x="37" y="90" width="96" height="100" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <line x1="53" y1="72" x2="53" y2="84" stroke="#2563eb" stroke-width="1.5"/>
+  <polygon points="53,88 49,80 57,80" fill="#2563eb"/>
+  <line x1="85" y1="72" x2="85" y2="84" stroke="#2563eb" stroke-width="1.5"/>
+  <polygon points="85,88 81,80 89,80" fill="#2563eb"/>
+  <line x1="117" y1="72" x2="117" y2="84" stroke="#2563eb" stroke-width="1.5"/>
+  <polygon points="117,88 113,80 121,80" fill="#2563eb"/>
+  <rect x="47" y="96" width="12" height="88" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="79" y="96" width="12" height="88" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="111" y="96" width="12" height="88" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- 步骤 2：绝缘衬层 -->
+  <rect x="179" y="90" width="96" height="100" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="189" y="96" width="12" height="88" fill="#ffffff" stroke="#0d9488" stroke-width="3"/>
+  <rect x="221" y="96" width="12" height="88" fill="#ffffff" stroke="#0d9488" stroke-width="3"/>
+  <rect x="253" y="96" width="12" height="88" fill="#ffffff" stroke="#0d9488" stroke-width="3"/>
+
+  <!-- 步骤 3：阻挡/种子层 -->
+  <rect x="321" y="90" width="96" height="100" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="331" y="96" width="12" height="88" fill="#ffffff" stroke="#8b5cf6" stroke-width="3"/>
+  <rect x="363" y="96" width="12" height="88" fill="#ffffff" stroke="#8b5cf6" stroke-width="3"/>
+  <rect x="395" y="96" width="12" height="88" fill="#ffffff" stroke="#8b5cf6" stroke-width="3"/>
+
+  <!-- 步骤 4：电镀填铜 -->
+  <rect x="463" y="90" width="96" height="100" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="473" y="96" width="12" height="88" fill="#ea580c"/>
+  <rect x="505" y="96" width="12" height="88" fill="#ea580c"/>
+  <rect x="537" y="96" width="12" height="88" fill="#ea580c"/>
+
+  <!-- 步骤 5：CMP 找平 -->
+  <rect x="605" y="90" width="96" height="100" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="615" y="96" width="12" height="88" fill="#ea580c"/>
+  <rect x="647" y="96" width="12" height="88" fill="#ea580c"/>
+  <rect x="679" y="96" width="12" height="88" fill="#ea580c"/>
+  <rect x="597" y="70" width="112" height="12" rx="3" fill="#64748b"/>
+  <line x1="640" y1="64" x2="668" y2="64" stroke="#2563eb" stroke-width="1.5"/>
+  <polygon points="672,64 664,60 664,68" fill="#2563eb"/>
+  <polygon points="636,64 644,60 644,68" fill="#2563eb"/>
+
+  <!-- 步骤 6：减薄 + 键合 -->
+  <rect x="747" y="88" width="96" height="44" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="757" y="92" width="10" height="36" fill="#ea580c"/>
+  <rect x="789" y="92" width="10" height="36" fill="#ea580c"/>
+  <rect x="821" y="92" width="10" height="36" fill="#ea580c"/>
+  <circle cx="762" cy="140" r="5" fill="#1e293b"/>
+  <circle cx="794" cy="140" r="5" fill="#1e293b"/>
+  <circle cx="826" cy="140" r="5" fill="#1e293b"/>
+  <rect x="747" y="150" width="96" height="40" rx="3" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+
+  <!-- 步骤框 -->
+  <g>
+    <rect x="25"  y="300" width="120" height="110" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect x="167" y="300" width="120" height="110" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect x="309" y="300" width="120" height="110" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect x="451" y="300" width="120" height="110" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect x="593" y="300" width="120" height="110" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+    <rect x="735" y="300" width="120" height="110" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  </g>
+
+  <text x="85"  y="330" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">① 深孔刻蚀</text>
+  <text x="85"  y="352" text-anchor="middle" fill="#64748b" font-size="11">Bosch DRIE 交替</text>
+  <text x="85"  y="370" text-anchor="middle" fill="#334155" font-size="11">刻蚀 + 钝化打出深孔</text>
+
+  <text x="227" y="330" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">② 绝缘衬层</text>
+  <text x="227" y="352" text-anchor="middle" fill="#64748b" font-size="11">孔壁沉积绝缘层，</text>
+  <text x="227" y="370" text-anchor="middle" fill="#334155" font-size="11">防止铜漏进硅</text>
+
+  <text x="369" y="330" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">③ 阻挡+种子层</text>
+  <text x="369" y="352" text-anchor="middle" fill="#64748b" font-size="11">溅射导电衬底，</text>
+  <text x="369" y="370" text-anchor="middle" fill="#334155" font-size="11">为电镀做准备</text>
+
+  <text x="511" y="330" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">④ 电镀填铜</text>
+  <text x="511" y="352" text-anchor="middle" fill="#64748b" font-size="11">铜离子把孔</text>
+  <text x="511" y="370" text-anchor="middle" fill="#334155" font-size="11">长成实心铜柱</text>
+
+  <text x="653" y="330" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">⑤ CMP 找平</text>
+  <text x="653" y="352" text-anchor="middle" fill="#64748b" font-size="11">磨掉表面凸起，</text>
+  <text x="653" y="370" text-anchor="middle" fill="#334155" font-size="11">露出平整铜面</text>
+
+  <text x="795" y="330" text-anchor="middle" fill="#1e293b" font-size="14" font-weight="bold">⑥ 减薄 + 键合</text>
+  <text x="795" y="352" text-anchor="middle" fill="#64748b" font-size="11">背面磨薄露出铜柱，</text>
+  <text x="795" y="370" text-anchor="middle" fill="#334155" font-size="11">翻转后与下层键合</text>
+
+  <!-- 步骤间箭头 -->
+  <g stroke="#64748b" stroke-width="1.5">
+    <line x1="147" y1="355" x2="163" y2="355"/>
+    <line x1="289" y1="355" x2="305" y2="355"/>
+    <line x1="431" y1="355" x2="447" y2="355"/>
+    <line x1="573" y1="355" x2="589" y2="355"/>
+    <line x1="715" y1="355" x2="731" y2="355"/>
+  </g>
+  <polygon points="167,355 159,351 159,359" fill="#64748b"/>
+  <polygon points="309,355 301,351 301,359" fill="#64748b"/>
+  <polygon points="451,355 443,351 443,359" fill="#64748b"/>
+  <polygon points="593,355 585,351 585,359" fill="#64748b"/>
+  <polygon points="735,355 727,351 727,359" fill="#64748b"/>
+
+  <!-- 图例 -->
+  <rect x="300" y="228" width="12" height="18" fill="#ea580c"/>
+  <text x="322" y="242" text-anchor="start" fill="#334155" font-size="12">铜柱</text>
+  <rect x="380" y="228" width="12" height="18" fill="#ffffff" stroke="#0d9488" stroke-width="3"/>
+  <text x="402" y="242" text-anchor="start" fill="#334155" font-size="12">绝缘层</text>
+  <rect x="468" y="228" width="12" height="18" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="490" y="242" text-anchor="start" fill="#334155" font-size="12">硅片</text>
+
+  <!-- 底部注释 -->
+  <text x="440" y="448" text-anchor="middle" fill="#334155" font-size="12">主流时机 via-middle：晶体管做好后打孔，再做布线层</text>
+</svg>

@@ -1,0 +1,399 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>带宽是怎么算出来的：位宽 × 频率 | 咕噜元</title><meta name="author" content="咕噜元"><meta name="copyright" content="咕噜元"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言：给”马路”算账第一篇我们说过：带宽像马路——宽度越宽、车速越快，单位时间通过的车越多。 当时只是打个比方。这一篇，我们把这条马路的数学补上： 带宽 &#x3D; 位宽 × 数据率 就这一行公式，能算出内存条、HBM、SSD 的所有标称带宽。不信？我们一个一个来。 一、先搞懂两个词：位宽和数据率位宽：马路的宽度位宽（Bus Width），指总线一次能同时传多少个 bit。内存条是 64 位——">
+<meta property="og:type" content="article">
+<meta property="og:title" content="带宽是怎么算出来的：位宽 × 频率">
+<meta property="og:url" content="https://www.edison007.top/a265bab6.html">
+<meta property="og:site_name" content="咕噜元">
+<meta property="og:description" content="前言：给”马路”算账第一篇我们说过：带宽像马路——宽度越宽、车速越快，单位时间通过的车越多。 当时只是打个比方。这一篇，我们把这条马路的数学补上： 带宽 &#x3D; 位宽 × 数据率 就这一行公式，能算出内存条、HBM、SSD 的所有标称带宽。不信？我们一个一个来。 一、先搞懂两个词：位宽和数据率位宽：马路的宽度位宽（Bus Width），指总线一次能同时传多少个 bit。内存条是 64 位——">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.edison007.top/img/page/HBF/004%20%E5%B8%A6%E5%AE%BD%E8%AE%A1%E7%AE%97.webp">
+<meta property="article:published_time" content="2026-09-03T06:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-28T14:39:45.168Z">
+<meta property="article:author" content="咕噜元">
+<meta property="article:tag" content="存储入门">
+<meta property="article:tag" content="带宽">
+<meta property="article:tag" content="DDR">
+<meta property="article:tag" content="位宽">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.edison007.top/img/page/HBF/004%20%E5%B8%A6%E5%AE%BD%E8%AE%A1%E7%AE%97.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "带宽是怎么算出来的：位宽 × 频率",
+  "url": "https://www.edison007.top/a265bab6.html",
+  "image": "https://www.edison007.top/img/page/HBF/004%20%E5%B8%A6%E5%AE%BD%E8%AE%A1%E7%AE%97.webp",
+  "datePublished": "2026-09-03T06:00:00.000Z",
+  "dateModified": "2026-08-28T14:39:45.168Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "咕噜元",
+      "url": "https://www.edison007.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://www.edison007.top/a265bab6.html"><link rel="preload" as="image" href="/img/page/HBF/004%20%E5%B8%A6%E5%AE%BD%E8%AE%A1%E7%AE%97.webp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="codeva-wDtyj28tKi"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '带宽是怎么算出来的：位宽 × 频率',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style>
+  /* 文章标题前风车图标旋转动画 */
+  #post h1::before,
+  #post h2::before,
+  #post h3::before,
+  #post h4::before,
+  #post h5::before,
+  #post h6::before {
+    display: inline-block;
+    animation: fan-spin 0.8s linear infinite; /* 0.8秒一圈，匀速无限旋转 */
+    transition: color 0.3s; /* 颜色过渡动画 */
+  }
+  @keyframes fan-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  /* 鼠标悬停时风车变为蓝色 */
+  #post h1:hover::before,
+  #post h2:hover::before,
+  #post h3:hover::before,
+  #post h4:hover::before,
+  #post h5:hover::before,
+  #post h6:hover::before {
+    color: #49B1F5 !important;
+  }
+  /* 减小文章图片与下方文字的间距 */
+  #post figure {
+    margin: 16px 0;
+    text-align: center;
+  }
+  #post figure img {
+    margin-bottom: 4px;
+  }
+  #post figcaption {
+    color: #888;
+    font-size: 0.9em;
+  }
+</style>
+<meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/page/HBF/004%20%E5%B8%A6%E5%AE%BD%E8%AE%A1%E7%AE%97.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">咕噜元</span></a><a class="nav-page-title" href="/"><span class="site-name">带宽是怎么算出来的：位宽 × 频率</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">带宽是怎么算出来的：位宽 × 频率</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-09-03T06:00:00.000Z" title="发表于 2026-09-03 14:00:00">2026-09-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-28T14:39:45.168Z" title="更新于 2026-08-28 22:39:45">2026-08-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/HBF/">HBF</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1467</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前言：给”马路”算账"><a href="#前言：给”马路”算账" class="headerlink" title="前言：给”马路”算账"></a>前言：给”马路”算账</h1><p>第一篇我们说过：<strong>带宽像马路</strong>——宽度越宽、车速越快，单位时间通过的车越多。</p>
+<p>当时只是打个比方。这一篇，我们把这条马路的数学补上：</p>
+<p><strong>带宽 &#x3D; 位宽 × 数据率</strong></p>
+<p>就这一行公式，能算出内存条、HBM、SSD 的所有标称带宽。不信？我们一个一个来。</p>
+<h1 id="一、先搞懂两个词：位宽和数据率"><a href="#一、先搞懂两个词：位宽和数据率" class="headerlink" title="一、先搞懂两个词：位宽和数据率"></a>一、先搞懂两个词：位宽和数据率</h1><h2 id="位宽：马路的宽度"><a href="#位宽：马路的宽度" class="headerlink" title="位宽：马路的宽度"></a>位宽：马路的宽度</h2><p><strong>位宽（Bus Width）</strong>，指总线一次能同时传多少个 bit。内存条是 64 位——一次传 64 个 bit，也就是 8 个字节。</p>
+<h2 id="数据率：马路上车流的节奏"><a href="#数据率：马路上车流的节奏" class="headerlink" title="数据率：马路上车流的节奏"></a>数据率：马路上车流的节奏</h2><p><strong>数据率（Data Rate）</strong>，指每秒能传多少”拍”（每拍传一个位宽的数据），单位是 <strong>MT&#x2F;s（Mega Transfers per second，每秒百万次传输）</strong>。</p>
+<p>DDR5-6400 名字里的”6400”，指的就是 6400 MT&#x2F;s——每秒约 64 亿次传输。</p>
+<h1 id="二、DDR：为什么叫”双倍数据率”"><a href="#二、DDR：为什么叫”双倍数据率”" class="headerlink" title="二、DDR：为什么叫”双倍数据率”"></a>二、DDR：为什么叫”双倍数据率”</h1><p>**DDR（Double Data Rate，双倍数据率）**这个名字里，藏着一个小聪明。</p>
+<p>早期的 SDRAM，一个时钟周期只在<strong>上升沿</strong>传一次数据——时钟每秒跳多少个周期，就传多少次，单位用 MHz。</p>
+<p>DDR 的工程师说：下降沿闲着也是闲着，<strong>上升沿、下降沿各传一次</strong>：</p>
+<figure>
+  <img src="/a265bab6/ddr-timing.svg" class loading='lazy'>
+  <figcaption>DDR 时序：时钟每个上升沿和下降沿都触发一次数据传输，一个周期传两次</figcaption>
+</figure>
+
+<p>于是同样的时钟频率，数据率直接翻倍：</p>
+<p><strong>MT&#x2F;s &#x3D; 2 × MHz</strong></p>
+<p>所以：时钟跑 3200 MHz，数据率就是 6400 MT&#x2F;s；标签上的”DDR5-6400”指的是 6400 MT&#x2F;s 的数据率，<strong>不是</strong> 6400 MHz 的时钟——它们差着一倍。</p>
+<p>这也是为什么严谨的参数表用 MT&#x2F;s 而不是 MHz。</p>
+<h1 id="三、开始算：四个实例"><a href="#三、开始算：四个实例" class="headerlink" title="三、开始算：四个实例"></a>三、开始算：四个实例</h1><figure>
+  <img src="/a265bab6/bandwidth-formula.svg" class loading='lazy'>
+  <figcaption>带宽公式的拆解：位宽 × 数据率 ÷ 8 = 带宽，配四个真实案例</figcaption>
+</figure>
+
+<h2 id="例-1：DDR5-6400-内存条"><a href="#例-1：DDR5-6400-内存条" class="headerlink" title="例 1：DDR5-6400 内存条"></a>例 1：DDR5-6400 内存条</h2><ul>
+<li>位宽：64 位（单通道）</li>
+<li>数据率：6400 MT&#x2F;s</li>
+</ul>
+<p>带宽 &#x3D; 64 × 6400 ÷ 8 &#x3D; 51.2 GB&#x2F;s</p>
+<p>主板插两根组<strong>双通道</strong>，位宽变成 128 位，带宽翻倍到约 102.4 GB&#x2F;s。这就是”双通道提升性能”的数学本质：<strong>车道数翻倍</strong>。</p>
+<h2 id="例-2：HBM3E"><a href="#例-2：HBM3E" class="headerlink" title="例 2：HBM3E"></a>例 2：HBM3E</h2><ul>
+<li>位宽：1024 位</li>
+<li>数据率：每引脚约 9.6 Gb&#x2F;s</li>
+</ul>
+<p>带宽 &#x3D; 1024 × 9.6 ÷ 8 ≈ 1.2 TB&#x2F;s</p>
+<p>位宽是内存条的 16 倍——这就是第一篇说的”把马路加宽到上千条车道”。</p>
+<h2 id="例-3：HBM4"><a href="#例-3：HBM4" class="headerlink" title="例 3：HBM4"></a>例 3：HBM4</h2><p>接口加宽到 2048 位，按每引脚约 8 Gb&#x2F;s 算：</p>
+<p>带宽 &#x3D; 2048 × 8 ÷ 8 ≈ 2 TB&#x2F;s</p>
+<p>还记得第一篇那张对比图吗？”HBM4 单堆栈约 2 TB&#x2F;s”就是这么算出来的。</p>
+<h2 id="例-4：PCIe-5-0-×4-的-SSD"><a href="#例-4：PCIe-5-0-×4-的-SSD" class="headerlink" title="例 4：PCIe 5.0 ×4 的 SSD"></a>例 4：PCIe 5.0 ×4 的 SSD</h2><p>固态硬盘走的是 PCIe 总线，公式稍变：<strong>通道数 × 每通道速率 × 编码效率</strong>。</p>
+<ul>
+<li>通道数：4（×4）</li>
+<li>每通道：32 GT&#x2F;s（每秒 32 Giga 次传输）</li>
+<li>编码效率：128&#x2F;130——每 130 bit 里有 2 bit 是”包装盒”</li>
+</ul>
+<p>带宽 &#x3D; 4 × 32 × 128&#x2F;130 ÷ 8 ≈ 15.75 GB&#x2F;s</p>
+<p>这就是第一篇说”PCIe 5.0 SSD ≈ 14 GB&#x2F;s”的由来：标称 15.75，扣掉协议开销，实测 14 左右。</p>
+<h1 id="四、为什么不把马路修到一万条车道？"><a href="#四、为什么不把马路修到一万条车道？" class="headerlink" title="四、为什么不把马路修到一万条车道？"></a>四、为什么不把马路修到一万条车道？</h1><p>看完 HBM 你可能会问：位宽这么好用，内存条为什么不用 2048 位？</p>
+<p>第一篇讲过”平铺的天花板”，现在可以从物理角度再说一遍：</p>
+<ul>
+<li><strong>引脚数量</strong>：2048 位数据线，加上校验、控制，引脚要几千个。DIMM 那种”插在主板上”的形式，物理上根本做不到——接口和主板面积都顶不住。</li>
+<li><strong>走线长度</strong>：平铺的内存条离 CPU 有几厘米，几千根线还要尽量等长，线越长越难跑高速。</li>
+<li><strong>信号完整性</strong>：线一多、频率一高，串扰、反射全来了，信号会”糊”。</li>
+</ul>
+<p>于是工程师的解法是：<strong>既然横向铺不开，就纵向堆起来</strong>——把芯片堆叠、用 TSV 打穿，在方寸之间拿到上千位的位宽，再把整个堆栈贴到 CPU 身边。这就是 HBM，也是 HBF 的思路。</p>
+<h1 id="五、带宽高-≠-延迟低"><a href="#五、带宽高-≠-延迟低" class="headerlink" title="五、带宽高 ≠ 延迟低"></a>五、带宽高 ≠ 延迟低</h1><p>顺手澄清一对最容易混淆的概念。回到马路的比喻：</p>
+<ul>
+<li><strong>带宽（Bandwidth）</strong>：马路每秒能通过多少辆车——问的是”总量”；</li>
+<li><strong>延迟（Latency）</strong>：一辆车从起点到终点要多久——问的是”单程”。</li>
+</ul>
+<p>两者常常不挂钩。就像八车道的高速公路（高带宽），如果你只派一辆车跑一趟（读 8 个字节），该花的时间还是一分不少——车流再宽，也缩短不了单车的行程。</p>
+<p>这正是 HBF 的处境：它的<strong>带宽</strong>比肩 HBM，但 NAND 单元的<strong>延迟</strong>天生比 DRAM 高。所以它适合”大部队持续搬运”（加载大模型权重），不适合”零星快取”（随机小数据）——下一篇讲 DRAM 内部结构时，会看到延迟从哪来。</p>
+<h1 id="六、理论带宽-≠-实际带宽"><a href="#六、理论带宽-≠-实际带宽" class="headerlink" title="六、理论带宽 ≠ 实际带宽"></a>六、理论带宽 ≠ 实际带宽</h1><p>最后泼一盆冷水：上面算出来的都是<strong>理论峰值</strong>，实际使用要打折：</p>
+<ul>
+<li><strong>协议开销</strong>：命令、地址、纠错码都要占用传输机会；</li>
+<li><strong>读写切换</strong>：读转写之间要”刹车再起步”，中间有死区；</li>
+<li><strong>维护动作</strong>：DRAM 的刷新、SSD 的垃圾回收，都会偷走时间片。</li>
+</ul>
+<p>经验上，DDR 的实测带宽大约能到理论值的七成上下，SSD 也要打个八九折。<strong>标称数字看个量级就好，别当真到小数点。</strong></p>
+<h1 id="总结：车道-×-车速"><a href="#总结：车道-×-车速" class="headerlink" title="总结：车道 × 车速"></a>总结：车道 × 车速</h1><p>一句话收尾：</p>
+<ul>
+<li><strong>位宽是车道数</strong>——一次能并排跑多少数据；</li>
+<li><strong>数据率是发车间隔</strong>——每秒能发多少班；</li>
+<li>两者相乘（÷8 换成字节），就是这条马路的<strong>吞吐量：带宽</strong>。</li>
+</ul>
+<figure>
+  <img src="/a265bab6/bus-width.svg" class loading='lazy'>
+  <figcaption>位宽对比（等比例）：64 位的内存条在 2048 位的 HBM4 面前，只是一条缝</figcaption>
+</figure>
+
+<p>下一站，我们深入金字塔中间那层的主角——<strong>DRAM 深入</strong>：位线、字线、bank、行缓冲，内存条内部到底是怎么组织的？</p>
+<p>我们下一篇见。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.edison007.top">咕噜元</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.edison007.top/a265bab6.html">https://www.edison007.top/a265bab6.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.edison007.top" target="_blank">咕噜元</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8/">存储入门</a><a class="post-meta__tags" href="/tags/%E5%B8%A6%E5%AE%BD/">带宽</a><a class="post-meta__tags" href="/tags/DDR/">DDR</a><a class="post-meta__tags" href="/tags/%E4%BD%8D%E5%AE%BD/">位宽</a></div><div class="post-share"><div class="social-share" data-image="/img/page/HBF/004%20%E5%B8%A6%E5%AE%BD%E8%AE%A1%E7%AE%97.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/590535e0.html" title="DRAM 深入：刷新、Bank 与 DDR 演进史"><img class="cover" src="/img/page/HBF/005%20DRAM%E6%B7%B1%E5%85%A5.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post" loading='lazy'><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">DRAM 深入：刷新、Bank 与 DDR 演进史</div></div><div class="info-2"><div class="info-item-1">前言：把内存芯片拆开看上一篇把带宽的账算清了：带宽 &#x3D; 位宽 × 数据率。公式很简单，但结尾留了个悬念——位线、字线、Bank、行缓冲，内存条内部到底是怎么组织的？延迟到底花在哪？ 这一篇就打开内存芯片的外壳，看看里面的组织方式：Bank、行缓冲、三步访问时序、刷新，最后再把 SDRAM 到 DDR5 二十多年的演进史串一遍。 看完你会明白两件事：为什么内存延迟是几十纳秒而不是零；为什么每一代 DDR 都能”莫名”翻倍提速。 一、芯片内部：一座分阅览室的图书馆一颗 DRAM 芯片并不是一整块大阵列，而是切成了多个 Bank（存储库）——每个 Bank 都是一个独立的小阵列，自带一套行译码器（Row Decoder）和灵敏放大器（Sense Amplifier），可以独立干活。       DRAM 芯片的组织方式：多个独立 Bank，每个 Bank 是行 × 列的单元矩阵，打开一行后整行数据进入行缓冲   再把一个 Bank 放大看：它就是第一篇讲过的 1T1C 单元排成的行 × 列矩阵。  字线（Word Line）：接一行单元的晶体管栅极，由行译码器驱动——选中一条...</div></div></div></a><a class="pagination-related" href="/50b8a8e0.html" title="内存金字塔详解：速度、容量与成本的权衡"><img class="cover" src="/img/page/HBF/003%20%E5%86%85%E5%AD%98%E9%87%91%E5%AD%97%E5%A1%94.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">内存金字塔详解：速度、容量与成本的权衡</div></div><div class="info-2"><div class="info-item-1">前言：从砖块到大楼上一篇我们把三种存储单元拆开看了：SRAM 的锁存器、DRAM 的电容、NAND 的浮栅——那是”砖块”的故事。 但一台真实的计算机，从不会只用一种存储器。它把好几种存储器组装成一栋大楼：快的在上、慢的在下，贵的少放、便宜的多放，中间靠搬运工衔接。 这就是今天的主角：存储层级（Memory Hierarchy），江湖人称”内存金字塔”。 为什么要分层？因为世界上不存在又快、又大、又便宜的存储器。SRAM 快但贵，NAND 便宜但慢，谁也通吃不了——于是工程师让它们组队分工。 一、完整的金字塔：从寄存器到硬盘      完整的内存金字塔：寄存器、三级缓存、主内存、HBF、SSD 与硬盘——HBF 是新插入的层级   从上往下逐层看一遍。先说明：下面的数字都是典型量级，不同产品、不同年份差别很大，看数量级就好。  寄存器（Register）：CPU 内部直接装载数据的格子，延迟不到 1 纳秒，容量按 KB 甚至”个”来数——快到没朋友，也贵到没法按 GB 报价。 L1 &#x2F; L2 &#x2F; L3 缓存：全由 SRAM 组成。L1 延迟约 1ns、几十 K...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/590535e0.html" title="DRAM 深入：刷新、Bank 与 DDR 演进史"><img class="cover" src="/img/page/HBF/005%20DRAM%E6%B7%B1%E5%85%A5.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-05</div><div class="info-item-2">DRAM 深入：刷新、Bank 与 DDR 演进史</div></div><div class="info-2"><div class="info-item-1">前言：把内存芯片拆开看上一篇把带宽的账算清了：带宽 &#x3D; 位宽 × 数据率。公式很简单，但结尾留了个悬念——位线、字线、Bank、行缓冲，内存条内部到底是怎么组织的？延迟到底花在哪？ 这一篇就打开内存芯片的外壳，看看里面的组织方式：Bank、行缓冲、三步访问时序、刷新，最后再把 SDRAM 到 DDR5 二十多年的演进史串一遍。 看完你会明白两件事：为什么内存延迟是几十纳秒而不是零；为什么每一代 DDR 都能”莫名”翻倍提速。 一、芯片内部：一座分阅览室的图书馆一颗 DRAM 芯片并不是一整块大阵列，而是切成了多个 Bank（存储库）——每个 Bank 都是一个独立的小阵列，自带一套行译码器（Row Decoder）和灵敏放大器（Sense Amplifier），可以独立干活。       DRAM 芯片的组织方式：多个独立 Bank，每个 Bank 是行 × 列的单元矩阵，打开一行后整行数据进入行缓冲   再把一个 Bank 放大看：它就是第一篇讲过的 1T1C 单元排成的行 × 列矩阵。  字线（Word Line）：接一行单元的晶体管栅极，由行译码器驱动——选中一条...</div></div></div></a><a class="pagination-related" href="/907eb083.html" title="从 DRAM 到 HBF：认识高带宽闪存"><img class="cover" src="/img/page/HBF/001%20%E4%BB%8EDRAM%E5%88%B0HBF.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-28</div><div class="info-item-2">从 DRAM 到 HBF：认识高带宽闪存</div></div><div class="info-2"><div class="info-item-1">前言：AI 时代，最难的不是”算”，而是”搬”你可能听过一个词：AI 大模型。这些模型的训练和推理，需要海量数据在芯片之间飞速流动。 有一个反直觉的事实：很多时候，限制 AI 速度的不是算力，而是数据搬运的速度。芯片算得再快，如果数据”喂”不上来，也只能干等。 为了打通这个瓶颈，存储行业最近推出了一个新概念——HBF（High Bandwidth Flash，高带宽闪存）。 但想真正理解 HBF，我们得先从最基础的内存说起：DRAM。 一、先认识 DRAM：计算机的”工作台”两种存储器：会”忘”的和不会”忘”的在进入正题前，先分清两类存储：  易失性（Volatile）：一断电，数据就没了，但速度非常快。代表就是 DRAM。 非易失性（Non-volatile）：断电后数据还在，但速度慢一些。代表是 NAND Flash（U 盘、SSD 里的那种）。  一个很形象的比喻：  DRAM 就像工作台：放正在用的工具，伸手就拿，但收工后要清空。 NAND Flash 就像仓库：东西长期存放，但取用要走几步路。  内存金字塔：快慢贵廉的分工计算机里，存储是分层的，越靠上越快、越贵、容量越...</div></div></div></a><a class="pagination-related" href="/eeffe57a.html" title="存储的最小单元：SRAM、DRAM 与 NAND 怎么存 1 个 bit"><img class="cover" src="/img/page/HBF/002%20%E5%AD%98%E5%82%A8%E7%9A%84%E6%9C%80%E5%B0%8F%E5%8D%95%E5%85%83.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="info-item-2">存储的最小单元：SRAM、DRAM 与 NAND 怎么存 1 个 bit</div></div><div class="info-2"><div class="info-item-1">前言：兑现预告——差别就在”怎么存 1 个 bit”上一篇结尾我们说：接下来把”存储的最小单元”讲透——SRAM、DRAM 和 NAND，分别是怎么存 1 个 bit 的？ 你可能会想：这跟我有什么关系？关系很大。三种存储器的所有性格差异，几乎都写在它们的最小单元里：  为什么 CPU 缓存那么快，却只做得起几十 MB？ 为什么内存条隔几十毫秒就要”刷新”一次？ 为什么 SSD 断了电，数据还在？  这三个问题的答案，都要从”存 1 个 bit”说起。 打个比方：存储器是大楼，存储单元就是砖块。砖块的形状和材质，决定了楼能盖多高、造价多贵、住得舒不舒服。今天我们就把三种砖块逐一拆开看。 一、SRAM：六个晶体管互相”锁死”SRAM（Static Random Access Memory，静态随机存取存储器），就是 CPU 里 L1&#x2F;L2&#x2F;L3 缓存的原材料。 它存 1 个 bit 的方式，是三种里面最”豪华”的——用 6 个晶体管（行话叫 6T 单元）。 两个反相器，首尾相接**反相器（Inverter）**是个”说反话”的装置：输入 1 它输出 0，输入 0...</div></div></div></a><a class="pagination-related" href="/50b8a8e0.html" title="内存金字塔详解：速度、容量与成本的权衡"><img class="cover" src="/img/page/HBF/003%20%E5%86%85%E5%AD%98%E9%87%91%E5%AD%97%E5%A1%94.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-01</div><div class="info-item-2">内存金字塔详解：速度、容量与成本的权衡</div></div><div class="info-2"><div class="info-item-1">前言：从砖块到大楼上一篇我们把三种存储单元拆开看了：SRAM 的锁存器、DRAM 的电容、NAND 的浮栅——那是”砖块”的故事。 但一台真实的计算机，从不会只用一种存储器。它把好几种存储器组装成一栋大楼：快的在上、慢的在下，贵的少放、便宜的多放，中间靠搬运工衔接。 这就是今天的主角：存储层级（Memory Hierarchy），江湖人称”内存金字塔”。 为什么要分层？因为世界上不存在又快、又大、又便宜的存储器。SRAM 快但贵，NAND 便宜但慢，谁也通吃不了——于是工程师让它们组队分工。 一、完整的金字塔：从寄存器到硬盘      完整的内存金字塔：寄存器、三级缓存、主内存、HBF、SSD 与硬盘——HBF 是新插入的层级   从上往下逐层看一遍。先说明：下面的数字都是典型量级，不同产品、不同年份差别很大，看数量级就好。  寄存器（Register）：CPU 内部直接装载数据的格子，延迟不到 1 纳秒，容量按 KB 甚至”个”来数——快到没朋友，也贵到没法按 GB 报价。 L1 &#x2F; L2 &#x2F; L3 缓存：全由 SRAM 组成。L1 延迟约 1ns、几十 K...</div></div></div></a><a class="pagination-related" href="/7d276423.html" title="3D 堆叠与 TSV：硅通孔是怎么打出来的"><img class="cover" src="/img/page/HBF/006%20TSV%E4%B8%8E3D%E5%A0%86%E5%8F%A0.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-07</div><div class="info-item-2">3D 堆叠与 TSV：硅通孔是怎么打出来的</div></div><div class="info-2"><div class="info-item-1">前言：该造电梯了第一篇介绍 HBM 时打过个比方：TSV 像”电梯井”，从上到下打穿整栋”芯片楼”，让数据不必绕远路。 上一篇我们钻进了 DRAM 芯片内部，看清了 Bank 和行缓冲；这一篇把镜头拉远，看芯片和芯片之间怎么连接——这部”电梯”到底是怎么造出来的。 一、为什么要”立起来”第一篇讲过”平铺的天花板”，这里换个角度再收敛一次。传统封装里，芯片之间靠基板上的金属走线相连，三大限制绕不开：  引脚数：想要宽接口就要几千个引脚，芯片边缘和封装根本摆不下； 走线长度：封装和主板上的走线动辄几厘米，越长越难提速； 信号完整性：线一多、频率一高，串扰、反射全来了，信号会”糊”。  其实”把芯片摞起来”的想法很早就有，老办法叫引线键合（Wire Bonding）：用细金线把上层芯片的焊盘和下层连起来。 问题在于：金线只能从芯片边缘引出，就像”只能从楼顶四角垂绳子”——数量有限（几百根基本到顶）、线是毫米级的弧线、寄生电感大，频率一高信号就”甩尾”。靠它做出上千位的接口？物理上没戏。 后来出现的**倒装焊（Flip Chip）**算半个改进：芯片正面朝下、用凸点直接连基板，引脚不再挤...</div></div></div></a><a class="pagination-related" href="/8c57fb14.html" title="HBM 详解：从 HBM1 到 HBM4"><img class="cover" src="/img/page/HBF/007%20HBM%E8%AF%A6%E8%A7%A3.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-09</div><div class="info-item-2">HBM 详解：从 HBM1 到 HBM4</div></div><div class="info-2"><div class="info-item-1">前言：地基打好了，开始盖楼上一篇把 TSV 这部”电梯”的施工方案讲完了。地基有了，这一篇看 HBM 这栋楼是怎么盖起来的：内部结构长什么样、五代标准怎么演进、为什么快、又卡在哪。 一、HBM 结构解剖：一摞饼干 + 一块托底把一个 HBM **堆栈（Stack）**切开看，从上到下是：       HBM 堆栈详细剖面：多层 DRAM Die + 底部逻辑 Die，TSV 贯穿、微凸点层层连接，整个堆栈躺在中介层上紧挨 GPU    N 层 DRAM Die：垂直堆叠的 DRAM 芯片，薄得像饼干，层数从早期的 4 层一路加到 16 层； 逻辑 Die（Logic Die）：垫在最底下的一层特殊芯片，放着接口电路（PHY）和测试电路——对外的高速接口只做一份，DRAM Die 保持纯粹，堆多少层都不用重复； TSV：贯穿所有 DRAM Die 的铜柱”电梯井”，把各层数据引到逻辑 Die； 微凸点：层与层之间的”垫脚”，最底下再通过一排微凸点落到中介层上。  整个堆栈躺在中介层上、紧挨着 GPU——这就是第一篇那张示意图的”施工版”。 这个设计聪明在哪？分工：DRAM Die ...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">咕噜元</div><div class="author-info-description">成就如沙堡 生命如海浪</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">49</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/pakchoiii"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/pakchoiii" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:919607416@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临咕噜元，这里是我日常收集和整理的总结，希望能对你有所帮助:)</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80%EF%BC%9A%E7%BB%99%E2%80%9D%E9%A9%AC%E8%B7%AF%E2%80%9D%E7%AE%97%E8%B4%A6"><span class="toc-number">1.</span> <span class="toc-text">前言：给”马路”算账</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E6%90%9E%E6%87%82%E4%B8%A4%E4%B8%AA%E8%AF%8D%EF%BC%9A%E4%BD%8D%E5%AE%BD%E5%92%8C%E6%95%B0%E6%8D%AE%E7%8E%87"><span class="toc-number">2.</span> <span class="toc-text">一、先搞懂两个词：位宽和数据率</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E5%AE%BD%EF%BC%9A%E9%A9%AC%E8%B7%AF%E7%9A%84%E5%AE%BD%E5%BA%A6"><span class="toc-number">2.1.</span> <span class="toc-text">位宽：马路的宽度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%8E%87%EF%BC%9A%E9%A9%AC%E8%B7%AF%E4%B8%8A%E8%BD%A6%E6%B5%81%E7%9A%84%E8%8A%82%E5%A5%8F"><span class="toc-number">2.2.</span> <span class="toc-text">数据率：马路上车流的节奏</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81DDR%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%AB%E2%80%9D%E5%8F%8C%E5%80%8D%E6%95%B0%E6%8D%AE%E7%8E%87%E2%80%9D"><span class="toc-number">3.</span> <span class="toc-text">二、DDR：为什么叫”双倍数据率”</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%BC%80%E5%A7%8B%E7%AE%97%EF%BC%9A%E5%9B%9B%E4%B8%AA%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">三、开始算：四个实例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-1%EF%BC%9ADDR5-6400-%E5%86%85%E5%AD%98%E6%9D%A1"><span class="toc-number">4.1.</span> <span class="toc-text">例 1：DDR5-6400 内存条</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-2%EF%BC%9AHBM3E"><span class="toc-number">4.2.</span> <span class="toc-text">例 2：HBM3E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-3%EF%BC%9AHBM4"><span class="toc-number">4.3.</span> <span class="toc-text">例 3：HBM4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-4%EF%BC%9APCIe-5-0-%C3%974-%E7%9A%84-SSD"><span class="toc-number">4.4.</span> <span class="toc-text">例 4：PCIe 5.0 ×4 的 SSD</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%8A%8A%E9%A9%AC%E8%B7%AF%E4%BF%AE%E5%88%B0%E4%B8%80%E4%B8%87%E6%9D%A1%E8%BD%A6%E9%81%93%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">四、为什么不把马路修到一万条车道？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%B8%A6%E5%AE%BD%E9%AB%98-%E2%89%A0-%E5%BB%B6%E8%BF%9F%E4%BD%8E"><span class="toc-number">6.</span> <span class="toc-text">五、带宽高 ≠ 延迟低</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E7%90%86%E8%AE%BA%E5%B8%A6%E5%AE%BD-%E2%89%A0-%E5%AE%9E%E9%99%85%E5%B8%A6%E5%AE%BD"><span class="toc-number">7.</span> <span class="toc-text">六、理论带宽 ≠ 实际带宽</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E8%BD%A6%E9%81%93-%C3%97-%E8%BD%A6%E9%80%9F"><span class="toc-number">8.</span> <span class="toc-text">总结：车道 × 车速</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/4fa17ade.html" title="存储行业格局：巨头、标准与联盟"><img src="/img/page/HBF/013%20%E5%AD%98%E5%82%A8%E8%A1%8C%E4%B8%9A%E6%A0%BC%E5%B1%80.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="存储行业格局：巨头、标准与联盟"/ loading='lazy'></a><div class="content"><a class="title" href="/4fa17ade.html" title="存储行业格局：巨头、标准与联盟">存储行业格局：巨头、标准与联盟</a><time datetime="2026-09-21T15:00:00.000Z" title="发表于 2026-09-21 23:00:00">2026-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/1cbe4f46.html" title="存储接口概览：DDR、ONFI/Toggle、UCIe 与 CXL"><img src="/img/page/HBF/012%20%E5%AD%98%E5%82%A8%E6%8E%A5%E5%8F%A3%E6%A6%82%E8%A7%88.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="存储接口概览：DDR、ONFI/Toggle、UCIe 与 CXL"/ loading='lazy'></a><div class="content"><a class="title" href="/1cbe4f46.html" title="存储接口概览：DDR、ONFI/Toggle、UCIe 与 CXL">存储接口概览：DDR、ONFI/Toggle、UCIe 与 CXL</a><time datetime="2026-09-19T14:00:00.000Z" title="发表于 2026-09-19 22:00:00">2026-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/d5af2ad5.html" title="HBM vs HBF：不是替代，是分层"><img src="/img/page/HBF/011%20HBM%E4%B8%8EHBF%E5%AF%B9%E6%AF%94.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HBM vs HBF：不是替代，是分层"/ loading='lazy'></a><div class="content"><a class="title" href="/d5af2ad5.html" title="HBM vs HBF：不是替代，是分层">HBM vs HBF：不是替代，是分层</a><time datetime="2026-09-17T13:00:00.000Z" title="发表于 2026-09-17 21:00:00">2026-09-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/34a57b98.html" title="HBF 应用场景：AI 推理的容量解药"><img src="/img/page/HBF/010%20HBF%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HBF 应用场景：AI 推理的容量解药"/ loading='lazy'></a><div class="content"><a class="title" href="/34a57b98.html" title="HBF 应用场景：AI 推理的容量解药">HBF 应用场景：AI 推理的容量解药</a><time datetime="2026-09-15T12:00:00.000Z" title="发表于 2026-09-15 20:00:00">2026-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/f36b9d94.html" title="HBF 技术细节：堆叠、UCIe 与带宽三档"><img src="/img/page/HBF/009%20HBF%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HBF 技术细节：堆叠、UCIe 与带宽三档"/ loading='lazy'></a><div class="content"><a class="title" href="/f36b9d94.html" title="HBF 技术细节：堆叠、UCIe 与带宽三档">HBF 技术细节：堆叠、UCIe 与带宽三档</a><time datetime="2026-09-13T11:00:00.000Z" title="发表于 2026-09-13 19:00:00">2026-09-13</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 咕噜元</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.edison007.top/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo.edison007.top/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

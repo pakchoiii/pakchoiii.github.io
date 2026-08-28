@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="720" height="420" fill="#ffffff"/>
+
+  <text x="360" y="28" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">板级长走线 vs 封装内短距离</text>
+
+  <!-- 左：主板级 -->
+  <text x="190" y="60" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">主板级 · 厘米级距离</text>
+  <rect x="40" y="80" width="300" height="240" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="70" y="150" width="90" height="60" rx="6" fill="#1e293b"/>
+  <text x="115" y="185" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">CPU</text>
+  <rect x="215" y="130" width="105" height="26" rx="4" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+  <text x="267" y="147" text-anchor="middle" fill="#334155" font-size="11">DIMM</text>
+  <rect x="215" y="170" width="105" height="26" rx="4" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+  <text x="267" y="187" text-anchor="middle" fill="#334155" font-size="11">DIMM</text>
+  <rect x="215" y="210" width="105" height="26" rx="4" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+  <text x="267" y="227" text-anchor="middle" fill="#334155" font-size="11">DIMM</text>
+  <path d="M160 165 Q 190 150 215 143" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <path d="M160 180 Q 190 180 215 183" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <path d="M160 195 Q 190 215 215 223" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <text x="187" y="260" text-anchor="middle" fill="#ea580c" font-size="11" font-weight="bold">长走线 · 数厘米</text>
+  <text x="190" y="345" text-anchor="middle" fill="#64748b" font-size="11">信号衰减 · 频率难提 · 位宽难加宽</text>
+
+  <!-- 分隔线 -->
+  <line x1="370" y1="60" x2="370" y2="380" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 6"/>
+
+  <!-- 右：封装内 -->
+  <text x="540" y="60" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">封装内 · 毫米不到</text>
+  <rect x="400" y="80" width="280" height="240" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+  <rect x="425" y="115" width="85" height="55" rx="6" fill="#0d9488"/>
+  <text x="467" y="138" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">HBM</text>
+  <text x="467" y="158" text-anchor="middle" fill="#ffffff" font-size="11">堆栈</text>
+  <rect x="570" y="115" width="85" height="55" rx="6" fill="#ea580c"/>
+  <text x="612" y="138" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">HBF</text>
+  <text x="612" y="158" text-anchor="middle" fill="#ffffff" font-size="11">堆栈</text>
+  <rect x="475" y="200" width="130" height="70" rx="6" fill="#1e293b"/>
+  <text x="540" y="240" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">GPU die</text>
+  <line x1="467" y1="170" x2="500" y2="198" stroke="#334155" stroke-width="3"/>
+  <line x1="612" y1="170" x2="580" y2="198" stroke="#334155" stroke-width="3"/>
+  <text x="540" y="190" text-anchor="middle" fill="#64748b" font-size="11">毫米不到 · 接口极宽</text>
+  <text x="540" y="345" text-anchor="middle" fill="#64748b" font-size="11">距离短 → 频率与位宽都能拉满</text>
+
+  <!-- 底注 -->
+  <text x="360" y="400" text-anchor="middle" fill="#64748b" font-size="12">走线越长，频率与位宽的天花板越低——这正是 004 讲"为什么不无限加宽"的答案</text>
+</svg>
