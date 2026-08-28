@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.edison007.top/random/index.html</loc>
+    
+    <lastmod>2026-08-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.edison007.top/1cbe4f46.html</loc>
     
     <lastmod>2026-08-28</lastmod>
@@ -233,27 +242,6 @@
   </url>
   
   <url>
-    <loc>https://www.edison007.top/tags/%E5%86%85%E5%AD%98%E9%87%91%E5%AD%97%E5%A1%94/</loc>
-    <lastmod>2026-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.edison007.top/tags/%E7%BC%93%E5%AD%98/</loc>
-    <lastmod>2026-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.edison007.top/tags/%E5%B1%80%E9%83%A8%E6%80%A7/</loc>
-    <lastmod>2026-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.edison007.top/tags/SRAM/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -269,6 +257,27 @@
   
   <url>
     <loc>https://www.edison007.top/tags/%E6%B5%AE%E6%A0%85%E6%99%B6%E4%BD%93%E7%AE%A1/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/%E5%86%85%E5%AD%98%E9%87%91%E5%AD%97%E5%A1%94/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/%E7%BC%93%E5%AD%98/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/%E5%B1%80%E9%83%A8%E6%80%A7/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
