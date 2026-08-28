@@ -1,9 +1,12 @@
 // 导航栏「随便看看」：随机跳转，保证同一篇文章在所有文章轮询一遍后才会出现第二次
 // 逻辑：洗牌队列存入 localStorage，按顺序取；一轮取完自动重新洗牌
+// localStorage 不可写（隐私模式等）时退化为内存状态，单页面会话内仍保持轮询
 (function () {
   var KEY = 'random-post-queue'
   var postList = null
   var pending = null
+  var memState = null // 内存兜底状态
+  var storageBroken = false // setItem 抛错一次后，本会话不再尝试 localStorage
 
   // Fisher-Yates 洗牌
   function shuffle(arr) {
@@ -14,10 +17,30 @@
     return arr
   }
 
-  // 从洗牌队列取下一篇（挂到 window，供 /random/ 中转页共用）
-  window.getRandomPostUrl = function (list) {
+  function loadState() {
+    if (storageBroken) return memState
     var state = null
     try { state = JSON.parse(localStorage.getItem(KEY)) } catch (e) {}
+    // localStorage 里是写不进去的旧数据时，以内存中的最新状态为准
+    if (memState && (!state || !Array.isArray(state.queue) || (state.cursor || 0) < (memState.cursor || 0))) {
+      return memState
+    }
+    return state
+  }
+
+  function saveState(state) {
+    memState = state
+    if (storageBroken) return
+    try {
+      localStorage.setItem(KEY, JSON.stringify(state))
+    } catch (e) {
+      storageBroken = true
+    }
+  }
+
+  // 从洗牌队列取下一篇（挂到 window，供 /random/ 中转页共用）
+  window.getRandomPostUrl = function (list) {
+    var state = loadState()
 
     // 队列与当前文章列表对齐：剔除已删除的，追加新增的
     var hasPriorQueue = state && Array.isArray(state.queue)
@@ -46,9 +69,7 @@
     }
 
     var url = queue.length ? '/' + queue[cursor] : '/archives/'
-    try {
-      localStorage.setItem(KEY, JSON.stringify({ queue: queue, cursor: cursor + 1, last: queue.length ? queue[cursor] : '' }))
-    } catch (e) {}
+    saveState({ queue: queue, cursor: cursor + 1, last: queue.length ? queue[cursor] : '' })
     return url
   }
 
