@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="720" height="460" fill="#ffffff"/>
+
+  <!-- 封装基板 -->
+  <rect x="60" y="400" width="600" height="40" fill="#64748b"/>
+  <text x="360" y="425" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">封装基板（Substrate）</text>
+
+  <!-- 中介层 -->
+  <rect x="60" y="340" width="600" height="60" fill="#94a3b8"/>
+  <text x="360" y="375" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">中介层（Interposer）</text>
+
+  <!-- CPU / GPU -->
+  <rect x="100" y="270" width="180" height="70" fill="#2563eb"/>
+  <text x="190" y="302" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">CPU / GPU</text>
+  <text x="190" y="322" text-anchor="middle" fill="#ffffff" font-size="11">计算芯片</text>
+
+  <!-- HBM 堆栈：逻辑 Die -->
+  <rect x="400" y="310" width="180" height="30" fill="#0f766e"/>
+  <text x="490" y="330" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="bold">逻辑 Die（Base）</text>
+
+  <!-- 4 层 DRAM Die -->
+  <rect x="400" y="230" width="180" height="40" fill="#0d9488"/>
+  <rect x="400" y="190" width="180" height="40" fill="#0d9488"/>
+  <rect x="400" y="150" width="180" height="40" fill="#0d9488"/>
+  <rect x="400" y="110" width="180" height="40" fill="#0d9488"/>
+  <text x="490" y="135" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">DRAM Die</text>
+  <text x="386" y="195" text-anchor="end" fill="#0d9488" font-size="13" font-weight="bold">×4</text>
+
+  <!-- TSV 硅通孔 -->
+  <line x1="440" y1="110" x2="440" y2="340" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3"/>
+  <line x1="490" y1="110" x2="490" y2="340" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3"/>
+  <line x1="540" y1="110" x2="540" y2="340" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3"/>
+  <line x1="540" y1="110" x2="600" y2="88" stroke="#1e293b" stroke-width="1"/>
+  <text x="612" y="88" fill="#1e293b" font-size="13" font-weight="bold">TSV（硅通孔）</text>
+
+  <!-- 微凸点 -->
+  <circle cx="130" cy="340" r="4" fill="#1e293b"/>
+  <circle cx="190" cy="340" r="4" fill="#1e293b"/>
+  <circle cx="250" cy="340" r="4" fill="#1e293b"/>
+  <circle cx="440" cy="310" r="4" fill="#1e293b"/>
+  <circle cx="490" cy="310" r="4" fill="#1e293b"/>
+  <circle cx="540" cy="310" r="4" fill="#1e293b"/>
+
+  <!-- 堆栈名称 -->
+  <text x="490" y="100" text-anchor="middle" fill="#0d9488" font-size="14" font-weight="bold">HBM 堆栈</text>
+</svg>

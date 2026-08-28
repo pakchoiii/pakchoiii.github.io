@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="360" fill="#ffffff"/>
+
+  <text x="440" y="30" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">不同存储介质的带宽对比（对数刻度）</text>
+
+  <!-- 网格线：log10 = 0..4 → x = 140,315,490,665,840 -->
+  <line x1="140" y1="60" x2="140" y2="300" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="315" y1="60" x2="315" y2="300" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="490" y1="60" x2="490" y2="300" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="665" y1="60" x2="665" y2="300" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="840" y1="60" x2="840" y2="300" stroke="#cbd5e1" stroke-width="1"/>
+
+  <text x="140" y="320" text-anchor="middle" fill="#64748b" font-size="12">1</text>
+  <text x="315" y="320" text-anchor="middle" fill="#64748b" font-size="12">10</text>
+  <text x="490" y="320" text-anchor="middle" fill="#64748b" font-size="12">100</text>
+  <text x="665" y="320" text-anchor="middle" fill="#64748b" font-size="12">1000</text>
+  <text x="840" y="320" text-anchor="middle" fill="#64748b" font-size="12">10000</text>
+  <text x="490" y="346" text-anchor="middle" fill="#334155" font-size="13" font-weight="bold">带宽（GB/s）</text>
+
+  <!-- 各介质条形 -->
+  <rect x="140" y="70"  width="200" height="36" rx="6" fill="#64748b"/>
+  <text x="348" y="93"  fill="#334155" font-size="13" font-weight="bold">PCIe 5.0 SSD　≈ 14 GB/s</text>
+
+  <rect x="140" y="125" width="316" height="36" rx="6" fill="#2563eb"/>
+  <text x="464" y="148" fill="#334155" font-size="13" font-weight="bold">DDR5 内存条（单条）　≈ 64 GB/s</text>
+
+  <rect x="140" y="180" width="577" height="36" rx="6" fill="#0d9488"/>
+  <text x="725" y="203" fill="#334155" font-size="13" font-weight="bold">HBM4（单堆栈）　≈ 2000 GB/s</text>
+
+  <rect x="140" y="235" width="608" height="36" rx="6" fill="#ea580c"/>
+  <text x="756" y="258" fill="#334155" font-size="13" font-weight="bold">HBF（最高档）　≈ 3000 GB/s</text>
+
+  <!-- 说明 -->
+  <text x="140" y="290" fill="#94a3b8" font-size="11">注：横轴为对数刻度，相邻刻度相差 10 倍，SSD 与 HBM/HBF 之间是数量级差距</text>
+</svg>
