@@ -342,148 +342,6 @@ RL7、RL3
       </tags>
   </entry>
   <entry>
-    <title>Read Level 介绍</title>
-    <url>/7712b7f.html</url>
-    <content><![CDATA[Cell 物理结构：FGMOSNAND Flash 最基本的存储单元称为一个 Cell，每个 Cell 由一颗 FGMOS（浮栅型金属-氧化物-半导体场效应晶体管，Floating-gate MOSFET）构成。
-
-相比普通 MOSFET，FGMOS 多了一层关键的 浮栅（Floating Gate）——它被上下两层氧化层包裹，形成一个物理上隔离的电子陷阱，可以长期束缚存储的电子。
-Vth：Cell 的导通临界电压MOSFET 本质是一个电压控制的可变电阻：在栅极（Gate）与源极（Source）之间施加电压 Vgs，就能改变漏极（Drain）与源极之间的导通程度，进而影响读出的电压值。
-
-Vgs 与导通状态的关系十分明确：
-
-Vgs &lt; Vth → Cell 截止，无电流通过，读出电压为 0
-Vgs ≥ Vth → Cell 导通，电流随 Vgs 增大而上升，读出电压也随之升高
-
-Vth（阈值电压） 就是这个”刚好导通”的临界值。Vth 越高，说明需要更大的 Vgs 才能导通 Cell——导通难度越大。
-浮栅如何调控 Vth？浮栅的根本功能是存储电子。通过改变存储的电子数量，可以人为控制 Cell 的 Vth，进而”写入”不同的数据。
-电子如何进出浮栅：量子隧穿效应电子的写入和擦除依赖量子隧穿效应（Tunneling Effect）：
-
-在栅极施加高正向电场时，电子可以”隧穿”氧化层壁垒进入浮栅并被束缚——写入电子。
-施加反向电场时，电子从浮栅隧穿流出——擦除电子。
-
-值得注意的是，隧穿效应具有概率性——并非所有电子都在同一瞬间完成隧穿。这个概率特性直接影响 Vth 分布的形态：分布峰呈现一定宽度，而非一道尖锐的单线。（分布形态详见 Nand Vth 阈值分布）
-电子如何改变 Vth：内建偏压浮栅中的电子相当于在栅极与源极之间额外叠加了一个负向内建偏压 Vfb，实际作用于沟道的有效电压变为：
-
-Vgs(eff) &#x3D; Vgs(外施) - Vfb
-
-这意味着：浮栅有电子时，需要更大的外施 Vgs 才能让 Cell 导通，等效表现为 Vth 增大。
-以读操作（Vread）为例，直观对比：
-
-
-
-存储状态
-浮栅电子
-Vth
-施加 Vread 的结果
-读出电压
-
-
-
-Cell 1（数据 “0”）
-无
-较小
-Vread ≥ Vth → 导通
-≠ 0
-
-
-Cell 2（数据 “1”）
-有
-较大
-Vread &lt; Vth → 截止
-&#x3D; 0
-
-
-
-三种操作电压NAND 的三种基本操作，每种对应不同的电压和功能：
-
-
-
-操作
-电压（概略值）
-核心作用
-对 Vth 的影响
-
-
-
-Program（编程&#x2F;写）
-+20V
-电子注入浮栅
-Vth 增大
-
-
-Erase（擦除）
--20V
-电子从浮栅抽出
-Vth 减小
-
-
-Read（读取）
-0~10V
-检测导通状态
-无影响（不改变电子数量）
-
-
-Read Level 是什么？前面描述的都是 SLC 场景——一个 Cell 只有两种状态，只需 1 个 Vth 分界线就能区分。
-随着 Vth 控制精度的提升，业界在单个 Cell 内细分出更多 Vth 区间，实现了更高密度存储。以 MLC 为例：单个 Cell 存 2bit，就需要 4 个 Vth 区间、3 个分界线。
-Read Level（读取电平） 就是这些用于区分不同 Vth 区间的特定读取电压。按顺序施加不同的 Vread，检测 Cell 在哪个电压下首次导通，就能反向判断它存储的数据。
-从 SLC 到 QLC
-
-
-类型
-bit&#x2F;Cell
-Vth 区间数
-Read Level 数量
-
-
-
-SLC
-1
-2
-1
-
-
-MLC
-2
-4
-3
-
-
-TLC
-3
-8
-7
-
-
-QLC
-4
-16
-15
-
-
-规律很简单：N 个 Read Level 可区分 N+1 个 Vth 区间。随着 bit 数增加，区间密度成倍增长，对 Read Level 的精度要求也随之急剧上升。
-MLC 读取实例以 MLC 为例，需要 3 个 Read Level（假设为 RL1&#x3D;1V、RL2&#x3D;3.3V、RL3&#x3D;6.6V），读取流程：
-
-施加 Vread &#x3D; RL2（3.3V）→ 若未导通，则 Cell 处于较高 Vth 区间（11）
-若 RL2 已导通 → 再施加 RL1（1V）→ 区分最低区间（10）还是次低区间（01）
-若 RL2 未导通 → 再施加 RL3（6.6V）→ 区分较高区间（00）还是最高区间（01）
-
-通过这几次比较，就能确定 Cell 存储的具体 2bit 数据。
-
-
-延伸阅读：TLC&#x2F;QLC 涉及更多 Read Level 和更复杂的编码方案（如格雷码），详见 Nand Vth 阈值分布。
-
-]]></content>
-      <categories>
-        <category>Nand Flash</category>
-      </categories>
-      <tags>
-        <tag>Vth</tag>
-        <tag>浮栅</tag>
-        <tag>Read Level</tag>
-        <tag>隧穿效应</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Nand Training</title>
     <url>/44fc021b.html</url>
     <content><![CDATA[Nand Training Feature
@@ -700,6 +558,148 @@ LUN 之间共享同一个 Package 的数据总线，但通过不同的 CE（Chip
         <tag>Cell</tag>
         <tag>Block</tag>
         <tag>LUN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Read Level 介绍</title>
+    <url>/7712b7f.html</url>
+    <content><![CDATA[Cell 物理结构：FGMOSNAND Flash 最基本的存储单元称为一个 Cell，每个 Cell 由一颗 FGMOS（浮栅型金属-氧化物-半导体场效应晶体管，Floating-gate MOSFET）构成。
+
+相比普通 MOSFET，FGMOS 多了一层关键的 浮栅（Floating Gate）——它被上下两层氧化层包裹，形成一个物理上隔离的电子陷阱，可以长期束缚存储的电子。
+Vth：Cell 的导通临界电压MOSFET 本质是一个电压控制的可变电阻：在栅极（Gate）与源极（Source）之间施加电压 Vgs，就能改变漏极（Drain）与源极之间的导通程度，进而影响读出的电压值。
+
+Vgs 与导通状态的关系十分明确：
+
+Vgs &lt; Vth → Cell 截止，无电流通过，读出电压为 0
+Vgs ≥ Vth → Cell 导通，电流随 Vgs 增大而上升，读出电压也随之升高
+
+Vth（阈值电压） 就是这个”刚好导通”的临界值。Vth 越高，说明需要更大的 Vgs 才能导通 Cell——导通难度越大。
+浮栅如何调控 Vth？浮栅的根本功能是存储电子。通过改变存储的电子数量，可以人为控制 Cell 的 Vth，进而”写入”不同的数据。
+电子如何进出浮栅：量子隧穿效应电子的写入和擦除依赖量子隧穿效应（Tunneling Effect）：
+
+在栅极施加高正向电场时，电子可以”隧穿”氧化层壁垒进入浮栅并被束缚——写入电子。
+施加反向电场时，电子从浮栅隧穿流出——擦除电子。
+
+值得注意的是，隧穿效应具有概率性——并非所有电子都在同一瞬间完成隧穿。这个概率特性直接影响 Vth 分布的形态：分布峰呈现一定宽度，而非一道尖锐的单线。（分布形态详见 Nand Vth 阈值分布）
+电子如何改变 Vth：内建偏压浮栅中的电子相当于在栅极与源极之间额外叠加了一个负向内建偏压 Vfb，实际作用于沟道的有效电压变为：
+
+Vgs(eff) &#x3D; Vgs(外施) - Vfb
+
+这意味着：浮栅有电子时，需要更大的外施 Vgs 才能让 Cell 导通，等效表现为 Vth 增大。
+以读操作（Vread）为例，直观对比：
+
+
+
+存储状态
+浮栅电子
+Vth
+施加 Vread 的结果
+读出电压
+
+
+
+Cell 1（数据 “0”）
+无
+较小
+Vread ≥ Vth → 导通
+≠ 0
+
+
+Cell 2（数据 “1”）
+有
+较大
+Vread &lt; Vth → 截止
+&#x3D; 0
+
+
+
+三种操作电压NAND 的三种基本操作，每种对应不同的电压和功能：
+
+
+
+操作
+电压（概略值）
+核心作用
+对 Vth 的影响
+
+
+
+Program（编程&#x2F;写）
++20V
+电子注入浮栅
+Vth 增大
+
+
+Erase（擦除）
+-20V
+电子从浮栅抽出
+Vth 减小
+
+
+Read（读取）
+0~10V
+检测导通状态
+无影响（不改变电子数量）
+
+
+Read Level 是什么？前面描述的都是 SLC 场景——一个 Cell 只有两种状态，只需 1 个 Vth 分界线就能区分。
+随着 Vth 控制精度的提升，业界在单个 Cell 内细分出更多 Vth 区间，实现了更高密度存储。以 MLC 为例：单个 Cell 存 2bit，就需要 4 个 Vth 区间、3 个分界线。
+Read Level（读取电平） 就是这些用于区分不同 Vth 区间的特定读取电压。按顺序施加不同的 Vread，检测 Cell 在哪个电压下首次导通，就能反向判断它存储的数据。
+从 SLC 到 QLC
+
+
+类型
+bit&#x2F;Cell
+Vth 区间数
+Read Level 数量
+
+
+
+SLC
+1
+2
+1
+
+
+MLC
+2
+4
+3
+
+
+TLC
+3
+8
+7
+
+
+QLC
+4
+16
+15
+
+
+规律很简单：N 个 Read Level 可区分 N+1 个 Vth 区间。随着 bit 数增加，区间密度成倍增长，对 Read Level 的精度要求也随之急剧上升。
+MLC 读取实例以 MLC 为例，需要 3 个 Read Level（假设为 RL1&#x3D;1V、RL2&#x3D;3.3V、RL3&#x3D;6.6V），读取流程：
+
+施加 Vread &#x3D; RL2（3.3V）→ 若未导通，则 Cell 处于较高 Vth 区间（11）
+若 RL2 已导通 → 再施加 RL1（1V）→ 区分最低区间（10）还是次低区间（01）
+若 RL2 未导通 → 再施加 RL3（6.6V）→ 区分较高区间（00）还是最高区间（01）
+
+通过这几次比较，就能确定 Cell 存储的具体 2bit 数据。
+
+
+延伸阅读：TLC&#x2F;QLC 涉及更多 Read Level 和更复杂的编码方案（如格雷码），详见 Nand Vth 阈值分布。
+
+]]></content>
+      <categories>
+        <category>Nand Flash</category>
+      </categories>
+      <tags>
+        <tag>Vth</tag>
+        <tag>浮栅</tag>
+        <tag>Read Level</tag>
+        <tag>隧穿效应</tag>
       </tags>
   </entry>
 </search>
