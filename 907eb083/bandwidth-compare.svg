@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
-  <rect x="0" y="0" width="880" height="360" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="1000" height="360" fill="#ffffff"/>
 
-  <text x="440" y="30" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">不同存储介质的带宽对比（对数刻度）</text>
+  <text x="500" y="30" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">不同存储介质的带宽对比（对数刻度）</text>
 
   <!-- 网格线：log10 = 0..4 → x = 140,315,490,665,840 -->
   <line x1="140" y1="60" x2="140" y2="300" stroke="#e2e8f0" stroke-width="1"/>
