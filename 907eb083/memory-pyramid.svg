@@ -27,10 +27,12 @@
   <!-- 左侧箭头：速度越快 成本越高 -->
   <line x1="70" y1="420" x2="70" y2="40" stroke="#334155" stroke-width="2"/>
   <polygon points="70,32 63,48 77,48" fill="#334155"/>
+  <rect x="59" y="152" width="22" height="156" fill="#ffffff"/>
   <text x="70" y="230" text-anchor="middle" fill="#334155" font-size="14" font-weight="bold" transform="rotate(-90 70 230)">速度越快 · 成本越高</text>
 
   <!-- 右侧箭头：容量越大 成本越低 -->
   <line x1="822" y1="40" x2="822" y2="420" stroke="#334155" stroke-width="2"/>
   <polygon points="822,428 815,412 829,412" fill="#334155"/>
+  <rect x="811" y="152" width="22" height="156" fill="#ffffff"/>
   <text x="822" y="230" text-anchor="middle" fill="#334155" font-size="14" font-weight="bold" transform="rotate(90 822 230)">容量越大 · 成本越低</text>
 </svg>

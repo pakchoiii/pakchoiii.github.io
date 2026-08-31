@@ -333,6 +333,13 @@
   </url>
   
   <url>
+    <loc>https://www.edison007.top/tags/UCIe/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.edison007.top/tags/SLC/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -361,7 +368,7 @@
   </url>
   
   <url>
-    <loc>https://www.edison007.top/tags/UCIe/</loc>
+    <loc>https://www.edison007.top/tags/%E5%86%85%E5%AD%98%E5%A2%99/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -383,13 +390,6 @@
   
   <url>
     <loc>https://www.edison007.top/tags/KV-Cache/</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.edison007.top/tags/%E5%86%85%E5%AD%98%E5%A2%99/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
