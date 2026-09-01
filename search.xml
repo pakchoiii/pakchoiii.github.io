@@ -554,108 +554,6 @@ NAND SSD：每 GB 大约是机械硬盘的几倍；
       </tags>
   </entry>
   <entry>
-    <title>Nand Vth 阈值分布</title>
-    <url>/75b652e1.html</url>
-    <content><![CDATA[从 SLC 看 Vth 分布阈值电压（Vth）是 NAND Cell 导通&#x2F;截止的临界电压，也是判断 Cell 存储数据的核心指标。（Vth 的物理机制详见 Read Level 介绍）
-芯片中并非所有 Cell 共享同一个精确的 Vth 值——几百万个 Cell 的 Vth 聚合起来，会形成一种统计分布。这正是本文要讲的内容。
-
-SLC（Single-Level Cell）每个 Cell 只存 1bit，只需要两种状态：擦除态（Erased） 和 编程态（Programmed）。
-两种状态在 Vth 分布上表现为两个独立、清晰的分布峰。读取时只需在峰谷之间设置一个读取电压 RL1，通过比较每个 Cell 的 Vth 与 RL1 的大小，即可区分出 0 和 1。
-TLC 的 8 峰分布
-TLC（Triple-Level Cell）每个 Cell 存 3bit，3bit 共 8 种逻辑状态：
-111  110  100  000  010  011  001  101
-8 种状态在 Vth 分布上各占一个独立区间，呈现 8 个分布峰。相比 SLC，TLC 的峰更密、峰间距更窄，读取电压必须足够精准，才能可靠地区分相邻状态。
-为什么 Vth 呈正态分布？大量 Cell 的 Vth 值统计出来为什么恰好是一个个”钟形”的分布峰？根源在于半导体制造中两种不可避免的随机性。
-1. 随机杂质
-沟道和电荷捕获层中残留的随机杂质（金属离子、晶格缺陷）会形成局部的”电势陷阱”或”导电阻碍”。不同 Cell 的杂质分布不同，电子移动阻力各异，Vth 值因此分散。
-2. 结构不完美
-氧化层厚度波动、电极界面粗糙等微观差异进一步放大分散度——氧化层薄的位置电子隧穿容易、Vth 偏低，厚的位置隧穿困难、Vth 偏高。
-单颗 NAND 芯片包含数百万至上亿个 Cell，每个 Cell 的 Vth 可视为独立随机变量。根据中心极限定理，大量独立随机变量的统计结果趋近正态分布，于是形成了我们看到的”钟形”曲线：多数 Cell 集中在均值附近，少数极端值落在两端。
-Vth 与格雷码编码TLC 的 8 个分布峰，每个峰代表一种 3bit 逻辑状态。这三个 bit 按位权重分为三档：
-
-
-
-缩写
-全称
-含义
-
-
-
-LSB（LP）
-Least Significant Bit
-最低有效位
-
-
-CSB（UP）
-Center Significant Bit
-中间有效位
-
-
-MSB（XP）
-Most Significant Bit
-最高有效位
-
-
-三者共同定义该峰的逻辑状态。下面以 格雷码 2-3-2 方案为例说明编码规则。
-相邻峰仅差 1bit
-图中最左侧为 Erased（擦除）状态的 Vth 峰。观察相邻峰之间的 bit 变化：
-
-P1↔P2、P3↔P4、P5↔P6 之间仅有 1 个 bit 不同，且差异集中在 CSB；
-这正是 Gray Code（格雷码） 的核心思想——相邻状态只变 1bit，大幅降低读写出错的概率和严重程度。
-
-bit 读取规则每个 bit 的值需要通过对多个 RL 的读取结果做逻辑运算得出，而非一次读取。
-
-以 CSB 为例：需要在 RL6、RL4、RL2 分别读取三次，再对三次结果做异或运算得到最终 bit 值。
-三个 bit 的完整读取规则：
-
-
-
-bit
-别名
-读取次数
-对应 RL
-
-
-
-LSB
-LP
-2
-RL5、RL1
-
-
-CSB
-UP
-3
-RL6、RL4、RL2
-
-
-MSB
-XP
-2
-RL7、RL3
-
-
-不同格雷码方案对比2-3-2 只是 TLC 众多方案之一。常见的 TLC Gray Code 方案还包括 1-2-4、1-3-3。
-不同存储介质根据自身特性选用不同的格雷码方案，差异直接影响四项核心指标：
-
-读写速度
-数据可靠性
-错误校正复杂度
-功耗
-
-实测 Vth 分布
-上图是通过偏移电压实测绘制的 TLC Vth 分布图。8 个独立的正态分布峰清晰可辨，验证了前述理论。
-]]></content>
-      <categories>
-        <category>Nand Flash</category>
-      </categories>
-      <tags>
-        <tag>Vth</tag>
-        <tag>正态分布</tag>
-        <tag>格雷码</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Nand Training</title>
     <url>/44fc021b.html</url>
     <content><![CDATA[Nand Training Feature
@@ -920,6 +818,108 @@ MLC 读取实例以 MLC 为例，需要 3 个 Read Level（假设为 RL1&#x3D;1V
         <tag>浮栅</tag>
         <tag>Read Level</tag>
         <tag>隧穿效应</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nand Vth 阈值分布</title>
+    <url>/75b652e1.html</url>
+    <content><![CDATA[从 SLC 看 Vth 分布阈值电压（Vth）是 NAND Cell 导通&#x2F;截止的临界电压，也是判断 Cell 存储数据的核心指标。（Vth 的物理机制详见 Read Level 介绍）
+芯片中并非所有 Cell 共享同一个精确的 Vth 值——几百万个 Cell 的 Vth 聚合起来，会形成一种统计分布。这正是本文要讲的内容。
+
+SLC（Single-Level Cell）每个 Cell 只存 1bit，只需要两种状态：擦除态（Erased） 和 编程态（Programmed）。
+两种状态在 Vth 分布上表现为两个独立、清晰的分布峰。读取时只需在峰谷之间设置一个读取电压 RL1，通过比较每个 Cell 的 Vth 与 RL1 的大小，即可区分出 0 和 1。
+TLC 的 8 峰分布
+TLC（Triple-Level Cell）每个 Cell 存 3bit，3bit 共 8 种逻辑状态：
+111  110  100  000  010  011  001  101
+8 种状态在 Vth 分布上各占一个独立区间，呈现 8 个分布峰。相比 SLC，TLC 的峰更密、峰间距更窄，读取电压必须足够精准，才能可靠地区分相邻状态。
+为什么 Vth 呈正态分布？大量 Cell 的 Vth 值统计出来为什么恰好是一个个”钟形”的分布峰？根源在于半导体制造中两种不可避免的随机性。
+1. 随机杂质
+沟道和电荷捕获层中残留的随机杂质（金属离子、晶格缺陷）会形成局部的”电势陷阱”或”导电阻碍”。不同 Cell 的杂质分布不同，电子移动阻力各异，Vth 值因此分散。
+2. 结构不完美
+氧化层厚度波动、电极界面粗糙等微观差异进一步放大分散度——氧化层薄的位置电子隧穿容易、Vth 偏低，厚的位置隧穿困难、Vth 偏高。
+单颗 NAND 芯片包含数百万至上亿个 Cell，每个 Cell 的 Vth 可视为独立随机变量。根据中心极限定理，大量独立随机变量的统计结果趋近正态分布，于是形成了我们看到的”钟形”曲线：多数 Cell 集中在均值附近，少数极端值落在两端。
+Vth 与格雷码编码TLC 的 8 个分布峰，每个峰代表一种 3bit 逻辑状态。这三个 bit 按位权重分为三档：
+
+
+
+缩写
+全称
+含义
+
+
+
+LSB（LP）
+Least Significant Bit
+最低有效位
+
+
+CSB（UP）
+Center Significant Bit
+中间有效位
+
+
+MSB（XP）
+Most Significant Bit
+最高有效位
+
+
+三者共同定义该峰的逻辑状态。下面以 格雷码 2-3-2 方案为例说明编码规则。
+相邻峰仅差 1bit
+图中最左侧为 Erased（擦除）状态的 Vth 峰。观察相邻峰之间的 bit 变化：
+
+P1↔P2、P3↔P4、P5↔P6 之间仅有 1 个 bit 不同，且差异集中在 CSB；
+这正是 Gray Code（格雷码） 的核心思想——相邻状态只变 1bit，大幅降低读写出错的概率和严重程度。
+
+bit 读取规则每个 bit 的值需要通过对多个 RL 的读取结果做逻辑运算得出，而非一次读取。
+
+以 CSB 为例：需要在 RL6、RL4、RL2 分别读取三次，再对三次结果做异或运算得到最终 bit 值。
+三个 bit 的完整读取规则：
+
+
+
+bit
+别名
+读取次数
+对应 RL
+
+
+
+LSB
+LP
+2
+RL5、RL1
+
+
+CSB
+UP
+3
+RL6、RL4、RL2
+
+
+MSB
+XP
+2
+RL7、RL3
+
+
+不同格雷码方案对比2-3-2 只是 TLC 众多方案之一。常见的 TLC Gray Code 方案还包括 1-2-4、1-3-3。
+不同存储介质根据自身特性选用不同的格雷码方案，差异直接影响四项核心指标：
+
+读写速度
+数据可靠性
+错误校正复杂度
+功耗
+
+实测 Vth 分布
+上图是通过偏移电压实测绘制的 TLC Vth 分布图。8 个独立的正态分布峰清晰可辨，验证了前述理论。
+]]></content>
+      <categories>
+        <category>Nand Flash</category>
+      </categories>
+      <tags>
+        <tag>Vth</tag>
+        <tag>正态分布</tag>
+        <tag>格雷码</tag>
       </tags>
   </entry>
   <entry>
