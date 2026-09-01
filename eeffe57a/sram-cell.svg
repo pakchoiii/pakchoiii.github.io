@@ -7,9 +7,9 @@
 
   <!-- 位线 -->
   <line x1="140" y1="110" x2="140" y2="360" stroke="#2563eb" stroke-width="3"/>
-  <text x="140" y="66" text-anchor="middle" fill="#2563eb" font-size="15" font-weight="bold">位线 BL′</text>
+  <text x="132" y="135" text-anchor="end" fill="#2563eb" font-size="15" font-weight="bold">位线 BL′</text>
   <line x1="580" y1="110" x2="580" y2="360" stroke="#2563eb" stroke-width="3"/>
-  <text x="580" y="66" text-anchor="middle" fill="#2563eb" font-size="15" font-weight="bold">位线 BL</text>
+  <text x="588" y="135" text-anchor="start" fill="#2563eb" font-size="15" font-weight="bold">位线 BL</text>
 
   <!-- 锁存器标注 -->
   <text x="360" y="150" text-anchor="middle" fill="#64748b" font-size="12">两个反相器接成环 = 锁存器 Latch</text>
