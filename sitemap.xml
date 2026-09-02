@@ -110,35 +110,7 @@
 
   
   <url>
-    <loc>https://www.edison007.top/tags/SRAM/</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.edison007.top/tags/DRAM/</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.edison007.top/tags/NAND/</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.edison007.top/tags/%E6%B5%AE%E6%A0%85%E6%99%B6%E4%BD%93%E7%AE%A1/</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.edison007.top/tags/%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -167,6 +139,34 @@
   
   <url>
     <loc>https://www.edison007.top/tags/TSV/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/SRAM/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/NAND/</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/%E6%B5%AE%E6%A0%85%E6%99%B6%E4%BD%93%E7%AE%A1/</loc>
     <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
