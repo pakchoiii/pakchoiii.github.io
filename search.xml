@@ -231,12 +231,11 @@ HBF 负责”喂得快还不怕断电“——它是介于两者之间、专为�
         <category>HBF</category>
       </categories>
       <tags>
-        <tag>DRAM</tag>
-        <tag>HBM</tag>
-        <tag>HBF</tag>
-        <tag>高带宽闪存</tag>
-        <tag>TSV</tag>
         <tag>存储入门</tag>
+        <tag>HBF</tag>
+        <tag>HBM</tag>
+        <tag>DRAM</tag>
+        <tag>TSV</tag>
       </tags>
   </entry>
   <entry>
@@ -396,11 +395,10 @@ NAND 是预制板：便宜量足，就是搬运慢（大容量仓库）。
         <category>HBF</category>
       </categories>
       <tags>
-        <tag>DRAM</tag>
         <tag>存储入门</tag>
+        <tag>DRAM</tag>
         <tag>SRAM</tag>
         <tag>NAND</tag>
-        <tag>浮栅晶体管</tag>
       </tags>
   </entry>
   <entry>
@@ -549,9 +547,9 @@ NAND SSD：每 GB 大约是机械硬盘的几倍；
       </categories>
       <tags>
         <tag>存储入门</tag>
-        <tag>内存金字塔</tag>
-        <tag>缓存</tag>
-        <tag>局部性</tag>
+        <tag>DRAM</tag>
+        <tag>SRAM</tag>
+        <tag>NAND</tag>
       </tags>
   </entry>
   <entry>
@@ -651,9 +649,7 @@ RL7、RL3
         <category>Nand Flash</category>
       </categories>
       <tags>
-        <tag>Vth</tag>
-        <tag>正态分布</tag>
-        <tag>格雷码</tag>
+        <tag>NAND</tag>
       </tags>
   </entry>
   <entry>
@@ -774,11 +770,8 @@ Internal VrefQ Training 需要配合 Write Training 进行，以找到最佳 Vre
         <category>Nand Flash</category>
       </categories>
       <tags>
-        <tag>ZQ</tag>
-        <tag>DCC Training</tag>
-        <tag>DQ Training</tag>
-        <tag>VrefQ</tag>
-        <tag>高速信号</tag>
+        <tag>NAND</tag>
+        <tag>带宽</tag>
       </tags>
   </entry>
   <entry>
@@ -917,10 +910,7 @@ MLC 读取实例以 MLC 为例，需要 3 个 Read Level（假设为 RL1&#x3D;1V
         <category>Nand Flash</category>
       </categories>
       <tags>
-        <tag>Vth</tag>
-        <tag>浮栅</tag>
-        <tag>Read Level</tag>
-        <tag>隧穿效应</tag>
+        <tag>NAND</tag>
       </tags>
   </entry>
   <entry>
@@ -1008,13 +998,7 @@ LUN 之间共享同一个 Package 的数据总线，但通过不同的 CE（Chip
         <category>Nand Flash</category>
       </categories>
       <tags>
-        <tag>浮栅</tag>
-        <tag>物理结构</tag>
-        <tag>Program</tag>
-        <tag>Erase</tag>
-        <tag>Cell</tag>
-        <tag>Block</tag>
-        <tag>LUN</tag>
+        <tag>NAND</tag>
       </tags>
   </entry>
 </search>
