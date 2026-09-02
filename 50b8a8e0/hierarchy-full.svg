@@ -43,10 +43,12 @@
   <!-- 左侧箭头：速度越快 成本越高 -->
   <line x1="75" y1="420" x2="75" y2="42" stroke="#334155" stroke-width="2"/>
   <polygon points="75,34 68,50 82,50" fill="#334155"/>
+  <rect x="64" y="152" width="22" height="156" fill="#ffffff"/>
   <text x="75" y="230" text-anchor="middle" fill="#334155" font-size="14" font-weight="bold" transform="rotate(-90 75 230)">速度越快 · 成本越高</text>
 
   <!-- 右侧箭头：容量越大 成本越低 -->
   <line x1="810" y1="40" x2="810" y2="420" stroke="#334155" stroke-width="2"/>
   <polygon points="810,428 803,412 817,412" fill="#334155"/>
+  <rect x="799" y="152" width="22" height="156" fill="#ffffff"/>
   <text x="810" y="230" text-anchor="middle" fill="#334155" font-size="14" font-weight="bold" transform="rotate(90 810 230)">容量越大 · 单位越便宜</text>
 </svg>
