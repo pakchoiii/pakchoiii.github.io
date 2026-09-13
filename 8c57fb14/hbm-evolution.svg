@@ -56,10 +56,10 @@
   <text x="632" y="420" text-anchor="middle" fill="#334155" font-size="12">12 层</text>
   <text x="762" y="420" text-anchor="middle" fill="#334155" font-size="12">16 层</text>
 
-  <!-- ×16 趋势线 -->
-  <line x1="118" y1="312" x2="750" y2="96" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="6,5"/>
-  <polygon points="756,92 744,92 750,102" fill="#ea580c"/>
-  <text x="420" y="185" text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">带宽 ×16</text>
+  <!-- ×16 趋势线（抬到所有柱顶与标签之上，悬空不穿字） -->
+  <line x1="100" y1="292" x2="812" y2="66" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="6,5"/>
+  <polygon points="820,62 808,62 814,72" fill="#ea580c"/>
+  <text x="490" y="150" text-anchor="middle" fill="#ea580c" font-size="13" font-weight="bold">带宽 ×16</text>
 
   <!-- 底部注释 -->
   <text x="440" y="456" text-anchor="middle" fill="#334155" font-size="12">HBM4 起接口翻倍到 2048 位，单堆栈容量到 48 GB（16 层）</text>
