@@ -24,8 +24,8 @@
   <line x1="170" y1="190" x2="170" y2="310" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3"/>
   <text x="176" y="196" fill="#64748b" font-size="11">Read Level</text>
   <!-- 状态标签 -->
-  <text x="115" y="332" text-anchor="middle" fill="#64748b" font-size="11">擦除态 = 1</text>
-  <text x="225" y="332" text-anchor="middle" fill="#2563eb" font-size="11">编程态 = 0</text>
+  <text x="112" y="332" text-anchor="middle" fill="#64748b" font-size="11">擦除态 = 1</text>
+  <text x="210" y="332" text-anchor="middle" fill="#2563eb" font-size="11">编程态 = 0</text>
   <text x="165" y="358" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">2 个状态</text>
 
   <!-- TLC 面板 -->
