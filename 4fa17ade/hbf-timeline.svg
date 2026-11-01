@@ -32,14 +32,14 @@
   <text x="580" y="195" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">首个 HBF 规范发布</text>
   <text x="580" y="217" text-anchor="middle" fill="#334155" font-size="13">FMS 2026 大会（08-04）</text>
 
-  <!-- 里程碑 4：下一步（下方） -->
+  <!-- 里程碑 4：2026Q4（下方） -->
   <line x1="790" y1="280" x2="790" y2="298" stroke="#8b5cf6" stroke-width="2"/>
   <circle cx="790" cy="265" r="13" fill="#8b5cf6"/>
   <circle cx="790" cy="265" r="4.5" fill="#ffffff"/>
-  <text x="790" y="322" text-anchor="middle" fill="#8b5cf6" font-size="18" font-weight="bold">下一步</text>
-  <text x="790" y="349" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">量产与生态</text>
-  <text x="790" y="371" text-anchor="middle" fill="#334155" font-size="13">时间未公布</text>
+  <text x="790" y="322" text-anchor="middle" fill="#8b5cf6" font-size="18" font-weight="bold">2026Q4</text>
+  <text x="790" y="349" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="bold">首批 HBF 样品</text>
+  <text x="790" y="371" text-anchor="middle" fill="#334155" font-size="13">2027 年初送样</text>
 
   <!-- 底部备注 -->
-  <text x="440" y="450" text-anchor="middle" fill="#64748b" font-size="12">从启动合作到发布规范约一年；发起方 SK 海力士、闪迪，成员含 Google、Tenstorrent</text>
+  <text x="440" y="450" text-anchor="middle" fill="#64748b" font-size="12">合作（2025-08）→ OCP 工作组（2026-02）→ 规范发布（2026-08）；成员含 Google、Tenstorrent</text>
 </svg>
