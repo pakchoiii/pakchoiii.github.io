@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.edison007.top/f36b9d94.html</loc>
+    
+    <lastmod>2026-11-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.edison007.top/21fadef4.html</loc>
     
     <lastmod>2026-11-01</lastmod>
@@ -57,15 +66,6 @@
   
   <url>
     <loc>https://www.edison007.top/7d276423.html</loc>
-    
-    <lastmod>2026-09-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.edison007.top/f36b9d94.html</loc>
     
     <lastmod>2026-09-13</lastmod>
     
@@ -216,27 +216,6 @@
   </url>
   
   <url>
-    <loc>https://www.edison007.top/tags/SRAM/</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.edison007.top/tags/DRAM/</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.edison007.top/tags/NAND/</loc>
-    <lastmod>2026-11-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.edison007.top/tags/HBF/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -251,7 +230,28 @@
   </url>
   
   <url>
+    <loc>https://www.edison007.top/tags/DRAM/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.edison007.top/tags/TSV/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/SRAM/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.edison007.top/tags/NAND/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -265,14 +265,14 @@
   </url>
   
   <url>
-    <loc>https://www.edison007.top/tags/AI-%E6%8E%A8%E7%90%86/</loc>
+    <loc>https://www.edison007.top/tags/%E5%AD%98%E5%82%A8%E6%8E%A5%E5%8F%A3/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.edison007.top/tags/%E5%AD%98%E5%82%A8%E6%8E%A5%E5%8F%A3/</loc>
+    <loc>https://www.edison007.top/tags/AI-%E6%8E%A8%E7%90%86/</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
