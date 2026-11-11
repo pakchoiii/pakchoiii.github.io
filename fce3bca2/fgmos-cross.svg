@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+  <defs>
+    <marker id="fg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#312e81" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="fg-tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <text x="110" y="58" fill="#334155" font-size="15">编程（Program）：控制栅加压，电子经隧穿进入浮栅</text>
+
+  <!-- 控制栅 -->
+  <rect x="150" y="90" width="310" height="45" rx="4" fill="#2563eb"/>
+  <text x="305" y="119" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="bold">控制栅 CG（约 +20 V）</text>
+
+  <!-- 阻挡层 -->
+  <rect x="150" y="135" width="310" height="18" fill="#fed7aa" stroke="#ea580c" stroke-width="1"/>
+
+  <!-- 浮栅 -->
+  <rect x="150" y="153" width="310" height="59" rx="3" fill="#8b5cf6"/>
+  <text x="305" y="168" text-anchor="middle" fill="#ffffff" font-size="14">浮栅 FG</text>
+  <circle cx="175" cy="188" r="4" fill="#312e81"/><circle cx="202" cy="188" r="4" fill="#312e81"/><circle cx="229" cy="188" r="4" fill="#312e81"/><circle cx="256" cy="188" r="4" fill="#312e81"/><circle cx="283" cy="188" r="4" fill="#312e81"/><circle cx="310" cy="188" r="4" fill="#312e81"/><circle cx="337" cy="188" r="4" fill="#312e81"/><circle cx="364" cy="188" r="4" fill="#312e81"/><circle cx="391" cy="188" r="4" fill="#312e81"/><circle cx="418" cy="188" r="4" fill="#312e81"/><circle cx="445" cy="188" r="4" fill="#312e81"/>
+  <circle cx="188" cy="201" r="4" fill="#312e81"/><circle cx="215" cy="201" r="4" fill="#312e81"/><circle cx="242" cy="201" r="4" fill="#312e81"/><circle cx="269" cy="201" r="4" fill="#312e81"/><circle cx="296" cy="201" r="4" fill="#312e81"/><circle cx="323" cy="201" r="4" fill="#312e81"/><circle cx="350" cy="201" r="4" fill="#312e81"/><circle cx="377" cy="201" r="4" fill="#312e81"/><circle cx="404" cy="201" r="4" fill="#312e81"/><circle cx="431" cy="201" r="4" fill="#312e81"/>
+
+  <!-- 隧穿氧化层 -->
+  <rect x="150" y="212" width="310" height="16" fill="#fed7aa" stroke="#ea580c" stroke-width="1"/>
+
+  <!-- 衬底 -->
+  <rect x="110" y="228" width="390" height="187" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="150" y="228" width="95" height="52" fill="#cbd5e1"/>
+  <rect x="365" y="228" width="95" height="52" fill="#cbd5e1"/>
+  <text x="197" y="262" text-anchor="middle" fill="#334155" font-size="14" font-weight="bold">源极 n+</text>
+  <text x="412" y="262" text-anchor="middle" fill="#334155" font-size="14" font-weight="bold">漏极 n+</text>
+  <text x="305" y="253" text-anchor="middle" fill="#64748b" font-size="13">沟道</text>
+  <text x="305" y="360" text-anchor="middle" fill="#64748b" font-size="14">衬底（P-well）</text>
+
+  <!-- 左侧电子指示 -->
+  <text x="52" y="176" fill="#312e81" font-size="13" font-weight="bold">电子</text>
+  <line x1="92" y1="172" x2="142" y2="172" stroke="#312e81" stroke-width="1.4" marker-end="url(#fg-arrow)"/>
+
+  <!-- 右侧引线标注 -->
+  <line x1="460" y1="144" x2="516" y2="144" stroke="#94a3b8" stroke-width="1" marker-end="url(#fg-tip)"/>
+  <text x="524" y="148" fill="#c2410c" font-size="13">阻挡层（IPD）</text>
+
+  <line x1="460" y1="176" x2="516" y2="176" stroke="#94a3b8" stroke-width="1" marker-end="url(#fg-tip)"/>
+  <text x="524" y="180" fill="#7c3aed" font-size="13">四周无导线 → 电子出不去</text>
+
+  <line x1="460" y1="220" x2="516" y2="220" stroke="#94a3b8" stroke-width="1" marker-end="url(#fg-tip)"/>
+  <text x="524" y="224" fill="#c2410c" font-size="13">隧穿氧化层（几 nm ∼ 十 nm）</text>
+
+  <text x="110" y="452" fill="#334155" font-size="15">擦除（Erase）：反向电场，电子被隧穿拉回衬底</text>
+</svg>

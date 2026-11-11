@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+  <defs>
+    <marker id="ispp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="ispp-tip" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#475569" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- 上半：编程电压脉冲 -->
+  <text x="100" y="64" fill="#334155" font-size="14">Vpgm（编程电压）：每打一次脉冲没通过 verify，就把电压抬高一个 ΔVpp</text>
+
+  <line x1="100" y1="250" x2="792" y2="250" stroke="#475569" stroke-width="1.6" marker-end="url(#ispp-tip)"/>
+
+  <rect x="135" y="180" width="70" height="70" rx="3" fill="#2563eb"/>
+  <rect x="250" y="155" width="70" height="95" rx="3" fill="#2563eb"/>
+  <rect x="365" y="130" width="70" height="120" rx="3" fill="#2563eb"/>
+  <rect x="480" y="105" width="70" height="145" rx="3" fill="#2563eb"/>
+  <rect x="595" y="80" width="70" height="170" rx="3" fill="#2563eb"/>
+
+  <!-- ΔVpp 标注 -->
+  <line x1="668" y1="105" x2="758" y2="105" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <line x1="668" y1="80" x2="758" y2="80" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <line x1="768" y1="105" x2="768" y2="80" stroke="#dc2626" stroke-width="1.5" marker-start="url(#ispp-arrow)" marker-end="url(#ispp-arrow)"/>
+  <text x="780" y="97" fill="#dc2626" font-size="12">ΔVpp</text>
+
+  <text x="66" y="170" fill="#475569" font-size="13" text-anchor="middle" transform="rotate(-90 66 170)">Vpgm</text>
+
+  <!-- 下半：Vth 台阶 -->
+  <text x="66" y="372" fill="#475569" font-size="13" text-anchor="middle" transform="rotate(-90 66 372)">Vth</text>
+  <line x1="100" y1="420" x2="792" y2="420" stroke="#475569" stroke-width="1.6" marker-end="url(#ispp-tip)"/>
+  <line x1="100" y1="300" x2="792" y2="300" stroke="#dc2626" stroke-width="1.4" stroke-dasharray="6 5"/>
+  <text x="106" y="291" fill="#dc2626" font-size="12">目标 Vth（verify 通过线）</text>
+
+  <path d="M 100 420 L 230 420 L 230 390 L 345 390 L 345 360 L 460 360 L 460 330 L 575 330 L 575 310 L 690 310 L 690 300 L 792 300" fill="none" stroke="#ea580c" stroke-width="3.5"/>
+
+  <circle cx="230" cy="390" r="4" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
+  <circle cx="345" cy="360" r="4" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
+  <circle cx="460" cy="330" r="4" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
+  <circle cx="575" cy="310" r="4" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
+  <circle cx="690" cy="300" r="4" fill="#ffffff" stroke="#ea580c" stroke-width="2.5"/>
+
+  <text x="170" y="440" text-anchor="middle" fill="#64748b" font-size="12">第 1 次</text>
+  <text x="285" y="440" text-anchor="middle" fill="#64748b" font-size="12">第 2 次</text>
+  <text x="400" y="440" text-anchor="middle" fill="#64748b" font-size="12">第 3 次</text>
+  <text x="515" y="440" text-anchor="middle" fill="#64748b" font-size="12">第 4 次</text>
+  <text x="630" y="440" text-anchor="middle" fill="#64748b" font-size="12">第 5 次</text>
+
+  <text x="100" y="466" fill="#64748b" font-size="12">每次脉冲后 verify 一次：没到目标就抬高电压重来，到了就停手 —— 避免"一把梭"充过头</text>
+</svg>

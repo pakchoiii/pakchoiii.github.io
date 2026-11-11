@@ -1,0 +1,475 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>NAND 的一个 bit，为什么只要几百个电子 | 咕噜元</title><meta name="author" content="咕噜元"><meta name="copyright" content="咕噜元"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="给浮栅加 20 伏，真正关进去的电子只有几百个——NAND 存下 1 个 bit 的秘密，全在这里。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NAND 的一个 bit，为什么只要几百个电子">
+<meta property="og:url" content="https://www.edison007.top/fce3bca2.html">
+<meta property="og:site_name" content="咕噜元">
+<meta property="og:description" content="给浮栅加 20 伏，真正关进去的电子只有几百个——NAND 存下 1 个 bit 的秘密，全在这里。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.edison007.top/img/page/NandDeep/001%20%E6%B5%AE%E6%A0%85%E4%B8%8EVth.webp">
+<meta property="article:published_time" content="2026-11-11T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-11T14:01:16.709Z">
+<meta property="article:author" content="咕噜元">
+<meta property="article:tag" content="NAND">
+<meta property="article:tag" content="存储入门">
+<meta property="article:tag" content="浮栅">
+<meta property="article:tag" content="Vth">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.edison007.top/img/page/NandDeep/001%20%E6%B5%AE%E6%A0%85%E4%B8%8EVth.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "NAND 的一个 bit，为什么只要几百个电子",
+  "url": "https://www.edison007.top/fce3bca2.html",
+  "image": "https://www.edison007.top/img/page/NandDeep/001%20%E6%B5%AE%E6%A0%85%E4%B8%8EVth.webp",
+  "datePublished": "2026-11-11T13:00:00.000Z",
+  "dateModified": "2026-11-11T14:01:16.709Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "咕噜元",
+      "url": "https://www.edison007.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://www.edison007.top/fce3bca2.html"><link rel="preload" as="image" href="/img/page/NandDeep/001%20%E6%B5%AE%E6%A0%85%E4%B8%8EVth.webp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="codeva-wDtyj28tKi"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.json","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'NAND 的一个 bit，为什么只要几百个电子',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style>
+  /* 文章标题前风车图标旋转动画 */
+  #post h1::before,
+  #post h2::before,
+  #post h3::before,
+  #post h4::before,
+  #post h5::before,
+  #post h6::before {
+    display: inline-block;
+    animation: fan-spin 0.8s linear infinite; /* 0.8秒一圈，匀速无限旋转 */
+    transition: color 0.3s; /* 颜色过渡动画 */
+  }
+  @keyframes fan-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  /* 鼠标悬停时风车变为蓝色 */
+  #post h1:hover::before,
+  #post h2:hover::before,
+  #post h3:hover::before,
+  #post h4:hover::before,
+  #post h5:hover::before,
+  #post h6:hover::before {
+    color: #49B1F5 !important;
+  }
+  /* 减小文章图片与下方文字的间距 */
+  #post figure {
+    margin: 16px 0;
+    text-align: center;
+  }
+  #post figure img {
+    margin-bottom: 4px;
+  }
+  #post figcaption {
+    color: #888;
+    font-size: 0.9em;
+  }
+</style>
+<meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-dice"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/page/NandDeep/001%20%E6%B5%AE%E6%A0%85%E4%B8%8EVth.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">咕噜元</span></a><a class="nav-page-title" href="/"><span class="site-name">NAND 的一个 bit，为什么只要几百个电子</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-dice"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">NAND 的一个 bit，为什么只要几百个电子</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-11-11T13:00:00.000Z" title="发表于 2026-11-11 21:00:00">2026-11-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-11T14:01:16.709Z" title="更新于 2026-11-11 22:01:16">2026-11-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/NAND-%E6%B7%B1%E6%B0%B4%E5%8C%BA/">NAND 深水区</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">3200</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="前言：把欠的账还上"><a href="#前言：把欠的账还上" class="headerlink" title="前言：把欠的账还上"></a>前言：把欠的账还上</h1><p>《从 DRAM 到 HBF》写到第 008 篇，讲完 NAND 的大概之后，我留了一句话：”涉及物理细节和深入话题（浮栅结构、Vth 分布、Read Level、接口 Training 等），这篇点到为止，后续再开专题细聊。” 然后就拐去讲 HBF 的规范了。</p>
+<p>欠的账，这个系列来还。</p>
+<p>先交代定位，免得进来的人走错门：</p>
+<ul>
+<li><strong>比《从 DRAM 到 HBF》深一层</strong>。那套系列回答”为什么要有这一层存储”，这套回答”这一层里面到底怎么运转”。</li>
+<li><strong>比 datasheet 浅一层</strong>。会保留关键的命令码、电压量级、时序参数，但不逐条抄规范——那些该由厂商手册负责，抄得再全也长不出理解。</li>
+<li><strong>一篇只回答一个问题</strong>，回答到底。</li>
+</ul>
+<p>第一篇的问题最朴素：<strong>NAND 到底是怎么把 1 个 bit 写进去的？</strong></p>
+<p>剧透答案：给控制栅加上约 20 V 的电压，然后真正被关进浮栅的电子，只有几百个。</p>
+<p>这个数字我第一次算出来的时候也愣了一下——手机里存着几万张照片，每张照片几十万个 bit，每个 bit 背后站着的”犯人”，只有几百个。下面把这件事从头拆一遍。</p>
+<h1 id="一、先看-Cell-长什么样：一块夹心饼干"><a href="#一、先看-Cell-长什么样：一块夹心饼干" class="headerlink" title="一、先看 Cell 长什么样：一块夹心饼干"></a>一、先看 Cell 长什么样：一块夹心饼干</h1><p>NAND 存 1 个 bit 的最小单元叫 <strong>Cell</strong>，本体是一颗<strong>浮栅晶体管（Floating-gate MOSFET，FGMOS）</strong>。它和普通 MOSFET 的差别，一句话说清：<strong>在控制栅和沟道之间，多塞了一层被绝缘体完全包住的浮栅</strong>。</p>
+<figure>
+  <img src="/fce3bca2/fgmos-cross.svg" class loading='lazy'>
+  <figcaption>浮栅晶体管剖面：控制栅在最上，浮栅被两层氧化层夹在中间，像一块夹心饼干</figcaption>
+</figure>
+
+<p>从上往下，五层结构：</p>
+<ul>
+<li><strong>控制栅（Control Gate）</strong>：最外层的电极，负责”发号施令”——所有操作电压都加在它（或衬底）上。</li>
+<li><strong>阻挡层（IPD，层间介质）</strong>：把浮栅和控制栅隔开的绝缘层。</li>
+<li><strong>浮栅（Floating Gate）</strong>：真正存电子的地方。它<strong>四周全是绝缘体</strong>，没有任何一根导线连到它——这就是”浮”字的含义，也是非易失性的物理根源。</li>
+<li><strong>隧穿氧化层（Tunnel Oxide）</strong>：极薄的一层绝缘体（量级几纳米到十纳米），电子进出的唯一关卡。</li>
+<li><strong>衬底（Substrate）与源漏（Source &#x2F; Drain）</strong>：晶体管的”地基”和出入口，中间那一段叫<strong>沟道</strong>。</li>
+</ul>
+<p>对比一下普通 MOSFET：普通管只有一个栅，撤掉电压，沟道恢复原状，什么都不留下——它只能当个开关。FGMOS 多出的那层浮栅，让晶体管从”临时开关”变成了”永久记忆体”：<strong>电子进去了，就出不来</strong>。</p>
+<blockquote>
+<p><strong>一个准确性上的补丁。</strong> 今天主流的 3D NAND 大多已经换成了 <strong>CTF（Charge Trap Flash，电荷陷阱）</strong>——用一层氮化硅里的”陷阱”锁住电子，而不是一整层导电的浮栅。但两者追求的是同一件事：<strong>把电子关在一个没有导线连接的地方</strong>。为了讲清原理，这个系列仍沿用”浮栅”这个叫法，遇到差异会单独点出来。</p>
+</blockquote>
+<h1 id="二、电子怎么进去，又为什么出不来"><a href="#二、电子怎么进去，又为什么出不来" class="headerlink" title="二、电子怎么进去，又为什么出不来"></a>二、电子怎么进去，又为什么出不来</h1><p>要让电子穿过绝缘层，靠的是<strong>量子隧穿（Tunneling）</strong>——量子力学里一个反直觉的现象：<strong>粒子有一定概率穿过它”本来没有能量翻过去”的势垒</strong>，像穿墙术。</p>
+<h2 id="墙要多厚，才拦得住电子"><a href="#墙要多厚，才拦得住电子" class="headerlink" title="墙要多厚，才拦得住电子"></a>墙要多厚，才拦得住电子</h2><p>隧穿概率对势垒厚度极其敏感，大致随厚度指数下降。所以这道墙的设计有个精妙的平衡：</p>
+<ul>
+<li>太厚 → 电子进不去也出不来，写不动；</li>
+<li>太薄 → 电子自己就漏走了，数据保不住。</li>
+</ul>
+<p>工程上落在几纳米到十纳米的量级，再配合<strong>约 10 MV&#x2F;cm 量级的场强</strong>（可以粗略理解成”每厘米一千万伏”）才能把隧穿概率拉到可用。约 20 V 加在几十纳米的栅叠层上，正好落在这个区间。</p>
+<h2 id="为什么”进去了就不出来”"><a href="#为什么”进去了就不出来”" class="headerlink" title="为什么”进去了就不出来”"></a>为什么”进去了就不出来”</h2><p>关键在电场撤掉之后发生了什么：<strong>没有电场，隧穿概率低到可以忽略</strong>。浮栅四周是绝缘体，电子既没有导线可走，又没有足够的能量翻过势垒，于是被”关”在里面。</p>
+<p>这就是”非易失”三个字的全部内容。它不是什么神秘机制，只是一道足够高的墙，加一段足够长的等待——断电十年，电子还在里面。</p>
+<h2 id="但隧穿是”概率性”的"><a href="#但隧穿是”概率性”的" class="headerlink" title="但隧穿是”概率性”的"></a>但隧穿是”概率性”的</h2><p>这里埋一个后面要反复用的伏笔：隧穿是概率事件，<strong>并不是所有电子在同一瞬间完成穿越</strong>。</p>
+<p>这一个”概率性”，直接决定了 NAND 世界里一堆事情的形态：为什么 Vth 是一条钟形曲线而不是一根线，为什么需要一整套纠错码，为什么读取要设那么多档判断电压。这个系列的后半程会一次次回到这句话。</p>
+<h1 id="三、电子一多，Vth-就高了"><a href="#三、电子一多，Vth-就高了" class="headerlink" title="三、电子一多，Vth 就高了"></a>三、电子一多，Vth 就高了</h1><p>现在浮栅里有电子了，怎么读出”这是 1 还是 0”？</p>
+<p>先看 MOSFET 本身的性格：它本质是一个<strong>电压控制的可变电阻</strong>。在栅极和源极之间加电压 Vgs，漏极到源极之间的导通程度就跟着变。</p>
+<figure>
+  <img src="/fce3bca2/idvg-shift.svg" class loading='lazy'>
+  <figcaption>转移曲线（Id–Vg）：浮栅里的电子把整条曲线往右推，Vth 因此升高——ΔVth 就是存进去的电荷量</figcaption>
+</figure>
+
+<p>横轴是栅压 Vgs，纵轴是漏极电流 Id。曲线长这样：Vgs 低时几乎不导通，越过某个点之后电流陡然上升、最后饱和。那个”刚好开始导通”的临界点，就是<strong>阈值电压 Vth</strong>。</p>
+<h2 id="浮栅里的电子，等于一个”负偏压”"><a href="#浮栅里的电子，等于一个”负偏压”" class="headerlink" title="浮栅里的电子，等于一个”负偏压”"></a>浮栅里的电子，等于一个”负偏压”</h2><p>浮栅里存了电子，等于在栅极和沟道之间偷偷叠了一个<strong>负向的内建偏压 Vfb</strong>。真正作用在沟道上的有效电压就变成了：</p>
+<blockquote>
+<p><strong>Vgs(eff) &#x3D; Vgs(外施) − Vfb</strong></p>
+</blockquote>
+<p>也就是说，要让沟道导通的难度变大了：外施电压得先把这份”负偏压”抵消掉，剩下的才能用来开沟道。等效地看，就是 <strong>Vth 变高了</strong>——整条曲线往右平移。</p>
+<p>于是读取的逻辑就成立了：<strong>给一个固定的判断电压，看它导通不导通</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th align="center">浮栅电子</th>
+<th align="center">Vth</th>
+<th>施加 Vread</th>
+<th align="center">读出</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>擦除态</td>
+<td align="center">无</td>
+<td align="center">低</td>
+<td>Vread ≥ Vth → 导通</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td>编程态</td>
+<td align="center">有</td>
+<td align="center">高</td>
+<td>Vread &lt; Vth → 截止</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<p>注意这张表的方向——它和不少人的直觉相反，但必须记住：</p>
+<ul>
+<li><strong>擦除 &#x3D; 把电子赶出去 &#x3D; Vth 变低 &#x3D; 逻辑 1</strong>；</li>
+<li><strong>编程 &#x3D; 把电子塞进去 &#x3D; Vth 变高 &#x3D; 逻辑 0</strong>。</li>
+</ul>
+<p>所以 NAND 的”写”（Program）是单向的：只能往里加电子，<strong>只能把 1 改成 0</strong>。想把 0 改回 1？没有这种操作，只能整块擦掉重来。后面讲写放大、垃圾回收时，那些别扭的机制都是从这条规矩里长出来的。</p>
+<h1 id="四、三种电压，三种命运"><a href="#四、三种电压，三种命运" class="headerlink" title="四、三种电压，三种命运"></a>四、三种电压，三种命运</h1><p>同一个 Cell，三种操作靠三种电压区分：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th align="center">电压量级</th>
+<th>干什么</th>
+<th>对 Vth 的影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Program</strong>（编程 &#x2F; 写）</td>
+<td align="center">约 +18 ~ +20 V（加在控制栅）</td>
+<td>电子隧穿进入浮栅</td>
+<td>升高</td>
+</tr>
+<tr>
+<td><strong>Erase</strong>（擦除）</td>
+<td align="center">约 −18 ~ −20 V（加在控制栅，或衬底加正高压）</td>
+<td>电子被拉出浮栅</td>
+<td>降低</td>
+</tr>
+<tr>
+<td><strong>Read</strong>（读取）</td>
+<td align="center">0 ~ 10 V 之间的若干档</td>
+<td>只检测导通状态</td>
+<td>不改变</td>
+</tr>
+</tbody></table>
+<p>三个细节值得停一下。</p>
+<p><strong>读为什么不改变数据？</strong> 因为读取用的电压永远低于”能让电子隧穿”的场强门槛。读操作只是”看一眼”，不动手。</p>
+<p><strong>擦除为什么只能整块来？</strong> 因为一个 Block 里所有 Cell 的衬底（P-well）是连在一起的。擦除的做法是给整个衬底加高压，让这个 Block 里<strong>所有</strong> Cell 的电子一起被拽出去——物理上做不到只擦其中一页。这就是”Block 是最小擦除单位”的由来，也是 FTL（闪存转换层）那一整套复杂机制的总根源。</p>
+<p><strong>为什么写和擦的极性要相反？</strong> 因为要让电子往相反方向跑。加正高压，电子从沟道隧穿进浮栅；加负高压（或给衬底加正高压），电子从浮栅隧穿回沟道。同一道墙，两个方向。</p>
+<h1 id="五、一步一台阶：ISPP-与那几百个电子"><a href="#五、一步一台阶：ISPP-与那几百个电子" class="headerlink" title="五、一步一台阶：ISPP 与那几百个电子"></a>五、一步一台阶：ISPP 与那几百个电子</h1><p>现在回到开头那个问题：<strong>为什么加了 20 V，只进去几百个电子？</strong></p>
+<p>先说结论：因为<strong>根本不会一次加到位</strong>。</p>
+<h2 id="不能”一把梭”"><a href="#不能”一把梭”" class="headerlink" title="不能”一把梭”"></a>不能”一把梭”</h2><p>假设直接给一个刚好能把 Vth 顶到目标的电压。问题在于隧穿是概率性的：这一批 Cell 里，有的墙薄一点、有的杂质少一点，隧穿得快；有的慢。同样是 20 V、同样加这么长时间，结果会散成一片 Vth。</p>
+<p>更麻烦的是：<strong>一旦充过头，没有”往回拧”这个动作</strong>——想把电子减回去，只能整块擦除。</p>
+<p>所以工程上的做法是<strong>小步逼近</strong>：</p>
+<figure>
+  <img src="/fce3bca2/ispp.svg" class loading='lazy'>
+  <figcaption>ISPP 增量步进脉冲编程：每个脉冲后校验一次，没到目标就把电压抬高一个 ΔVpp 再来——像上台阶一样逼近目标 Vth</figcaption>
+</figure>
+
+<p>这套流程叫 <strong>ISPP（Incremental Step Pulse Programming，增量步进脉冲编程）</strong>：</p>
+<ol>
+<li>先给一个偏保守的编程电压，打一个脉冲；</li>
+<li><strong>校验（Verify）</strong>：读一下，和目标的判断电压比一比；</li>
+<li>没到？把电压抬高一个 <strong>ΔVpp</strong>（量级约 0.2 ~ 0.5 V），再打一个脉冲；</li>
+<li>重复，直到校验通过。</li>
+</ol>
+<p>每一步只挪一小格，充过头的概率大幅降低，最终落在目标档位上的 Cell 也更集中。代价是慢——写完一个 Cell 要打好几个脉冲。<strong>精度、速度、寿命，又一次明码标价的交换。</strong></p>
+<p>顺带一提，这也是”写比读慢得多”的底层原因之一：读是一次判断，写是一串”脉冲 + 校验”的循环。</p>
+<h2 id="算一下那几百个电子"><a href="#算一下那几百个电子" class="headerlink" title="算一下那几百个电子"></a>算一下那几百个电子</h2><p>现在可以算账了。一个现代 NAND Cell，控制栅到浮栅的耦合电容，量级在<strong>几 aF 到十几 aF</strong>（1 aF &#x3D; 10⁻¹⁸ F）。SLC 的编程窗口，大约是 2 ~ 3 V 的量级。</p>
+<p>用 Q &#x3D; C × ΔV 粗算，取 C ≈ 10 aF、ΔV ≈ 3 V：</p>
+<blockquote>
+<p>Q ≈ 30 aC，折成电子数 ≈ 30 × 10⁻¹⁸ ÷ (1.6 × 10⁻¹⁹) ≈ <strong>不到 200 个</strong></p>
+</blockquote>
+<p>也就是说，把一个 bit 从 1 写成 0，真正挪动的电子大约就是<strong>几百个</strong>这个量级。</p>
+<p>这个数字解释了 NAND 的很多”娇气”：<strong>电子数越少，一个跑错队的电子占比就越大</strong>。温度一高、放得久了、读得多了，几十个电子悄悄溜走，读出来的值就可能翻面。存储的可靠性，本质上是在跟极小的数字搏斗。</p>
+<p>（以上是量级估算，不同代际、不同结构的 Cell 差异不小；要精确值只能看具体产品的 datasheet 和实测。）</p>
+<h2 id="“只进不出”反而是好事"><a href="#“只进不出”反而是好事" class="headerlink" title="“只进不出”反而是好事"></a>“只进不出”反而是好事</h2><p>最后给这条单向规矩说句公道话：正因为编程只能加电子、擦除只能整块来，NAND 才得以把 Cell 做得极小、极密、极便宜——每次操作都不需要知道”原来是什么”，只需要”再垫一点”。</p>
+<p>这种”只追加、不修改”的思路你其实很熟：数据库的追加式日志（WAL）、对象存储的不可变数据、Git 的提交历史，都是同一个智慧。<strong>用”不能改”换来”可以极快、极省地写”。</strong></p>
+<h1 id="总结：一个-bit-的一生"><a href="#总结：一个-bit-的一生" class="headerlink" title="总结：一个 bit 的一生"></a>总结：一个 bit 的一生</h1><ul>
+<li><strong>Cell &#x3D; 一块夹心饼干</strong>：控制栅、阻挡层、浮栅、隧穿氧化层、衬底。浮栅四周没导线，这是非易失性的根源。</li>
+<li><strong>进出的唯一通道是隧穿</strong>，靠强电场把概率拉起来；电场一撤，概率低到可以忽略，电子就被关住了。</li>
+<li><strong>电子一多，Vth 就高</strong>：整条 Id–Vg 曲线右移，固定读电压一看，1 和 0 就分开了。记住方向——<strong>擦除是 1，编程是 0</strong>。</li>
+<li><strong>三种电压分工</strong>：约 +20 V 写、约 −20 V 擦、0~10 V 读。读不动数据，擦只能整块。</li>
+<li><strong>ISPP 小步逼近</strong>：一次只垫一格 ΔVpp，靠 verify 收口。一个 bit 的差别，其实只有几百个电子。</li>
+</ul>
+<p>那么下一个问题自然就来了：既然编程是一个脉冲一个脉冲垫上去的，几百万个 Cell 的 Vth 怎么可能整齐划一？</p>
+<p>答案是不可能。它们会散成一堆”钟形”的峰——而 TLC 要在一个窗口里塞下 8 个这样的峰。</p>
+<p>下一篇，我们就把这 8 个峰拆开看：Vth 为什么天然服从正态分布，以及为什么 TLC 的 8 个峰偏偏要按<strong>格雷码</strong>排——一个听起来跟存储八竿子打不着的词，居然是 NAND 可靠性的关键设计。</p>
+<p>我们下一篇见。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.edison007.top">咕噜元</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.edison007.top/fce3bca2.html">https://www.edison007.top/fce3bca2.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.edison007.top" target="_blank">咕噜元</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/NAND/">NAND</a><a class="post-meta__tags" href="/tags/%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8/">存储入门</a><a class="post-meta__tags" href="/tags/%E6%B5%AE%E6%A0%85/">浮栅</a><a class="post-meta__tags" href="/tags/Vth/">Vth</a></div><div class="post-share"><div class="social-share" data-image="/img/page/NandDeep/001%20%E6%B5%AE%E6%A0%85%E4%B8%8EVth.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/4fa17ade.html" title="存储行业格局：巨头、标准与联盟"><img class="cover" src="/img/page/HBF/013%20%E5%AD%98%E5%82%A8%E8%A1%8C%E4%B8%9A%E6%A0%BC%E5%B1%80.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">存储行业格局：巨头、标准与联盟</div></div><div class="info-2"><div class="info-item-1">前言：技术讲完了，最后看看牌桌上坐着谁这个系列写了十二篇，我们一直在讲”技术”：DRAM 用一个电容加一个晶体管存住一个 bit，TSV 像电梯井一样打穿芯片，HBM 把内存叠成高楼，HBF 再用 NAND 把容量和成本一起拉下来。 但技术从来不在真空里竞争。每一条技术路线的背后，都站着几家巨头、若干标准组织和一串利益同盟。 最明显的线索就藏在本系列里：HBM 的标准挂在 JEDEC 名下，HBF 却选择了 OCP。这不只是”投稿地址”不同，而是两种产业玩法的分野。 所以系列收官之前，我们把镜头拉到最远：不看芯片，看牌桌。 一、两大市场：千亿量级的牌局存储芯片不是小生意，全球市场主要由两块构成：  DRAM：数千亿美元级的年市场——就是”内存”这门生意。2026 年二季度单季已超过 1400 亿美元。 NAND Flash：千亿美元级的年市场——SSD、存储卡、U 盘背后的闪存生意。  这两门生意有个共同的脾气：强周期。行情一紧，全行业扩产；扩产过头，价格崩盘；跌穿成本线，厂商砍产能；供给一收缩，价格又起飞——像”猪周期”一样循环往复，几年一轮。  一句话：存储厂商的日子是”几年...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/eeffe57a.html" title="SRAM、DRAM、NAND：三种砖块，三种命运"><img class="cover" src="/img/page/HBF/002%20%E5%AD%98%E5%82%A8%E7%9A%84%E6%9C%80%E5%B0%8F%E5%8D%95%E5%85%83.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="info-item-2">SRAM、DRAM、NAND：三种砖块，三种命运</div></div><div class="info-2"><div class="info-item-1">前言：兑现预告——差别就在”怎么存 1 个 bit”上一篇结尾我们说：接下来把”存储的最小单元”讲透——SRAM、DRAM 和 NAND，分别是怎么存 1 个 bit 的？ 你可能会想：这跟我有什么关系？关系很大。三种存储器的所有性格差异，几乎都写在它们的最小单元里：  为什么 CPU 缓存那么快，却只做得起几十 MB？ 为什么内存条隔几十毫秒就要”刷新”一次？ 为什么 SSD 断了电，数据还在？  这三个问题的答案，都要从”存 1 个 bit”说起。 打个比方：存储器是大楼，存储单元就是砖块。砖块的形状和材质，决定了楼能盖多高、造价多贵、住得舒不舒服。今天我们就把三种砖块逐一拆开看。 一、SRAM：六个晶体管互相”锁死”SRAM（Static Random Access Memory，静态随机存取存储器），就是 CPU 里 L1&#x2F;L2&#x2F;L3 缓存的原材料。 它存 1 个 bit 的方式，是三种里面最”豪华”的——用 6 个晶体管（行话叫 6T 单元）。 两个反相器，首尾相接反相器（Inverter） 是个”说反话”的装置：输入 1 它输出 0，输入 0 它输...</div></div></div></a><a class="pagination-related" href="/50b8a8e0.html" title="CPU 拿数据只要 1 秒，翻一次硬盘为什么要等 4 个月？"><img class="cover" src="/img/page/HBF/003%20%E5%86%85%E5%AD%98%E9%87%91%E5%AD%97%E5%A1%94.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-01</div><div class="info-item-2">CPU 拿数据只要 1 秒，翻一次硬盘为什么要等 4 个月？</div></div><div class="info-2"><div class="info-item-1">前言：从砖块到大楼上一篇我们把三种存储单元拆开看了：SRAM 的锁存器、DRAM 的电容、NAND 的浮栅——那是”砖块”的故事。 但一台真实的计算机，从不会只用一种存储器。它把好几种存储器组装成一栋大楼：快的在上、慢的在下，贵的少放、便宜的多放，中间靠搬运工衔接。 这就是今天的主角：存储层级（Memory Hierarchy），江湖人称”内存金字塔”。 为什么要分层？因为世界上不存在又快、又大、又便宜的存储器。SRAM 快但贵，NAND 便宜但慢，谁也通吃不了——于是工程师让它们组队分工。 一、完整的金字塔：从寄存器到硬盘      完整的内存金字塔：寄存器、三级缓存、主内存、HBF、SSD 与硬盘——HBF 是新插入的层级   从上往下逐层看一遍。先说明：下面的数字都是典型量级，不同产品、不同年份差别很大，看数量级就好。  寄存器（Register）：CPU 内部直接装载数据的格子，延迟不到 1 纳秒，容量按 KB 甚至”个”来数——快到没朋友，也贵到没法按 GB 报价。 L1 &#x2F; L2 &#x2F; L3 缓存：全由 SRAM 组成。L1 延迟约 1ns、几十 K...</div></div></div></a><a class="pagination-related" href="/6bb3e7fd.html" title="NAND 入门：浮栅、SLC&#x2F;MLC&#x2F;TLC&#x2F;QLC、3D 堆叠与 FTL"><img class="cover" src="/img/page/HBF/008%20NAND%E5%85%A5%E9%97%A8.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-11</div><div class="info-item-2">NAND 入门：浮栅、SLC&#x2F;MLC&#x2F;TLC&#x2F;QLC、3D 堆叠与 FTL</div></div><div class="info-2"><div class="info-item-1">前言：该进”仓库”看看了前面几篇，我们把 DRAM 和 HBM 摸了个透：它们是计算芯片身边的”工作台”，快是快，但贵、容量小、一断电就忘事。 而 HBF 的主角——NAND Flash——就是第一篇里那个”仓库”：容量大、便宜、断电不丢数据。想真正理解 HBF 为什么这么设计，得先弄明白这座仓库本身：货（数据）怎么存、怎么摆、为什么便宜、又慢在哪。 这篇是 NAND 入门：只讲主干，把读者领进门。涉及物理细节和深入话题（浮栅结构、Vth 分布、Read Level、接口 Training 等），这篇点到为止，后续再开专题细聊。 一、一个 bit 怎么存：浮栅里的电子NAND 存 1 个 bit 的最小单元叫 Cell（存储单元），本体是一颗浮栅晶体管（Floating-gate MOSFET，FGMOS）：在普通晶体管的栅极里，多加一层”悬浮”的浮栅（Floating Gate）。往里注入电子，电子就被困在里面——不供电也跑不掉，这就是”非易失”的来源。 电子的多少会改变晶体管的阈值电压（Vth）：浮栅里电子越多，Vth 越高，晶体管越难导通。读取时施加一个判断电压，看导通与否...</div></div></div></a><a class="pagination-related" href="/4fa17ade.html" title="存储行业格局：巨头、标准与联盟"><img class="cover" src="/img/page/HBF/013%20%E5%AD%98%E5%82%A8%E8%A1%8C%E4%B8%9A%E6%A0%BC%E5%B1%80.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-21</div><div class="info-item-2">存储行业格局：巨头、标准与联盟</div></div><div class="info-2"><div class="info-item-1">前言：技术讲完了，最后看看牌桌上坐着谁这个系列写了十二篇，我们一直在讲”技术”：DRAM 用一个电容加一个晶体管存住一个 bit，TSV 像电梯井一样打穿芯片，HBM 把内存叠成高楼，HBF 再用 NAND 把容量和成本一起拉下来。 但技术从来不在真空里竞争。每一条技术路线的背后，都站着几家巨头、若干标准组织和一串利益同盟。 最明显的线索就藏在本系列里：HBM 的标准挂在 JEDEC 名下，HBF 却选择了 OCP。这不只是”投稿地址”不同，而是两种产业玩法的分野。 所以系列收官之前，我们把镜头拉到最远：不看芯片，看牌桌。 一、两大市场：千亿量级的牌局存储芯片不是小生意，全球市场主要由两块构成：  DRAM：数千亿美元级的年市场——就是”内存”这门生意。2026 年二季度单季已超过 1400 亿美元。 NAND Flash：千亿美元级的年市场——SSD、存储卡、U 盘背后的闪存生意。  这两门生意有个共同的脾气：强周期。行情一紧，全行业扩产；扩产过头，价格崩盘；跌穿成本线，厂商砍产能；供给一收缩，价格又起飞——像”猪周期”一样循环往复，几年一轮。  一句话：存储厂商的日子是”几年...</div></div></div></a><a class="pagination-related" href="/75b652e1.html" title="Nand Vth 阈值分布"><img class="cover" src="/img/page/NandFlash/001%20Nand%20Vth.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-05</div><div class="info-item-2">Nand Vth 阈值分布</div></div><div class="info-2"><div class="info-item-1">从 SLC 看 Vth 分布阈值电压（Vth）是 NAND Cell 导通&#x2F;截止的临界电压，也是判断 Cell 存储数据的核心指标。（Vth 的物理机制详见 Read Level 介绍） 芯片中并非所有 Cell 共享同一个精确的 Vth 值——几百万个 Cell 的 Vth 聚合起来，会形成一种统计分布。这正是本文要讲的内容。  SLC（Single-Level Cell）每个 Cell 只存 1bit，只需要两种状态：擦除态（Erased） 和 编程态（Programmed）。 两种状态在 Vth 分布上表现为两个独立、清晰的分布峰。读取时只需在峰谷之间设置一个读取电压 RL1，通过比较每个 Cell 的 Vth 与 RL1 的大小，即可区分出 0 和 1。 TLC 的 8 峰分布 TLC（Triple-Level Cell）每个 Cell 存 3bit，3bit 共 8 种逻辑状态： 111  110  100  000  010  011  001  101 8 种状态在 Vth 分布上各占一个独立区间，呈现 8 个分布峰。相比 SLC，TLC 的峰更密、峰间距...</div></div></div></a><a class="pagination-related" href="/44fc021b.html" title="Nand Training"><img class="cover" src="/img/page/NandFlash/002%20Nand%20Training.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">Nand Training</div></div><div class="info-2"><div class="info-item-1">Nand Training Feature NAND 设备在超过 800MT&#x2F;s 的重载系统中应支持本章节所述的 Training 功能。 Nand Training Type ZQ Calibration DCC Training Read DQ Training Write DQ Training WDCA(Option) Internal VrefQ    ZQ CalibrationZQ Calibration 介绍ZQ Calibration 是一种电子调整过程，用于精确设定芯片 I&#x2F;O 接口的电阻值，确保高速数据传输中信号的清晰与稳定。其原理类似于调音师用标准音叉校准乐器 —— ZQ Calibration 以一个外部精密参考电阻为基准，校准芯片内部电路的阻抗，使芯片在各种环境变化下都能保持最佳性能。 作为一个动态、持续的过程，内存控制器会在初始化、退出低功耗状态或定期发起 ZQ Calibration 命令，让内存芯片根据实时温度和电压重新校准，确保从轻载到重载的全工况下均处于最佳状态。 核心功能：  动态阻抗匹配 补偿环境温度 提升系统稳定性 ...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">咕噜元</div><div class="author-info-description">成就如沙堡 生命如海浪</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/pakchoiii"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/pakchoiii" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:919607416@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临咕噜元，这里是我日常收集和整理的总结，希望能对你有所帮助:)</div></div><div class="card-widget card-wechat-public"><div class="item-headline"><i class="fab fa-weixin"></i><span>关注公众号</span></div><div class="wechat-public-content"><img src="/img/wechat-gzh.jpg" alt="公众号二维码" style="width: 100%; border-radius: 8px; display: block;"/ loading='lazy'><div class="wechat-public-desc">咕噜元 · 博客内容同步更新</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80%EF%BC%9A%E6%8A%8A%E6%AC%A0%E7%9A%84%E8%B4%A6%E8%BF%98%E4%B8%8A"><span class="toc-number">1.</span> <span class="toc-text">前言：把欠的账还上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E7%9C%8B-Cell-%E9%95%BF%E4%BB%80%E4%B9%88%E6%A0%B7%EF%BC%9A%E4%B8%80%E5%9D%97%E5%A4%B9%E5%BF%83%E9%A5%BC%E5%B9%B2"><span class="toc-number">2.</span> <span class="toc-text">一、先看 Cell 长什么样：一块夹心饼干</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%94%B5%E5%AD%90%E6%80%8E%E4%B9%88%E8%BF%9B%E5%8E%BB%EF%BC%8C%E5%8F%88%E4%B8%BA%E4%BB%80%E4%B9%88%E5%87%BA%E4%B8%8D%E6%9D%A5"><span class="toc-number">3.</span> <span class="toc-text">二、电子怎么进去，又为什么出不来</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A2%99%E8%A6%81%E5%A4%9A%E5%8E%9A%EF%BC%8C%E6%89%8D%E6%8B%A6%E5%BE%97%E4%BD%8F%E7%94%B5%E5%AD%90"><span class="toc-number">3.1.</span> <span class="toc-text">墙要多厚，才拦得住电子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E2%80%9D%E8%BF%9B%E5%8E%BB%E4%BA%86%E5%B0%B1%E4%B8%8D%E5%87%BA%E6%9D%A5%E2%80%9D"><span class="toc-number">3.2.</span> <span class="toc-text">为什么”进去了就不出来”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%86%E9%9A%A7%E7%A9%BF%E6%98%AF%E2%80%9D%E6%A6%82%E7%8E%87%E6%80%A7%E2%80%9D%E7%9A%84"><span class="toc-number">3.3.</span> <span class="toc-text">但隧穿是”概率性”的</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%94%B5%E5%AD%90%E4%B8%80%E5%A4%9A%EF%BC%8CVth-%E5%B0%B1%E9%AB%98%E4%BA%86"><span class="toc-number">4.</span> <span class="toc-text">三、电子一多，Vth 就高了</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E6%A0%85%E9%87%8C%E7%9A%84%E7%94%B5%E5%AD%90%EF%BC%8C%E7%AD%89%E4%BA%8E%E4%B8%80%E4%B8%AA%E2%80%9D%E8%B4%9F%E5%81%8F%E5%8E%8B%E2%80%9D"><span class="toc-number">4.1.</span> <span class="toc-text">浮栅里的电子，等于一个”负偏压”</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%B8%89%E7%A7%8D%E7%94%B5%E5%8E%8B%EF%BC%8C%E4%B8%89%E7%A7%8D%E5%91%BD%E8%BF%90"><span class="toc-number">5.</span> <span class="toc-text">四、三种电压，三种命运</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%B8%80%E6%AD%A5%E4%B8%80%E5%8F%B0%E9%98%B6%EF%BC%9AISPP-%E4%B8%8E%E9%82%A3%E5%87%A0%E7%99%BE%E4%B8%AA%E7%94%B5%E5%AD%90"><span class="toc-number">6.</span> <span class="toc-text">五、一步一台阶：ISPP 与那几百个电子</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E8%83%BD%E2%80%9D%E4%B8%80%E6%8A%8A%E6%A2%AD%E2%80%9D"><span class="toc-number">6.1.</span> <span class="toc-text">不能”一把梭”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E4%B8%80%E4%B8%8B%E9%82%A3%E5%87%A0%E7%99%BE%E4%B8%AA%E7%94%B5%E5%AD%90"><span class="toc-number">6.2.</span> <span class="toc-text">算一下那几百个电子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9C%E5%8F%AA%E8%BF%9B%E4%B8%8D%E5%87%BA%E2%80%9D%E5%8F%8D%E8%80%8C%E6%98%AF%E5%A5%BD%E4%BA%8B"><span class="toc-number">6.3.</span> <span class="toc-text">“只进不出”反而是好事</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E4%B8%80%E4%B8%AA-bit-%E7%9A%84%E4%B8%80%E7%94%9F"><span class="toc-number">7.</span> <span class="toc-text">总结：一个 bit 的一生</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/fce3bca2.html" title="NAND 的一个 bit，为什么只要几百个电子"><img src="/img/page/NandDeep/001%20%E6%B5%AE%E6%A0%85%E4%B8%8EVth.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NAND 的一个 bit，为什么只要几百个电子"/ loading='lazy'></a><div class="content"><a class="title" href="/fce3bca2.html" title="NAND 的一个 bit，为什么只要几百个电子">NAND 的一个 bit，为什么只要几百个电子</a><time datetime="2026-11-11T13:00:00.000Z" title="发表于 2026-11-11 21:00:00">2026-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/4fa17ade.html" title="存储行业格局：巨头、标准与联盟"><img src="/img/page/HBF/013%20%E5%AD%98%E5%82%A8%E8%A1%8C%E4%B8%9A%E6%A0%BC%E5%B1%80.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="存储行业格局：巨头、标准与联盟"/ loading='lazy'></a><div class="content"><a class="title" href="/4fa17ade.html" title="存储行业格局：巨头、标准与联盟">存储行业格局：巨头、标准与联盟</a><time datetime="2026-09-21T15:00:00.000Z" title="发表于 2026-09-21 23:00:00">2026-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/1cbe4f46.html" title="存储接口概览：DDR、ONFI/Toggle、UCIe 与 CXL"><img src="/img/page/HBF/012%20%E5%AD%98%E5%82%A8%E6%8E%A5%E5%8F%A3%E6%A6%82%E8%A7%88.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="存储接口概览：DDR、ONFI/Toggle、UCIe 与 CXL"/ loading='lazy'></a><div class="content"><a class="title" href="/1cbe4f46.html" title="存储接口概览：DDR、ONFI/Toggle、UCIe 与 CXL">存储接口概览：DDR、ONFI/Toggle、UCIe 与 CXL</a><time datetime="2026-09-19T14:00:00.000Z" title="发表于 2026-09-19 22:00:00">2026-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/d5af2ad5.html" title="HBM vs HBF：不是替代，是分层"><img src="/img/page/HBF/011%20HBM%E4%B8%8EHBF%E5%AF%B9%E6%AF%94.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HBM vs HBF：不是替代，是分层"/ loading='lazy'></a><div class="content"><a class="title" href="/d5af2ad5.html" title="HBM vs HBF：不是替代，是分层">HBM vs HBF：不是替代，是分层</a><time datetime="2026-09-17T13:00:00.000Z" title="发表于 2026-09-17 21:00:00">2026-09-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/34a57b98.html" title="HBF 应用场景：AI 推理的容量解药"><img src="/img/page/HBF/010%20HBF%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HBF 应用场景：AI 推理的容量解药"/ loading='lazy'></a><div class="content"><a class="title" href="/34a57b98.html" title="HBF 应用场景：AI 推理的容量解药">HBF 应用场景：AI 推理的容量解药</a><time datetime="2026-09-15T12:00:00.000Z" title="发表于 2026-09-15 20:00:00">2026-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 咕噜元</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.edison007.top/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo.edison007.top/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/random-nav.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/random/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

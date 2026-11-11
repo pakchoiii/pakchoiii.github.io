@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="880" height="480" fill="#ffffff"/>
+  <defs>
+    <marker id="iv-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#475569" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- 坐标轴 -->
+  <line x1="110" y1="400" x2="110" y2="66" stroke="#475569" stroke-width="1.6" marker-end="url(#iv-arrow)"/>
+  <line x1="110" y1="400" x2="806" y2="400" stroke="#475569" stroke-width="1.6" marker-end="url(#iv-arrow)"/>
+  <text x="76" y="235" fill="#475569" font-size="14" text-anchor="middle" transform="rotate(-90 76 235)">Id（漏极电流）</text>
+  <text x="700" y="432" fill="#475569" font-size="14">Vgs（栅极电压）</text>
+
+  <!-- 擦除态曲线 -->
+  <path d="M 125 398 L 230 398 C 265 398 285 370 305 315 C 325 258 345 120 380 106 L 425 100" fill="none" stroke="#8b5cf6" stroke-width="3.5"/>
+
+  <!-- 编程态曲线 -->
+  <path d="M 260 398 L 365 398 C 400 398 420 370 440 315 C 460 258 480 120 515 106 L 560 100" fill="none" stroke="#2563eb" stroke-width="3.5"/>
+
+  <!-- Vth 虚线 -->
+  <line x1="300" y1="400" x2="300" y2="424" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="435" y1="400" x2="435" y2="424" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+  <!-- ΔVth 双箭头 -->
+  <line x1="303" y1="440" x2="432" y2="440" stroke="#475569" stroke-width="1.4" marker-start="url(#iv-arrow)" marker-end="url(#iv-arrow)"/>
+  <text x="367" y="462" text-anchor="middle" fill="#334155" font-size="13">ΔVth = 存进浮栅的电子量</text>
+
+  <!-- Vread 读电压 -->
+  <line x1="370" y1="400" x2="370" y2="92" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="370" y="84" text-anchor="middle" fill="#334155" font-size="13" font-weight="bold">Read（Vread）</text>
+
+  <circle cx="370" cy="113" r="5.5" fill="#8b5cf6" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="370" cy="398" r="5.5" fill="#2563eb" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="382" y="140" fill="#7c3aed" font-size="12">导通 → 读 1</text>
+  <text x="382" y="384" fill="#2563eb" font-size="12">截止 → 读 0</text>
+
+  <!-- 图例 -->
+  <line x1="612" y1="126" x2="656" y2="126" stroke="#8b5cf6" stroke-width="3.5"/>
+  <text x="666" y="131" fill="#7c3aed" font-size="13">擦除态（浮栅无电子）</text>
+  <text x="666" y="152" fill="#64748b" font-size="12">逻辑 1 · Vth 低</text>
+
+  <line x1="612" y1="192" x2="656" y2="192" stroke="#2563eb" stroke-width="3.5"/>
+  <text x="666" y="197" fill="#2563eb" font-size="13">编程态（浮栅有电子）</text>
+  <text x="666" y="218" fill="#64748b" font-size="12">逻辑 0 · Vth 高</text>
+
+  <text x="612" y="278" fill="#334155" font-size="13">浮栅里的电子 = 负偏压 Vfb</text>
+  <text x="612" y="300" fill="#64748b" font-size="12">Vgs(eff) = Vgs − Vfb</text>
+  <text x="612" y="322" fill="#64748b" font-size="12">整条曲线因此右移</text>
+</svg>
