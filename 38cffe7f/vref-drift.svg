@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400">
+  <rect width="880" height="400" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">峰在漂，判断线没动</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">三种状态，同一个峰相对判断线的位置完全不同</text>
+  <text x="40" y="96" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#64748b">① 刚写完</text>
+  <line x1="40" y1="268" x2="280" y2="268" stroke="#cbd5e1" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M101,268 C124.6,268 135.22,164 160,164 C184.78,164 195.4,268 219,268" fill="#f1f5f9" stroke="#64748b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1"/>
+  <line x1="160" y1="268" x2="160" y2="112" stroke="#dc2626" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <text x="160" y="300" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#dc2626">判断线</text>
+  <text x="40" y="330" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">峰居中</text>
+  <text x="40" y="352" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">默认那套电压够用</text>
+  <text x="320" y="96" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#ea580c">② 放久了</text>
+  <line x1="320" y1="268" x2="560" y2="268" stroke="#cbd5e1" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M347,268 C370.6,268 381.22,164 406,164 C430.78,164 441.4,268 465,268" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1"/>
+  <line x1="440" y1="268" x2="440" y2="112" stroke="#dc2626" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <text x="440" y="300" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#dc2626">判断线</text>
+  <text x="320" y="330" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">峰整体左移</text>
+  <text x="320" y="352" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">retention：电子漏掉了</text>
+  <text x="600" y="96" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#2563eb">③ 读多了</text>
+  <line x1="600" y1="268" x2="840" y2="268" stroke="#cbd5e1" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M695,268 C718.6,268 729.22,164 754,164 C778.78,164 789.4,268 813,268" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1"/>
+  <line x1="720" y1="268" x2="720" y2="112" stroke="#dc2626" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="6 5"/>
+  <text x="720" y="300" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#dc2626">判断线</text>
+  <text x="600" y="330" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#2563eb">峰整体右移</text>
+  <text x="600" y="352" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">read disturb：被轻微编程</text>
+  <text x="40" y="384" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">峰挪、线不动 —— 这不是介质坏了，是标定失效了。</text>
+</svg>

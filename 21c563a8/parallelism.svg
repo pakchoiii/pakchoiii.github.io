@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" width="880" height="430">
+  <rect width="880" height="430" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">并行度是叠出来的：四条轴</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">一条轴上只能有一个在动的时候，就再开一条轴</text>
+  <rect x="40" y="96" width="800" height="66" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.3"/>
+  <rect x="40" y="96" width="6" height="66" rx="3" fill="#2563eb"/>
+  <text x="66" y="124" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#2563eb">通道 channel</text>
+  <text x="66" y="148" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">主控有几组独立的数据线</text>
+  <text x="824" y="134" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="end" fill="#2563eb">通常 4 ~ 16 条</text>
+  <rect x="40" y="172" width="800" height="66" rx="10" fill="#ffffff" stroke="#0d9488" stroke-width="1.3"/>
+  <rect x="40" y="172" width="6" height="66" rx="3" fill="#0d9488"/>
+  <text x="66" y="200" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#0d9488">CE 片选</text>
+  <text x="66" y="224" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">一条通道上挂几颗颗粒</text>
+  <text x="824" y="210" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="end" fill="#0d9488">常见 2 ~ 8 颗</text>
+  <rect x="40" y="248" width="800" height="66" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.3"/>
+  <rect x="40" y="248" width="6" height="66" rx="3" fill="#ea580c"/>
+  <text x="66" y="276" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#ea580c">die 晶粒</text>
+  <text x="66" y="300" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">一颗封装里叠几颗 die</text>
+  <text x="824" y="286" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="end" fill="#ea580c">常见 1 ~ 16 层</text>
+  <rect x="40" y="324" width="800" height="66" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.3"/>
+  <rect x="40" y="324" width="6" height="66" rx="3" fill="#7c3aed"/>
+  <text x="66" y="352" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#7c3aed">plane</text>
+  <text x="66" y="376" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">一颗 die 内分几个平面</text>
+  <text x="824" y="362" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="end" fill="#7c3aed">常见 2 或 4 个</text>
+  <rect x="40" y="400" width="800" height="0" rx="8" fill="none"/>
+  <text x="40" y="416" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">四条轴相乘，才是主控能同时驱动的 NAND 操作数——也就是「并行度」。</text>
+</svg>

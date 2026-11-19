@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400">
+  <rect width="880" height="400" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">写一页，要看邻居的脸色</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">邻居还没定，你先写——事后它一加热，你的峰就歪了</text>
+  <text x="40" y="100" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">编程顺序：沿 word line 一层层往上</text>
+  <rect x="60" y="130" width="420" height="40" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <rect x="60" y="192" width="420" height="40" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="270" y="218" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">word line 2</text>
+  <rect x="60" y="254" width="420" height="40" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="270" y="280" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">word line 3</text>
+  <rect x="60" y="130" width="420" height="40" rx="5" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+  <text x="270" y="156" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#2563eb">word line 1  ← 正在写</text>
+  <text x="520" y="148" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#1e293b">写 WL1 时，WL2 还没写</text>
+  <text x="520" y="172" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">等到写 WL2，高压把 WL1 的电子</text>
+  <text x="520" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">又加热了一遍 → 峰被推歪</text>
+  <rect x="520" y="216" width="320" height="92" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.2"/>
+  <text x="540" y="244" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412">解法不是「不写」，而是</text>
+  <text x="540" y="268" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412">把顺序和校验摆对：先粗后精、</text>
+  <text x="540" y="290" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412">或反过来先写邻居再回头收紧</text>
+  <text x="40" y="330" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#1e293b">这就是为什么厂商的编程顺序是「规定」，不是「建议」。</text>
+  <text x="40" y="356" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">固件如果按自己的想法乱序写，轻则性能掉，重则整块数据出错。</text>
+</svg>

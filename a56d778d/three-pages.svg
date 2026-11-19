@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" width="880" height="430">
+  <rect width="880" height="430" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">一条 word line 上，住着三个 Page</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">TLC 的一个物理位置，要被写三次、读三次</text>
+  <text x="40" y="100" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">同一条 word line</text>
+  <rect x="40" y="112" width="520" height="44" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="54" y="118" width="70" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="136" y="118" width="70" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="218" y="118" width="70" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="300" y="118" width="70" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="382" y="118" width="70" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="464" y="118" width="70" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="576" y="140" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">3 个 Page 挤在同一格上</text>
+  <rect x="40" y="186" width="800" height="62" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.3"/>
+  <rect x="40" y="186" width="6" height="62" rx="3" fill="#2563eb"/>
+  <text x="66" y="212" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#2563eb">LP  ·  lower page</text>
+  <text x="66" y="234" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">第 1 遍：先写最低位</text>
+  <text x="824" y="224" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="end" fill="#334155">用 1 个判断电平就能读出来</text>
+  <rect x="40" y="252" width="800" height="62" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.3"/>
+  <rect x="40" y="252" width="6" height="62" rx="3" fill="#0d9488"/>
+  <text x="66" y="278" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#0d9488">UP  ·  upper page</text>
+  <text x="66" y="300" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">第 2 遍：加上中间位</text>
+  <text x="824" y="290" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="end" fill="#334155">要和 LP 一起算，读 2 次</text>
+  <rect x="40" y="318" width="800" height="62" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.3"/>
+  <rect x="40" y="318" width="6" height="62" rx="3" fill="#ea580c"/>
+  <text x="66" y="344" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#ea580c">XP  ·  extra page</text>
+  <text x="66" y="366" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">第 3 遍：补上最高位</text>
+  <text x="824" y="356" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="end" fill="#334155">7 个电平里挑着读</text>
+  <text x="40" y="400" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">所以「写一页」在 TLC 上其实是「写一条 WL 的三分之一」——顺序错了就会互相拖累。</text>
+</svg>

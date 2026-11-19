@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 462" width="880" height="462">
+  <defs>
+    <marker id="arr0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#ea580c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="arr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#7c3aed" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="880" height="462" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">同样的电压窗口，多切一半的档</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">峰间距只剩一半，判错余量也跟着只剩一半</text>
+  <text x="40" y="142" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#ea580c">TLC</text>
+  <text x="40" y="164" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">8 档</text>
+  <line x1="120" y1="180" x2="800" y2="180" stroke="#cbd5e1" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M137,180 C148.2,180 153.24,130 165,130 C176.76,130 181.8,180 193,180" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M216,180 C227.2,180 232.24,130 244,130 C255.76,130 260.8,180 272,180" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M295,180 C306.2,180 311.24,130 323,130 C334.76,130 339.8,180 351,180" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M374,180 C385.2,180 390.24,130 402,130 C413.76,130 418.8,180 430,180" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M453,180 C464.2,180 469.24,130 481,130 C492.76,130 497.8,180 509,180" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M532,180 C543.2,180 548.24,130 560,130 C571.76,130 576.8,180 588,180" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M611,180 C622.2,180 627.24,130 639,130 C650.76,130 655.8,180 667,180" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M690,180 C701.2,180 706.24,130 718,130 C729.76,130 734.8,180 746,180" fill="#ffedd5" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="204" y1="180" x2="204" y2="122" stroke="#ea580c" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4"/>
+  <line x1="283" y1="180" x2="283" y2="122" stroke="#ea580c" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4"/>
+  <line x1="204" y1="112" x2="283" y2="112" stroke="#ea580c" stroke-width="1.3" marker-end="url(#arr0)" marker-start="url(#arr0)"/>
+  <text x="243" y="100" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#ea580c">间距 d</text>
+  <text x="40" y="264" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#7c3aed">QLC</text>
+  <text x="40" y="286" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">16 档</text>
+  <line x1="120" y1="302" x2="800" y2="302" stroke="#cbd5e1" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M129,302 C134.6,302 137.12,258 143,258 C148.88,258 151.4,302 157,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M169,302 C174.6,302 177.12,258 183,258 C188.88,258 191.4,302 197,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M209,302 C214.6,302 217.12,258 223,258 C228.88,258 231.4,302 237,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M249,302 C254.6,302 257.12,258 263,258 C268.88,258 271.4,302 277,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M289,302 C294.6,302 297.12,258 303,258 C308.88,258 311.4,302 317,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M329,302 C334.6,302 337.12,258 343,258 C348.88,258 351.4,302 357,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M369,302 C374.6,302 377.12,258 383,258 C388.88,258 391.4,302 397,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M409,302 C414.6,302 417.12,258 423,258 C428.88,258 431.4,302 437,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M449,302 C454.6,302 457.12,258 463,258 C468.88,258 471.4,302 477,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M489,302 C494.6,302 497.12,258 503,258 C508.88,258 511.4,302 517,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M529,302 C534.6,302 537.12,258 543,258 C548.88,258 551.4,302 557,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M569,302 C574.6,302 577.12,258 583,258 C588.88,258 591.4,302 597,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M609,302 C614.6,302 617.12,258 623,258 C628.88,258 631.4,302 637,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M649,302 C654.6,302 657.12,258 663,258 C668.88,258 671.4,302 677,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M689,302 C694.6,302 697.12,258 703,258 C708.88,258 711.4,302 717,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M729,302 C734.6,302 737.12,258 743,258 C748.88,258 751.4,302 757,302" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="163" y1="302" x2="163" y2="244" stroke="#7c3aed" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4"/>
+  <line x1="203" y1="302" x2="203" y2="244" stroke="#7c3aed" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="4 4"/>
+  <line x1="163" y1="234" x2="203" y2="234" stroke="#7c3aed" stroke-width="1.3" marker-end="url(#arr1)" marker-start="url(#arr1)"/>
+  <text x="183" y="222" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#7c3aed">d / 2</text>
+  <rect x="40" y="348" width="800" height="92" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+  <text x="64" y="382" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#1e293b">窗口总量由器件决定，基本不变；档数翻倍 = 每档宽度与电子数一起减半。</text>
+  <text x="64" y="412" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#64748b">TLC 相邻状态差几十个电子，QLC 只剩十几个。判错余量就是这么没的。</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 337" width="880" height="337">
+  <rect width="880" height="337" rx="16" fill="#ffffff"/>
+  <text x="40" y="40" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">ZQ 校准：用一颗外部电阻当标尺</text>
+  <text x="40" y="64" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b">内部电阻会随工艺、电压、温度漂移，所以必须定期对着一个「死标准」重调</text>
+
+  <!-- 芯片 -->
+  <rect x="70" y="96" width="300" height="150" rx="12" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="86" y="118" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#94a3b8">NAND 芯片</text>
+
+  <!-- 可调电阻符号 -->
+  <line x1="120" y1="176" x2="146" y2="176" stroke="#2563eb" stroke-width="2.4"/>
+  <path d="M146,176 L154,164 L162,188 L170,164 L178,188 L186,164 L194,188 L202,176 L214,176"
+        fill="none" stroke="#2563eb" stroke-width="2.4"/>
+  <line x1="214" y1="176" x2="250" y2="176" stroke="#2563eb" stroke-width="2.4"/>
+  <line x1="150" y1="200" x2="206" y2="146" stroke="#ea580c" stroke-width="2"/>
+  <path d="M198,146 L208,144 L206,154" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <text x="180" y="226" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#1e40af" text-anchor="middle">可调电阻网络</text>
+
+  <!-- 引脚 -->
+  <line x1="370" y1="176" x2="520" y2="176" stroke="#475569" stroke-width="2.4"/>
+  <text x="440" y="166" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" font-weight="700" fill="#334155" text-anchor="middle">ZQ 引脚</text>
+
+  <!-- 外部电阻 -->
+  <path d="M520,176 L536,164 L548,188 L560,164 L572,188 L584,164 L596,188 L608,176 L620,176"
+        fill="none" stroke="#ea580c" stroke-width="2.4"/>
+  <line x1="620" y1="176" x2="650" y2="176" stroke="#ea580c" stroke-width="2.4"/>
+  <line x1="650" y1="176" x2="650" y2="204" stroke="#475569" stroke-width="2.4"/>
+  <line x1="634" y1="204" x2="666" y2="204" stroke="#475569" stroke-width="2.4"/>
+  <line x1="640" y1="212" x2="660" y2="212" stroke="#475569" stroke-width="2.4"/>
+  <line x1="645" y1="220" x2="655" y2="220" stroke="#475569" stroke-width="2.4"/>
+  <text x="690" y="164" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" font-weight="700" fill="#c2410c">外部精密电阻</text>
+  <text x="690" y="184" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">精度 ~1% 量级</text>
+  <text x="690" y="202" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">值由芯片规格给定</text>
+
+  <line x1="70" y1="276" x2="810" y2="276" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="440" y="304" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#334155" text-anchor="middle">失配的后果：信号在传输线末端反射，波形过冲、下冲，眼图直接收窄</text>
+  <text x="440" y="324" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#94a3b8" text-anchor="middle">校准期间总线不能有任何操作，DQ 必须置高阻</text>
+</svg>

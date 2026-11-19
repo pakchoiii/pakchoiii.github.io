@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400">
+  <defs>
+    <marker id="arr0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="880" height="400" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">一个 LBA，最后被拆成五个字段</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">主机只认「第几号」，颗粒只认「哪颗 die 的哪个位置」</text>
+  <text x="40" y="100" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">主机侧</text>
+  <rect x="40" y="112" width="300" height="56" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.3"/>
+  <text x="190" y="146" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" text-anchor="middle" fill="#1e293b">LBA  0x1A2B3C</text>
+  <text x="190" y="188" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">一个线性编号，仅此而已</text>
+  <line x1="348" y1="140" x2="428" y2="140" stroke="#64748b" stroke-width="1.6" marker-end="url(#arr0)"/>
+  <text x="388" y="126" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#7c3aed">FTL</text>
+  <text x="440" y="100" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">颗粒侧：一个物理地址（PPN）</text>
+  <rect x="440" y="112" width="74" height="56" rx="6" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="477.0" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#2563eb">die</text>
+  <text x="477.0" y="158" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">哪一颗</text>
+  <rect x="520" y="112" width="74" height="56" rx="6" fill="#ffffff" stroke="#0d9488" stroke-width="1.4"/>
+  <text x="557.0" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#0d9488">plane</text>
+  <text x="557.0" y="158" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">哪一面</text>
+  <rect x="600" y="112" width="74" height="56" rx="6" fill="#ffffff" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="637.0" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#ea580c">block</text>
+  <text x="637.0" y="158" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">哪一块</text>
+  <rect x="680" y="112" width="74" height="56" rx="6" fill="#ffffff" stroke="#7c3aed" stroke-width="1.4"/>
+  <text x="717.0" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#7c3aed">page</text>
+  <text x="717.0" y="158" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">哪一页</text>
+  <rect x="760" y="112" width="74" height="56" rx="6" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>
+  <text x="797.0" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#64748b">column</text>
+  <text x="797.0" y="158" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">哪一列</text>
+  <rect x="40" y="216" width="800" height="66" rx="10" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="1.2"/>
+  <text x="64" y="244" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#5b21b6">映射关系：LBA → PPN，是 FTL 手里那张表的全部内容。</text>
+  <text x="64" y="268" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">主机永远看不到右边这串字段；颗粒也永远不知道左边那个编号。</text>
+  <rect x="40" y="300" width="800" height="62" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="1.2"/>
+  <text x="64" y="328" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#9a3412">所以「碎片化」在 SSD 里没有意义：LBA 连续不连续，颗粒根本不在意。</text>
+  <text x="64" y="350" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412">真正决定性能的是——这些 PPN 能不能被同时排进不同的 plane 与通道。</text>
+</svg>

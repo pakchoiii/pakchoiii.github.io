@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="880" height="420">
+  <rect width="880" height="420" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">两套药方，解决同一个问题</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">颗粒能互换，主控才敢通用——这是标准存在的唯一理由</text>
+  <rect x="40" y="92" width="380" height="240" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="40" y="92" width="380" height="52" rx="12" fill="#2563eb" stroke="#2563eb" stroke-width="1.5"/>
+  <rect x="40" y="130" width="380" height="14" rx="0" fill="#2563eb"/>
+  <text x="62" y="126" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#ffffff">ONFI</text>
+  <text x="190" y="126" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#ffffff" fill-opacity="0.9">2006 年起</text>
+  <text x="62" y="172" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">Intel 牵头，美光、SK 海力士、群联、闪迪等</text>
+  <circle cx="68" cy="199" r="3" fill="#2563eb"/>
+  <text x="80" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">早期目标是「不同厂的颗粒能互换」</text>
+  <circle cx="68" cy="227" r="3" fill="#2563eb"/>
+  <text x="80" y="232" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">接口从 SDR 一路走到 NV-LPDDR4</text>
+  <circle cx="68" cy="255" r="3" fill="#2563eb"/>
+  <text x="80" y="260" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">5.2 引入 SCA，6.0 于 2026 年初发布</text>
+  <rect x="460" y="92" width="380" height="240" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="460" y="92" width="380" height="52" rx="12" fill="#ea580c" stroke="#ea580c" stroke-width="1.5"/>
+  <rect x="460" y="130" width="380" height="14" rx="0" fill="#ea580c"/>
+  <text x="482" y="126" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#ffffff">Toggle DDR</text>
+  <text x="610" y="126" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#ffffff" fill-opacity="0.9">2007 年起</text>
+  <text x="482" y="172" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">三星与东芝（今铠侠）一线</text>
+  <circle cx="488" cy="199" r="3" fill="#ea580c"/>
+  <text x="500" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">双沿采样，早期就主打高速</text>
+  <circle cx="488" cy="227" r="3" fill="#ea580c"/>
+  <text x="500" y="232" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">由 JEDEC 的 JESD230 系列收编</text>
+  <circle cx="488" cy="255" r="3" fill="#ea580c"/>
+  <text x="500" y="260" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">6.0 展示 4.8 Gb/s，同样上 SCA</text>
+  <rect x="40" y="352" width="800" height="52" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+  <text x="64" y="384" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#1e293b">阵营不是信仰，是产品线：同一家在不同容量、不同代次上换接口，很常见。</text>
+</svg>

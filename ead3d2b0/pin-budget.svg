@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 468" width="880" height="468">
+  <rect width="880" height="468" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">一条通道要多少根线</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">引脚数直接进主控成本，这也是「多通道」没那么便宜的原因</text>
+  <rect x="40" y="100" width="800" height="54" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="58" y="134" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#2563eb">DQ0 ~ DQ7</text>
+  <text x="340" y="134" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#1e293b">8 根</text>
+  <text x="470" y="134" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">数据（也有 x16 的颗粒）</text>
+  <rect x="40" y="158" width="800" height="54" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="58" y="192" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#0d9488">DQS / RE / WE</text>
+  <text x="340" y="192" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#1e293b">3 ~ 4 根</text>
+  <text x="470" y="192" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">数据选通与读写控制</text>
+  <rect x="40" y="216" width="800" height="54" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="58" y="250" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">CLE / ALE</text>
+  <text x="340" y="250" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#1e293b">2 根</text>
+  <text x="470" y="250" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">这一拍是命令还是地址</text>
+  <rect x="40" y="274" width="800" height="54" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="58" y="308" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#7c3aed">CE</text>
+  <text x="340" y="308" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#1e293b">1 ~ 8 根</text>
+  <text x="470" y="308" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">每颗颗粒一根片选</text>
+  <rect x="40" y="332" width="800" height="54" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="58" y="366" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">R/B、ZQ、其它</text>
+  <text x="340" y="366" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#1e293b">3 ~ 5 根</text>
+  <text x="470" y="366" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">状态、校准、电源</text>
+  <rect x="40" y="400" width="800" height="46" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1.2"/>
+  <text x="64" y="430" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412">一条通道约 20 根上下；16 条通道就是三百多根——这就是主控封装上一圈密密麻麻的焊盘。</text>
+</svg>

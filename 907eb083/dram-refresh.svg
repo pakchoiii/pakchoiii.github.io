@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <marker id="arrGray" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L8 3 L0 6 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrRed" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L8 3 L0 6 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="720" height="360" fill="#ffffff"/>
+
+  <!-- 坐标轴 -->
+  <line x1="80" y1="300" x2="690" y2="300" stroke="#334155" stroke-width="2"/>
+  <line x1="80" y1="300" x2="80" y2="50" stroke="#334155" stroke-width="2"/>
+  <text x="690" y="326" text-anchor="end" fill="#334155" font-size="14">时间</text>
+  <text x="80" y="40" text-anchor="middle" fill="#334155" font-size="14">电容电压</text>
+
+  <!-- 充满电压线 -->
+  <line x1="80" y1="70" x2="690" y2="70" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="80" y="62" text-anchor="middle" fill="#64748b" font-size="12">充满电压</text>
+
+  <!-- 数据丢失阈值线 -->
+  <line x1="80" y1="230" x2="690" y2="230" stroke="#dc2626" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="80" y="250" text-anchor="middle" fill="#dc2626" font-size="12">数据丢失阈值</text>
+
+  <!-- 锯齿波：漏电衰减 + 刷新补电 -->
+  <path d="M100 70 Q 150 90 200 180 L 200 70 Q 250 90 300 180 L 300 70 Q 350 90 400 180 L 400 70 Q 450 90 500 180 L 500 70 Q 550 90 600 180 L 600 70 Q 650 90 680 170"
+        fill="none" stroke="#2563eb" stroke-width="3"/>
+
+  <!-- 漏电标注 -->
+  <path d="M120 100 q 18 18 26 48" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrGray)"/>
+  <text x="118" y="92" fill="#64748b" font-size="12">漏电（电荷流失）</text>
+
+  <!-- 刷新标注 -->
+  <line x1="200" y1="180" x2="200" y2="70" stroke="#dc2626" stroke-width="2" marker-end="url(#arrRed)"/>
+  <text x="210" y="130" fill="#dc2626" font-size="12">刷新（补电）</text>
+</svg>

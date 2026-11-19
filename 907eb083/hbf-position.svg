@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="720" height="420" fill="#ffffff"/>
+
+  <text x="360" y="28" text-anchor="middle" fill="#1e293b" font-size="16" font-weight="bold">HBF 的定位：容量与带宽的平衡点</text>
+
+  <!-- 坐标轴 -->
+  <line x1="100" y1="380" x2="690" y2="380" stroke="#334155" stroke-width="2"/>
+  <line x1="100" y1="380" x2="100" y2="50" stroke="#334155" stroke-width="2"/>
+  <polygon points="690,380 676,374 676,386" fill="#334155"/>
+  <polygon points="100,50 94,64 106,64" fill="#334155"/>
+
+  <text x="395" y="410" text-anchor="middle" fill="#334155" font-size="14" font-weight="bold">容量 →（越大越靠右）</text>
+  <text x="100" y="40" text-anchor="middle" fill="#334155" font-size="14" font-weight="bold">带宽 ↑</text>
+
+  <!-- X 轴刻度（容量，对数） -->
+  <g font-size="11" fill="#94a3b8" text-anchor="middle">
+    <text x="100" y="398">1GB</text>
+    <text x="216" y="398">10GB</text>
+    <text x="332" y="398">100GB</text>
+    <text x="448" y="398">1TB</text>
+    <text x="564" y="398">10TB</text>
+    <text x="680" y="398">100TB</text>
+  </g>
+
+  <!-- Y 轴刻度（带宽，对数） -->
+  <g font-size="11" fill="#94a3b8" text-anchor="end">
+    <text x="92" y="384">1GB/s</text>
+    <text x="92" y="304">10GB/s</text>
+    <text x="92" y="224">100GB/s</text>
+    <text x="92" y="144">1TB/s</text>
+    <text x="92" y="64">10TB/s</text>
+  </g>
+
+  <!-- HBM 与 SSD 之间的空白（斜虚线） -->
+  <path d="M530 292 L360 150" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="448" y="228" fill="#64748b" font-size="12" transform="rotate(-38 448 228)">HBM 与 SSD 之间的空白</text>
+
+  <!-- 数据点 -->
+  <!-- HBM -->
+  <circle cx="310" cy="116" r="11" fill="#0d9488"/>
+  <text x="310" y="95" text-anchor="middle" fill="#0d9488" font-size="14" font-weight="bold">HBM</text>
+
+  <!-- HBF（高亮） -->
+  <circle cx="414" cy="102" r="18" fill="#ea580c" opacity="0.25"/>
+  <circle cx="414" cy="102" r="11" fill="#ea580c"/>
+  <text x="414" y="80" text-anchor="middle" fill="#ea580c" font-size="15" font-weight="bold">HBF</text>
+
+  <!-- DRAM -->
+  <circle cx="274" cy="235" r="11" fill="#2563eb"/>
+  <text x="274" y="262" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="bold">DRAM</text>
+
+  <!-- NAND SSD -->
+  <circle cx="554" cy="288" r="11" fill="#64748b"/>
+  <text x="554" y="316" text-anchor="middle" fill="#64748b" font-size="14" font-weight="bold">NAND SSD</text>
+</svg>

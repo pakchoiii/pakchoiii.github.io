@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" width="880" height="440">
+  <defs>
+    <marker id="arr0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#ea580c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="880" height="440" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">你想改的是 4 KB，能擦的是几 MB</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">NAND 的擦除单位是 Block，不是 Page</text>
+  <text x="40" y="96" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#1e293b">一个 Block</text>
+  <text x="150" y="96" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">（示意，TLC 一个 Block 常见几百个 Page）</text>
+  <rect x="40" y="112" width="560" height="244" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6"/>
+  <rect x="56" y="128" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="124" y="128" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="192" y="128" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="260" y="128" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="328" y="128" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="396" y="128" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="464" y="128" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="532" y="128" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="56" y="173" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="124" y="173" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="192" y="173" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="260" y="173" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="328" y="173" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="396" y="173" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="464" y="173" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="532" y="173" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="56" y="218" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="124" y="218" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="192" y="218" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="260" y="218" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="328" y="218" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="396" y="218" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="464" y="218" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="532" y="218" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="56" y="263" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="124" y="263" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="192" y="263" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="260" y="263" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="328" y="263" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="396" y="263" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="464" y="263" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="532" y="263" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="56" y="308" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="124" y="308" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="192" y="308" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="260" y="308" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="328" y="308" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="396" y="308" width="60" height="36" rx="4" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="464" y="308" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="532" y="308" width="60" height="36" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="192" y="218" width="60" height="36" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="222" y="241" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#2563eb">1 页</text>
+  <text x="320" y="392" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">一个 Block：擦除的最小单位；一个 Page：读写的最小单位</text>
+  <text x="730" y="136" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" text-anchor="middle" fill="#ea580c">改 1 页</text>
+  <text x="730" y="158" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" text-anchor="middle" fill="#ea580c">＝ 擦 1 整块</text>
+  <text x="730" y="184" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">擦掉整块，再重写整块</text>
+  <line x1="676" y1="214" x2="786" y2="214" stroke="#ea580c" stroke-width="1.4" marker-end="url(#arr0)"/>
+  <text x="730" y="240" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#ea580c">代价：几十倍写入量</text>
+  <line x1="676" y1="262" x2="786" y2="262" stroke="#e2e8f0" stroke-width="1" stroke-linecap="round"/>
+  <text x="730" y="288" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">所以真实现场不会这么做，</text>
+  <text x="730" y="308" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#2563eb">而是把新数据写到别处去</text>
+</svg>

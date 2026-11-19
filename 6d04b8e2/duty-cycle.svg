@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 335" width="880" height="335">
+  <rect width="880" height="335" rx="16" fill="#ffffff"/>
+  <text x="40" y="40" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">占空比偏一点，窗口就窄一截</text>
+  <text x="40" y="64" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b">时钟的两个半边不等宽，等效于每个周期都少掉一点可用时间</text>
+
+  <!-- 理想 -->
+  <text x="40" y="106" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#2563eb">理想</text>
+  <text x="40" y="124" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">高 50% / 低 50%</text>
+  <path d="M180,150 L180,104 L280,104 L280,150 L380,150 L380,104 L480,104 L480,150 L580,150 L580,104 L680,104 L680,150 L780,150"
+        fill="none" stroke="#2563eb" stroke-width="2.6"/>
+  <g stroke="#93c5fd" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="280" y1="96" x2="280" y2="158"/>
+    <line x1="380" y1="96" x2="380" y2="158"/>
+    <line x1="480" y1="96" x2="480" y2="158"/>
+  </g>
+
+  <!-- 实际 -->
+  <text x="40" y="222" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#ea580c">实际</text>
+  <text x="40" y="240" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">高 40% / 低 60%</text>
+  <path d="M180,266 L180,220 L260,220 L260,266 L380,266 L380,220 L460,220 L460,266 L580,266 L580,220 L660,220 L660,266 L780,266"
+        fill="none" stroke="#ea580c" stroke-width="2.6"/>
+  <g stroke="#fdba74" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="260" y1="212" x2="260" y2="274"/>
+    <line x1="380" y1="212" x2="380" y2="274"/>
+    <line x1="460" y1="212" x2="460" y2="274"/>
+  </g>
+
+  <!-- 沿位置对比 -->
+  <line x1="280" y1="150" x2="280" y2="212" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="260" y1="266" x2="260" y2="286" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="280" y1="278" x2="280" y2="294" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="260" y1="286" x2="280" y2="286" stroke="#ea580c" stroke-width="1.6"/>
+  <path d="M260,286 L266,282 M260,286 L266,290" fill="none" stroke="#ea580c" stroke-width="1.6"/>
+  <path d="M280,286 L274,282 M280,286 L274,290" fill="none" stroke="#ea580c" stroke-width="1.6"/>
+  <text x="300" y="290" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#c2410c">这个沿提前了 → 采样窗口被吃掉一块</text>
+
+  <text x="440" y="322" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#94a3b8" text-anchor="middle">DCC 做的就是把这两个半边调回相等，让每个沿都回到该在的位置</text>
+</svg>

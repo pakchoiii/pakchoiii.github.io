@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 390" width="880" height="390">
+  <rect width="880" height="390" rx="16" fill="#ffffff"/>
+
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">读电压的三个来源：谁测、谁下发、谁给软信息</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">越往右越贴近「此刻这一页」，代价是越往右越吃时间或算力</text>
+
+  <!-- 卡片一：厂商 -->
+  <rect x="40" y="104" width="250" height="196" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.4"/>
+  <text x="56" y="130" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8">事前 · 厂商标定</text>
+  <text x="56" y="168" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#475569">Read Retry 表</text>
+  <line x1="56" y1="182" x2="274" y2="182" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="56" y="210" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">实验室标好几十套偏移</text>
+  <text x="56" y="234" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">主控只负责挑一套</text>
+  <text x="56" y="272" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">→ 这批大概什么情形</text>
+
+  <!-- 卡片二：主控 -->
+  <rect x="315" y="104" width="250" height="196" rx="10" fill="#faf5ff" stroke="#d8b4fe" stroke-width="1.4"/>
+  <text x="331" y="130" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#a78bfa">运行中 · 主控自己算</text>
+  <text x="331" y="168" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#7c3aed">Vth Tracking</text>
+  <line x1="331" y1="182" x2="549" y2="182" stroke="#e9d5ff" stroke-width="1"/>
+  <text x="331" y="210" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">哨兵页、统计、解码反馈</text>
+  <text x="331" y="234" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">从错误反推峰偏了多少</text>
+  <text x="331" y="272" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#7c3aed">→ 此刻偏了多少</text>
+
+  <!-- 卡片三：die -->
+  <rect x="590" y="104" width="250" height="196" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="1.4"/>
+  <text x="606" y="130" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#fb923c">每次读前 · 在 die 里</text>
+  <text x="606" y="168" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#ea580c">AVD 自动谷检测</text>
+  <line x1="606" y1="182" x2="824" y2="182" stroke="#fed7aa" stroke-width="1"/>
+  <text x="606" y="210" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">Assist Read 粗定位</text>
+  <text x="606" y="234" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">OVS 多读两遍给置信度</text>
+  <text x="606" y="272" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">→ 这一页该用哪个电压</text>
+
+  <!-- 底部结论 -->
+  <rect x="40" y="316" width="800" height="66" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="64" y="344" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#1e293b">三层不是替代关系，是不同时间尺度上的接力。</text>
+  <text x="64" y="368" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">企业盘里三层同时在跑——新的一层上来，旧的不会关掉。</text>
+</svg>

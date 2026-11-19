@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 320" width="880" height="320">
+  <defs>
+    <marker id="arr0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="arr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="880" height="320" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">换一个视角：NAND 就是一条通信信道</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">只不过这条信道的噪声，会随温度和年龄慢慢变</text>
+  <rect x="40" y="120" width="140" height="88" rx="10" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>
+  <text x="110.0" y="154" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#64748b">要写的数据</text>
+  <text x="110.0" y="180" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">发送端</text>
+  <line x1="184" y1="164" x2="202" y2="164" stroke="#64748b" stroke-width="1.3" marker-end="url(#arr0)"/>
+  <rect x="202" y="120" width="140" height="88" rx="10" fill="#ffffff" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="272.0" y="154" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#ea580c">编程 / 读取</text>
+  <text x="272.0" y="180" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">调制解调</text>
+  <line x1="346" y1="164" x2="364" y2="164" stroke="#64748b" stroke-width="1.3" marker-end="url(#arr1)"/>
+  <rect x="364" y="120" width="140" height="88" rx="10" fill="#ffffff" stroke="#dc2626" stroke-width="1.4"/>
+  <text x="434.0" y="154" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#dc2626">漂移 + 噪声</text>
+  <text x="434.0" y="180" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">信道</text>
+  <line x1="508" y1="164" x2="526" y2="164" stroke="#64748b" stroke-width="1.3" marker-end="url(#arr2)"/>
+  <rect x="526" y="120" width="140" height="88" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="596.0" y="154" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#2563eb">ECC 解码</text>
+  <text x="596.0" y="180" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">接收端</text>
+  <line x1="670" y1="164" x2="688" y2="164" stroke="#64748b" stroke-width="1.3" marker-end="url(#arr3)"/>
+  <rect x="688" y="120" width="140" height="88" rx="10" fill="#ffffff" stroke="#0d9488" stroke-width="1.4"/>
+  <text x="758.0" y="154" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#0d9488">软信息 + 跟踪</text>
+  <text x="758.0" y="180" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">均衡</text>
+  <rect x="40" y="232" width="800" height="62" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+  <text x="64" y="258" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#1e293b">很多「存储问题」，换个视角就是通信问题：信噪比、判决门限、均衡、信道跟踪。</text>
+  <text x="64" y="282" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">做 NAND 的固件工程师，其实是在给一条会老化的信道写一个自适应接收机。</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" width="880" height="440">
+  <rect width="880" height="440" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">今天的 NAND 长什么样（截至 2026 年）</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">份量、层数、份额：三个不同的维度，别混着看</text>
+  <text x="40" y="100" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">按位元算的介质结构</text>
+  <rect x="40" y="112" width="412.0" height="44" rx="6" fill="#ea580c" fill-opacity="0.85"/>
+  <text x="248.0" y="140" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#ffffff">TLC 约五成</text>
+  <rect x="456.0" y="112" width="220.00000000000003" height="44" rx="6" fill="#7c3aed" fill-opacity="0.85"/>
+  <text x="568.0" y="140" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#ffffff">QLC 约 28%</text>
+  <rect x="680.0" y="112" width="156.0" height="44" rx="6" fill="#64748b" fill-opacity="0.85"/>
+  <text x="760.0" y="140" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#ffffff">SLC / MLC 等</text>
+  <text x="40" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">层数：2xx → 3xx，三星、铠侠、美光、海力士、长存各一套命名</text>
+  <text x="40" y="236" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">营收份额</text>
+  <rect x="40" y="286.5" width="66" height="93.5" rx="4" fill="#2563eb" fill-opacity="0.85"/>
+  <text x="73" y="278.5" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#2563eb">27.5</text>
+  <text x="73" y="398" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">三星</text>
+  <rect x="170" y="317.1" width="66" height="62.9" rx="4" fill="#0d9488" fill-opacity="0.85"/>
+  <text x="203" y="309.1" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#0d9488">18.5</text>
+  <text x="203" y="398" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">SK 海力士</text>
+  <rect x="300" y="329.0" width="66" height="51.0" rx="4" fill="#7c3aed" fill-opacity="0.85"/>
+  <text x="333" y="321.0" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#7c3aed">15.0</text>
+  <text x="333" y="398" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">长江存储</text>
+  <rect x="430" y="331.04" width="66" height="48.96" rx="4" fill="#ea580c" fill-opacity="0.85"/>
+  <text x="463" y="323.04" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#ea580c">14.4</text>
+  <text x="463" y="398" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">铠侠</text>
+  <rect x="560" y="335.8" width="66" height="44.199999999999996" rx="4" fill="#64748b" fill-opacity="0.85"/>
+  <text x="593" y="327.8" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#64748b">13.0</text>
+  <text x="593" y="398" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">美光</text>
+  <rect x="690" y="340.22" width="66" height="39.779999999999994" rx="4" fill="#dc2626" fill-opacity="0.85"/>
+  <text x="723" y="332.22" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#dc2626">11.7</text>
+  <text x="723" y="398" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">闪迪</text>
+  <text x="40" y="428" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8">（2026 年 Q2 营收口径，CFM 数据；份额随季度波动，只作量级参考）</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 411" width="880" height="411">
+  <rect width="880" height="411" rx="16" fill="#ffffff"/>
+  <text x="40" y="40" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">一堆互相独立的随机因素，叠加出钟形</text>
+
+  <!-- 卡片 1：随机杂质 -->
+  <rect x="50" y="66" width="240" height="112" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <g fill="#8b5cf6">
+    <circle cx="88" cy="102" r="4"/><circle cx="126" cy="94" r="3"/><circle cx="152" cy="120" r="4.5"/>
+    <circle cx="100" cy="140" r="3"/><circle cx="186" cy="106" r="3.5"/><circle cx="212" cy="134" r="4"/>
+    <circle cx="168" cy="86" r="2.5"/><circle cx="240" cy="100" r="3"/>
+  </g>
+  <text x="170" y="168" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#5b21b6" text-anchor="middle">随机杂质与缺陷</text>
+
+  <!-- 卡片 2：氧化层厚度 -->
+  <rect x="320" y="66" width="240" height="112" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <path d="M344,110 C368,84 392,136 416,110 C440,84 464,136 488,110 C512,84 528,124 544,110"
+        fill="none" stroke="#2563eb" stroke-width="2.5"/>
+  <path d="M344,136 C368,110 392,162 416,136 C440,110 464,162 488,136 C512,110 528,150 544,136"
+        fill="none" stroke="#93c5fd" stroke-width="2.5"/>
+  <text x="440" y="168" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#1e40af" text-anchor="middle">氧化层厚度波动</text>
+
+  <!-- 卡片 3：隧穿概率 -->
+  <rect x="590" y="66" width="240" height="112" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <line x1="696" y1="84" x2="696" y2="146" stroke="#94a3b8" stroke-width="5" stroke-dasharray="6 5"/>
+  <line x1="628" y1="115" x2="682" y2="115" stroke="#ea580c" stroke-width="2.5"/>
+  <path d="M676,109 L684,115 L676,121" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+  <line x1="712" y1="115" x2="766" y2="115" stroke="#ea580c" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <path d="M760,109 L768,115 L760,121" fill="none" stroke="#ea580c" stroke-width="2.5"/>
+  <text x="710" y="168" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#c2410c" text-anchor="middle">隧穿概率是随机的</text>
+
+  <!-- 汇聚箭头：三条引线交汇于峰顶正上方的同一点，箭头压在交点下方 -->
+  <path d="M170,186 L170,208 L440,244" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M710,186 L710,208 L440,244" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M440,186 L440,246" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M434,238 L440,248 L446,238" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+
+  <!-- 钟形曲线 -->
+  <line x1="180" y1="376" x2="700" y2="376" stroke="#94a3b8" stroke-width="1.5"/>
+  <path d="M200,376 C310,376 350,256 440,256 C530,256 570,376 680,376"
+        fill="#eff6ff" stroke="#2563eb" stroke-width="2.5"/>
+  <line x1="440" y1="256" x2="440" y2="376" stroke="#2563eb" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <circle cx="440" cy="256" r="4" fill="#2563eb"/>
+  <text x="452" y="322" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#1e40af">均值</text>
+  <text x="700" y="398" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b" text-anchor="end">Vth →</text>
+  <text x="180" y="398" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b">Cell 数量 ↑</text>
+  <text x="600" y="300" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#334155">上百万个 Cell</text>
+  <text x="600" y="318" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#334155">统计出来的形状</text>
+</svg>

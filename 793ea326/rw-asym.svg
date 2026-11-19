@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400">
+  <rect width="880" height="400" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">读和写，不在一个时间尺度上</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">横轴取对数——不然上面两条会缩成一个点</text>
+  <rect x="40" y="104" width="800" height="52" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="58" y="126" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#2563eb">读 TLC</text>
+  <text x="58" y="146" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">tR ≈ 45 µs</text>
+  <rect x="250" y="116" width="147.616722860305" height="28" rx="5" fill="#2563eb" stroke="#2563eb" stroke-width="1.2" fill-opacity="0.16"/>
+  <text x="389.616722860305" y="136" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="end" fill="#2563eb">45 µs</text>
+  <rect x="40" y="164" width="800" height="52" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="58" y="186" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#0d9488">读 QLC</text>
+  <text x="58" y="206" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">tR ≈ 70 µs</text>
+  <rect x="250" y="176" width="190.98011831028145" height="28" rx="5" fill="#0d9488" stroke="#0d9488" stroke-width="1.2" fill-opacity="0.16"/>
+  <text x="432.98011831028145" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="end" fill="#0d9488">70 µs</text>
+  <rect x="40" y="224" width="800" height="52" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="58" y="246" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">写 TLC</text>
+  <text x="58" y="266" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">tPROG ≈ 600 µs</text>
+  <rect x="250" y="236" width="401.8368521670151" height="28" rx="5" fill="#ea580c" stroke="#ea580c" stroke-width="1.2" fill-opacity="0.16"/>
+  <text x="643.8368521670151" y="256" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="end" fill="#ea580c">600 µs</text>
+  <rect x="40" y="284" width="800" height="52" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="58" y="306" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#dc2626">写 QLC</text>
+  <text x="58" y="326" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">tPROG ≈ 1.6 ms（两遍编程）</text>
+  <rect x="250" y="296" width="498.09971757901917" height="28" rx="5" fill="#dc2626" stroke="#dc2626" stroke-width="1.2" fill-opacity="0.16"/>
+  <text x="740.0997175790192" y="316" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="end" fill="#dc2626">1600 µs</text>
+  <line x1="250.0" y1="350" x2="250.0" y2="356" stroke="#cbd5e1" stroke-width="1" stroke-linecap="round"/>
+  <text x="250.0" y="374" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">10 µs</text>
+  <line x1="475.9857546315687" y1="350" x2="475.9857546315687" y2="356" stroke="#cbd5e1" stroke-width="1" stroke-linecap="round"/>
+  <text x="475.9857546315687" y="374" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">100 µs</text>
+  <line x1="701.9715092631374" y1="350" x2="701.9715092631374" y2="356" stroke="#cbd5e1" stroke-width="1" stroke-linecap="round"/>
+  <text x="701.9715092631374" y="374" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">1000 µs</text>
+  <text x="40" y="374" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8">对数轴</text>
+</svg>

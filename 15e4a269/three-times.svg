@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="880" height="420">
+  <rect width="880" height="420" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">三个动作，差了两个数量级</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">读最快、写次之、擦最慢——而且擦一次是一整块</text>
+  <text x="40" y="116" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#2563eb">读一页  tR</text>
+  <text x="40" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">几十微秒</text>
+  <rect x="220" y="102" width="110" height="34" rx="6" fill="#2563eb" fill-opacity="0.88"/>
+  <text x="342" y="124" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">40 ~ 100 μs（量级，随代次变化）</text>
+  <text x="40" y="212" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#0d9488">写一页  tProg</text>
+  <text x="40" y="234" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">几百微秒</text>
+  <rect x="220" y="198" width="330" height="34" rx="6" fill="#0d9488" fill-opacity="0.88"/>
+  <text x="562" y="220" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">0.3 ~ 0.7 ms，ISPP 一步一验证</text>
+  <text x="40" y="308" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#ea580c">擦一块  tBERS</text>
+  <text x="40" y="330" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">毫秒级</text>
+  <rect x="220" y="294" width="620" height="34" rx="6" fill="#ea580c" fill-opacity="0.88"/>
+  <text x="220" y="350" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">3 ~ 10 ms，且必须按 Block 整体进行</text>
+  <line x1="220" y1="372" x2="840" y2="372" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="220" y="394" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8">同一条时间轴（非等比，只看相对量级）</text>
+</svg>

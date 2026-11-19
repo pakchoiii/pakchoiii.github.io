@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400">
+  <defs>
+    <marker id="arr0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="880" height="400" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">读一页，总线上的动作是排好的</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">命令 → 地址 → 等 tR → 数据，四段一步都不能省</text>
+  <rect x="40" y="140" width="130" height="74" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="105.0" y="170" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#2563eb">命令周期</text>
+  <text x="105.0" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">CLE 拉高</text>
+  <text x="105.0" y="238" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#334155">DQ 送 1 字节命令码</text>
+  <rect x="184" y="140" width="250" height="74" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="1.4"/>
+  <text x="309.0" y="170" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#0d9488">地址周期</text>
+  <text x="309.0" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">ALE 拉高</text>
+  <text x="309.0" y="238" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#334155">送 5 个字节地址</text>
+  <rect x="448" y="140" width="150" height="74" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="1.4"/>
+  <rect x="448" y="140" width="150" height="74" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.4"/>
+  <text x="523.0" y="170" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#64748b">等 tR</text>
+  <text x="523.0" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">总线空闲</text>
+  <text x="523.0" y="238" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#334155">阵列内部读取</text>
+  <rect x="612" y="140" width="180" height="74" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="702.0" y="170" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#ea580c">数据周期</text>
+  <text x="702.0" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">RE 连续跳</text>
+  <text x="702.0" y="238" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#334155">一页 16 KB 搬出去</text>
+  <line x1="40" y1="278" x2="800" y2="278" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr0)"/>
+  <text x="800" y="302" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="end" fill="#94a3b8">时间</text>
+  <rect x="40" y="330" width="800" height="40" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="64" y="356" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">命令码决定「做什么」，地址决定「在哪」，CLE / ALE 决定这一拍送的是命令还是地址。</text>
+</svg>

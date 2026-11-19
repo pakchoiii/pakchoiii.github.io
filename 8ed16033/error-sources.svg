@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400">
+  <rect width="880" height="400" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">一块「好盘」读出来也会有错</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">三种力一直在把 Vth 往两边推，谁也没停过</text>
+  <rect x="40" y="92" width="260" height="200" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="60" y="122" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#ea580c">retention</text>
+  <line x1="60" y1="136" x2="116" y2="136" stroke="#ea580c" stroke-width="2.4" stroke-linecap="round"/>
+  <text x="60" y="172" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">电子自己漏出去</text>
+  <text x="60" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">温度每升一档，</text>
+  <text x="60" y="220" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">保持时间指数级缩短</text>
+  <rect x="310" y="92" width="260" height="200" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="330" y="122" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#2563eb">read disturb</text>
+  <line x1="330" y1="136" x2="386" y2="136" stroke="#2563eb" stroke-width="2.4" stroke-linecap="round"/>
+  <text x="330" y="172" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">读隔壁的时候</text>
+  <text x="330" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">自己也挨了一点高压</text>
+  <text x="330" y="220" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">被轻微编程了</text>
+  <rect x="580" y="92" width="260" height="200" rx="12" fill="#ffffff" stroke="#7c3aed" stroke-width="1.4"/>
+  <text x="600" y="122" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#7c3aed">磨损</text>
+  <line x1="600" y1="136" x2="656" y2="136" stroke="#7c3aed" stroke-width="2.4" stroke-linecap="round"/>
+  <text x="600" y="172" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">反复擦写让氧化层</text>
+  <text x="600" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">长出缺陷</text>
+  <text x="600" y="220" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">漏得更快、更容易出错</text>
+  <rect x="40" y="312" width="800" height="60" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2"/>
+  <text x="64" y="348" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#1e293b">三种力的共同点：它们都在改 Vth。峰一挪，判断线就可能落在错的一侧。</text>
+</svg>

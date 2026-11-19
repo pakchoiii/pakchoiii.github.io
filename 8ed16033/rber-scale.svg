@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" width="880" height="430">
+  <rect width="880" height="430" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">裸 NAND 的错误率，比机械硬盘高好几个数量级</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">所以 ECC 不是锦上添花，是能不能当存储用的前提</text>
+  <line x1="210.0" y1="104" x2="210.0" y2="296" stroke="#e2e8f0" stroke-width="1" stroke-linecap="round"/>
+  <text x="210.0" y="318" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">1e-16</text>
+  <line x1="267.3333333333333" y1="104" x2="267.3333333333333" y2="296" stroke="#e2e8f0" stroke-width="1" stroke-linecap="round"/>
+  <text x="267.3333333333333" y="318" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">1e-14</text>
+  <line x1="324.6666666666667" y1="104" x2="324.6666666666667" y2="296" stroke="#e2e8f0" stroke-width="1" stroke-linecap="round"/>
+  <text x="324.6666666666667" y="318" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">1e-12</text>
+  <line x1="382.0" y1="104" x2="382.0" y2="296" stroke="#e2e8f0" stroke-width="1" stroke-linecap="round"/>
+  <text x="382.0" y="318" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">1e-10</text>
+  <line x1="439.33333333333337" y1="104" x2="439.33333333333337" y2="296" stroke="#e2e8f0" stroke-width="1" stroke-linecap="round"/>
+  <text x="439.33333333333337" y="318" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">1e-8</text>
+  <line x1="496.6666666666667" y1="104" x2="496.6666666666667" y2="296" stroke="#e2e8f0" stroke-width="1" stroke-linecap="round"/>
+  <text x="496.6666666666667" y="318" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">1e-6</text>
+  <line x1="554.0" y1="104" x2="554.0" y2="296" stroke="#e2e8f0" stroke-width="1" stroke-linecap="round"/>
+  <text x="554.0" y="318" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">1e-4</text>
+  <line x1="611.3333333333333" y1="104" x2="611.3333333333333" y2="296" stroke="#e2e8f0" stroke-width="1" stroke-linecap="round"/>
+  <text x="611.3333333333333" y="318" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">1e-2</text>
+  <text x="40" y="142" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#64748b">机械硬盘</text>
+  <rect x="232.93333333333334" y="126" width="8.599999999999994" height="24" rx="5" fill="#64748b" fill-opacity="0.85"/>
+  <text x="668" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#334155">约 1e-15</text>
+  <text x="668" y="156" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8">不可纠错率</text>
+  <text x="40" y="190" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#0d9488">SLC</text>
+  <rect x="554.0" y="174" width="11.466666666666697" height="24" rx="5" fill="#0d9488" fill-opacity="0.85"/>
+  <text x="668" y="186" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#334155">约 1e-4</text>
+  <text x="668" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8">单片需要 ECC 兜底</text>
+  <text x="40" y="238" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#ea580c">TLC</text>
+  <rect x="582.6666666666667" y="222" width="40.13333333333321" height="24" rx="5" fill="#ea580c" fill-opacity="0.85"/>
+  <text x="668" y="234" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#334155">约 1e-3 ~ 1e-2</text>
+  <text x="668" y="252" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8">寿命末段逼近上界</text>
+  <text x="40" y="286" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#7c3aed">QLC</text>
+  <rect x="594.1333333333333" y="270" width="45.866666666666674" height="24" rx="5" fill="#7c3aed" fill-opacity="0.85"/>
+  <text x="668" y="282" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#334155">更差</text>
+  <text x="668" y="300" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8">且随磨损继续恶化</text>
+  <rect x="40" y="340" width="800" height="66" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="1.2"/>
+  <text x="64" y="368" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#9a3412">差 11 个数量级是什么概念：一块 1 TB 的 TLC 盘，裸读一次就可能错上百个 bit。</text>
+  <text x="64" y="392" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412">没有 ECC，这种介质根本不能当存储用。（量级示意，随工艺、代次与磨损状态变化）</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" width="880" height="380">
+  <rect width="880" height="380" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">总线有一大半时间是空的</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">tR 期间没有数据流动；流水起来之后，空闲被填掉</text>
+  <text x="40" y="112" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#1e293b">一页一停</text>
+  <text x="40" y="132" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">读完一页等下一轮</text>
+  <text x="40" y="176" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">占空比 约 30%</text>
+  <rect x="200" y="148" width="20" height="44" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="210.0" y="175" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">C</text>
+  <rect x="220" y="148" width="90" height="44" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="265.0" y="175" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">tR</text>
+  <rect x="310" y="148" width="66" height="44" rx="5" fill="#fff7ed" stroke="#ea580c" stroke-width="1.2"/>
+  <text x="343.0" y="175" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#ea580c">数据</text>
+  <rect x="390" y="148" width="20" height="44" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="400.0" y="175" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">C</text>
+  <rect x="410" y="148" width="90" height="44" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="455.0" y="175" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">tR</text>
+  <rect x="500" y="148" width="66" height="44" rx="5" fill="#fff7ed" stroke="#ea580c" stroke-width="1.2"/>
+  <text x="533.0" y="175" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#ea580c">数据</text>
+  <rect x="580" y="148" width="20" height="44" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="590.0" y="175" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">C</text>
+  <rect x="600" y="148" width="90" height="44" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="645.0" y="175" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">tR</text>
+  <rect x="690" y="148" width="66" height="44" rx="5" fill="#fff7ed" stroke="#ea580c" stroke-width="1.2"/>
+  <text x="723.0" y="175" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#ea580c">数据</text>
+  <text x="40" y="232" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#1e293b">流水起来</text>
+  <text x="40" y="252" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">cache read / 多 CE 交错</text>
+  <text x="40" y="296" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">占空比 约 85%</text>
+  <rect x="200" y="268" width="20" height="44" rx="5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="210.0" y="295" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">C</text>
+  <rect x="220" y="268" width="66" height="44" rx="5" fill="#fff7ed" stroke="#ea580c" stroke-width="1.2"/>
+  <rect x="288" y="268" width="66" height="44" rx="5" fill="#fff7ed" stroke="#ea580c" stroke-width="1.2"/>
+  <rect x="356" y="268" width="66" height="44" rx="5" fill="#fff7ed" stroke="#ea580c" stroke-width="1.2"/>
+  <text x="321" y="258" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#ea580c">数据不间断</text>
+  <rect x="424" y="268" width="290" height="44" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="569" y="295" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#94a3b8">下一批 tR 藏在这段数据后面</text>
+  <text x="40" y="356" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">同一批硬件、同样的 tR，只是把等待塞到数据背后，带宽就翻了一倍多。</text>
+</svg>

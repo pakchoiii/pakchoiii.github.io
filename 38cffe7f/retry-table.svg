@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 450" width="880" height="450">
+  <rect width="880" height="450" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">重读表：不是一组电压，是一张组合表</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">每一行是一整套判断电压的偏移方案，按失效模式挑一行试</text>
+  <text x="40" y="100" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">条目</text>
+  <text x="140" y="100" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">Vref 偏移方案（示意）</text>
+  <text x="640" y="100" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">典型场景</text>
+  <rect x="40" y="118" width="800" height="48" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="56" y="148" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">#0  默认</text>
+  <text x="140" y="148" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">全 0（出厂值）</text>
+  <text x="640" y="148" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">刚写完、常温</text>
+  <rect x="40" y="172" width="800" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="56" y="202" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">#1  左移小</text>
+  <text x="140" y="202" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">全部 −1 档</text>
+  <text x="640" y="202" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">轻度 retention</text>
+  <rect x="40" y="226" width="800" height="48" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="56" y="256" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">#2  左移大</text>
+  <text x="140" y="256" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">全部 −3 档</text>
+  <text x="640" y="256" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">高温存放之后</text>
+  <rect x="40" y="280" width="800" height="48" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="56" y="310" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#2563eb">#3  右移</text>
+  <text x="140" y="310" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">全部 +2 档</text>
+  <text x="640" y="310" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">同一块反复读之后</text>
+  <rect x="40" y="334" width="800" height="48" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="56" y="364" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#7c3aed">#4  拉开</text>
+  <text x="140" y="364" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">中间几档外扩</text>
+  <text x="640" y="364" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">峰变宽、相邻重叠</text>
+  <rect x="40" y="392" width="800" height="42" rx="8" fill="#f0fdfa" stroke="#5eead4" stroke-width="1.2"/>
+  <text x="64" y="418" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#115e59">表由厂商提供，条目数从几十到上百条不等；主控要做的事是——挑对那一条。</text>
+</svg>

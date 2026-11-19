@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 460" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="0" y="0" width="720" height="460" fill="#ffffff"/>
+
+  <!-- 封装基板 -->
+  <rect x="60" y="400" width="600" height="40" fill="#64748b"/>
+  <text x="360" y="425" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">封装基板（Substrate）</text>
+
+  <!-- 中介层 -->
+  <rect x="60" y="340" width="600" height="60" fill="#94a3b8"/>
+  <text x="360" y="375" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">中介层（Interposer）</text>
+
+  <!-- CPU / GPU -->
+  <rect x="100" y="270" width="180" height="70" fill="#2563eb"/>
+  <text x="190" y="302" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">CPU / GPU</text>
+  <text x="190" y="322" text-anchor="middle" fill="#ffffff" font-size="11">计算芯片</text>
+
+  <!-- UCIe 互连：CPU/GPU 与 HBF 堆栈之间 -->
+  <line x1="280" y1="288" x2="400" y2="288" stroke="#1e293b" stroke-width="2"/>
+  <line x1="280" y1="298" x2="400" y2="298" stroke="#1e293b" stroke-width="2"/>
+  <line x1="280" y1="308" x2="400" y2="308" stroke="#1e293b" stroke-width="2"/>
+  <text x="340" y="278" text-anchor="middle" fill="#1e293b" font-size="13" font-weight="bold">UCIe 互连</text>
+
+  <!-- HBF 堆栈：8 层 NAND Die -->
+  <rect x="400" y="312" width="180" height="27" fill="#ea580c"/>
+  <rect x="400" y="284" width="180" height="27" fill="#ea580c"/>
+  <rect x="400" y="256" width="180" height="27" fill="#ea580c"/>
+  <rect x="400" y="228" width="180" height="27" fill="#ea580c"/>
+  <rect x="400" y="200" width="180" height="27" fill="#ea580c"/>
+  <rect x="400" y="172" width="180" height="27" fill="#ea580c"/>
+  <rect x="400" y="144" width="180" height="27" fill="#ea580c"/>
+  <rect x="400" y="116" width="180" height="27" fill="#ea580c"/>
+  <text x="490" y="218" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">NAND Die</text>
+  <text x="386" y="240" text-anchor="end" fill="#ea580c" font-size="13" font-weight="bold">×8 / ×16</text>
+
+  <!-- TSV 硅通孔 -->
+  <line x1="440" y1="116" x2="440" y2="340" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3"/>
+  <line x1="490" y1="116" x2="490" y2="340" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3"/>
+  <line x1="540" y1="116" x2="540" y2="340" stroke="#1e293b" stroke-width="2" stroke-dasharray="3 3"/>
+  <line x1="540" y1="116" x2="600" y2="94" stroke="#1e293b" stroke-width="1"/>
+  <text x="612" y="94" fill="#1e293b" font-size="13" font-weight="bold">TSV（硅通孔）</text>
+
+  <!-- 微凸点 -->
+  <circle cx="130" cy="340" r="4" fill="#1e293b"/>
+  <circle cx="190" cy="340" r="4" fill="#1e293b"/>
+  <circle cx="250" cy="340" r="4" fill="#1e293b"/>
+  <circle cx="440" cy="340" r="4" fill="#1e293b"/>
+  <circle cx="490" cy="340" r="4" fill="#1e293b"/>
+  <circle cx="540" cy="340" r="4" fill="#1e293b"/>
+
+  <!-- 堆栈名称 -->
+  <text x="490" y="104" text-anchor="middle" fill="#ea580c" font-size="14" font-weight="bold">HBF 堆栈（最高 512GB）</text>
+</svg>

@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 475" width="880" height="475">
+  <rect width="880" height="475" rx="16" fill="#ffffff"/>
+  <text x="40" y="38" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">格雷码 2-3-2：相邻峰之间永远只翻转 1 个 bit</text>
+  <text x="40" y="62" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b">彩色短线标出该边界翻转的是哪一位：LSB 翻 2 次、CSB 翻 3 次、MSB 翻 2 次</text>
+
+  <!-- 峰与码 -->
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif">
+    <!-- Er -->
+    <path d="M76,330 C88,330 96,170 110,170 C124,170 132,330 144,330" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+    <text x="110" y="126" font-size="18.8" font-weight="700" fill="#334155" text-anchor="middle">111</text>
+    <text x="110" y="352" font-size="17.3" fill="#475569" text-anchor="middle">Er</text>
+
+    <path d="M171,330 C183,330 191,170 205,170 C219,170 227,330 239,330" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="205" y="126" font-size="18.8" font-weight="700" fill="#334155" text-anchor="middle">110</text>
+    <text x="205" y="352" font-size="17.3" fill="#64748b" text-anchor="middle">P1</text>
+
+    <path d="M266,330 C278,330 286,170 300,170 C314,170 322,330 334,330" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="300" y="126" font-size="18.8" font-weight="700" fill="#334155" text-anchor="middle">100</text>
+    <text x="300" y="352" font-size="17.3" fill="#64748b" text-anchor="middle">P2</text>
+
+    <path d="M361,330 C373,330 381,170 395,170 C409,170 417,330 429,330" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="395" y="126" font-size="18.8" font-weight="700" fill="#334155" text-anchor="middle">000</text>
+    <text x="395" y="352" font-size="17.3" fill="#64748b" text-anchor="middle">P3</text>
+
+    <path d="M456,330 C468,330 476,170 490,170 C504,170 512,330 524,330" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="490" y="126" font-size="18.8" font-weight="700" fill="#334155" text-anchor="middle">010</text>
+    <text x="490" y="352" font-size="17.3" fill="#64748b" text-anchor="middle">P4</text>
+
+    <path d="M551,330 C563,330 571,170 585,170 C599,170 607,330 619,330" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="585" y="126" font-size="18.8" font-weight="700" fill="#334155" text-anchor="middle">011</text>
+    <text x="585" y="352" font-size="17.3" fill="#64748b" text-anchor="middle">P5</text>
+
+    <path d="M646,330 C658,330 666,170 680,170 C694,170 702,330 714,330" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="680" y="126" font-size="18.8" font-weight="700" fill="#334155" text-anchor="middle">001</text>
+    <text x="680" y="352" font-size="17.3" fill="#64748b" text-anchor="middle">P6</text>
+
+    <path d="M741,330 C753,330 761,170 775,170 C789,170 797,330 809,330" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="775" y="126" font-size="18.8" font-weight="700" fill="#334155" text-anchor="middle">101</text>
+    <text x="775" y="352" font-size="17.3" fill="#64748b" text-anchor="middle">P7</text>
+  </g>
+
+  <!-- 边界翻转标记：蓝=LSB 紫=CSB 橙=MSB -->
+  <g stroke-width="4" stroke-linecap="round">
+    <line x1="157.5" y1="196" x2="157.5" y2="212" stroke="#2563eb"/>
+    <line x1="252.5" y1="196" x2="252.5" y2="212" stroke="#8b5cf6"/>
+    <line x1="347.5" y1="196" x2="347.5" y2="212" stroke="#ea580c"/>
+    <line x1="442.5" y1="196" x2="442.5" y2="212" stroke="#8b5cf6"/>
+    <line x1="537.5" y1="196" x2="537.5" y2="212" stroke="#2563eb"/>
+    <line x1="632.5" y1="196" x2="632.5" y2="212" stroke="#8b5cf6"/>
+    <line x1="727.5" y1="196" x2="727.5" y2="212" stroke="#ea580c"/>
+  </g>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle">
+    <text x="157.5" y="184" fill="#2563eb">L</text>
+    <text x="252.5" y="184" fill="#8b5cf6">C</text>
+    <text x="347.5" y="184" fill="#ea580c">M</text>
+    <text x="442.5" y="184" fill="#8b5cf6">C</text>
+    <text x="537.5" y="184" fill="#2563eb">L</text>
+    <text x="632.5" y="184" fill="#8b5cf6">C</text>
+    <text x="727.5" y="184" fill="#ea580c">M</text>
+  </g>
+
+  <!-- 判断电平 -->
+  <line x1="76" y1="376" x2="809" y2="376" stroke="#94a3b8" stroke-width="1.5"/>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#475569" text-anchor="middle">
+    <line x1="157.5" y1="330" x2="157.5" y2="376" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="252.5" y1="330" x2="252.5" y2="376" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="347.5" y1="330" x2="347.5" y2="376" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="442.5" y1="330" x2="442.5" y2="376" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="537.5" y1="330" x2="537.5" y2="376" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="632.5" y1="330" x2="632.5" y2="376" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="727.5" y1="330" x2="727.5" y2="376" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="157.5" y="392">RL1</text>
+    <text x="252.5" y="392">RL2</text>
+    <text x="347.5" y="392">RL3</text>
+    <text x="442.5" y="392">RL4</text>
+    <text x="537.5" y="392">RL5</text>
+    <text x="632.5" y="392">RL6</text>
+    <text x="727.5" y="392">RL7</text>
+  </g>
+
+  <!-- 图例 -->
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#334155">
+    <line x1="76" y1="428" x2="96" y2="428" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+    <text x="104" y="432">LSB：RL1、RL5</text>
+    <line x1="330" y1="428" x2="350" y2="428" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round"/>
+    <text x="358" y="432">CSB：RL2、RL4、RL6</text>
+    <line x1="640" y1="428" x2="660" y2="428" stroke="#ea580c" stroke-width="4" stroke-linecap="round"/>
+    <text x="668" y="432">MSB：RL3、RL7</text>
+  </g>
+  <text x="440" y="462" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#94a3b8" text-anchor="middle">以常见 2-3-2 方案为例；横轴为 Vth，不同厂商的排列与编号并不相同</text>
+</svg>

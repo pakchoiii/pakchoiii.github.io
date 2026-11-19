@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 335" width="880" height="335">
+  <rect width="880" height="335" rx="16" fill="#ffffff"/>
+  <text x="40" y="38" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">同一块芯片，读不同的页，耗时不一样</text>
+  <text x="40" y="60" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b">每一格代表一次完整的电平操作（tR 量级几十微秒，随代际变化）</text>
+
+  <!-- SLC -->
+  <text x="40" y="96" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#2563eb">SLC</text>
+  <text x="40" y="114" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">读 1 个电平</text>
+  <rect x="200" y="82" width="150" height="36" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+  <text x="275" y="106" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#1e40af" text-anchor="middle">RL1</text>
+  <text x="370" y="106" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#1e40af">= 1 × tR</text>
+
+  <!-- TLC LP -->
+  <text x="40" y="176" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#7c3aed">TLC 读 LP</text>
+  <text x="40" y="194" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">2 个电平</text>
+  <rect x="200" y="162" width="150" height="36" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="275" y="186" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#5b21b6" text-anchor="middle">RL1</text>
+  <rect x="350" y="162" width="150" height="36" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="425" y="186" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#5b21b6" text-anchor="middle">RL5</text>
+  <text x="520" y="186" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#5b21b6">= 2 × tR</text>
+
+  <!-- TLC UP -->
+  <text x="40" y="256" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#ea580c">TLC 读 UP</text>
+  <text x="40" y="274" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">3 个电平</text>
+  <rect x="200" y="242" width="150" height="36" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="275" y="266" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#c2410c" text-anchor="middle">RL2</text>
+  <rect x="350" y="242" width="150" height="36" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="425" y="266" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#c2410c" text-anchor="middle">RL4</text>
+  <rect x="500" y="242" width="150" height="36" rx="6" fill="#ffedd5" stroke="#ea580c" stroke-width="2"/>
+  <text x="575" y="266" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#c2410c" text-anchor="middle">RL6</text>
+  <text x="670" y="266" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#c2410c">= 3 × tR</text>
+
+  <line x1="200" y1="300" x2="650" y2="300" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="440" y="322" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#94a3b8" text-anchor="middle">时间轴 →　读同一个物理位置，UP 页要比 LP 页多花一次电平的时间</text>
+</svg>

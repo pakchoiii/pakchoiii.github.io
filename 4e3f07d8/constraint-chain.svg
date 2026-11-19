@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 398" width="880" height="398">
+  <defs>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a5b4fc"/>
+    </marker>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#fdba74"/>
+    </marker>
+  </defs>
+  <rect width="880" height="398" rx="16" fill="#ffffff"/>
+  <text x="40" y="38" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">没有孤立的「规定」：每个参数都往上下游各伸一只手</text>
+  <text x="40" y="60" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b">两条最常被当成「背下来就行」的东西，其实都是因果链的中间站</text>
+
+  <!-- 链 A -->
+  <text x="40" y="104" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.4" font-weight="700" fill="#8b5cf6">① 一个「精度」问题，一路逼到成本</text>
+
+  <g>
+    <rect x="40" y="120" width="142" height="56" rx="8" fill="#f5f3ff" stroke="#c7d2fe" stroke-width="1.2"/>
+    <text x="111" y="144" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">QLC 16 个峰</text>
+    <text x="111" y="164" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#6d28d9" text-anchor="middle">峰间距只剩一半</text>
+
+    <rect x="204" y="120" width="142" height="56" rx="8" fill="#f5f3ff" stroke="#c7d2fe" stroke-width="1.2"/>
+    <text x="275" y="144" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">判错余量变少</text>
+    <text x="275" y="164" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#6d28d9" text-anchor="middle">原始误码率升高</text>
+
+    <rect x="368" y="120" width="142" height="56" rx="8" fill="#f5f3ff" stroke="#c7d2fe" stroke-width="1.2"/>
+    <text x="439" y="144" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">硬判决修不动</text>
+    <text x="439" y="164" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#6d28d9" text-anchor="middle">只好上软判决</text>
+
+    <rect x="532" y="120" width="142" height="56" rx="8" fill="#f5f3ff" stroke="#c7d2fe" stroke-width="1.2"/>
+    <text x="603" y="144" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">一页多读 3 次</text>
+    <text x="603" y="164" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#6d28d9" text-anchor="middle">读延迟跟着变长</text>
+
+    <rect x="696" y="120" width="142" height="56" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.4"/>
+    <text x="767" y="144" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">主控要更强</text>
+    <text x="767" y="164" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#6d28d9" text-anchor="middle">成本发热都上去</text>
+  </g>
+  <g stroke="#a5b4fc" stroke-width="1.4" marker-end="url(#a1)">
+    <line x1="185" y1="148" x2="201" y2="148"/>
+    <line x1="349" y1="148" x2="365" y2="148"/>
+    <line x1="513" y1="148" x2="529" y2="148"/>
+    <line x1="677" y1="148" x2="693" y2="148"/>
+  </g>
+
+  <!-- 链 B -->
+  <text x="40" y="220" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.4" font-weight="700" fill="#ea580c">② 一个「物理限制」，一路逼到掉速</text>
+
+  <g>
+    <rect x="40" y="236" width="142" height="56" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.2"/>
+    <text x="111" y="260" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">擦除按 Block</text>
+    <text x="111" y="280" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#c2410c" text-anchor="middle">毫秒级，整块来</text>
+
+    <rect x="204" y="236" width="142" height="56" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.2"/>
+    <text x="275" y="260" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">不能原地覆盖</text>
+    <text x="275" y="280" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#c2410c" text-anchor="middle">改 4 KB 也得搬</text>
+
+    <rect x="368" y="236" width="142" height="56" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.2"/>
+    <text x="439" y="260" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">FTL 重映射</text>
+    <text x="439" y="280" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#c2410c" text-anchor="middle">写新页、标旧页</text>
+
+    <rect x="532" y="236" width="142" height="56" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.2"/>
+    <text x="603" y="260" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">旧页要回收</text>
+    <text x="603" y="280" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#c2410c" text-anchor="middle">GC 一直在搬</text>
+
+    <rect x="696" y="236" width="142" height="56" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4"/>
+    <text x="767" y="260" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">越满越慢</text>
+    <text x="767" y="280" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#c2410c" text-anchor="middle">写放大 → 掉速</text>
+  </g>
+  <g stroke="#fdba74" stroke-width="1.4" marker-end="url(#a2)">
+    <line x1="185" y1="264" x2="201" y2="264"/>
+    <line x1="349" y1="264" x2="365" y2="264"/>
+    <line x1="513" y1="264" x2="529" y2="264"/>
+    <line x1="677" y1="264" x2="693" y2="264"/>
+  </g>
+
+  <!-- 结论 -->
+  <rect x="40" y="318" width="800" height="72" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="60" y="344" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" fill="#334155">两条链上没有任何一站是「规定」，全都是被上一站逼出来的。</text>
+  <text x="60" y="370" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" fill="#334155">所以每学一个参数，都值得问两句：<tspan font-weight="700" fill="#7c3aed">它被谁逼出来的？它又逼出了什么？</tspan></text>
+</svg>

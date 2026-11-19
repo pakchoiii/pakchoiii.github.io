@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 371" width="880" height="371">
+  <rect width="880" height="371" rx="16" fill="#ffffff"/>
+  <text x="40" y="40" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">采样点应该落在数据的正中间</text>
+  <text x="40" y="64" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b">DQ 和 DQS 走的不是同一条路，到达时刻必然有偏差；偏差大到把采样点推到边沿，就读错了</text>
+
+  <!-- DQ 数据 -->
+  <text x="66" y="114" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" font-weight="700" fill="#334155">DQ</text>
+  <path d="M150,140 L150,100 L250,100 L250,140 L350,140 L350,100 L450,100 L450,140 L570,140"
+        fill="none" stroke="#475569" stroke-width="2.6"/>
+  <text x="200" y="92" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8" text-anchor="middle">bit n</text>
+  <text x="300" y="92" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8" text-anchor="middle">bit n+1</text>
+  <text x="400" y="92" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#94a3b8" text-anchor="middle">bit n+2</text>
+  <!-- 窗口中心虚线 -->
+  <g stroke="#c7d2fe" stroke-width="1.2" stroke-dasharray="4 4">
+    <line x1="200" y1="100" x2="200" y2="250"/>
+    <line x1="300" y1="120" x2="300" y2="250"/>
+    <line x1="400" y1="100" x2="400" y2="250"/>
+  </g>
+
+  <!-- 理想 DQS -->
+  <text x="66" y="286" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" font-weight="700" fill="#2563eb">DQS</text>
+  <text x="66" y="304" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">对齐时</text>
+  <path d="M150,310 L160,310 L160,270 L240,270 L240,310 L260,310 L260,270 L340,270 L340,310 L360,310 L360,270 L440,270 L440,310 L520,310"
+        fill="none" stroke="#2563eb" stroke-width="2.4"/>
+  <circle cx="200" cy="270" r="5" fill="#2563eb"/>
+  <circle cx="300" cy="270" r="5" fill="#2563eb"/>
+  <circle cx="400" cy="270" r="5" fill="#2563eb"/>
+  <text x="540" y="296" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#1e40af">采样点落在数据窗口中心，两侧余量最大</text>
+
+  <!-- 偏移示意：用箭头表达错位方向 -->
+  <path d="M210,168 L246,168" stroke="#ea580c" stroke-width="2" fill="none"/>
+  <path d="M240,162 L248,168 L240,174" fill="none" stroke="#ea580c" stroke-width="2"/>
+  <text x="252" y="172" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#c2410c">若 DQS 晚到，采样点右移</text>
+
+  <text x="440" y="358" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#94a3b8" text-anchor="middle">Training 的做法：把接收端延迟一点点挪，直到采样点回到中心</text>
+</svg>

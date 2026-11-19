@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 470" width="880" height="470">
+  <rect width="880" height="470" rx="16" fill="#ffffff"/>
+  <text x="40" y="34" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">读同一页，只施加它用得上的那几个电平</text>
+  <text x="40" y="56" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b">橙色实线＝本次读取真正施加的 Read Level，其余电平这一页用不上</text>
+
+  <!-- 行 1：LSB -->
+  <text x="40" y="146" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#2563eb">LSB / LP</text>
+  <text x="40" y="166" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">读 2 次</text>
+  <g fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.2">
+    <path d="M203.75,150 C209.75,150 212.75,100 218.75,100 C224.75,100 227.75,150 233.75,150"/>
+    <path d="M281.25,150 C287.25,150 290.25,100 296.25,100 C302.25,100 305.25,150 311.25,150"/>
+    <path d="M358.75,150 C364.75,150 367.75,100 373.75,100 C379.75,100 382.75,150 388.75,150"/>
+    <path d="M436.25,150 C442.25,150 445.25,100 451.25,100 C457.25,100 460.25,150 466.25,150"/>
+    <path d="M513.75,150 C519.75,150 522.75,100 528.75,100 C534.75,100 537.75,150 543.75,150"/>
+    <path d="M591.25,150 C597.25,150 600.25,100 606.25,100 C612.25,100 615.25,150 621.25,150"/>
+    <path d="M668.75,150 C674.75,150 677.75,100 683.75,100 C689.75,100 692.75,150 698.75,150"/>
+    <path d="M746.25,150 C752.25,150 755.25,100 761.25,100 C767.25,100 770.25,150 776.25,150"/>
+  </g>
+  <g stroke-linecap="round">
+    <line x1="257.5" y1="96" x2="257.5" y2="156" stroke="#ea580c" stroke-width="3"/>
+    <line x1="567.5" y1="96" x2="567.5" y2="156" stroke="#ea580c" stroke-width="3"/>
+  </g>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#c2410c" text-anchor="middle">
+    <text x="257.5" y="86">RL1</text>
+    <text x="567.5" y="86">RL5</text>
+  </g>
+
+  <!-- 行 2：CSB -->
+  <text x="40" y="276" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#7c3aed">CSB / UP</text>
+  <text x="40" y="296" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">读 3 次</text>
+  <g fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.2">
+    <path d="M203.75,280 C209.75,280 212.75,230 218.75,230 C224.75,230 227.75,280 233.75,280"/>
+    <path d="M281.25,280 C287.25,280 290.25,230 296.25,230 C302.25,230 305.25,280 311.25,280"/>
+    <path d="M358.75,280 C364.75,280 367.75,230 373.75,230 C379.75,230 382.75,280 388.75,280"/>
+    <path d="M436.25,280 C442.25,280 445.25,230 451.25,230 C457.25,230 460.25,280 466.25,280"/>
+    <path d="M513.75,280 C519.75,280 522.75,230 528.75,230 C534.75,230 537.75,280 543.75,280"/>
+    <path d="M591.25,280 C597.25,280 600.25,230 606.25,230 C612.25,230 615.25,280 621.25,280"/>
+    <path d="M668.75,280 C674.75,280 677.75,230 683.75,230 C689.75,230 692.75,280 698.75,280"/>
+    <path d="M746.25,280 C752.25,280 755.25,230 761.25,230 C767.25,230 770.25,280 776.25,280"/>
+  </g>
+  <g stroke-linecap="round">
+    <line x1="335" y1="226" x2="335" y2="286" stroke="#ea580c" stroke-width="3"/>
+    <line x1="490" y1="226" x2="490" y2="286" stroke="#ea580c" stroke-width="3"/>
+    <line x1="645" y1="226" x2="645" y2="286" stroke="#ea580c" stroke-width="3"/>
+  </g>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#c2410c" text-anchor="middle">
+    <text x="335" y="216">RL2</text>
+    <text x="490" y="216">RL4</text>
+    <text x="645" y="216">RL6</text>
+  </g>
+
+  <!-- 行 3：MSB -->
+  <text x="40" y="406" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#ea580c">MSB / XP</text>
+  <text x="40" y="426" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">读 2 次</text>
+  <g fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.2">
+    <path d="M203.75,410 C209.75,410 212.75,360 218.75,360 C224.75,360 227.75,410 233.75,410"/>
+    <path d="M281.25,410 C287.25,410 290.25,360 296.25,360 C302.25,360 305.25,410 311.25,410"/>
+    <path d="M358.75,410 C364.75,410 367.75,360 373.75,360 C379.75,360 382.75,410 388.75,410"/>
+    <path d="M436.25,410 C442.25,410 445.25,360 451.25,360 C457.25,360 460.25,410 466.25,410"/>
+    <path d="M513.75,410 C519.75,410 522.75,360 528.75,360 C534.75,360 537.75,410 543.75,410"/>
+    <path d="M591.25,410 C597.25,410 600.25,360 606.25,360 C612.25,360 615.25,410 621.25,410"/>
+    <path d="M668.75,410 C674.75,410 677.75,360 683.75,360 C689.75,360 692.75,410 698.75,410"/>
+    <path d="M746.25,410 C752.25,410 755.25,360 761.25,360 C767.25,360 770.25,410 776.25,410"/>
+  </g>
+  <g stroke-linecap="round">
+    <line x1="412.5" y1="356" x2="412.5" y2="416" stroke="#ea580c" stroke-width="3"/>
+    <line x1="722.5" y1="356" x2="722.5" y2="416" stroke="#ea580c" stroke-width="3"/>
+  </g>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#c2410c" text-anchor="middle">
+    <text x="412.5" y="346">RL3</text>
+    <text x="722.5" y="346">RL7</text>
+  </g>
+
+  <text x="440" y="458" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#94a3b8" text-anchor="middle">两次或三次判断，经逻辑运算才能还原出一个 bit</text>
+</svg>

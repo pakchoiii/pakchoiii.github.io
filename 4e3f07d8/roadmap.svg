@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" width="880" height="480">
+  <rect width="880" height="480" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">这套系列怎么走：三季，六卷</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b">像爬一座山，分三段走；每段都能单独读完，但顺序是设计过的</text>
+
+  <!-- 季 A -->
+  <rect x="40" y="96" width="300" height="334" rx="10" fill="#faf9ff" stroke="#ddd6fe" stroke-width="1.2"/>
+  <path d="M40 106 a10 10 0 0 1 10 -10 h280 a10 10 0 0 1 10 10 v50 h-300 z" fill="#8b5cf6"/>
+  <text x="190" y="126" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" font-weight="700" fill="#ffffff" text-anchor="middle">季 A · 一颗颗粒是怎么长出来的</text>
+  <text x="190" y="150" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#ede9fe" text-anchor="middle">卷 0 ~ 卷 2</text>
+
+  <rect x="54" y="170" width="272" height="66" rx="6" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.2"/>
+  <text x="68" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b">卷 0 · 地图</text>
+  <text x="68" y="220" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#6d28d9">一块 M.2 拆开，先看清全局</text>
+  <text x="318" y="196" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#ea580c" text-anchor="end">◀ 就在这</text>
+
+  <rect x="54" y="246" width="272" height="66" rx="6" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.2"/>
+  <text x="68" y="272" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b">卷 1 · 介质篇</text>
+  <text x="68" y="296" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#6d28d9">Cell 里：写、读、丢、救</text>
+
+  <rect x="54" y="322" width="272" height="66" rx="6" fill="#ffffff" stroke="#c7d2fe" stroke-width="1.2"/>
+  <text x="68" y="348" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b">卷 2 · 接口篇</text>
+  <text x="68" y="372" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#6d28d9">从电压到总线：一颗 die 怎么说话</text>
+
+  <text x="190" y="414" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b" text-anchor="middle">收在「带宽算完」，边界画完一圈</text>
+
+  <!-- 季 B -->
+  <rect x="360" y="96" width="240" height="334" rx="10" fill="#f5f9ff" stroke="#bfdbfe" stroke-width="1.2"/>
+  <path d="M360 106 a10 10 0 0 1 10 -10 h220 a10 10 0 0 1 10 10 v50 h-240 z" fill="#2563eb"/>
+  <text x="480" y="126" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" font-weight="700" fill="#ffffff" text-anchor="middle">季 B · 盘是怎么长出来的</text>
+  <text x="480" y="150" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#dbeafe" text-anchor="middle">卷 3</text>
+
+  <text x="480" y="190" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">卷 3 · 固件篇</text>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">
+    <text x="480" y="218" text-anchor="middle">固件三层 · 写命令的走位</text>
+    <text x="480" y="244" text-anchor="middle">FTL 在翻译什么</text>
+    <text x="480" y="270" text-anchor="middle">写放大 · GC · SLC 缓存</text>
+    <text x="480" y="296" text-anchor="middle">读路径 · 后台任务调度</text>
+    <text x="480" y="322" text-anchor="middle">掉电保护 · 重建 · Trim</text>
+  </g>
+  <line x1="384" y1="344" x2="576" y2="344" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="480" y="370" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#1e40af" text-anchor="middle">换了一条叙事线：</text>
+  <text x="480" y="392" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#1e40af" text-anchor="middle">从电压切到代码与元数据</text>
+  <text x="480" y="414" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b" text-anchor="middle">读完：知道盘为什么越用越慢</text>
+
+  <!-- 季 C -->
+  <rect x="620" y="96" width="220" height="334" rx="10" fill="#fffaf5" stroke="#fed7aa" stroke-width="1.2"/>
+  <path d="M620 106 a10 10 0 0 1 10 -10 h200 a10 10 0 0 1 10 10 v50 h-220 z" fill="#ea580c"/>
+  <text x="730" y="126" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" font-weight="700" fill="#ffffff" text-anchor="middle">季 C · 盘之外的战场</text>
+  <text x="730" y="150" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#ffedd5" text-anchor="middle">卷 4 ~ 卷 5</text>
+
+  <text x="730" y="190" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">卷 4 · 可靠性</text>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">
+    <text x="730" y="218" text-anchor="middle">LDPC 到底在算什么</text>
+    <text x="730" y="244" text-anchor="middle">die 坏了怎么活</text>
+    <text x="730" y="270" text-anchor="middle">TBW 与寿命账本</text>
+  </g>
+  <text x="730" y="306" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.8" font-weight="700" fill="#1e293b" text-anchor="middle">卷 5 · 系统</text>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">
+    <text x="730" y="332" text-anchor="middle">一次 IO 的全程耗时</text>
+    <text x="730" y="358" text-anchor="middle">NVMe 队列 · 形态与散热</text>
+    <text x="730" y="384" text-anchor="middle">测试方法与行业演进</text>
+  </g>
+  <text x="730" y="414" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b" text-anchor="middle">读完：能对着参数表提问</text>
+
+  <text x="440" y="462" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17" fill="#94a3b8" text-anchor="middle">每篇结尾的钩子，就是下一篇的开头；可以跳着读，但别从中间进</text>
+</svg>
