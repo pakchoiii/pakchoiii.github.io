@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" width="880" height="330">
+  <defs>
+    <marker id="arr0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#ea580c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="arr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#ea580c" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="880" height="330" rx="16" fill="#ffffff"/>
+  <text x="40" y="56" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#0d9488">两遍：先粗编，后精修</text>
+  <text x="40" y="84" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">粗编只定位置，精修再管宽度</text>
+  <line x1="40" y1="248" x2="840" y2="248" stroke="#cbd5e1" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="170" y1="248" x2="170" y2="254" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="170" y="278" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">1</text>
+  <line x1="360" y1="248" x2="360" y2="254" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="360" y="278" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">2</text>
+  <line x1="550" y1="248" x2="550" y2="254" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="550" y="278" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">3</text>
+  <line x1="740" y1="248" x2="740" y2="254" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="740" y="278" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">4</text>
+  <text x="40" y="312" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#115e59">同一个位置：粗编 170 → 精修 60</text>
+  <path d="M85,248 C119,248 134.3,152 170,152 C205.7,152 221,248 255,248" fill="none" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.45"/>
+  <path d="M140,248 C152,248 157.4,152 170,152 C182.6,152 188,248 200,248" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M275,248 C309,248 324.3,152 360,152 C395.7,152 411,248 445,248" fill="none" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.45"/>
+  <path d="M330,248 C342,248 347.4,152 360,152 C372.6,152 378,248 390,248" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M465,248 C499,248 514.3,152 550,152 C585.7,152 601,248 635,248" fill="none" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.45"/>
+  <path d="M520,248 C532,248 537.4,152 550,152 C562.6,152 568,248 580,248" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M655,248 C689,248 704.3,152 740,152 C775.7,152 791,248 825,248" fill="none" stroke="#0d9488" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.45"/>
+  <path d="M710,248 C722,248 727.4,152 740,152 C752.6,152 758,248 770,248" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="92" y1="136" x2="136" y2="136" stroke="#ea580c" stroke-width="1.6" marker-end="url(#arr0)"/>
+  <line x1="248" y1="136" x2="204" y2="136" stroke="#ea580c" stroke-width="1.6" marker-end="url(#arr1)"/>
+  <text x="170" y="126" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#ea580c">收窄</text>
+</svg>

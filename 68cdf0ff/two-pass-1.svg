@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" width="880" height="330">
+  <rect width="880" height="330" rx="16" fill="#ffffff"/>
+  <text x="40" y="56" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#dc2626">写到第 2 档</text>
+  <text x="40" y="84" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">先落位的峰还窄，第二个刚落地</text>
+  <line x1="40" y1="248" x2="840" y2="248" stroke="#cbd5e1" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="170" y1="248" x2="170" y2="254" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="170" y="278" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">1</text>
+  <line x1="360" y1="248" x2="360" y2="254" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="360" y="278" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">2</text>
+  <line x1="550" y1="248" x2="550" y2="254" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="550" y="278" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">3</text>
+  <line x1="740" y1="248" x2="740" y2="254" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="740" y="278" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">4</text>
+  <text x="40" y="312" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#991b1b">第 1 档落得最早，后面每来一个邻居，它就得让一让</text>
+  <path d="M105,248 C131,248 142.7,152 170,152 C197.3,152 209,248 235,248" fill="#fee2e2" stroke="#dc2626" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M320,248 C336,248 343.2,152 360,152 C376.8,152 384,248 400,248" fill="#fee2e2" stroke="#dc2626" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
