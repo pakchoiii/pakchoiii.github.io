@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 430" width="880" height="430">
+  <rect width="880" height="430" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">中间那段空档，主控没有闲着</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">粗编完先不回来精修，先把一批邻居的粗编铺上去</text>
+  <text x="24" y="146" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#334155">WLn</text>
+  <rect x="76" y="124" width="132" height="32" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="142.0" y="146" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#1e40af">粗编</text>
+  <line x1="208" y1="140.0" x2="708" y2="140.0" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="5 5"/>
+  <rect x="708" y="124" width="132" height="32" rx="6" fill="#2563eb" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="774.0" y="146" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#ffffff">精修</text>
+  <text x="24" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#334155">WLn+1</text>
+  <rect x="226" y="182" width="132" height="32" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="292.0" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#1e40af">粗编</text>
+  <rect x="708" y="182" width="132" height="32" rx="6" fill="#eff6ff" stroke="#7daffc" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="774.0" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#60a5fa">精修（排队）</text>
+  <text x="24" y="262" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#334155">WLn+2</text>
+  <rect x="376" y="240" width="132" height="32" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="442.0" y="262" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#1e40af">粗编</text>
+  <rect x="708" y="240" width="132" height="32" rx="6" fill="#eff6ff" stroke="#7daffc" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="774.0" y="262" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#60a5fa">精修（排队）</text>
+  <text x="24" y="320" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#334155">WLn+3</text>
+  <rect x="526" y="298" width="132" height="32" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="592.0" y="320" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#1e40af">粗编</text>
+  <rect x="708" y="298" width="132" height="32" rx="6" fill="#eff6ff" stroke="#7daffc" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="774.0" y="320" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#60a5fa">精修（排队）</text>
+  <text x="468" y="114" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">等这一批邻居的粗编都落位，再回头精修 WLn</text>
+  <rect x="42" y="356" width="14" height="14" rx="3" fill="#dbeafe" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="64" y="369" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">粗编：只定位置，宽窄不管</text>
+  <rect x="300" y="356" width="14" height="14" rx="3" fill="#2563eb" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="322" y="369" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#334155">精修：邻居落定后再收紧</text>
+  <text x="42" y="402" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">中间这段不是空等：邻居写完，它们对 WLn 的耦合也就落定了，此时定最终位置才准。</text>
+</svg>

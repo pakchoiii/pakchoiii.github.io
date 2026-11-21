@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 364" width="880" height="364">
+  <rect width="880" height="364" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">为什么第一刀必须落在中间</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">从边上扫，4 档最坏 3 问；打中间，问几次都一样</text>
+  <text x="52" y="112" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#64748b">① 线性扫：从最低档往上试</text>
+  <rect x="52" y="168" width="80" height="40" rx="8" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.2"/>
+  <text x="92.0" y="194" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#7c3aed">Er</text>
+  <text x="92.0" y="156" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#64748b">1 问</text>
+  <rect x="142" y="168" width="80" height="40" rx="8" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.2"/>
+  <text x="182.0" y="194" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#7c3aed">P1</text>
+  <text x="182.0" y="156" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#64748b">2 问</text>
+  <rect x="232" y="168" width="80" height="40" rx="8" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.2"/>
+  <text x="272.0" y="194" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#7c3aed">P2</text>
+  <text x="272.0" y="156" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#64748b">3 问</text>
+  <rect x="322" y="168" width="80" height="40" rx="8" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1.2"/>
+  <text x="362.0" y="194" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#7c3aed">P3</text>
+  <text x="362.0" y="156" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#64748b">3 问</text>
+  <text x="52" y="236" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">最坏 3 问，平均 2.25 问</text>
+  <line x1="446" y1="100" x2="446" y2="250" stroke="#e2e8f0" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="5 4"/>
+  <text x="472" y="112" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#ea580c">② 二分：第一刀落中间</text>
+  <rect x="472" y="168" width="80" height="40" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+  <text x="512.0" y="194" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">Er</text>
+  <text x="512.0" y="156" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">2 问</text>
+  <rect x="562" y="168" width="80" height="40" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+  <text x="602.0" y="194" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">P1</text>
+  <text x="602.0" y="156" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">2 问</text>
+  <rect x="652" y="168" width="80" height="40" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+  <text x="692.0" y="194" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">P2</text>
+  <text x="692.0" y="156" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">2 问</text>
+  <rect x="742" y="168" width="80" height="40" rx="8" fill="#ffedd5" stroke="#ea580c" stroke-width="1.6"/>
+  <text x="782.0" y="194" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">P3</text>
+  <text x="782.0" y="156" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">2 问</text>
+  <text x="472" y="236" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412">恒定 2 问</text>
+  <rect x="40" y="298" width="800" height="56" rx="10" fill="#ffedd5" stroke="#9a3412" stroke-width="1.1" fill-opacity="0.55"/>
+  <text x="60" y="319" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#9a3412">16 档时差距更大：线性扫最坏 15 问，二分 4 问。</text>
+  <text x="60" y="342" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#9a3412">每一次判断都要等一个 tR，问 4 次就是 4 个 tR——所以量产读页从不做全定位。</text>
+</svg>
