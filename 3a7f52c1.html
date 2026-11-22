@@ -1,0 +1,467 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>NAND 读一次是场「猜」：TLC 7 个电平、QLC 15 个电平怎么分工 | 咕噜元</title><meta name="author" content="咕噜元"><meta name="copyright" content="咕噜元"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="NAND 读一次只能回答一个是非题。TLC 是 8 个状态 7 个电压，QLC 是 16 个状态 15 个电压——怎么用最少的次数定位？二分查找在这里上场。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NAND 读一次是场「猜」：TLC 7 个电平、QLC 15 个电平怎么分工">
+<meta property="og:url" content="https://www.edison007.top/3a7f52c1.html">
+<meta property="og:site_name" content="咕噜元">
+<meta property="og:description" content="NAND 读一次只能回答一个是非题。TLC 是 8 个状态 7 个电压，QLC 是 16 个状态 15 个电压——怎么用最少的次数定位？二分查找在这里上场。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.edison007.top/img/page/NandDeep/104%20Read%20Level.webp">
+<meta property="article:published_time" content="2026-11-21T13:00:00.000Z">
+<meta property="article:modified_time" content="2026-11-21T02:47:48.235Z">
+<meta property="article:author" content="咕噜元">
+<meta property="article:tag" content="NAND">
+<meta property="article:tag" content="存储入门">
+<meta property="article:tag" content="Read Level">
+<meta property="article:tag" content="读取">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.edison007.top/img/page/NandDeep/104%20Read%20Level.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "NAND 读一次是场「猜」：TLC 7 个电平、QLC 15 个电平怎么分工",
+  "url": "https://www.edison007.top/3a7f52c1.html",
+  "image": "https://www.edison007.top/img/page/NandDeep/104%20Read%20Level.webp",
+  "datePublished": "2026-11-21T13:00:00.000Z",
+  "dateModified": "2026-11-21T02:47:48.235Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "咕噜元",
+      "url": "https://www.edison007.top"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://www.edison007.top/3a7f52c1.html"><link rel="preload" as="image" href="/img/page/NandDeep/banner/default.webp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="codeva-wDtyj28tKi"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!true && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'NAND 读一次是场「猜」：TLC 7 个电平、QLC 15 个电平怎么分工',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><style>
+  /* 文章标题前风车图标旋转动画 */
+  #post h1::before,
+  #post h2::before,
+  #post h3::before,
+  #post h4::before,
+  #post h5::before,
+  #post h6::before {
+    display: inline-block;
+    animation: fan-spin 0.8s linear infinite; /* 0.8秒一圈，匀速无限旋转 */
+    transition: color 0.3s; /* 颜色过渡动画 */
+  }
+  @keyframes fan-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  /* 鼠标悬停时风车变为蓝色 */
+  #post h1:hover::before,
+  #post h2:hover::before,
+  #post h3:hover::before,
+  #post h4:hover::before,
+  #post h5:hover::before,
+  #post h6:hover::before {
+    color: #49B1F5 !important;
+  }
+  /* 减小文章图片与下方文字的间距 */
+  #post figure {
+    margin: 16px 0;
+    text-align: center;
+  }
+  #post figure img {
+    display: block;
+    margin: 0 auto;
+  }
+  #post figcaption {
+    margin-top: 0;
+    color: #888;
+    font-size: 0.9em;
+  }
+  /* 表格字号比正文大一档，与放大后的配图视觉一致 */
+  #post table {
+    font-size: 15px;
+  }
+  #post table th,
+  #post table td {
+    padding: 9px 13px;
+  }
+  /* 文首声明块（公开资料依据 + 观点归属） */
+  #post .post-disclaimer {
+    margin: 0 0 32px;
+    padding: 13px 17px;
+    background: #f8fafc;
+    border: 1px solid #e8edf4;
+    border-left: 3px solid #b6c2d1;
+    border-radius: 8px;
+    font-size: 13.5px;
+    line-height: 1.9;
+    color: #64748b;
+    text-align: left;
+  }
+  #post .post-disclaimer b {
+    color: #475569;
+    margin-right: 1em;
+  }
+</style>
+<meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-dice"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url(/img/page/NandDeep/banner/default.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">咕噜元</span></a><a class="nav-page-title" href="/"><span class="site-name">NAND 读一次是场「猜」：TLC 7 个电平、QLC 15 个电平怎么分工</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/random/"><i class="fa-fw fas fa-dice"></i><span> 随便看看</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">NAND 读一次是场「猜」：TLC 7 个电平、QLC 15 个电平怎么分工</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-11-21T13:00:00.000Z" title="发表于 2026-11-21 21:00:00">2026-11-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-11-21T02:47:48.235Z" title="更新于 2026-11-21 10:47:48">2026-11-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BB%8E-Cell-%E5%88%B0-SSD/">从 Cell 到 SSD</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2766</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div class="post-disclaimer"><b>声明</b>这是一份学习笔记，不是厂商文档。文中所涉规范与参数，参考 ONFI、JEDEC 等公开标准，以及闪存读电压与可靠性方面的公开研究整理；观点仅代表个人，与任职单位无关，也不涉及任何厂商未公开的参数或商业秘密。为讲清机制，部分案例与数字做了简化或假设，插图中的时序与比例均为示意画法，不能当作选型依据，也不是商业建议。发现错漏欢迎指出。</div>
+
+<h1 id="前言：峰一多，问题就挪到了读取这一侧"><a href="#前言：峰一多，问题就挪到了读取这一侧" class="headerlink" title="前言：峰一多，问题就挪到了读取这一侧"></a>前言：峰一多，问题就挪到了读取这一侧</h1><p>上一篇把同一个格子从 8 个峰挤到了 16 个。峰变多的代价不只是“写得慢”——<strong>读取这一侧也要跟着多问几次。</strong></p>
+<p>16 个状态之间要插 15 个判断电压。为什么不是从低到高一路扫过去？为什么读 MLC 要先去中间那档试，而不是从最底下开始？</p>
+<p>要回答这些，得先接受一件反直觉的事：<strong>NAND 在读取的时候，并不知道你的 Cell 里 Vth 是多少。</strong></p>
+<p>它没有“电压表”。它拿不到一个连续的数字。它能做的，只有一件事——<strong>给一个电压，看这个 Cell 导不导通</strong>。</p>
+<p>这是一个是非题。回答只有“导”或“不导”。</p>
+<p>整篇文章都从这句话长出来。</p>
+<h1 id="一、读取的本质：一次只能问一个是非题"><a href="#一、读取的本质：一次只能问一个是非题" class="headerlink" title="一、读取的本质：一次只能问一个是非题"></a>一、读取的本质：一次只能问一个是非题</h1><p>回到物理：MOSFET 的沟道在 Vgs 超过 Vth 时导通，低于 Vth 时截止。</p>
+<p>所以在栅极上加一个电压 Vread，然后测电流：</p>
+<ul>
+<li>有电流 → 这个 Cell 的 Vth <strong>低于</strong> Vread；</li>
+<li>没电流 → 这个 Cell 的 Vth <strong>高于</strong> Vread。</li>
+</ul>
+<p>就这两种结果。<strong>你永远得不到“Vth &#x3D; 5.23 V”这样的答案，只能得到“它在某条线的左边还是右边”。</strong></p>
+<figure>
+  <img src="/3a7f52c1/levels-map.svg" class="" loading='lazy'>
+  <figcaption>区间数和电平数的关系：k 个判断电压把窗口切成 k+1 段——每一段能有多宽，是被峰宽和噪声挤出来的</figcaption>
+</figure>
+
+<p>那么问题变成：<strong>要在 8 个状态里定位一个，最少要问几次是非题？</strong></p>
+<p>信息论给的答案是 3 次。8 个状态 &#x3D; 2³，每次是非题给出 1 bit 信息，3 次刚好够。</p>
+<p>这正好对上 TLC 的 3 个 bit。但注意——<strong>3 次判断定位状态，和读一个 Page 要 2~3 次电平，是两件不同的事</strong>。后面会分开讲，这是最容易混的地方。</p>
+<h1 id="二、7-个电平是怎么排出来的"><a href="#二、7-个电平是怎么排出来的" class="headerlink" title="二、7 个电平是怎么排出来的"></a>二、7 个电平是怎么排出来的</h1><p>先把数量关系理清：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th align="center">状态数</th>
+<th align="center">判断电压数</th>
+<th align="center">读一次 Page 需要的判断次数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SLC</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td>MLC</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">1 ~ 2</td>
+</tr>
+<tr>
+<td>TLC</td>
+<td align="center">8</td>
+<td align="center">7</td>
+<td align="center">2 ~ 3</td>
+</tr>
+<tr>
+<td>QLC</td>
+<td align="center">16</td>
+<td align="center">15</td>
+<td align="center">3 ~ 4</td>
+</tr>
+</tbody></table>
+<p>规律很简单：<strong>N 个状态需要 N−1 个判断电压</strong>，因为它们排在一条线上，相邻两个之间插一根线就能分开。</p>
+<p>从 7 个到 15 个，看着只是多插了 8 根线。但峰一多，每个峰就更窄、判断窗口就更小——<strong>多出来的不只是次数，还有判错的可能</strong>。这条线后面会一直牵着。</p>
+<p>但位置不是等分的。</p>
+<p>如果 8 个峰是等距排列，那 7 个电平就均匀分布。可实际上峰不是等距的——因为不同状态需要的编程脉冲数不一样（Vth 高的状态要垫更多次），累积的抖动也不同，<strong>峰与峰的间距天然不均匀</strong>。</p>
+<p>所以电平要落在<strong>每个谷底</strong>，而不是均匀切分。这个“落在谷底”的动作，是出厂标定（characterization）做出来的：拿实际芯片扫一遍 Vth 分布，找出谷底位置，写进芯片的参数表。</p>
+<h2 id="一个最容易被搞混的地方"><a href="#一个最容易被搞混的地方" class="headerlink" title="一个最容易被搞混的地方"></a>一个最容易被搞混的地方</h2><p>“7 个电平”不代表“读一次要加 7 次电压”。</p>
+<p>因为<strong>读的粒度是 Page，不是 Cell</strong>。</p>
+<p>TLC 的一个 Cell 存 3 个 bit，但这 3 个 bit 分属三个不同的逻辑页：LP、UP、XP。当你要求读 LP 这一页时，芯片只关心其中一个 bit——它只需要知道这个 Cell 落在“翻转”的哪一侧，不需要知道完整状态。</p>
+<p>前面讲格雷码时算过这套分工：三个 bit 各自负责不同的边界，所以读 LP 只碰 2 个电平，读 UP 要碰 3 个，读 XP 又是 2 个——同一块 Cell，读哪一页决定了要加几次电压。</p>
+<p>QLC 是同一套逻辑再切一刀：4 个 bit 分属 4 个页，15 个电平摊到四页上，读一页就要 3 到 4 次。</p>
+<p><strong>所以 7 个电平是全集，每次读只用到其中一个子集。</strong> 前面那张图里的橙色竖线就是全集，读一页只走其中几条。</p>
+<h1 id="三、二分查找：先去中间试"><a href="#三、二分查找：先去中间试" class="headerlink" title="三、二分查找：先去中间试"></a>三、二分查找：先去中间试</h1><p>现在换一个角度：假如你确实需要知道一个 Cell 的完整状态（比如做芯片测试、读 Vth 分布），怎么问最快？</p>
+<p>答案是最经典的那个：<strong>二分</strong>。</p>
+<figure><img src="/3a7f52c1/bisect-1.svg" class="" loading='lazy'><figcaption>“中间”说的是第 2 根电平，不是电压的中点——峰位本来就不等距</figcaption></figure>
+
+<p>以 MLC 的 4 个状态为例（从低 Vth 到高：Er &#x2F; P1 &#x2F; P2 &#x2F; P3），3 个电平是 RL1、RL2、RL3：</p>
+<ol>
+<li><strong>先加 RL2</strong>（中间那档）。导通了？说明 Vth 在 RL2 左边，是 Er 或 P1。没导通？那就在右边，是 P2 或 P3。</li>
+<li>落在左边，<strong>再加 RL1</strong>：导通则 Er，不导通则 P1。</li>
+<li>落在右边，<strong>再加 RL3</strong>：导通则 P2，不导通则 P3。</li>
+</ol>
+<figure><img src="/3a7f52c1/bisect-2.svg" class="" loading='lazy'><figcaption>画的是落在右半那一支；落在左半就是把 RL3 换成 RL1</figcaption></figure>
+
+<p>两次判断定位 4 个状态——因为第一次判断把 4 个砍成 2 个，第二次再砍成 1 个。</p>
+<p><strong>为什么第一次要打中间？</strong> 因为中间那一刀的信息量最大：不管你落在哪一边，剩下的可能性都减半。如果第一次从最低档开始扫，运气差的时候（状态在最高峰）要问 3 次才能确定，平均下来更慢。</p>
+<figure><img src="/3a7f52c1/bisect-3.svg" class="" loading='lazy'><figcaption>档位再多，问的次数也只涨得极慢——1 万档也只要 14 次</figcaption></figure>
+
+<p>这也解释了一个实际操作里的习惯：<strong>读 Vth 分布时，扫描顺序不是从低到高线性扫，而是按二分或按已知峰位去探。</strong> 线性扫能画出完整曲线，但费时间；二分能快速定位，但不知道峰的形状。两种做法各有用途。</p>
+<h2 id="逻辑运算：三次读拼出一个-bit"><a href="#逻辑运算：三次读拼出一个-bit" class="headerlink" title="逻辑运算：三次读拼出一个 bit"></a>逻辑运算：三次读拼出一个 bit</h2><p>回到实际读取。既然一次读只施加 2~3 个电平，那“这个 Cell 到底存的是 0 还是 1”是怎么算出来的？</p>
+<p>靠<strong>异或</strong>。</p>
+<p>以 LP 为例，芯片在 RL1 和 RL5 各读一次，得到两个是非结果；这两个结果做一次异或，才是 LP 这个 bit 的值。为什么要异或而不是直接用？</p>
+<p>因为 LP 在整个 8 峰序列里翻转了 2 次。<strong>每翻一次，这个 bit 的“极性”就反一次</strong>，所以要靠异或把这些翻转累加起来。</p>
+<p>这也是格雷码的另一个直接后果：<strong>它不是让读取变简单，而是让每次读负责的 bit 变清晰</strong>——哪些边界归 LP、哪些归 UP，都由排列顺序决定。</p>
+<h1 id="四、读一次到底要多久"><a href="#四、读一次到底要多久" class="headerlink" title="四、读一次到底要多久"></a>四、读一次到底要多久</h1><p>现在可以解释一件很实际的事了：为什么 TLC 的随机读比 SLC 慢那么多。</p>
+<p>一次读操作的时间，主要花在<strong>把电平加上去、等信号稳定、再判断</strong>这个过程上。这个时间（常说的 tR，读取访问时间）在几十微秒的量级——不同代际、不同厂商差别不小，但量级上是这个数。</p>
+<p>关键在于：<strong>一次 Page 读，可能要重复这个过程 2 到 3 遍。</strong></p>
+<figure>
+  <img src="/3a7f52c1/read-latency.svg" class="" loading='lazy'>
+  <figcaption>同一个 Cell，读 LP 与读 UP 的电平次数不同，耗时也不同——这就是为什么同一块盘，读不同页的速度会有差别</figcaption>
+</figure>
+
+<p>粗算一下：假设单次 tR 是几十微秒量级，读 UP 要 3 次电平，那这一页的读取时间就是 3 倍。放到 QLC 上，电平次数更多，读一次更慢。</p>
+<p><strong>所以“TLC 比 SLC 慢”这件事，一半来自峰更密、判断更谨慎，另一半来自实实在在的多次电平操作。</strong> 它不是抽象的“复杂度”，是时间。</p>
+<p>（这也解释了一个工程现象：固件在做顺序读的时候，会把同一物理位置附近的多个 Page 一起排进队列，因为一次读激活之后，把相关的页一起取出来，比反复激活更划算。这类调度策略在 SSD 主控里是核心逻辑之一，后面写主控时会展开。）</p>
+<h1 id="五、电平是标定值，不是物理常数"><a href="#五、电平是标定值，不是物理常数" class="headerlink" title="五、电平是标定值，不是物理常数"></a>五、电平是标定值，不是物理常数</h1><p>最后补一个容易被误会的点。</p>
+<p>前面说的“电平落在谷底”，是一个<strong>标定时刻</strong>的结论。它会漂。</p>
+<ul>
+<li><strong>磨损</strong>：擦写次数多了，氧化层里会积累陷阱电荷，整条 Vth 分布会整体偏移，峰也会变宽；</li>
+<li><strong>保持</strong>：放久了电子慢慢漏掉，Vth 分布整体下移，尤其高温下更明显；</li>
+<li><strong>读干扰</strong>：读取时加在相邻字线上的电压会轻微影响目标 Cell，读得多了也会挪。</li>
+</ul>
+<p>所以电平不是一劳永逸的。芯片出厂时会标一组默认值，固件在运行中如果发现某些 Block 的错误率异常升高，就会换一组偏移过的电平再试——这套机制叫 <strong>Read Retry</strong>（也叫 Read Level 偏移 &#x2F; 电压扫描）。</p>
+<p>它的逻辑非常朴素：<strong>既然读不准，那就换个位置再猜一次，猜对了就把这组偏移记下来。</strong></p>
+<p>这已经带一点“自适应”的味道了。但请注意，这是<strong>介质层</strong>的自适应——它要应付的是“电平会漂”，而电平会漂的根子，在更下面一层：<strong>Cell 里那些电子，本来就不老实。</strong></p>
+<h1 id="总结：读取的四层理解"><a href="#总结：读取的四层理解" class="headerlink" title="总结：读取的四层理解"></a>总结：读取的四层理解</h1><ul>
+<li><strong>读取只能问是非题</strong>：加一个电压，看导不导通。芯片拿不到连续的 Vth 值。</li>
+<li><strong>N 个状态需要 N−1 个电平</strong>，位置落在峰谷之间，是标定出来的，不是均匀切分。</li>
+<li><strong>电平是全集，每次读只用其中几个</strong>——TLC 用 7 个里的 2<del>3 个，QLC 用 15 个里的 3</del>4 个；因为读的粒度是 Page，不是 Cell，每个 bit 只关心自己翻转的那几个边界。</li>
+<li><strong>定位状态用二分</strong>，读 Page 用异或组合。两件事不同，别混。</li>
+</ul>
+<p>到这里，Cell 这一层的“怎么存、怎么排、怎么读”就说完了。</p>
+<p>但把三个动作的时间摆在一起，会发现一件很不对劲的事：<strong>读一次几十微秒，写一次几百微秒，擦一次是毫秒级</strong>——差了整整两个数量级。</p>
+<p>这三个数字放在一起，就是 NAND 后面所有别扭机制的总源头。其中最别扭的一条：<strong>想改一个 4 KB 的页，为什么最后要搬走一整个 Block？</strong></p>
+<p>下一篇，讲这三条时间线，和“NAND 为什么不能原地改”。</p>
+<p>我们下一篇见。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://www.edison007.top">咕噜元</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://www.edison007.top/3a7f52c1.html">https://www.edison007.top/3a7f52c1.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://www.edison007.top" target="_blank">咕噜元</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/NAND/">NAND</a><a class="post-meta__tags" href="/tags/%E5%AD%98%E5%82%A8%E5%85%A5%E9%97%A8/">存储入门</a><a class="post-meta__tags" href="/tags/Read-Level/">Read Level</a><a class="post-meta__tags" href="/tags/%E8%AF%BB%E5%8F%96/">读取</a></div><div class="post-share"><div class="social-share" data-image="/img/page/NandDeep/104%20Read%20Level.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/68cdf0ff.html" title="QLC 的第 4 个 bit 为什么要写两遍：一个格子装 16 个峰"><img class="cover" src="/img/page/NandDeep/103%20QLC.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post" loading='lazy'><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">QLC 的第 4 个 bit 为什么要写两遍：一个格子装 16 个峰</div></div><div class="info-2"><div class="info-item-1">多存 1 个 bit，容量涨三分之一，代价是写要分两遍、读的次数翻几倍。这篇把 QLC 的两笔账算清楚：峰为什么会被捂散，以及 8-16 和 16-16 各自在拿什么换什么。</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/50b8a8e0.html" title="CPU 拿数据只要 1 秒，翻一次硬盘为什么要等 4 个月？"><img class="cover" src="/img/page/HBF/003%20%E5%86%85%E5%AD%98%E9%87%91%E5%AD%97%E5%A1%94.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-01</div><div class="info-item-2">CPU 拿数据只要 1 秒，翻一次硬盘为什么要等 4 个月？</div></div><div class="info-2"><div class="info-item-1">前言：从砖块到大楼上一篇我们把三种存储单元拆开看了：SRAM 的锁存器、DRAM 的电容、NAND 的浮栅——那是“砖块”的故事。 但一台真实的计算机，从不会只用一种存储器。它把好几种存储器组装成一栋大楼：快的在上、慢的在下，贵的少放、便宜的多放，中间靠搬运工衔接。 这就是今天的主角：存储层级（Memory Hierarchy），江湖人称“内存金字塔”。 为什么要分层？因为世界上不存在又快、又大、又便宜的存储器。SRAM 快但贵，NAND 便宜但慢，谁也通吃不了——于是工程师让它们组队分工。 一、完整的金字塔：从寄存器到硬盘      完整的内存金字塔：寄存器、三级缓存、主内存、HBF、SSD 与硬盘——HBF 是新插入的层级   从上往下逐层看一遍。先说明：下面的数字都是典型量级，不同产品、不同年份差别很大，看数量级就好。  寄存器（Register）：CPU 内部直接装载数据的格子，延迟不到 1 纳秒，容量按 KB 甚至“个”来数——快到没朋友，也贵到没法按 GB 报价。 L1 &#x2F; L2 &#x2F; L3 缓存：全由 SRAM 组成。L1 延迟约 1ns、几十 K...</div></div></div></a><a class="pagination-related" href="/eeffe57a.html" title="SRAM、DRAM、NAND：三种砖块，三种命运"><img class="cover" src="/img/page/HBF/002%20%E5%AD%98%E5%82%A8%E7%9A%84%E6%9C%80%E5%B0%8F%E5%8D%95%E5%85%83.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-08-30</div><div class="info-item-2">SRAM、DRAM、NAND：三种砖块，三种命运</div></div><div class="info-2"><div class="info-item-1">前言：兑现预告——差别就在“怎么存 1 个 bit”上一篇结尾我们说：接下来把“存储的最小单元”讲透——SRAM、DRAM 和 NAND，分别是怎么存 1 个 bit 的？ 你可能会想：这跟我有什么关系？关系很大。三种存储器的所有性格差异，几乎都写在它们的最小单元里：  为什么 CPU 缓存那么快，却只做得起几十 MB？ 为什么内存条隔几十毫秒就要“刷新”一次？ 为什么 SSD 断了电，数据还在？  这三个问题的答案，都要从“存 1 个 bit”说起。 打个比方：存储器是大楼，存储单元就是砖块。砖块的形状和材质，决定了楼能盖多高、造价多贵、住得舒不舒服。今天我们就把三种砖块逐一拆开看。 一、SRAM：六个晶体管互相“锁死”SRAM（Static Random Access Memory，静态随机存取存储器），就是 CPU 里 L1&#x2F;L2&#x2F;L3 缓存的原材料。 它存 1 个 bit 的方式，是三种里面最“豪华”的——用 6 个晶体管（行话叫 6T 单元）。 两个反相器，首尾相接反相器（Inverter） 是个“说反话”的装置：输入 1 它输出 0，输入 0 它输...</div></div></div></a><a class="pagination-related" href="/6bb3e7fd.html" title="NAND 入门：浮栅、SLC&#x2F;MLC&#x2F;TLC&#x2F;QLC、3D 堆叠与 FTL"><img class="cover" src="/img/page/HBF/008%20NAND%E5%85%A5%E9%97%A8.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-11</div><div class="info-item-2">NAND 入门：浮栅、SLC&#x2F;MLC&#x2F;TLC&#x2F;QLC、3D 堆叠与 FTL</div></div><div class="info-2"><div class="info-item-1">前言：该进“仓库”看看了前面几篇，我们把 DRAM 和 HBM 摸了个透：它们是计算芯片身边的“工作台”，快是快，但贵、容量小、一断电就忘事。 而 HBF 的主角——NAND Flash——就是第一篇里那个“仓库”：容量大、便宜、断电不丢数据。想真正理解 HBF 为什么这么设计，得先弄明白这座仓库本身：货（数据）怎么存、怎么摆、为什么便宜、又慢在哪。 这篇是 NAND 入门：只讲主干，把读者领进门。涉及物理细节和深入话题（浮栅结构、Vth 分布、Read Level、接口 Training 等），这篇点到为止，后续再开专题细聊。 一、一个 bit 怎么存：浮栅里的电子NAND 存 1 个 bit 的最小单元叫 Cell（存储单元），本体是一颗浮栅晶体管（Floating-gate MOSFET，FGMOS）：在普通晶体管的栅极里，多加一层“悬浮”的浮栅（Floating Gate）。往里注入电子，电子就被困在里面——不供电也跑不掉，这就是“非易失”的来源。 电子的多少会改变晶体管的阈值电压（Vth）：浮栅里电子越多，Vth 越高，晶体管越难导通。读取时施加一个判断电压，看导通与否...</div></div></div></a><a class="pagination-related" href="/4fa17ade.html" title="存储行业格局：巨头、标准与联盟"><img class="cover" src="/img/page/HBF/013%20%E5%AD%98%E5%82%A8%E8%A1%8C%E4%B8%9A%E6%A0%BC%E5%B1%80.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-09-21</div><div class="info-item-2">存储行业格局：巨头、标准与联盟</div></div><div class="info-2"><div class="info-item-1">前言：技术讲完了，最后看看牌桌上坐着谁这个系列写了十二篇，我们一直在讲“技术”：DRAM 用一个电容加一个晶体管存住一个 bit，TSV 像电梯井一样打穿芯片，HBM 把内存叠成高楼，HBF 再用 NAND 把容量和成本一起拉下来。 但技术从来不在真空里竞争。每一条技术路线的背后，都站着几家巨头、若干标准组织和一串利益同盟。 最明显的线索就藏在本系列里：HBM 的标准挂在 JEDEC 名下，HBF 却选择了 OCP。这不只是“投稿地址”不同，而是两种产业玩法的分野。 所以系列收官之前，我们把镜头拉到最远：不看芯片，看牌桌。 一、两大市场：千亿量级的牌局存储芯片不是小生意，全球市场主要由两块构成：  DRAM：数千亿美元级的年市场——就是“内存”这门生意。2026 年二季度单季已超过 1400 亿美元。 NAND Flash：千亿美元级的年市场——SSD、存储卡、U 盘背后的闪存生意。  这两门生意有个共同的脾气：强周期。行情一紧，全行业扩产；扩产过头，价格崩盘；跌穿成本线，厂商砍产能；供给一收缩，价格又起飞——像“猪周期”一样循环往复，几年一轮。  一句话：存储厂商的日子是“几年...</div></div></div></a><a class="pagination-related" href="/4e3f07d8.html" title="拆开一块 M.2 SSD：五样东西怎么串成一块盘"><img class="cover" src="/img/page/NandDeep/000%20%E4%B8%80%E5%9D%97M2.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-09</div><div class="info-item-2">拆开一块 M.2 SSD：五样东西怎么串成一块盘</div></div><div class="info-2"><div class="info-item-1">学过 SSD 的人常有个怪现象：参数背了一堆，遇到「为什么这块盘写满就掉速」还是答不上来。原因不是知识不够，而是那些知识彼此没连上。这篇不给参数，只画一张地图。</div></div></div></a><a class="pagination-related" href="/fce3bca2.html" title="NAND 浮栅里的一个 bit，为什么只要几百个电子"><img class="cover" src="/img/page/NandDeep/101%20%E6%B5%AE%E6%A0%85%E4%B8%8EVth.webp" alt="cover" loading='lazy'><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-11-11</div><div class="info-item-2">NAND 浮栅里的一个 bit，为什么只要几百个电子</div></div><div class="info-2"><div class="info-item-1">给浮栅加 20 伏，真正被关进去的电子只有几百个——手机里几万张照片，每个 bit 背后就站着这么点「犯人」。这篇把这个数字从头算一遍。</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/ loading='lazy'></div><div class="author-info-name">咕噜元</div><div class="author-info-description">成就如沙堡 生命如海浪</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/pakchoiii"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/pakchoiii" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:919607416@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临咕噜元，这里是我日常收集和整理的总结，希望能对你有所帮助:)</div></div><div class="card-widget card-wechat-public"><div class="item-headline"><i class="fab fa-weixin"></i><span>关注公众号</span></div><div class="wechat-public-content"><img src="/img/wechat-gzh.jpg" alt="公众号二维码" style="width: 100%; border-radius: 8px; display: block;"/ loading='lazy'><div class="wechat-public-desc">存储深水区 · 博客内容同步更新</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80%EF%BC%9A%E5%B3%B0%E4%B8%80%E5%A4%9A%EF%BC%8C%E9%97%AE%E9%A2%98%E5%B0%B1%E6%8C%AA%E5%88%B0%E4%BA%86%E8%AF%BB%E5%8F%96%E8%BF%99%E4%B8%80%E4%BE%A7"><span class="toc-number">1.</span> <span class="toc-text">前言：峰一多，问题就挪到了读取这一侧</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%AF%BB%E5%8F%96%E7%9A%84%E6%9C%AC%E8%B4%A8%EF%BC%9A%E4%B8%80%E6%AC%A1%E5%8F%AA%E8%83%BD%E9%97%AE%E4%B8%80%E4%B8%AA%E6%98%AF%E9%9D%9E%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">一、读取的本质：一次只能问一个是非题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%817-%E4%B8%AA%E7%94%B5%E5%B9%B3%E6%98%AF%E6%80%8E%E4%B9%88%E6%8E%92%E5%87%BA%E6%9D%A5%E7%9A%84"><span class="toc-number">3.</span> <span class="toc-text">二、7 个电平是怎么排出来的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E6%9C%80%E5%AE%B9%E6%98%93%E8%A2%AB%E6%90%9E%E6%B7%B7%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="toc-number">3.1.</span> <span class="toc-text">一个最容易被搞混的地方</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%EF%BC%9A%E5%85%88%E5%8E%BB%E4%B8%AD%E9%97%B4%E8%AF%95"><span class="toc-number">4.</span> <span class="toc-text">三、二分查找：先去中间试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%EF%BC%9A%E4%B8%89%E6%AC%A1%E8%AF%BB%E6%8B%BC%E5%87%BA%E4%B8%80%E4%B8%AA-bit"><span class="toc-number">4.1.</span> <span class="toc-text">逻辑运算：三次读拼出一个 bit</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E8%AF%BB%E4%B8%80%E6%AC%A1%E5%88%B0%E5%BA%95%E8%A6%81%E5%A4%9A%E4%B9%85"><span class="toc-number">5.</span> <span class="toc-text">四、读一次到底要多久</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%94%B5%E5%B9%B3%E6%98%AF%E6%A0%87%E5%AE%9A%E5%80%BC%EF%BC%8C%E4%B8%8D%E6%98%AF%E7%89%A9%E7%90%86%E5%B8%B8%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">五、电平是标定值，不是物理常数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A%E8%AF%BB%E5%8F%96%E7%9A%84%E5%9B%9B%E5%B1%82%E7%90%86%E8%A7%A3"><span class="toc-number">7.</span> <span class="toc-text">总结：读取的四层理解</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/3a7f52c1.html" title="NAND 读一次是场「猜」：TLC 7 个电平、QLC 15 个电平怎么分工"><img src="/img/page/NandDeep/104%20Read%20Level.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NAND 读一次是场「猜」：TLC 7 个电平、QLC 15 个电平怎么分工"/ loading='lazy'></a><div class="content"><a class="title" href="/3a7f52c1.html" title="NAND 读一次是场「猜」：TLC 7 个电平、QLC 15 个电平怎么分工">NAND 读一次是场「猜」：TLC 7 个电平、QLC 15 个电平怎么分工</a><time datetime="2026-11-21T13:00:00.000Z" title="发表于 2026-11-21 21:00:00">2026-11-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/68cdf0ff.html" title="QLC 的第 4 个 bit 为什么要写两遍：一个格子装 16 个峰"><img src="/img/page/NandDeep/103%20QLC.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="QLC 的第 4 个 bit 为什么要写两遍：一个格子装 16 个峰"/ loading='lazy'></a><div class="content"><a class="title" href="/68cdf0ff.html" title="QLC 的第 4 个 bit 为什么要写两遍：一个格子装 16 个峰">QLC 的第 4 个 bit 为什么要写两遍：一个格子装 16 个峰</a><time datetime="2026-11-19T13:00:00.000Z" title="发表于 2026-11-19 21:00:00">2026-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/8ce91d4f.html" title="NAND 一个格子存 3 个 bit：TLC 的 8 个峰是怎么来的"><img src="/img/page/NandDeep/102%20%E5%85%AB%E5%B3%B0%E4%B8%8E%E6%A0%BC%E9%9B%B7%E7%A0%81.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NAND 一个格子存 3 个 bit：TLC 的 8 个峰是怎么来的"/ loading='lazy'></a><div class="content"><a class="title" href="/8ce91d4f.html" title="NAND 一个格子存 3 个 bit：TLC 的 8 个峰是怎么来的">NAND 一个格子存 3 个 bit：TLC 的 8 个峰是怎么来的</a><time datetime="2026-11-13T13:00:00.000Z" title="发表于 2026-11-13 21:00:00">2026-11-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/fce3bca2.html" title="NAND 浮栅里的一个 bit，为什么只要几百个电子"><img src="/img/page/NandDeep/101%20%E6%B5%AE%E6%A0%85%E4%B8%8EVth.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="NAND 浮栅里的一个 bit，为什么只要几百个电子"/ loading='lazy'></a><div class="content"><a class="title" href="/fce3bca2.html" title="NAND 浮栅里的一个 bit，为什么只要几百个电子">NAND 浮栅里的一个 bit，为什么只要几百个电子</a><time datetime="2026-11-11T13:00:00.000Z" title="发表于 2026-11-11 21:00:00">2026-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/4e3f07d8.html" title="拆开一块 M.2 SSD：五样东西怎么串成一块盘"><img src="/img/page/NandDeep/000%20%E4%B8%80%E5%9D%97M2.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="拆开一块 M.2 SSD：五样东西怎么串成一块盘"/ loading='lazy'></a><div class="content"><a class="title" href="/4e3f07d8.html" title="拆开一块 M.2 SSD：五样东西怎么串成一块盘">拆开一块 M.2 SSD：五样东西怎么串成一块盘</a><time datetime="2026-11-09T13:00:00.000Z" title="发表于 2026-11-09 21:00:00">2026-11-09</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By 咕噜元</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.edison007.top/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://twikoo.edison007.top/',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script defer src="/js/random-nav.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>(() => {
+  const pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+  window.pjax = new Pjax({
+    elements: 'a:not([target="_blank"]):not([href="/random/"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  const triggerPjaxFn = (val) => {
+    if (!val) return
+    Object.values(val).forEach(fn => {
+      try {
+        fn()
+      } catch (err) {
+        console.debug('Pjax callback failed:', err)
+      }
+    })
+  }
+
+  document.addEventListener('pjax:send', () => {
+    // removeEventListener
+    btf.removeGlobalFnEvent('pjaxSendOnce')
+    btf.removeGlobalFnEvent('themeChange')
+
+    // reset readmode
+    const $bodyClassList = document.body.classList
+    if ($bodyClassList.contains('read-mode')) $bodyClassList.remove('read-mode')
+
+    triggerPjaxFn(window.globalFn.pjaxSend)
+  })
+
+  document.addEventListener('pjax:complete', () => {
+    btf.removeGlobalFnEvent('pjaxCompleteOnce')
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+    })
+
+    triggerPjaxFn(window.globalFn.pjaxComplete)
+  })
+
+  document.addEventListener('pjax:error', e => {
+    if (e.request.status === 404) {
+      const usePjax = true
+      false
+        ? (usePjax ? pjax.loadUrl('/404.html') : window.location.href = '/404.html')
+        : window.location.href = e.request.responseURL
+    }
+  })
+})()</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
