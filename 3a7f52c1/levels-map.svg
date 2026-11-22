@@ -6,92 +6,92 @@
   <!-- SLC -->
   <text x="40" y="106" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#2563eb">SLC</text>
   <text x="40" y="124" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">2 段 · 1 个电平</text>
-  <rect x="170" y="94" width="315" height="24" fill="#dbeafe"/>
-  <rect x="485" y="94" width="315" height="24" fill="#eff6ff"/>
-  <line x1="485" y1="86" x2="485" y2="126" stroke="#ea580c" stroke-width="3"/>
-  <line x1="170" y1="118" x2="800" y2="118" stroke="#94a3b8" stroke-width="1"/>
-  <text x="327" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b" text-anchor="middle">擦除态</text>
-  <text x="642" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b" text-anchor="middle">编程态</text>
+  <rect x="212" y="94" width="294" height="24" fill="#dbeafe"/>
+  <rect x="506" y="94" width="294" height="24" fill="#eff6ff"/>
+  <line x1="506" y1="86" x2="506" y2="126" stroke="#ea580c" stroke-width="3"/>
+  <line x1="212" y1="118" x2="800" y2="118" stroke="#94a3b8" stroke-width="1"/>
+  <text x="358.533" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b" text-anchor="middle">擦除态</text>
+  <text x="652.533" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b" text-anchor="middle">编程态</text>
 
   <!-- MLC -->
   <text x="40" y="186" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#7c3aed">MLC</text>
   <text x="40" y="204" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">4 段 · 3 个电平</text>
   <g>
-    <rect x="170" y="174" width="157" height="24" fill="#ede9fe"/>
-    <rect x="327" y="174" width="158" height="24" fill="#f5f3ff"/>
-    <rect x="485" y="174" width="158" height="24" fill="#ede9fe"/>
-    <rect x="643" y="174" width="157" height="24" fill="#f5f3ff"/>
+    <rect x="212" y="174" width="146.533" height="24" fill="#ede9fe"/>
+    <rect x="358.533" y="174" width="147.467" height="24" fill="#f5f3ff"/>
+    <rect x="506" y="174" width="147.467" height="24" fill="#ede9fe"/>
+    <rect x="653.467" y="174" width="146.533" height="24" fill="#f5f3ff"/>
   </g>
   <g stroke="#ea580c" stroke-width="3">
-    <line x1="327" y1="166" x2="327" y2="206"/>
-    <line x1="485" y1="166" x2="485" y2="206"/>
-    <line x1="643" y1="166" x2="643" y2="206"/>
+    <line x1="358.533" y1="166" x2="358.533" y2="206"/>
+    <line x1="506" y1="166" x2="506" y2="206"/>
+    <line x1="653.467" y1="166" x2="653.467" y2="206"/>
   </g>
-  <line x1="170" y1="198" x2="800" y2="198" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="212" y1="198" x2="800" y2="198" stroke="#94a3b8" stroke-width="1"/>
 
   <!-- TLC -->
   <text x="40" y="266" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#ea580c">TLC</text>
   <text x="40" y="284" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">8 段 · 7 个电平</text>
   <g>
-    <rect x="170" y="254" width="78.75" height="24" fill="#ffedd5"/>
-    <rect x="248.75" y="254" width="78.75" height="24" fill="#fff7ed"/>
-    <rect x="327.5" y="254" width="78.75" height="24" fill="#ffedd5"/>
-    <rect x="406.25" y="254" width="78.75" height="24" fill="#fff7ed"/>
-    <rect x="485" y="254" width="78.75" height="24" fill="#ffedd5"/>
-    <rect x="563.75" y="254" width="78.75" height="24" fill="#fff7ed"/>
-    <rect x="642.5" y="254" width="78.75" height="24" fill="#ffedd5"/>
-    <rect x="721.25" y="254" width="78.75" height="24" fill="#fff7ed"/>
+    <rect x="212" y="254" width="73.5" height="24" fill="#ffedd5"/>
+    <rect x="285.5" y="254" width="73.5" height="24" fill="#fff7ed"/>
+    <rect x="359" y="254" width="73.5" height="24" fill="#ffedd5"/>
+    <rect x="432.5" y="254" width="73.5" height="24" fill="#fff7ed"/>
+    <rect x="506" y="254" width="73.5" height="24" fill="#ffedd5"/>
+    <rect x="579.5" y="254" width="73.5" height="24" fill="#fff7ed"/>
+    <rect x="653" y="254" width="73.5" height="24" fill="#ffedd5"/>
+    <rect x="726.5" y="254" width="73.5" height="24" fill="#fff7ed"/>
   </g>
   <g stroke="#ea580c" stroke-width="2.4">
-    <line x1="248.75" y1="246" x2="248.75" y2="286"/>
-    <line x1="327.5" y1="246" x2="327.5" y2="286"/>
-    <line x1="406.25" y1="246" x2="406.25" y2="286"/>
-    <line x1="485" y1="246" x2="485" y2="286"/>
-    <line x1="563.75" y1="246" x2="563.75" y2="286"/>
-    <line x1="642.5" y1="246" x2="642.5" y2="286"/>
-    <line x1="721.25" y1="246" x2="721.25" y2="286"/>
+    <line x1="285.5" y1="246" x2="285.5" y2="286"/>
+    <line x1="359" y1="246" x2="359" y2="286"/>
+    <line x1="432.5" y1="246" x2="432.5" y2="286"/>
+    <line x1="506" y1="246" x2="506" y2="286"/>
+    <line x1="579.5" y1="246" x2="579.5" y2="286"/>
+    <line x1="653" y1="246" x2="653" y2="286"/>
+    <line x1="726.5" y1="246" x2="726.5" y2="286"/>
   </g>
-  <line x1="170" y1="278" x2="800" y2="278" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="212" y1="278" x2="800" y2="278" stroke="#94a3b8" stroke-width="1"/>
 
   <!-- QLC -->
   <text x="40" y="346" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#475569">QLC</text>
   <text x="40" y="364" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#64748b">16 段 · 15 个电平</text>
   <g>
-    <rect x="170" y="334" width="39.375" height="24" fill="#e2e8f0"/>
-    <rect x="209.375" y="334" width="39.375" height="24" fill="#f1f5f9"/>
-    <rect x="248.75" y="334" width="39.375" height="24" fill="#e2e8f0"/>
-    <rect x="288.125" y="334" width="39.375" height="24" fill="#f1f5f9"/>
-    <rect x="327.5" y="334" width="39.375" height="24" fill="#e2e8f0"/>
-    <rect x="366.875" y="334" width="39.375" height="24" fill="#f1f5f9"/>
-    <rect x="406.25" y="334" width="39.375" height="24" fill="#e2e8f0"/>
-    <rect x="445.625" y="334" width="39.375" height="24" fill="#f1f5f9"/>
-    <rect x="485" y="334" width="39.375" height="24" fill="#e2e8f0"/>
-    <rect x="524.375" y="334" width="39.375" height="24" fill="#f1f5f9"/>
-    <rect x="563.75" y="334" width="39.375" height="24" fill="#e2e8f0"/>
-    <rect x="603.125" y="334" width="39.375" height="24" fill="#f1f5f9"/>
-    <rect x="642.5" y="334" width="39.375" height="24" fill="#e2e8f0"/>
-    <rect x="681.875" y="334" width="39.375" height="24" fill="#f1f5f9"/>
-    <rect x="721.25" y="334" width="39.375" height="24" fill="#e2e8f0"/>
-    <rect x="760.625" y="334" width="39.375" height="24" fill="#f1f5f9"/>
+    <rect x="212" y="334" width="36.75" height="24" fill="#e2e8f0"/>
+    <rect x="248.75" y="334" width="36.75" height="24" fill="#f1f5f9"/>
+    <rect x="285.5" y="334" width="36.75" height="24" fill="#e2e8f0"/>
+    <rect x="322.25" y="334" width="36.75" height="24" fill="#f1f5f9"/>
+    <rect x="359" y="334" width="36.75" height="24" fill="#e2e8f0"/>
+    <rect x="395.75" y="334" width="36.75" height="24" fill="#f1f5f9"/>
+    <rect x="432.5" y="334" width="36.75" height="24" fill="#e2e8f0"/>
+    <rect x="469.25" y="334" width="36.75" height="24" fill="#f1f5f9"/>
+    <rect x="506" y="334" width="36.75" height="24" fill="#e2e8f0"/>
+    <rect x="542.75" y="334" width="36.75" height="24" fill="#f1f5f9"/>
+    <rect x="579.5" y="334" width="36.75" height="24" fill="#e2e8f0"/>
+    <rect x="616.25" y="334" width="36.75" height="24" fill="#f1f5f9"/>
+    <rect x="653" y="334" width="36.75" height="24" fill="#e2e8f0"/>
+    <rect x="689.75" y="334" width="36.75" height="24" fill="#f1f5f9"/>
+    <rect x="726.5" y="334" width="36.75" height="24" fill="#e2e8f0"/>
+    <rect x="763.25" y="334" width="36.75" height="24" fill="#f1f5f9"/>
   </g>
   <g stroke="#ea580c" stroke-width="1.6">
-    <line x1="209.375" y1="326" x2="209.375" y2="366"/>
     <line x1="248.75" y1="326" x2="248.75" y2="366"/>
-    <line x1="288.125" y1="326" x2="288.125" y2="366"/>
-    <line x1="327.5" y1="326" x2="327.5" y2="366"/>
-    <line x1="366.875" y1="326" x2="366.875" y2="366"/>
-    <line x1="406.25" y1="326" x2="406.25" y2="366"/>
-    <line x1="445.625" y1="326" x2="445.625" y2="366"/>
-    <line x1="485" y1="326" x2="485" y2="366"/>
-    <line x1="524.375" y1="326" x2="524.375" y2="366"/>
-    <line x1="563.75" y1="326" x2="563.75" y2="366"/>
-    <line x1="603.125" y1="326" x2="603.125" y2="366"/>
-    <line x1="642.5" y1="326" x2="642.5" y2="366"/>
-    <line x1="681.875" y1="326" x2="681.875" y2="366"/>
-    <line x1="721.25" y1="326" x2="721.25" y2="366"/>
-    <line x1="760.625" y1="326" x2="760.625" y2="366"/>
+    <line x1="285.5" y1="326" x2="285.5" y2="366"/>
+    <line x1="322.25" y1="326" x2="322.25" y2="366"/>
+    <line x1="359" y1="326" x2="359" y2="366"/>
+    <line x1="395.75" y1="326" x2="395.75" y2="366"/>
+    <line x1="432.5" y1="326" x2="432.5" y2="366"/>
+    <line x1="469.25" y1="326" x2="469.25" y2="366"/>
+    <line x1="506" y1="326" x2="506" y2="366"/>
+    <line x1="542.75" y1="326" x2="542.75" y2="366"/>
+    <line x1="579.5" y1="326" x2="579.5" y2="366"/>
+    <line x1="616.25" y1="326" x2="616.25" y2="366"/>
+    <line x1="653" y1="326" x2="653" y2="366"/>
+    <line x1="689.75" y1="326" x2="689.75" y2="366"/>
+    <line x1="726.5" y1="326" x2="726.5" y2="366"/>
+    <line x1="763.25" y1="326" x2="763.25" y2="366"/>
   </g>
-  <line x1="170" y1="358" x2="800" y2="358" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="212" y1="358" x2="800" y2="358" stroke="#94a3b8" stroke-width="1"/>
 
-  <text x="485" y="400" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b" text-anchor="middle">Vth →（窗口总宽度不变，段数越多，每段越窄）</text>
+  <text x="506" y="400" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.2" fill="#64748b" text-anchor="middle">Vth →（窗口总宽度不变，段数越多，每段越窄）</text>
 </svg>
