@@ -8,8 +8,8 @@
   <path d="M325,200 C355,200 368.5,122 400,122 C431.5,122 445,200 475,200" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1"/>
   <line x1="290" y1="200" x2="290" y2="108" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round"/>
   <text x="290" y="98" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#dc2626">Vref</text>
-  <text x="180" y="226" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#2563eb">判 1</text>
-  <text x="400" y="226" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#2563eb">判 0</text>
+  <text x="180" y="186" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#2563eb">判 1</text>
+  <text x="400" y="186" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#2563eb">判 0</text>
   <text x="560" y="150" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">离 Vref 远的和近的，</text>
   <text x="560" y="172" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">在解码器眼里一模一样</text>
   <text x="560" y="194" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#dc2626">——这条信息被扔掉了</text>
@@ -21,13 +21,13 @@
   <line x1="290" y1="400" x2="290" y2="300" stroke="#dc2626" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 4"/>
   <line x1="320" y1="400" x2="320" y2="300" stroke="#f87171" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="5 4"/>
   <text x="290" y="292" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#dc2626">Vref</text>
-  <text x="245" y="330" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#b91c1c">弱</text>
-  <text x="335" y="330" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#b91c1c">弱</text>
-  <text x="168" y="386" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">强 1</text>
-  <text x="412" y="386" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">强 0</text>
+  <text x="277" y="330" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#b91c1c">弱</text>
+  <text x="303" y="330" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#b91c1c">弱</text>
+  <text x="180" y="386" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">强 1</text>
+  <text x="400" y="386" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#9a3412">强 0</text>
   <text x="560" y="330" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">每个区域一个置信度，</text>
   <text x="560" y="352" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">交给 LDPC 当权重用</text>
-  <text x="560" y="374" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">弱区最容易被改写</text>
+  <text x="560" y="374" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#ea580c">弱区那几位最可疑</text>
   <rect x="40" y="424" width="800" height="36" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
   <text x="440" y="448" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">软判决通常能多修 1 ~ 2 个数量级（量级，视码率与失效模式）</text>
 </svg>
