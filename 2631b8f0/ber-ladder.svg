@@ -1,30 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" width="880" height="400">
-  <defs>
-    <marker id="arr0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
-    <marker id="arr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#64748b" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
-  </defs>
-  <rect width="880" height="400" rx="16" fill="#ffffff"/>
-  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">同一个 Cell，在三处看到的错误率完全不同</text>
-  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">这就是为什么「颗粒标称 BER」和「你实测的 BER」对不上</text>
-  <rect x="40" y="110" width="250" height="150" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="1.4"/>
-  <rect x="40" y="110" width="250" height="8" rx="4" fill="#ea580c"/>
-  <text x="60" y="148" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#ea580c">Cell 里</text>
-  <text x="60" y="190" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#1e293b">1e-3 ~ 1e-2</text>
-  <text x="60" y="218" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">物理状态本身</text>
-  <line x1="296" y1="185" x2="314" y2="185" stroke="#64748b" stroke-width="1.4" marker-end="url(#arr0)"/>
-  <rect x="320" y="110" width="250" height="150" rx="12" fill="#ffffff" stroke="#0d9488" stroke-width="1.4"/>
-  <rect x="320" y="110" width="250" height="8" rx="4" fill="#0d9488"/>
-  <text x="340" y="148" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#0d9488">on-die 纠完</text>
-  <text x="340" y="190" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#1e293b">1e-5 ~ 1e-6</text>
-  <text x="340" y="218" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">送上总线的样子</text>
-  <line x1="576" y1="185" x2="594" y2="185" stroke="#64748b" stroke-width="1.4" marker-end="url(#arr1)"/>
-  <rect x="600" y="110" width="250" height="150" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.4"/>
-  <rect x="600" y="110" width="250" height="8" rx="4" fill="#2563eb"/>
-  <text x="620" y="148" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#2563eb">主控 LDPC 纠完</text>
-  <text x="620" y="190" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" fill="#1e293b">≈ 0（UECC 才算失败）</text>
-  <text x="620" y="218" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">交给主机的样子</text>
-  <text x="40" y="300" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#334155">每过一道闸门，错误率掉一到两个数量级——但闸门本身也要花时间。</text>
-  <rect x="40" y="320" width="800" height="56" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="1.2"/>
-  <text x="64" y="346" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" fill="#9a3412">所以「这颗颗粒 BER 只有 1e-6」这句话，先问清楚：是纠之前还是纠之后？</text>
-  <text x="64" y="366" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412">问不清，测出来的数据就没法和别人的对比。（图中的数字为量级示意）</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" width="880" height="460">
+  <rect width="880" height="460" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">同一个 Cell，三个地方三个数字</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">每过一道闸门掉一到两个数量级</text>
+  <text x="116" y="116" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">位置</text>
+  <text x="380" y="116" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">该处的误码率</text>
+  <text x="556" y="116" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" fill="#64748b">谁会引用这个数</text>
+  <line x1="96" y1="128" x2="840" y2="128" stroke="#e2e8f0" stroke-width="1.2" stroke-linecap="round"/>
+  <rect x="96" y="140" width="744" height="72" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+  <rect x="96" y="140" width="6" height="72" rx="3" fill="#ea580c"/>
+  <text x="116" y="184" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#ea580c">① Cell 里</text>
+  <text x="380" y="186" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#1e293b">1e-3 ~ 1e-2</text>
+  <text x="556" y="184" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">你直接 dump 出来的数</text>
+  <rect x="96" y="220" width="744" height="72" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+  <rect x="96" y="220" width="6" height="72" rx="3" fill="#0d9488"/>
+  <text x="116" y="264" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#0d9488">② on-die ECC 纠完</text>
+  <text x="380" y="266" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#1e293b">1e-5 ~ 1e-6</text>
+  <text x="556" y="264" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">规格书标称的那个数</text>
+  <rect x="96" y="300" width="744" height="72" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+  <rect x="96" y="300" width="6" height="72" rx="3" fill="#2563eb"/>
+  <text x="116" y="344" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#2563eb">③ 主控 LDPC 纠完</text>
+  <text x="380" y="346" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#1e293b">≈ 0</text>
+  <text x="556" y="344" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">交给主机；再错才叫 UECC</text>
+  <rect x="96" y="396" width="744" height="56" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="1.2"/>
+  <text x="120" y="420" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412">比 BER 之前先对齐位置：拿「纠之前」跟「纠之后」比，差三个数量级也说明不了什么。</text>
+  <text x="120" y="442" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412" fill-opacity="0.75">图中数字为量级示意，具体器件与配置会差很多。</text>
 </svg>

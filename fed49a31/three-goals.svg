@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="880" height="420">
+  <defs>
+    <marker id="arr0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="arr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#94a3b8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+  <rect width="880" height="420" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">三个目标，难度不在一个量级</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">前两个靠「约定」就能实现，第三个只能靠「颗粒自己报」</text>
+  <rect x="40" y="108" width="350" height="78" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.3"/>
+  <text x="215.0" y="141.81" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" text-anchor="middle" fill="#1e293b">① 统一接口</text>
+  <text x="215.0" y="164.01" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#1e40af">引脚、时序、命令一套，换家不用重写</text>
+  <rect x="40" y="196" width="350" height="78" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="1.3"/>
+  <text x="215.0" y="229.81" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" text-anchor="middle" fill="#1e293b">② 不用预绑定</text>
+  <text x="215.0" y="252.01" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#1e40af">画板时不必知道最后装哪一颗</text>
+  <rect x="40" y="284" width="350" height="78" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.3"/>
+  <text x="215.0" y="317.81" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" text-anchor="middle" fill="#1e293b">③ 支持未来的器件</text>
+  <text x="215.0" y="340.01" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#115e59">设计时还不存在的颗粒，插上也要能用</text>
+  <line x1="392" y1="147" x2="500" y2="147" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr0)"/>
+  <line x1="392" y1="235" x2="500" y2="235" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr1)"/>
+  <line x1="392" y1="323" x2="500" y2="323" stroke="#94a3b8" stroke-width="1.4" marker-end="url(#arr2)"/>
+  <line x1="500" y1="147" x2="500" y2="323" stroke="#94a3b8" stroke-width="1.4" stroke-linecap="round"/>
+  <line x1="500" y1="235" x2="552" y2="235" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arr3)"/>
+  <rect x="556" y="146" width="284" height="204" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="698" y="182" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18.8" font-weight="700" text-anchor="middle" fill="#1e293b">参数页</text>
+  <text x="698" y="208" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" text-anchor="middle" fill="#64748b">256 字节，主机开机自己读</text>
+  <line x1="580" y1="224" x2="816" y2="224" stroke="#c7d7f0" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="580" y="254" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#334155">· 三份副本，读坏了换一份</text>
+  <text x="580" y="282" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#334155">· CRC-16 管这份表可不可信</text>
+  <text x="580" y="310" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" fill="#334155">· 页大小、plane 数、ECC</text>
+  <text x="698" y="342" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" font-weight="700" text-anchor="middle" fill="#2563eb">→ 不写死，才装得下未来</text>
+  <text x="40" y="396" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">把参数写进主机固件，就只能支持今天这颗；让颗粒自己报，才谈得上「未来」。</text>
+</svg>

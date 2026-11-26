@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" width="880" height="520">
+  <rect width="880" height="520" rx="16" fill="#ffffff"/>
+  <text x="40" y="44" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="23.5" font-weight="700" fill="#1e293b">删掉 4 种接口 4 种封装，只留两条路</text>
+  <text x="40" y="76" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="20" fill="#64748b">上游是 5.2；被删的都是 4800 MT/s 上已经没人用的东西</text>
+  <rect x="40" y="104" width="390" height="336" rx="12" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.4"/>
+  <text x="62" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#dc2626">删掉</text>
+  <text x="62" y="176" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#1e293b">旧接口 4 种</text>
+  <text x="62" y="208" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">SDR · NV-DDR · NV-DDR2 · NV-DDR3</text>
+  <text x="62" y="256" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#1e293b">旧封装 4 种</text>
+  <text x="62" y="288" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">TSOP-48 · LGA-52 · BGA-63 · BGA-100</text>
+  <text x="62" y="336" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#1e293b">behavioral flow</text>
+  <text x="62" y="368" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">一批标准流程图，不再逐条给</text>
+  <text x="62" y="422" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#dc2626">理由只有一句：4800 上没人用了</text>
+  <rect x="450" y="104" width="390" height="336" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.4"/>
+  <text x="472" y="138" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#2563eb">保留</text>
+  <text x="472" y="176" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#1e293b">NV-LPDDR4（LTT）</text>
+  <text x="472" y="200" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">必选。4800 只有这一种接口</text>
+  <text x="472" y="232" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#1e293b">NV-LPDDR4 with VccQL</text>
+  <text x="472" y="256" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">PI-LTT，可选，多一路 0.6 V</text>
+  <text x="472" y="288" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#1e293b">BGA 系封装</text>
+  <text x="472" y="312" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">球位定义在第 2 章</text>
+  <text x="472" y="344" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="17.3" font-weight="700" fill="#1e293b">Conv. Protocol</text>
+  <text x="472" y="368" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#64748b">老协议照样跑，见第 6 章</text>
+  <text x="472" y="422" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#2563eb">两条路：一种新说法（SCA），一种老说法</text>
+  <rect x="40" y="458" width="800" height="44" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="1.4"/>
+  <text x="62" y="486" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16.2" fill="#9a3412">删的是「定义」，不是「协议」：Conv. Protocol 照样能跑在 4800 的 LPDDR4 上</text>
+</svg>
